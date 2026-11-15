@@ -87,7 +87,7 @@ Unity can only load a scene while the game is running if the scene is in the Sce
 3. Set its fields:
    - **Scene Name:** `Ex01_Bootstrap`
    - **Load After Seconds:** `0`
-   - **Load On Action:** click the small circle at the right of the field and choose **Player/Jump**.
+   - **Load On Action:** click the small circle at the right of the field and choose (double-click) **Player/Jump**.
 4. Save the scene.
 
 **In `Ex01_Bootstrap`:**
