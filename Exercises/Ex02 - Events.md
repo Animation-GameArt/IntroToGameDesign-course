@@ -80,9 +80,9 @@ Press **Play**, then click the `Score` asset in the Project window. The Inspecto
 
 ## Part 5 — Show the score
 
-1. Choose **GameObject → 3D Object → Text - TextMeshPro**. Name it `Score Text`.
+1. Choose **GameObject → 3D Object → Text - TextMeshPro**. Name it `Score Text`. You may to Import TMP Essentials in the dialog box if this is your fist time using TMPro.
 2. Set its Position to `0, 4, 0`.
-3. In the **TextMeshPro** component, set **Font Size** to `8` and set the **Alignment** to center. [You mya to Import TMP Essentials in the dialog box if this is your fist time using TMPro.]
+3. In the **TextMeshPro** component, set **Font Size** to `8` and set the **Alignment** to center.
 4. Add the **Variable Label** component and set:
    - **Variable:** drag in `Score`
    - **Format:** `Score: {0}`
