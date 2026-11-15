@@ -60,7 +60,7 @@ Week 1 uses a practice project. From week 2 on, you work in the **course project
 |---|---|---|---|
 | 1 | **L1 · Games, Genres & the Industry.** What makes a game, core loops, the genre map (2D / 3D / 2.5D / VR / AR / narrative), roles and studios, indie vs. AAA | **Ex00 · Setup:** install Unity Hub and Unity 6000.3.10f1, make a practice project, tour the Editor, enter Play mode | **Three game ideas** (Canvas Discussion) |
 | 2 | **L2 · Pitching, Scope & Project Management.** How to pitch, scoping to 13 weeks, task boards, backing up your project (Unity Version Control or SSD) | **Ex01 · Bootstrap:** download the course project from GitHub, add it in Unity Hub, choose a track, set up your backup, Bootstrapper, SceneLoader | **Project setup check** |
-| 3 | **Pitch review**, then **L3 · Unity Fundamentals.** GameObjects, components, prefabs, the script lifecycle, ScriptableObjects, Console and breakpoints | **Ex02 · Events:** event channels, SO variables, a collectible and a score counter | **Pitch** (Canvas Discussion: written pitch and any artwork) |
+| 3 | **Pitch Day:** live pitches in class, presented from your Canvas Discussion post. Then **L3 · Unity Fundamentals.** GameObjects, components, prefabs, the script lifecycle, ScriptableObjects, Console and breakpoints | **Ex02 · Events:** event channels, SO variables, a collectible and a score counter | **Pitch** (Canvas Discussion post, due the day before class; presented live in class) |
 | 4 | **L4 · Input & Game Feel.** The Input System, control schemes, game feel (coyote time, jump buffering, acceleration). Writing a one-sheet. Drawing screen layouts | **Ex03 · Player:** InputReader and the player controller for your track | **One-sheet** |
 | 5 | **L5 · Level Design & Cameras.** Pacing, teaching through the level, Tilemaps (2D) or ProBuilder (3D), Cinemachine. Writing a ten-pager | **Ex04 · Level:** build a short level, camera follow and bounds, hazards, checkpoints | **Screen layout** (wireframes of your main screens) |
 | 6 | **L6 · Game Systems & AI.** Health and damage, pickups, object pooling, spawners, state machines, simple enemy AI, turn-based systems | **Ex05 · Combat.** Choose one. *Real-time:* a patrolling enemy, damage, a spawner, respawning. *Turn-based:* a turn manager, player and enemy turns, attacks and damage, winning and losing | **Ten-pager draft** (peer review) |
@@ -98,7 +98,7 @@ Week 1 uses a practice project. From week 2 on, you work in the **course project
 |---|---|
 | **Three game ideas** | Three one-line game ideas, posted to the Canvas Discussion |
 | **Project setup check** | The course project opens on your computer or SSD, and you can show how you back it up (Unity Version Control, or an SSD plus a second copy at home) |
-| **Pitch** | A written pitch for one game, with any artwork you have, posted to the Canvas Discussion for feedback and approval |
+| **Pitch** | A written pitch for one game, with any artwork you have, posted to the Canvas Discussion **the day before class**. You present it live in class from your post, for feedback and approval |
 | **One-sheet** | A one-page summary of your game for an approval meeting. Template: `One-Sheet Template` |
 | **Screen layout** | Paper or digital wireframes of your game's main screens: title, HUD, pause, and win/lose. They show what the player sees and where. You'll use them for page 6 of the ten-pager and for the UI lecture in week 7 |
 | **Ten-pager** | A ten-page design document covering the whole game. Template: `Ten-Pager Template` |

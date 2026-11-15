@@ -171,7 +171,7 @@ A useful kit or game-specific script from one semester can be promoted into the 
 | 11–15 | Studio: build, playtest, fix | Playtest report | Core + kit + game scripts |
 | 16 | — | Post-mortem | — |
 
-Students post three game ideas to a Canvas Discussion in week 1 and a written pitch, with any artwork, to a Canvas Discussion in week 3. The instructor prepares each game's scripts and tutorials in weeks 3–4, well before production starts in week 8.
+Students post three game ideas to a Canvas Discussion in week 1 and a written pitch, with any artwork, to a Canvas Discussion in week 3. The pitch post is due the day before class, and students present live in class from their posts. The instructor prepares each game's scripts and tutorials in weeks 3–4, well before production starts in week 8.
 
 ---
 
