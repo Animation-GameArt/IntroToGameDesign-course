@@ -3,7 +3,7 @@ title: "Exercise 01 — Bootstrap"
 course: GAME 1303
 week: 2
 status: draft
-course_version: 0.2.0
+course_version: 0.3.0
 unity: 6000.3.10f1
 tags:
   - game1303
@@ -75,7 +75,7 @@ Unity can only load a scene while the game is running if the scene is in the Sce
 1. Choose **File → Build Profiles**.
 2. Select **Open Scene List**.
 3. Drag `Ex01_Bootstrap` and `Ex01_SceneB` from the Project window into the list.
-4. Remove SampleScene from the list by selecting it a hitting the backspace
+4. Remove `SampleScene` from the list: select it and press **Backspace** (**Delete** on Mac).
 5. Close the Build Profiles window.
 
 ## Part 7 — Add a Scene Changer to each scene
@@ -87,7 +87,7 @@ Unity can only load a scene while the game is running if the scene is in the Sce
 3. Set its fields:
    - **Scene Name:** `Ex01_Bootstrap`
    - **Load After Seconds:** `0`
-   - **Load On Action:** click the small circle at the right of the field and choose (double-click) **Player/Jump**.
+   - **Load On Action:** click the small circle at the right of the field and double-click **Player/Jump**.
 4. Save the scene.
 
 **In `Ex01_Bootstrap`:**
@@ -114,7 +114,7 @@ Try each of these, press Play, and watch what happens. Put each one back afterwa
 
 1. **A timer.** On one Scene Changer, set **Load After Seconds** to `3`. The scene now changes by itself after 3 seconds.
 2. **A wrong name.** Change one **Scene Name** to `Ex01_SceneC`. Press Space, then read the red message in the Console. It tells you what's wrong and how to fix it.
-3. **A missing scene.** Fix the name, then remove (backspace) `Ex01_SceneB` from the Scene List (File → Build Profiles → Open Scene List) and try again. Read the Console message, then add the scene back.
+3. **A missing scene.** Fix the name, then remove `Ex01_SceneB` from the Scene List (File → Build Profiles → Open Scene List, select it, press Backspace) and try again. Read the Console message, then add the scene back.
 
 Reading Console messages is how you'll find most problems this semester.
 
