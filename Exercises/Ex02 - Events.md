@@ -128,7 +128,7 @@ The key announces "key collected" on the channel. The door listens to that chann
 
 ## Part 7 — Restart, and reset the score
 
-1. Add `Ex02_Events` to the Scene List (**File → Build Profiles → Open Scene List**, then drag the scene in).
+1. Add `Ex02_Events` to the Scene List (**File → Build Profiles → Open Scene List**, then drag the scene in or click **Add Open Scenes**).
 2. Create an empty GameObject named `Scene Changer` and add the **Scene Changer** component:
    - **Scene Name:** `Ex02_Events`
    - **Load On Action:** `Player/Jump`
