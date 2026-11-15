@@ -1,0 +1,181 @@
+<p><strong>Week 6 · checked off in lab</strong></p>
+<blockquote>
+<p><strong>Choose one version.</strong> This is the <strong>real-time</strong> version: health, an enemy that patrols, and falling rocks. If your game is a puzzle, tactics or strategy game, do <strong>Exercise 05 — Combat (Turn-Based)</strong> instead.</p>
+</blockquote>
+<p>In this exercise the player gets health. Spikes stop being instant and start costing a point each, an enemy patrols the level, and a spawner drops rocks.</p>
+<h2>What you'll learn</h2>
+<ul>
+<li>How <strong>Health</strong> works, and how it announces damage and death</li>
+<li>How <strong>Damage On Touch</strong> makes spikes, enemies and rocks hurt in the same way</li>
+<li>How an enemy uses <strong>states</strong>: patrol and chase</li>
+<li>What a <strong>prefab</strong> is, and how a <strong>Spawner</strong> reuses copies of one</li>
+<li>How to turn all of this into a difficulty choice</li>
+</ul>
+<h2>Part 1 — Start the scene</h2>
+<ol>
+<li>Open <code>Ex04_Level</code> and choose <strong>File → Save As…</strong>. Save it as <code>Ex05_Combat</code>.</li>
+<li>Select <code>Scene Changer</code> and change its <strong>Scene Name</strong> to <code>Ex05_Combat</code>.</li>
+<li>Add <code>Ex05_Combat</code> to the Scene List.</li>
+<li>In <code>Assets/Scenes/Exercises</code>, create a folder named <code>Ex05_Data</code>.</li>
+</ol>
+<h2>Part 2 — Give the player health</h2>
+<ol>
+<li>In <code>Ex05_Data</code>, choose <strong>Create → Collin Game → Variables → Int Variable</strong>. Name it <code>PlayerHealth</code>.</li>
+<li>Select <code>Player</code> and add the <strong>Health</strong> component:
+<ul>
+<li><strong>Max Health:</strong> <code>3</code></li>
+<li><strong>Invulnerable Time:</strong> <code>1</code></li>
+<li><strong>Health Variable:</strong> drag in <code>PlayerHealth</code></li>
+</ul>
+</li>
+</ol>
+<p>The player already has a <strong>Respawner</strong>. When a Respawner and Health are on the same object, running out of health sends the object back to its checkpoint with full health. You don't need to connect them.</p>
+<p><strong>Show the health</strong></p>
+<ol>
+<li>Under <code>Main Camera</code>, select <code>Score Text</code> and duplicate it (<strong>Ctrl+D</strong>). Name the copy <code>Health Text</code>.</li>
+<li>Set its Position to <code>6, 4.25, 10</code>.</li>
+<li>In its <strong>Variable Label</strong>, set <strong>Variable</strong> to <code>PlayerHealth</code> and <strong>Format</strong> to <code>Health: {0}</code>.</li>
+</ol>
+<h2>Part 3 — Spikes that hurt</h2>
+<p>In Exercise 04 the spikes sent the player straight back. Now they take one point of health.</p>
+<ol>
+<li>Select <code>Hazard Tiles</code>.</li>
+<li>On the <strong>Kill Zone</strong> component, click <strong>⋮ → Remove Component</strong>.</li>
+<li>Add the <strong>Damage On Touch</strong> component. Leave <strong>Damage</strong> at <code>1</code>.</li>
+</ol>
+<p>Press <strong>Play</strong> and touch the spikes. Health drops by 1. For one second you can't be hurt again. That's the invulnerable time, and it gives the player a chance to get clear. Lose all three points and you're back at the checkpoint with full health.</p>
+<p>The pit still has a <strong>Kill Zone</strong>, so falling in takes all your health at once.</p>
+<h2>Part 4 — An enemy</h2>
+<ol>
+<li>Create a <strong>Square</strong> sprite named <code>Enemy</code>. Give it a color that stands out.</li>
+<li>Place it on the ground in the landing section, after the big gap.</li>
+<li>Add a <strong>Box Collider 2D</strong>.</li>
+<li>Add the <strong>Patrol Enemy 2D</strong> component. A <strong>Rigidbody 2D</strong> is added with it.</li>
+<li>Add the <strong>Damage On Touch</strong> component.</li>
+</ol>
+<p>Press <strong>Play</strong>. The enemy walks back and forth. It turns around at the edge of the ground and at anything solid, and touching it costs health.</p>
+<p><strong>Give it a second state</strong></p>
+<ol>
+<li>Stop the game. On <strong>Patrol Enemy 2D</strong>, set <strong>Chase Range</strong> to <code>4</code>.</li>
+<li>Press <strong>Play</strong>. In the Scene view, select <code>Enemy</code>. A circle shows its chase range.</li>
+</ol>
+<p>The enemy now has two states. In <strong>Patrol</strong> it walks its route. When the player comes inside the circle, it switches to <strong>Chase</strong> and walks toward the player. When the player leaves, it goes back to patrolling. It won't walk off a ledge in either state.</p>
+<h2>Part 5 — Falling rocks</h2>
+<p><strong>Make a rock prefab</strong></p>
+<ol>
+<li>Create a <strong>Circle</strong> sprite named <code>Rock</code>. Set its Scale to <code>0.6, 0.6, 1</code> and give it a color.</li>
+<li>Add a <strong>Circle Collider 2D</strong> and a <strong>Rigidbody 2D</strong>.</li>
+<li>Add <strong>Damage On Touch</strong> and tick <strong>Remove Self After Hit</strong>.</li>
+<li>Add the <strong>Lifetime</strong> component and set <strong>Seconds</strong> to <code>4</code>.</li>
+<li>Drag <code>Rock</code> from the Hierarchy into <code>Ex05_Data</code> in the Project window. It turns blue in the Hierarchy: it's now a <strong>prefab</strong>, a template you can make copies of.</li>
+<li>Delete <code>Rock</code> from the Hierarchy. The prefab stays in the Project window.</li>
+</ol>
+<p><strong>Make the spawner</strong></p>
+<ol>
+<li>Create an empty GameObject named <code>Rock Spawner</code>. Place it high above the finish section, at about <code>y = 7</code>.</li>
+<li>Add the <strong>Spawner</strong> component:
+<ul>
+<li><strong>Prefab:</strong> drag in <code>Rock</code> from <code>Ex05_Data</code></li>
+<li><strong>Interval:</strong> <code>1.5</code></li>
+<li><strong>Max At Once:</strong> <code>4</code></li>
+</ul>
+</li>
+<li>Right-click <code>Rock Spawner</code> and choose <strong>Create Empty</strong> three times. Spread the three children out sideways above the finish section.</li>
+<li>Select <code>Rock Spawner</code>. Drag the three children into its <strong>Spawn Points</strong> list.</li>
+</ol>
+<p>Press <strong>Play</strong> and run through the finish section. Rocks fall from a random point every 1.5 seconds. A rock that hits you costs health and disappears. A rock that misses disappears after 4 seconds.</p>
+<p>The Spawner never has more than 4 rocks in the scene. When a rock disappears it's only switched off, and the Spawner switches it back on for the next drop. Reusing objects like this is called <strong>pooling</strong>.</p>
+<h2>Part 6 — A way to heal</h2>
+<ol>
+<li>Duplicate a coin and name the copy <code>Heart</code>. Give it a red color and place it somewhere worth reaching.</li>
+<li>In its <strong>Collectible</strong> component, clear the <strong>Add To</strong> field (select it and press <strong>Delete</strong>).</li>
+<li>Under <strong>On Collected</strong>, click <strong>+</strong>. Drag <code>Player</code> from the Hierarchy into the field, and choose <strong>Health → Heal (int)</strong>. Set the number to <code>1</code>.</li>
+</ol>
+<p>Press <strong>Play</strong>, take some damage, and collect the heart.</p>
+<h2>Part 7 — Make a difficulty decision</h2>
+<p>Everything here has a number that makes the level easier or harder. Change at least one on purpose.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 7 — Make a difficulty decision</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Setting</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Question to ask</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Player</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Max Health</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">How many mistakes is the player allowed?</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Player</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Invulnerable Time</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">How long does the player get to recover?</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Enemy</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Patrol Speed</strong>, <strong>Chase Range</strong>, <strong>Chase Speed</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Can the player get past by timing, or only by running?</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Spawner</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Interval</strong>, <strong>Max At Once</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Is there a safe rhythm to learn?</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Level</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Where the checkpoint and the heart are</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">How much does one death cost?</td>
+</tr>
+</tbody>
+</table>
+<p>Decide what you want the player to feel in the finish section: tense, rushed, careful, relieved. Then set the numbers to get it, and test with another student.</p>
+<h2>Check-off</h2>
+<p>Show your instructor:</p>
+<ul>
+<li>The player has 3 health, shown on screen, and loses it to spikes, the enemy and rocks.</li>
+<li>Running out of health returns the player to the checkpoint with full health.</li>
+<li>The enemy patrols, turns at ledges, and chases when the player is close.</li>
+<li>The spawner drops rocks from a prefab.</li>
+<li>You can say which number you changed for difficulty, and what you wanted the player to feel.</li>
+</ul>
+<h2>If something goes wrong</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something goes wrong</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What you see</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Spikes do nothing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Hazard Tiles</code> needs <strong>Damage On Touch</strong>, and <code>Player</code> needs <strong>Health</strong>.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Health drops but the text doesn't change</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check that the player's <strong>Health Variable</strong> and the label's <strong>Variable</strong> both hold <code>PlayerHealth</code>.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player isn't sent back at 0 health</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check that <code>Player</code> still has a <strong>Respawner</strong>.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The enemy walks off the ground</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check that <strong>Turn At Ledges</strong> is ticked.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The enemy spins in place</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">It has no room. Give it a wider stretch of ground.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">No rocks appear</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check that the Spawner's <strong>Prefab</strong> field holds the <code>Rock</code> from the Project window, not from the Hierarchy.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Rocks pile up forever</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The <code>Rock</code> prefab needs the <strong>Lifetime</strong> component.</td>
+</tr>
+</tbody>
+</table>

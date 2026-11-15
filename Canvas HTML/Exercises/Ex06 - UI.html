@@ -1,0 +1,258 @@
+<p><strong>Week 7 · checked off in lab</strong></p>
+<p>In this exercise you finish the sandbox game. You replace the floating score text with a real HUD, add a pause menu and a win screen, build a main menu in its own scene, and make damage show as numbers above the player.</p>
+<blockquote>
+<p><strong>If you did the turn-based Exercise 05:</strong> follow the same steps, starting from <code>Ex05_TurnBased</code>. Use <code>HeroHealth</code> wherever these steps say <code>PlayerHealth</code>. Skip Part 4's first step and connect the win screen to the Turn Manager, as described there.</p>
+</blockquote>
+<h2>What you'll learn</h2>
+<ul>
+<li>How a <strong>UI Document</strong> puts a UI Toolkit screen into a scene</li>
+<li>How a HUD stays up to date by listening to <strong>variables</strong></li>
+<li>How <strong>pausing</strong> stops time and switches off the player's controls</li>
+<li>How the event from Exercise 04 can show a <strong>win screen</strong> without the goal knowing about it</li>
+<li>How a game flows between scenes: menu, play, pause, win, and back</li>
+</ul>
+<h2>Part 1 — Start the scene</h2>
+<ol>
+<li>Open <code>Ex05_Combat</code> and choose <strong>File → Save As…</strong>. Save it as <code>Ex06_UI</code>.</li>
+<li>Select <code>Scene Changer</code> and change its <strong>Scene Name</strong> to <code>Ex06_UI</code>.</li>
+<li>Add <code>Ex06_UI</code> to the Scene List.</li>
+<li>In <code>Assets/Scenes/Exercises</code>, create a folder named <code>Ex06_Data</code>.</li>
+</ol>
+<h2>Part 2 — The HUD</h2>
+<ol>
+<li>Choose <strong>GameObject → UI Toolkit → UI Document</strong>. Name it <code>HUD</code>.</li>
+<li>In the <strong>UI Document</strong> component, drag <code>HUD</code> from <code>Assets/_Course/Core/UI</code> into the <strong>Source Asset</strong> field.</li>
+<li>Add the <strong>UI Variable Binder</strong> component. Under <strong>Bindings</strong>, click <strong>+</strong> twice and fill them in:</li>
+</ol>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 2 — The HUD</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Label Name</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Variable</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>health-label</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>PlayerHealth</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Health: {0}</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>score-label</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Score</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Score: {0}</code></td>
+</tr>
+</tbody>
+</table>
+<ol start="4">
+<li>Under <code>Main Camera</code>, delete <code>Score Text</code> and <code>Health Text</code>. The HUD replaces them.</li>
+</ol>
+<p>Press <strong>Play</strong>. Health and score now sit at the top of the screen and stay there as the camera moves.</p>
+<p>The HUD doesn't know about the player, the coins or the spikes. It listens to the same <code>Score</code> variable you made in Exercise 02, and the same <code>PlayerHealth</code> from Exercise 05.</p>
+<h2>Part 3 — A pause menu</h2>
+<ol>
+<li>Create another <strong>UI Document</strong> and name it <code>Pause Menu</code>.</li>
+<li>Set its <strong>Source Asset</strong> to <code>PauseMenu</code> from <code>Assets/_Course/Core/UI</code>, and its <strong>Sort Order</strong> to <code>1</code>, so it draws in front of the HUD.</li>
+<li>Add the <strong>UI Screen</strong> component:
+<ul>
+<li>Tick <strong>Hidden At Start</strong></li>
+<li><strong>Select When Shown:</strong> <code>resume-button</code></li>
+</ul>
+</li>
+<li>Add the <strong>Pause Controller</strong> component. <strong>Input</strong> and <strong>Pause Screen</strong> should fill themselves in. If they're empty, drag in <code>InputReader</code> and the <code>Pause Menu</code> object.</li>
+<li>Add the <strong>UI Button Events</strong> component. Under <strong>Buttons</strong>, click <strong>+</strong> twice:</li>
+</ol>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 3 — A pause menu</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Button Name</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">On Click</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>resume-button</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Drag in <code>Pause Menu</code>, choose <strong>PauseController → Resume</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>restart-button</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Drag in <code>Scene Changer</code>, choose <strong>SceneChanger → ReloadScene</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Press <strong>Play</strong>, then press <strong>Esc</strong> (or <strong>Start</strong> on a gamepad). The game freezes and the menu appears. <strong>Resume</strong> continues, and <strong>Restart</strong> starts the level again. The Main Menu button comes in Part 5.</p>
+<p>While paused, time is stopped and the player's controls are off. The Pause button itself keeps working, so Esc also un-pauses.</p>
+<h2>Part 4 — A win screen</h2>
+<ol>
+<li>Select <code>Scene Changer</code>. Remove its <strong>Void Event Listener</strong> (<strong>⋮ → Remove Component</strong>). Reaching the goal should no longer restart the level by itself.</li>
+<li>Create a <strong>UI Document</strong> named <code>Win Screen</code>. Set its <strong>Source Asset</strong> to <code>EndScreen</code> and its <strong>Sort Order</strong> to <code>2</code>.</li>
+<li>Add the <strong>UI Screen</strong> component:
+<ul>
+<li>Tick <strong>Hidden At Start</strong></li>
+<li><strong>Select When Shown:</strong> <code>play-again-button</code></li>
+</ul>
+</li>
+<li>Add a <strong>UI Variable Binder</strong> with one binding: <code>score-label</code>, <code>Score</code>, <code>Score: {0}</code>.</li>
+<li>Add a <strong>Void Event Listener</strong>. Set its <strong>Channel</strong> to <code>LevelCompleted</code>, from <code>Ex04_Data</code>.</li>
+<li>Under <strong>Response</strong>, click <strong>+</strong> twice:
+<ul>
+<li>Drag in <code>Win Screen</code> and choose <strong>UIScreen → Show</strong>.</li>
+<li>Drag in the <code>InputReader</code> asset from <code>Assets/_Course/Core/Input</code> and choose <strong>InputReader → DisablePlayerInput</strong>.</li>
+</ul>
+</li>
+<li>Add <strong>UI Button Events</strong> with one button for now:</li>
+</ol>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 4 — A win screen</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Button Name</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">On Click</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>play-again-button</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Drag in <code>Scene Changer</code>, choose <strong>SceneChanger → ReloadScene</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Press <strong>Play</strong> and reach the goal. The win screen appears with your score, and the player stops responding. <strong>Play Again</strong> restarts the level.</p>
+<p>The goal still only raises <code>LevelCompleted</code>, exactly as it did in Exercise 04. You changed what listens to it, and the goal never needed to know.</p>
+<blockquote>
+<p><strong>Turn-based version:</strong> skip step 1. In step 5, don't add a Void Event Listener. Select <code>Battle</code> and, under <strong>On Player Won</strong>, add the two responses from step 6. You can delete <code>Win Text</code>.</p>
+</blockquote>
+<h2>Part 5 — A main menu</h2>
+<p><strong>Make the menu scene</strong></p>
+<ol>
+<li>Choose <strong>File → New Scene</strong>, pick the 2D scene template, and save it in <code>Assets/Scenes/Exercises</code> as <code>Ex06_MainMenu</code>.</li>
+<li>Create a <strong>UI Document</strong> named <code>Main Menu</code>. Set its <strong>Source Asset</strong> to <code>MainMenu</code>.</li>
+<li>Add a <strong>UI Screen</strong> and set <strong>Select When Shown</strong> to <code>play-button</code>.</li>
+<li>Add a <strong>Scene Changer</strong> and set its <strong>Scene Name</strong> to <code>Ex06_UI</code>.</li>
+<li>Add <strong>UI Button Events</strong> with two buttons:</li>
+</ol>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 5 — A main menu</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Button Name</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">On Click</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>play-button</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Drag in <code>Main Menu</code>, choose <strong>SceneChanger → Load</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>quit-button</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Drag in <code>Main Menu</code>, choose <strong>SceneChanger → QuitGame</strong></td>
+</tr>
+</tbody>
+</table>
+<ol start="6">
+<li>Save the scene.</li>
+<li>Open the Scene List (<strong>File → Build Profiles → Open Scene List</strong>). Add <code>Ex06_MainMenu</code> and drag it to the <strong>top</strong> of the list. The first scene in the list is the one a built game starts with.</li>
+</ol>
+<p><strong>Connect the Main Menu buttons in the level</strong></p>
+<ol>
+<li>Open <code>Ex06_UI</code>.</li>
+<li>Create an empty GameObject named <code>To Main Menu</code>. Add a <strong>Scene Changer</strong> and set its <strong>Scene Name</strong> to <code>Ex06_MainMenu</code>.</li>
+<li>Select <code>Pause Menu</code>. In <strong>UI Button Events</strong>, add a third button:</li>
+</ol>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 5 — A main menu (2)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Button Name</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">On Click</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>menu-button</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Drag in <code>To Main Menu</code>, choose <strong>SceneChanger → Load</strong></td>
+</tr>
+</tbody>
+</table>
+<ol start="4">
+<li>Select <code>Win Screen</code> and add the same <code>menu-button</code> entry to its <strong>UI Button Events</strong>.</li>
+</ol>
+<p>Open <code>Ex06_MainMenu</code> and press <strong>Play</strong>. You can now go from the menu into the level, pause, return to the menu, win, and play again. In the Editor, <strong>Quit</strong> stops Play mode. In a built game it closes the game.</p>
+<h2>Part 6 — Damage numbers</h2>
+<ol>
+<li>In <code>Ex06_UI</code>, select <code>Player</code> and add the <strong>Health Popups</strong> component.</li>
+</ol>
+<p>Press <strong>Play</strong> and touch the spikes. A red <code>-1</code> floats up from the player. Collect the heart and a green <code>+1</code> appears.</p>
+<p>This is <strong>spatial UI</strong>: it's placed in the game world, at the thing it describes, and it isn't part of the HUD.</p>
+<h2>Part 7 — Make the HUD yours</h2>
+<p>The course's UI files are in <code>_Course</code>, so you change them by working on a copy.</p>
+<ol>
+<li>In the Project window, open <code>Assets/_Course/Core/UI</code> and select <code>HUD</code>.</li>
+<li>Press <strong>Ctrl+D</strong> (<strong>Cmd+D</strong> on Mac) to duplicate it. Drag the copy into <code>Ex06_Data</code> and rename it <code>MyHUD</code>.</li>
+<li>Double-click <code>MyHUD</code>. It opens in the <strong>UI Builder</strong>.</li>
+<li>Change the layout. Some things to try:
+<ul>
+<li>Select a label in the <strong>Hierarchy</strong> panel and change its <strong>Text</strong>.</li>
+<li>Drag the labels into a different order.</li>
+<li>Select <code>hud</code> and, under <strong>Flex</strong> or <strong>Align</strong>, change how its contents are arranged.</li>
+</ul>
+</li>
+<li>Save with <strong>Ctrl+S</strong>.</li>
+<li>Select the <code>HUD</code> object in your scene and set its <strong>Source Asset</strong> to <code>MyHUD</code>.</li>
+</ol>
+<p>Keep the names <code>health-label</code> and <code>score-label</code>, because the UI Variable Binder finds the labels by those names.</p>
+<p>Use your screen layout from Week 5 as the plan. Decide what the player needs to see at every moment, where it goes, and what you can leave off.</p>
+<p><strong>Go further.</strong> Copy <code>MainMenu</code> in the same way and give the game a title and your name.</p>
+<h2>Check-off</h2>
+<p>Show your instructor:</p>
+<ul>
+<li>The HUD shows health and score, and updates as you play.</li>
+<li>Esc pauses and un-pauses, and the pause menu's three buttons work.</li>
+<li>Reaching the goal shows the win screen with the score.</li>
+<li>The game starts at the main menu, and you can get from every screen to every other.</li>
+<li>Damage and healing show as floating numbers.</li>
+<li>You changed the HUD's layout, and can say why it shows what it shows.</li>
+</ul>
+<p>The sandbox game is complete. Every script in it is one you can use in your own game, starting next week.</p>
+<h2>If something goes wrong</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something goes wrong</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What you see</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A screen shows nothing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check the UI Document's <strong>Source Asset</strong>. Check that <strong>Panel Settings</strong> isn't empty; if it is, drag in the <code>PanelSettings</code> asset from <code>Assets/UI Toolkit</code>.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The HUD shows "Score: 0" and never changes</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check the <strong>Label Name</strong> spelling and the <strong>Variable</strong> in the UI Variable Binder.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Buttons don't react to clicks</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check the <strong>Button Name</strong> spelling in UI Button Events, and read the Console for a warning that names the missing button.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The pause menu shows at the start</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Tick <strong>Hidden At Start</strong> on its UI Screen.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Esc does nothing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check that the Pause Controller's <strong>Input</strong> field holds <code>InputReader</code>. Click in the Game view first.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The pause menu is behind the HUD</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Set the Pause Menu's <strong>Sort Order</strong> higher than the HUD's.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">After winning, the player can't move in the next round</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">This is fixed when a scene loads. Use <strong>Play Again</strong> or <strong>Main Menu</strong>, not the Editor's Play button, to continue.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A menu can't be used with a gamepad</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Set <strong>Select When Shown</strong> on its UI Screen to the name of its first button.</td>
+</tr>
+</tbody>
+</table>

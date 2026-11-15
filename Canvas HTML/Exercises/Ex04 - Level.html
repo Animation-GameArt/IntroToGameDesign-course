@@ -1,0 +1,245 @@
+<p><strong>Week 5 · checked off in lab</strong></p>
+<p>In this exercise your level grows past the edge of the screen. You paint new ground with a Tilemap, add a pit and spikes, place a checkpoint, and give the player a camera that follows. Then you design two short sections of your own: one that teaches, and one that tests.</p>
+<h2>What you'll learn</h2>
+<ul>
+<li>How to paint a level with a <strong>Tilemap</strong></li>
+<li>How <strong>hazards</strong> and <strong>checkpoints</strong> set the cost of a mistake</li>
+<li>How a <strong>Cinemachine</strong> camera follows the player and stays inside the level</li>
+<li>How to end a level with a <strong>Trigger Zone</strong> and an event</li>
+<li>How to design a <strong>teach beat</strong> and a <strong>test beat</strong></li>
+</ul>
+<h2>Part 1 — Start the scene</h2>
+<ol>
+<li>Open <code>Ex03_Player</code> and choose <strong>File → Save As…</strong>. Save it as <code>Ex04_Level</code>.</li>
+<li>Delete <code>Wall Right</code>. The level is about to continue past it.</li>
+<li>In <code>Assets/Scenes/Exercises</code>, create a folder named <code>Ex04_Data</code>.</li>
+</ol>
+<h2>Part 2 — A pit, and a way back</h2>
+<ol>
+<li>Select <code>Player</code> and add the <strong>Respawner</strong> component. It remembers where the player started.</li>
+<li>Create an empty GameObject named <code>Pit</code>. Set its Position to <code>20, -8, 0</code>.</li>
+<li>Add a <strong>Box Collider 2D</strong>. Tick <strong>Is Trigger</strong> and set its <strong>Size</strong> to <code>100, 2</code>.</li>
+<li>Add the <strong>Kill Zone</strong> component.</li>
+</ol>
+<p>Press <strong>Play</strong> and walk off the right end of the ground. The player falls, touches the pit, and is back at the start.</p>
+<h2>Part 3 — Paint the ground with a Tilemap</h2>
+<p><strong>Make a tile</strong></p>
+<ol>
+<li>In <code>Ex04_Data</code>, right-click and choose <strong>Create → 2D → Sprites → Square</strong>. Name it <code>GroundTile</code>.</li>
+<li>Choose <strong>Window → 2D → Tile Palette</strong>.</li>
+<li>In the Tile Palette, open the palette dropdown and choose <strong>Create New Palette</strong>. Name it <code>Ex04 Palette</code> and save it in <code>Ex04_Data</code>.</li>
+<li>Drag <code>GroundTile</code> from the Project window into the empty palette. When asked where to save the tile, choose <code>Ex04_Data</code>.</li>
+</ol>
+<p><strong>Make the Tilemap</strong></p>
+<ol>
+<li>Choose <strong>GameObject → 2D Object → Tilemap → Rectangular</strong>. This creates a <code>Grid</code> with a <code>Tilemap</code> inside it.</li>
+<li>Rename the Tilemap <code>Ground Tiles</code>.</li>
+<li>Select <code>Grid</code> and set its Position to <code>0, 0.25, 0</code>. This lines the tiles up with the ground you already have.</li>
+<li>Select <code>Ground Tiles</code>. In the <strong>Tilemap</strong> component, pick a <strong>Color</strong> for your ground.</li>
+</ol>
+<p><strong>Paint</strong></p>
+<ol>
+<li>In the Tile Palette, check that <strong>Active Tilemap</strong> is <code>Ground Tiles</code>. Select the <strong>Paint</strong> tool (the brush) and click your tile.</li>
+<li>In the Scene view, paint a row of tiles that continues the ground to the right, starting where <code>Ground</code> ends. The top of the tiles should be level with the top of <code>Ground</code>.</li>
+<li>Paint this layout, counting tiles from left to right:</li>
+</ol>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 3 — Paint the ground with a Tilemap</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Section</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Tiles</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What to paint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Run-up</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">8</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Ground</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Small gap</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">2</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Nothing on the ground row. Paint 2 tiles one row lower, so there is a floor in the gap</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Middle</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">8</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Ground</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Big gap</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">4</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Nothing at all</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Landing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">6</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Ground</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Spike run</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">8</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Ground</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Finish</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">6</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Ground</td>
+</tr>
+</tbody>
+</table>
+<p>Use the <strong>Erase</strong> tool to remove a tile.</p>
+<p><strong>Make it solid</strong></p>
+<ol>
+<li>Select <code>Ground Tiles</code> and add a <strong>Tilemap Collider 2D</strong>.</li>
+<li>Add a <strong>Composite Collider 2D</strong>. A <strong>Rigidbody 2D</strong> is added with it: set its <strong>Body Type</strong> to <strong>Static</strong>.</li>
+<li>On the <strong>Tilemap Collider 2D</strong>, set <strong>Composite Operation</strong> to <strong>Merge</strong>. This joins the tiles into one smooth shape, so the player doesn't catch on the seams.</li>
+</ol>
+<p>Press <strong>Play</strong>. Run to the right. The small gap has a floor, so falling in costs nothing. The big gap drops into the pit.</p>
+<h2>Part 4 — Spikes</h2>
+<ol>
+<li>In the Hierarchy, right-click <code>Grid</code> and choose <strong>2D Object → Tilemap → Rectangular</strong>. Name the new Tilemap <code>Hazard Tiles</code>.</li>
+<li>In its <strong>Tilemap</strong> component, set the <strong>Color</strong> to red.</li>
+<li>In the Tile Palette, change <strong>Active Tilemap</strong> to <code>Hazard Tiles</code>.</li>
+<li>In the middle of the spike run, paint 2 tiles <strong>on top of</strong> the ground, one row above it.</li>
+<li>Select <code>Hazard Tiles</code>. Add a <strong>Tilemap Collider 2D</strong> and tick <strong>Is Trigger</strong>.</li>
+<li>Add the <strong>Kill Zone</strong> component.</li>
+</ol>
+<p>Press <strong>Play</strong>. Touching the red tiles sends the player back to the start. Jumping over them is safe.</p>
+<h2>Part 5 — A checkpoint</h2>
+<p>Going all the way back to the start after every mistake gets old fast.</p>
+<ol>
+<li>Create a <strong>Square</strong> sprite named <code>Checkpoint</code>. Set its Scale to <code>0.3, 2, 1</code> and give it a grey color.</li>
+<li>Stand it on the ground in the middle section, a few tiles before the big gap.</li>
+<li>Add a <strong>Box Collider 2D</strong> and tick <strong>Is Trigger</strong>.</li>
+<li>Add the <strong>Checkpoint</strong> component. Drag the <code>Checkpoint</code> object itself into the <strong>Indicator</strong> field.</li>
+</ol>
+<p>Press <strong>Play</strong>. Touch the checkpoint: it turns green. Now fall into the big gap. You come back at the checkpoint, not the start.</p>
+<h2>Part 6 — A camera that follows</h2>
+<ol>
+<li>In the Hierarchy, select <code>Player</code>. Then choose <strong>GameObject → Cinemachine → Targeted Cameras → 2D Camera</strong>.</li>
+<li>Select the new Cinemachine camera. Check that <strong>Tracking Target</strong> is <code>Player</code>. If it's empty, drag <code>Player</code> in.</li>
+<li>Under <strong>Lens</strong>, set <strong>Orthographic Size</strong> to <code>5</code>.</li>
+</ol>
+<p>Press <strong>Play</strong>. The camera follows the player through the level. It also shows empty space past the left wall and below the ground, which the next steps fix.</p>
+<p><strong>Keep the camera inside the level</strong></p>
+<ol>
+<li>Create an empty GameObject named <code>Camera Bounds</code>. Set its Position to <code>22, 1, 0</code>.</li>
+<li>Add a <strong>Box Collider 2D</strong>. Tick <strong>Is Trigger</strong> and set its <strong>Size</strong> to <code>64, 12</code>.</li>
+<li>Select the Cinemachine camera. Click <strong>Add Extension</strong> and choose <strong>Cinemachine Confiner 2D</strong>.</li>
+<li>Drag <code>Camera Bounds</code> into the confiner's <strong>Bounding Shape 2D</strong> field.</li>
+</ol>
+<p>If your level is longer or shorter than the bounds, change the collider's Size and the object's Position until the box covers the whole level.</p>
+<p><strong>Keep the score on screen</strong></p>
+<p>The score text is in the world, so the camera leaves it behind.</p>
+<ol>
+<li>In the Hierarchy, drag <code>Score Text</code> onto <code>Main Camera</code>, so it becomes a child of the camera.</li>
+<li>Set its Position to <code>-6, 4.25, 10</code>.</li>
+</ol>
+<p>It now travels with the camera. In Exercise 06 you'll replace it with a real HUD.</p>
+<h2>Part 7 — A goal</h2>
+<ol>
+<li>In <code>Ex04_Data</code>, choose <strong>Create → Collin Game → Events → Void Event Channel</strong>. Name it <code>LevelCompleted</code>.</li>
+<li>Create a <strong>Square</strong> sprite named <code>Goal</code>. Give it a bright color and stand it at the far end of the finish section.</li>
+<li>Add a <strong>Box Collider 2D</strong> and tick <strong>Is Trigger</strong>.</li>
+<li>Add the <strong>Trigger Zone</strong> component. Tick <strong>Only Once</strong>, and drag <code>LevelCompleted</code> into <strong>Raise On Enter</strong>.</li>
+</ol>
+<p>The goal now announces that the level is complete. Something has to react.</p>
+<ol start="5">
+<li>Create an empty GameObject named <code>Scene Changer</code>. Add the <strong>Scene Changer</strong> component and set <strong>Scene Name</strong> to <code>Ex04_Level</code>. Leave <strong>Load On Action</strong> empty.</li>
+<li>On the same object, add a <strong>Void Event Listener</strong>. Set its <strong>Channel</strong> to <code>LevelCompleted</code>.</li>
+<li>Under <strong>Response</strong>, click <strong>+</strong>, drag the <code>Scene Changer</code> object into the field, and choose <strong>SceneChanger → Load</strong>.</li>
+<li>Add <code>Ex04_Level</code> to the Scene List (<strong>File → Build Profiles → Open Scene List → Add Open Scenes</strong>).</li>
+</ol>
+<p>Press <strong>Play</strong> and reach the goal. The level restarts. In Exercise 06, the same event will show a win screen.</p>
+<h2>Part 8 — Design a teach beat and a test beat</h2>
+<p>The layout you painted already has one pair. The small gap is a <strong>teach beat</strong>: the player learns to jump a gap, and failing costs nothing. The big gap is the <strong>test beat</strong>: the same skill, with the pit below.</p>
+<p>Now design a pair of your own for the spikes.</p>
+<ol>
+<li><strong>Teach.</strong> Before the spike run, add a place where the player meets a spike with no real risk. For example, one spike tile with plenty of room, right after a checkpoint.</li>
+<li><strong>Test.</strong> Later, make the player use what they learned under pressure. For example, spikes on both sides of a narrow landing.</li>
+<li>Add or move checkpoints so that failing the test doesn't mean replaying the teaching.</li>
+<li>Play it, then ask someone else to play it. Watch where they fail. Don't help.</li>
+</ol>
+<p>You can repaint anything, make the level longer, and add coins to guide the player. A trail of coins is a good way to show where to jump.</p>
+<h2>Part 9 — Experiment with the camera</h2>
+<p>Select the Cinemachine camera and find its <strong>Position Composer</strong> settings. Try each of these while playing.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 9 — Experiment with the camera</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Setting</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Try</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What changes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Damping</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code>, then <code>3</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The camera is locked to the player, then drifts behind</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Dead Zone</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Make it larger</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player can move a little without the camera moving</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Lookahead Time</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The camera shifts ahead of the player, in the direction they move</td>
+</tr>
+</tbody>
+</table>
+<h2>Check-off</h2>
+<p>Show your instructor:</p>
+<ul>
+<li>The level continues past the first screen on a Tilemap, and the camera follows the player.</li>
+<li>The camera never shows past the edges of the level.</li>
+<li>The pit and the spikes send the player back, and the checkpoint changes where they come back.</li>
+<li>Reaching the goal restarts the level.</li>
+<li>You can point to your own teach beat and test beat, and say what each one is for.</li>
+</ul>
+<h2>If something goes wrong</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something goes wrong</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What you see</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player falls through the tiles</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Ground Tiles</code> needs a <strong>Tilemap Collider 2D</strong>. Check that <strong>Is Trigger</strong> is not ticked on it.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The tiles don't line up with <code>Ground</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check that <code>Grid</code> is at Position <code>0, 0.25, 0</code>.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Painting does nothing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check <strong>Active Tilemap</strong> in the Tile Palette, and that the Paint tool and a tile are selected.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The spikes are solid and don't hurt</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Tick <strong>Is Trigger</strong> on the <code>Hazard Tiles</code> collider, and check it has a <strong>Kill Zone</strong>.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The checkpoint doesn't turn green</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check that <code>Player</code> has a <strong>Respawner</strong>, and that the checkpoint's collider has <strong>Is Trigger</strong> ticked.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The camera doesn't move</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check that the Cinemachine camera's <strong>Tracking Target</strong> is <code>Player</code>.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The camera jumps or sticks at the edges</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Make <code>Camera Bounds</code> bigger. It must be taller than the camera's view, which is 10 units.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player can't jump after the camera was added</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The <code>Camera Bounds</code> collider must have <strong>Is Trigger</strong> ticked.</td>
+</tr>
+</tbody>
+</table>

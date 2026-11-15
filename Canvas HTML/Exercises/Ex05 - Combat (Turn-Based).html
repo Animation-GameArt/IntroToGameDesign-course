@@ -1,0 +1,276 @@
+<p><strong>Week 6 · checked off in lab</strong></p>
+<blockquote>
+<p><strong>Choose one version.</strong> This is the <strong>turn-based</strong> version, for puzzle, tactics and strategy games. If your game is an action game, do <strong>Exercise 05 — Combat</strong> instead.</p>
+</blockquote>
+<p>In this exercise a hero and a slime take turns. On your turn you choose: attack, or heal. Heals are limited, so the choice matters. The same Health component from the real-time version is underneath.</p>
+<h2>What you'll learn</h2>
+<ul>
+<li>How <strong>Health</strong> works, and how it announces damage and death</li>
+<li>How a <strong>Turn Manager</strong> decides whose turn it is</li>
+<li>How an opponent can follow a simple rule to choose its action</li>
+<li>How to state a <strong>win</strong> and a <strong>lose</strong> condition</li>
+<li>How a few numbers turn a fight into an interesting decision</li>
+</ul>
+<h2>Part 1 — Start the scene</h2>
+<ol>
+<li>Open <code>Ex01_Bootstrap</code> and choose <strong>File → Save As…</strong>. Save it as <code>Ex05_TurnBased</code>.</li>
+<li>Delete the <code>Scene Changer</code>.</li>
+<li>In <code>Assets/Scenes/Exercises</code>, create a folder named <code>Ex05_Data</code>.</li>
+</ol>
+<h2>Part 2 — Create the data</h2>
+<p>In <code>Ex05_Data</code>, create these assets with <strong>Create → Collin Game → Variables</strong>:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 2 — Create the data</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Asset</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>HeroHealth</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Int Variable</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>SlimeHealth</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Int Variable</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>TurnStatus</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">String Variable</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>BattleLog</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">String Variable</td>
+</tr>
+</tbody>
+</table>
+<h2>Part 3 — The hero and the slime</h2>
+<p><strong>The hero</strong></p>
+<ol>
+<li>Create a <strong>Square</strong> sprite named <code>Hero</code>. Position <code>-4, 0, 0</code>. Give it a color.</li>
+<li>Add the <strong>Health</strong> component:
+<ul>
+<li><strong>Max Health:</strong> <code>10</code></li>
+<li><strong>Invulnerable Time:</strong> <code>0</code></li>
+<li><strong>Health Variable:</strong> <code>HeroHealth</code></li>
+</ul>
+</li>
+<li>Add the <strong>Turn Taker</strong> component. Leave <strong>Player Side</strong> ticked.</li>
+</ol>
+<p><strong>The slime</strong></p>
+<ol>
+<li>Create a <strong>Circle</strong> sprite named <code>Slime</code>. Position <code>4, 0, 0</code>. Give it a color.</li>
+<li>Add the <strong>Health</strong> component:
+<ul>
+<li><strong>Max Health:</strong> <code>8</code></li>
+<li><strong>Invulnerable Time:</strong> <code>0</code></li>
+<li><strong>When Health Runs Out:</strong> <strong>Deactivate</strong></li>
+<li><strong>Health Variable:</strong> <code>SlimeHealth</code></li>
+</ul>
+</li>
+<li>Add the <strong>Turn Taker</strong> component. <strong>Untick</strong> Player Side.</li>
+</ol>
+<h2>Part 4 — What each one can do</h2>
+<p><strong>The hero</strong></p>
+<ol>
+<li>Select <code>Hero</code> and add the <strong>Turn Actions</strong> component:
+<ul>
+<li><strong>Controlled By:</strong> <strong>Player</strong></li>
+<li><strong>Input:</strong> should already hold <code>InputReader</code></li>
+<li><strong>Attack Target:</strong> drag in <code>Slime</code></li>
+<li><strong>Attack Damage:</strong> <code>2</code></li>
+<li><strong>Heal Amount:</strong> <code>3</code></li>
+<li><strong>Heals Available:</strong> <code>2</code></li>
+<li><strong>Message Text:</strong> <code>BattleLog</code></li>
+</ul>
+</li>
+</ol>
+<p><strong>The slime</strong></p>
+<ol>
+<li>Select <code>Slime</code> and add the <strong>Turn Actions</strong> component:
+<ul>
+<li><strong>Controlled By:</strong> <strong>Computer</strong></li>
+<li><strong>Attack Target:</strong> drag in <code>Hero</code></li>
+<li><strong>Attack Damage:</strong> <code>2</code></li>
+<li><strong>Heals Available:</strong> <code>1</code></li>
+<li><strong>Heal When Health At Or Below:</strong> <code>2</code></li>
+<li><strong>Message Text:</strong> <code>BattleLog</code></li>
+</ul>
+</li>
+</ol>
+<h2>Part 5 — The Turn Manager</h2>
+<ol>
+<li>Create an empty GameObject named <code>Battle</code> and add the <strong>Turn Manager</strong> component.</li>
+<li>Under <strong>Turn Order</strong>, click <strong>+</strong> twice. Drag in <code>Hero</code> first, then <code>Slime</code>.</li>
+<li>Set <strong>Status Text</strong> to <code>TurnStatus</code>.</li>
+</ol>
+<h2>Part 6 — Show what's happening</h2>
+<p>Create four texts with <strong>GameObject → 3D Object → Text - TextMeshPro</strong>. For each one, set <strong>Font Size</strong> to <code>6</code>, set the <strong>Alignment</strong> to center and middle, and add a <strong>Variable Label</strong>.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 6 — Show what's happening</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Name</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Position</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Variable</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Status Text</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0, 4, 0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>TurnStatus</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>{0}</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Log Text</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0, 3, 0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>BattleLog</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>{0}</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Hero Health Text</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>-4, 1.5, 0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>HeroHealth</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Hero: {0}</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Slime Health Text</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>4, 1.5, 0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>SlimeHealth</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Slime: {0}</code></td>
+</tr>
+</tbody>
+</table>
+<p>Add one more text named <code>Help Text</code> at Position <code>0, -3.5, 0</code>, with no Variable Label. Type this as its text: <code>Attack: Enter     Heal: E</code></p>
+<p>Press <strong>Play</strong> and click once in the Game view.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 6 — Show what's happening (2)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Action</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Keyboard</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Gamepad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Attack</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Enter</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Left face button</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Heal</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>E</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Top face button</td>
+</tr>
+</tbody>
+</table>
+<p>On your turn, attack or heal. The slime then waits a second and takes its turn. The battle ends when one side has no health left, and the status text says who won.</p>
+<h2>Part 7 — Restart, and reset the texts</h2>
+<ol>
+<li>Create an empty GameObject named <code>Scene Changer</code>. Add the <strong>Scene Changer</strong> component:
+<ul>
+<li><strong>Scene Name:</strong> <code>Ex05_TurnBased</code></li>
+<li><strong>Load On Action:</strong> <code>Player/Jump</code></li>
+</ul>
+</li>
+<li>Add <code>Ex05_TurnBased</code> to the Scene List.</li>
+<li>Create an empty GameObject named <code>Game Setup</code>. Add the <strong>Variable Resetter</strong> component and add <code>TurnStatus</code> and <code>BattleLog</code> to its list.</li>
+<li>Add <code>Restart: Space</code> to the end of the <code>Help Text</code>.</li>
+</ol>
+<p>Press <strong>Play</strong>. After a battle, press <strong>Space</strong> to play again.</p>
+<h2>Part 8 — Win and lose</h2>
+<p>The Turn Manager knows when the battle is over. Make the scene react.</p>
+<ol>
+<li>Create a text named <code>Win Text</code> at Position <code>0, 0, 0</code> with the text <code>Victory!</code> and a <strong>Font Size</strong> of <code>12</code>. Untick the checkbox at the top of the Inspector to hide it.</li>
+<li>Duplicate it, name the copy <code>Lose Text</code>, and change its text to <code>Defeated</code>.</li>
+<li>Select <code>Battle</code>. Under <strong>On Player Won</strong>, click <strong>+</strong>, drag in <code>Win Text</code>, and choose <strong>GameObject → SetActive (bool)</strong>. <strong>Tick</strong> the checkbox.</li>
+<li>Under <strong>On Player Lost</strong>, do the same with <code>Lose Text</code>.</li>
+</ol>
+<p>Press <strong>Play</strong> and win a battle. Then let the slime win one.</p>
+<h2>Part 9 — Make it a real decision</h2>
+<p>A turn-based game is only as interesting as its choices. Right now, is there ever a reason not to attack?</p>
+<p>Play several battles and change the numbers until both options are worth thinking about.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 9 — Make it a real decision</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Setting</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Question to ask</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Hero</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Max Health</strong>, <strong>Attack Damage</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">How many turns does a battle last?</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Hero</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Heal Amount</strong>, <strong>Heals Available</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Is a heal worth giving up an attack?</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Slime</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Max Health</strong>, <strong>Attack Damage</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Can the player win without healing? Should they be able to?</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Slime</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Heal When Health At Or Below</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Does the slime's heal change what the player should do?</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Battle</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Turn Order</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Does going first decide the battle?</td>
+</tr>
+</tbody>
+</table>
+<p>A good target: the player wins most battles, but only if they heal at the right moment.</p>
+<p><strong>Go further.</strong> Duplicate <code>Slime</code> to add a second opponent, add it to the <strong>Turn Order</strong>, and point its <strong>Attack Target</strong> at <code>Hero</code>. The hero can only attack one target, so decide which.</p>
+<h2>Check-off</h2>
+<p>Show your instructor:</p>
+<ul>
+<li>The hero and the slime take turns, and both health values show on screen.</li>
+<li>You can attack and heal, and heals run out.</li>
+<li>The slime attacks, and heals when its health is low.</li>
+<li>Winning and losing each show a message, and Space restarts the battle.</li>
+<li>You can say which numbers you changed, and what decision they give the player.</li>
+</ul>
+<h2>If something goes wrong</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something goes wrong</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What you see</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Nothing happens when you press Enter</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Click in the Game view. Check that the hero's <strong>Controlled By</strong> is <strong>Player</strong> and its <strong>Input</strong> field holds <code>InputReader</code>.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The first click in the Game view attacks</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The left mouse button is also bound to Attack. Use <strong>Enter</strong> to attack.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">An attack does no damage</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check <strong>Attack Target</strong>, and check that <strong>Invulnerable Time</strong> is <code>0</code> on both Health components.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The slime never takes its turn</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check that the slime's <strong>Controlled By</strong> is <strong>Computer</strong> and that it's in the <strong>Turn Order</strong>.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The battle never ends</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check that <strong>Player Side</strong> is ticked on the hero and unticked on the slime.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A text shows nothing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check the label's <strong>Variable</strong>, and that the same asset is set on the Health, Turn Manager or Turn Actions component.</td>
+</tr>
+</tbody>
+</table>

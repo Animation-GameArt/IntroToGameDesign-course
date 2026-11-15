@@ -41,7 +41,8 @@ Choose one. **Real-time:** a patrolling enemy, damage, a spawner and respawning.
 
 Open the version for your section:
 
-- Ex 05 — Combat — Unity *(tutorial coming)*
+- [Ex 05 — Combat — Unity (real-time)](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex05%20-%20Combat.md)
+- [Ex 05 — Combat — Unity (turn-based)](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex05%20-%20Combat%20%28Turn-Based%29.md)
 
 Worth 2 points: one for **Implementation** (it runs, and the feature works), one for the **Design decision** (a deliberate, defensible choice beyond the defaults). Due at the end of the class period. Late work earns the Implementation point only.
 
@@ -70,7 +71,8 @@ Run the matching tab of the course checklist before you submit. Every box on it 
 
 - Assignment: Ten-pager draft
 - [Ten-Pager Template](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Templates/Ten-Pager%20Template.md)
-- Ex 05 — Combat tutorial (coming)
+- [Ex 05 — Combat tutorial (real-time)](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex05%20-%20Combat.md)
+- [Ex 05 — Combat tutorial (turn-based)](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex05%20-%20Combat%20%28Turn-Based%29.md)
 - [Course schedule](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Schedule/GAME%201303%20Course%20Schedule.md)
 - Grade sheet
 - Submission checklist

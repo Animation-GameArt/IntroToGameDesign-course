@@ -41,7 +41,7 @@ Add a main menu, a pause screen, a HUD and damage popups. This completes the san
 
 Open the version for your section:
 
-- Ex 06 — UI — Unity *(tutorial coming)*
+- [Ex 06 — UI — Unity](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex06%20-%20UI.md)
 
 Worth 2 points: one for **Implementation** (it runs, and the feature works), one for the **Design decision** (a deliberate, defensible choice beyond the defaults). Due at the end of the class period. Late work earns the Implementation point only.
 
@@ -70,7 +70,7 @@ Run the matching tab of the course checklist before you submit. Every box on it 
 
 - Assignment: Ten-pager
 - [Ten-Pager Template](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Templates/Ten-Pager%20Template.md)
-- Ex 06 — UI tutorial (coming)
+- [Ex 06 — UI tutorial](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex06%20-%20UI.md)
 - [Course schedule](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Schedule/GAME%201303%20Course%20Schedule.md)
 - Grade sheet
 - Submission checklist

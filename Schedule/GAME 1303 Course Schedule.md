@@ -42,10 +42,10 @@ Week 1 uses a practice project. From week 2 on, you work in the **course project
 | 00 | *(practice project, not kept)* | — |
 | 01 | `Ex01_Bootstrap.unity` | — (first scene in the course project) |
 | 02 | `Ex02_Events.unity` | Ex01 |
-| 03 | `Ex03_Player.unity` | Ex02 |
+| 03 | `Ex03_Player.unity`, then `Ex03_TopDown.unity` | Ex02 |
 | 04 | `Ex04_Level.unity` | Ex03 |
-| 05 | `Ex05_Combat.unity` (real-time or turn-based version) | Ex04 |
-| 06 | `Ex06_UI.unity` | Ex05 — **sandbox complete** |
+| 05 | `Ex05_Combat.unity` (real-time), or `Ex05_TurnBased.unity` (turn-based) | Ex04, or Ex01 for turn-based |
+| 06 | `Ex06_UI.unity` and `Ex06_MainMenu.unity` | Ex05 — **sandbox complete** |
 
 > [!note] Your own game starts in week 8
 > Weeks 1–7 in Unity are for the exercises. During weeks 3–7 your own game is designed on paper: written pitch, one-sheet, screen layout and ten-pager. You start building it in Unity in week 8.

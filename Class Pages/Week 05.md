@@ -41,7 +41,7 @@ Build a short level wider than the screen, with a following camera, camera bound
 
 Open the version for your section:
 
-- Ex 04 — Level — Unity *(tutorial coming)*
+- [Ex 04 — Level — Unity](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex04%20-%20Level.md)
 
 Worth 2 points: one for **Implementation** (it runs, and the feature works), one for the **Design decision** (a deliberate, defensible choice beyond the defaults). Due at the end of the class period. Late work earns the Implementation point only.
 
@@ -70,7 +70,7 @@ Run the matching tab of the course checklist before you submit. Every box on it 
 
 - Assignment: Screen layout
 - [Ten-Pager Template](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Templates/Ten-Pager%20Template.md)
-- Ex 04 — Level tutorial (coming)
+- [Ex 04 — Level tutorial](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex04%20-%20Level.md)
 - [Course schedule](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Schedule/GAME%201303%20Course%20Schedule.md)
 - Grade sheet
 - Submission checklist
