@@ -62,6 +62,7 @@ Shared gameplay systems live in a **Common Gameplay** layer that sits between Co
 - Card game or deckbuilder
 - Idle/clicker
 - Farming or life sim
+- Management / strategy sim (Hammurabi-style resource game, small town builder)
 - Point-and-click adventure
 - Arcade classics (Pong, Breakout, Asteroids), which make good first assignments
 - Fighting (1v1)
@@ -234,6 +235,7 @@ Shared gameplay systems live in a **Common Gameplay** layer that sits between Co
 | Turn-based tactics | Turn manager, grid pathfinding (A*), action points, unit stats SO |
 | Card game / deckbuilder | `CardSO`, deck/hand/discard piles, effect system (command pattern), turn phases |
 | Idle / clicker | Big-number formatting, generators SO, offline earnings, upgrade cost curve |
+| Management / strategy (Hammurabi, small town builder) | Turn or tick manager, `ResourceSO` economy, random event cards SO, end-of-turn report, UI Toolkit management screens with drag-and-drop (assign resources or place buildings), optional grid building placement. Full 4X (Civilization-style) is out of scope |
 | Farming / life sim | Day/time cycle, crop growth SO, tile-based soil, inventory, shop |
 | Point-and-click | Hotspots, item combine, cursor states, inventory bar |
 | FPS | Hitscan + projectile weapons, ammo/reload, recoil via Cinemachine, enemy AI |
