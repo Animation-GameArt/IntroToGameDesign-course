@@ -1,0 +1,49 @@
+# Rebuilds the Canvas HTML copies whenever a Markdown page changes.
+# The Markdown files are the source; "Canvas HTML/" is generated from them.
+name: Build Canvas HTML
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "Class Pages/**.md"
+      - "Exercises/**.md"
+      - "Schedule/**.md"
+      - "tools/build_canvas_html.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-canvas-html
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install the converter's libraries
+        run: pip install markdown-it-py beautifulsoup4
+
+      - name: Build the HTML
+        run: python tools/build_canvas_html.py
+
+      - name: Commit the HTML if it changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "Canvas HTML"
+          if git diff --cached --quiet; then
+            echo "No HTML changes."
+          else
+            git commit -m "Rebuild Canvas HTML"
+            git pull --rebase origin main
+            git push
+          fi
