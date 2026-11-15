@@ -73,9 +73,10 @@ You now have two scenes that look different, so you can tell which one is showin
 Unity can only load a scene while the game is running if the scene is in the Scene List.
 
 1. Choose **File → Build Profiles**.
-2. Select **Scene List**.
+2. Select **Open Scene List**.
 3. Drag `Ex01_Bootstrap` and `Ex01_SceneB` from the Project window into the list.
-4. Close the Build Profiles window.
+4. Remove SampleScene from the list by selecting it a hitting the backspace
+5. Close the Build Profiles window.
 
 ## Part 7 — Add a Scene Changer to each scene
 
