@@ -1,0 +1,179 @@
+<p><strong>Week 3 · checked off in lab</strong></p>
+<p>In this exercise a ball rolls down a ramp and collects coins. The coins add to a score, a text shows the score, and a key opens a door. None of these objects know about each other. They are connected only through two small assets: a <strong>variable</strong> and an <strong>event channel</strong>.</p>
+<h2>What you'll learn</h2>
+<ul>
+<li>How colliders, triggers and a Rigidbody make objects touch and react</li>
+<li>What a <strong>ScriptableObject</strong> asset is: data that lives in the Project window, outside any scene</li>
+<li>How a <strong>variable asset</strong> shares a value, such as the score, between objects</li>
+<li>How an <strong>event channel</strong> lets one object announce something and other objects react</li>
+<li>Why this keeps objects independent, so you can add, remove or swap them without breaking anything</li>
+</ul>
+<h2>Part 1 — Start the scene</h2>
+<ol>
+<li>Open <code>Ex01_Bootstrap</code> from <code>Assets/Scenes/Exercises</code>.</li>
+<li>Choose <strong>File → Save As…</strong> and save it in the same folder as <code>Ex02_Events</code>.</li>
+<li>In the Hierarchy, delete the <code>Scene Changer</code> object. You'll add a new one later.</li>
+</ol>
+<h2>Part 2 — Build the ramp and the ball</h2>
+<p><strong>The ramp</strong></p>
+<ol>
+<li>Choose <strong>GameObject → 2D Object → Sprites → Square</strong>. Name it <code>Ramp</code>.</li>
+<li>In the Inspector, set its <strong>Transform</strong>:
+<ul>
+<li>Position: <code>0, -1, 0</code></li>
+<li>Rotation: <code>0, 0, -10</code></li>
+<li>Scale: <code>10, 0.5, 1</code></li>
+</ul>
+</li>
+<li>Click <strong>Add Component</strong> and add a <strong>Box Collider 2D</strong>.</li>
+</ol>
+<p><strong>The ball</strong></p>
+<ol>
+<li>Choose <strong>GameObject → 2D Object → Sprites → Circle</strong>. Name it <code>Ball</code>.</li>
+<li>Set its Position to <code>-4, 2, 0</code>.</li>
+<li>Add a <strong>Circle Collider 2D</strong>.</li>
+<li>Add a <strong>Rigidbody 2D</strong>. This makes the ball fall and roll.</li>
+<li>At the top of the Inspector, open the <strong>Tag</strong> dropdown and choose <strong>Player</strong>.</li>
+</ol>
+<p>Press <strong>Play</strong>. The ball drops onto the ramp, rolls down it and falls off the end. Stop the game.</p>
+<h2>Part 3 — Add coins</h2>
+<ol>
+<li>Create another <strong>Circle</strong> sprite. Name it <code>Coin</code>.</li>
+<li>Set its Position to <code>-2, 0.1, 0</code> and its Scale to <code>0.5, 0.5, 1</code>.</li>
+<li>In the <strong>Sprite Renderer</strong>, change <strong>Color</strong> to yellow.</li>
+<li>Add a <strong>Circle Collider 2D</strong> and tick <strong>Is Trigger</strong>. A trigger notices when something touches it, but doesn't block it.</li>
+<li>Add the <strong>Collectible</strong> component. Leave its settings as they are.</li>
+<li>Select the coin and press <strong>Ctrl+D</strong> (<strong>Cmd+D</strong> on Mac) twice to make two copies. Set their Positions to:
+<ul>
+<li><code>0, -0.25, 0</code></li>
+<li><code>2, -0.6, 0</code></li>
+</ul>
+</li>
+</ol>
+<p>Press <strong>Play</strong>. Each coin disappears when the ball touches it. Nothing is counting them yet.</p>
+<blockquote>
+<p><strong>Why the ball can collect coins:</strong> the Collectible only reacts to objects tagged <strong>Player</strong>. That's why you set the ball's tag.</p>
+</blockquote>
+<h2>Part 4 — Create a Score variable</h2>
+<ol>
+<li>In the Project window, open <code>Assets/Scenes/Exercises</code> and create a folder named <code>Ex02_Data</code>.</li>
+<li>Open the folder. Right-click in it and choose <strong>Create → Collin Game → Variables → Int Variable</strong>. Name it <code>Score</code>.</li>
+<li>Select <code>Score</code>. In the Inspector, check that <strong>Initial Value</strong> is <code>0</code>.</li>
+<li>In the Hierarchy, select all three coins (click the first, then <strong>Shift</strong>-click the last).</li>
+<li>In the <strong>Collectible</strong> component, drag <code>Score</code> from the Project window into the <strong>Add To</strong> field. Leave <strong>Amount</strong> at <code>1</code>.</li>
+</ol>
+<p>Press <strong>Play</strong>, then click the <code>Score</code> asset in the Project window. The Inspector shows <strong>Current Value</strong> going up as the ball collects coins.</p>
+<p><code>Score</code> is not in the scene. It's an asset, like a sprite or a sound, that holds one number. Any object in any scene can use it.</p>
+<h2>Part 5 — Show the score</h2>
+<ol>
+<li>Choose <strong>GameObject → 3D Object → Text - TextMeshPro</strong>. Name it <code>Score Text</code>. If a dialog asks you to import TMP Essentials, click <strong>Import TMP Essentials</strong>. This only happens the first time TextMeshPro is used in a project. You don't need the examples.</li>
+<li>Set its Position to <code>0, 4, 0</code>. You may have to move the Main Camera to see the text.</li>
+<li>In the <strong>TextMeshPro</strong> component, set <strong>Font Size</strong> to <code>8</code> and set the <strong>Alignment</strong> to center (horizontal) and middle (vertical).</li>
+<li>Add the <strong>Variable Label</strong> component and set:
+<ul>
+<li><strong>Variable:</strong> drag in <code>Score</code></li>
+<li><strong>Format:</strong> <code>Score: {0}</code></li>
+</ul>
+</li>
+</ol>
+<p>Press <strong>Play</strong>. The text counts up as coins are collected.</p>
+<p>The coins don't know the text exists, and the text doesn't know the coins exist. Both only know <code>Score</code>. You could delete the text, or add a second one, and the coins would work exactly the same.</p>
+<h2>Part 6 — A key and a door</h2>
+<p>A variable shares a value. An <strong>event channel</strong> shares a moment: "this just happened."</p>
+<p><strong>The door</strong></p>
+<ol>
+<li>Create a <strong>Square</strong> sprite. Name it <code>Door</code>.</li>
+<li>Set its Position to <code>3.5, -0.4, 0</code> and its Scale to <code>0.5, 2, 1</code>. Give it any color.</li>
+<li>Add a <strong>Box Collider 2D</strong>.</li>
+</ol>
+<p>Press <strong>Play</strong>. The ball now stops at the door. Stop the game.</p>
+<p><strong>The event channel</strong></p>
+<ol>
+<li>In <code>Ex02_Data</code>, right-click and choose <strong>Create → Collin Game → Events → Void Event Channel</strong>. Name it <code>KeyCollected</code>.</li>
+</ol>
+<p><strong>The key</strong></p>
+<ol>
+<li>Select the last coin, the one at <code>2, -0.6, 0</code>. Rename it <code>Key</code> and give it a different color.</li>
+<li>In its <strong>Collectible</strong> component, drag <code>KeyCollected</code> into the <strong>Raise Event</strong> field.</li>
+</ol>
+<p><strong>Make the door listen</strong></p>
+<ol>
+<li>Select <code>Door</code> and add the <strong>Void Event Listener</strong> component.</li>
+<li>Drag <code>KeyCollected</code> into its <strong>Channel</strong> field.</li>
+<li>Under <strong>Response</strong>, click <strong>+</strong>.</li>
+<li>Drag the <code>Door</code> object from the Hierarchy into the empty object field.</li>
+<li>Open the function dropdown and choose <strong>GameObject → SetActive (bool)</strong>. Leave the checkbox <strong>unticked</strong>.</li>
+</ol>
+<p>Press <strong>Play</strong>. When the ball collects the key, the door disappears and the ball rolls on.</p>
+<p>The key announces "key collected" on the channel. The door listens to that channel and hides itself. The key doesn't know there is a door.</p>
+<blockquote>
+<p><strong>Try it by hand:</strong> press Play, quickly select <code>KeyCollected</code> in the Project window, and click <strong>Raise</strong> in the Inspector. The door opens even though the ball hasn't reached the key.</p>
+</blockquote>
+<h2>Part 7 — Restart, and reset the score</h2>
+<ol>
+<li>Add <code>Ex02_Events</code> to the Scene List (<strong>File → Build Profiles → Open Scene List</strong>, then drag the scene in or click <strong>Add Open Scenes</strong>).</li>
+<li>Create an empty GameObject named <code>Scene Changer</code> and add the <strong>Scene Changer</strong> component:
+<ul>
+<li><strong>Scene Name:</strong> <code>Ex02_Events</code></li>
+<li><strong>Load On Action:</strong> <code>Player/Jump</code></li>
+</ul>
+</li>
+<li>Press <strong>Play</strong>. Let the ball collect everything, then press <strong>Space</strong> to restart the scene.</li>
+</ol>
+<p>Watch the score. After the restart it keeps counting from where it was: 3, then 6. The scene started again, but <code>Score</code> lives outside the scene, so it kept its value. That's useful when a score should carry from level to level. Here, it should start again.</p>
+<ol start="4">
+<li>Create an empty GameObject named <code>Game Setup</code> and add the <strong>Variable Resetter</strong> component.</li>
+<li>Under <strong>Variables</strong>, click <strong>+</strong> and drag in <code>Score</code>.</li>
+<li>Press <strong>Play</strong> and restart with Space. The score now starts at 0 each time.</li>
+</ol>
+<h2>Part 8 — Experiment</h2>
+<ol>
+<li><strong>Worth more.</strong> Set one coin's <strong>Amount</strong> to <code>5</code>.</li>
+<li><strong>Two listeners.</strong> Add a second <code>Score Text</code> somewhere else with a different Format, such as <code>Coins: {0}</code>. Both update.</li>
+<li><strong>A second reaction.</strong> Make something else react to <code>KeyCollected</code>: add a <strong>Void Event Listener</strong> to the <code>Ramp</code>, and use its Response to hide another object or show a hidden one.</li>
+<li><strong>See the messages.</strong> Select <code>Score</code> and tick <strong>Log Changes</strong>. Select <code>KeyCollected</code> and tick <strong>Log When Raised</strong>. Play, and read the Console.</li>
+</ol>
+<h2>Check-off</h2>
+<p>Show your instructor:</p>
+<ul>
+<li>The ball rolls down the ramp and collects the coins.</li>
+<li>The score text counts up, and starts at 0 again after a restart.</li>
+<li>Collecting the key opens the door.</li>
+<li>You can explain what <code>Score</code> and <code>KeyCollected</code> are, and where they live.</li>
+<li>You can explain why the key doesn't need to know about the door.</li>
+</ul>
+<h2>If something goes wrong</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something goes wrong</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What you see</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The ball falls through the ramp</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The ramp needs a <strong>Box Collider 2D</strong>, and the ball needs a <strong>Circle Collider 2D</strong>.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The ball bounces off the coins</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Tick <strong>Is Trigger</strong> on each coin's Circle Collider 2D.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The coins don't disappear</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check that the ball's <strong>Tag</strong> is <strong>Player</strong> and that it has a <strong>Rigidbody 2D</strong>.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The score text doesn't change</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check that the coins' <strong>Add To</strong> field and the label's <strong>Variable</strong> field both hold <code>Score</code>.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The door doesn't open</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check that the key's <strong>Raise Event</strong> and the door's <strong>Channel</strong> both hold <code>KeyCollected</code>, and that the Response is set to <strong>GameObject → SetActive</strong> with the box unticked.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The text is huge or missing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check <strong>Font Size</strong> is <code>8</code> and Position is <code>0, 4, 0</code>.</td>
+</tr>
+</tbody>
+</table>

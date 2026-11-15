@@ -64,7 +64,7 @@ Run the matching tab of the course checklist before you submit. Every box on it 
 
 ## Next week
 
-**Pitch Day**, then **Ex 02 — Events.** Your pitch post is due in the Canvas Discussion **the day before class**. You present it live, from your post.
+**Pitch Day**, then **Ex 02 — Events.** Your pitch post is due in the Canvas Discussion by **11:59 PM the night before class**. You present it live, from your post.
 
 ## Links
 

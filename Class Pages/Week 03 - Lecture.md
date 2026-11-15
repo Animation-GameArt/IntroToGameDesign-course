@@ -12,7 +12,7 @@ tags:
 
 **Exercise:** Ex 02 — Events. Coins add to a score variable, a text shows it, and a key raises an event that opens a door.
 
-**Also due:** the pitch, posted to the Canvas Discussion the day before class and presented live. Approval, with any conditions, comes out of today.
+**Also due:** the pitch, posted to the Canvas Discussion by 11:59 PM the night before class and presented live. Approval, with any conditions, comes out of today.
 
 ## Lecture topics, expanded
 

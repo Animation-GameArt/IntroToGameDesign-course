@@ -1,0 +1,156 @@
+<p><strong>Week 2 · checked off in lab</strong></p>
+<p>In this exercise you get the course project running, set up your backup, and make two scenes that switch back and forth with a fade.</p>
+<h2>What you'll learn</h2>
+<ul>
+<li>How to get the course project and open it in Unity Hub</li>
+<li>How to save your own copy of a scene</li>
+<li>What the <strong>Scene List</strong> is, and why a scene must be in it</li>
+<li>How to add a component and set it up in the Inspector</li>
+<li>What the <strong>Bootstrapper</strong> does: it creates the course services before any scene loads, so you can press Play from any scene</li>
+</ul>
+<h2>Part 1 — Get the course project</h2>
+<ol>
+<li>Go to the course project's page on GitHub and open <strong>Releases</strong>.</li>
+<li>Download the latest project ZIP.</li>
+<li><strong>Unzip it fully</strong> to your laptop or SSD. Unity can't open a project from inside a ZIP.</li>
+<li>Rename the folder to your own project name, for example <code>GAME1303_YourName</code>.</li>
+<li>Open <strong>Unity Hub</strong>. Choose <strong>Add → Add project from disk</strong> and select your folder.</li>
+<li>Open the project. The first time takes several minutes while Unity builds its <code>Library</code> folder.</li>
+</ol>
+<blockquote>
+<p><strong>Check:</strong> the Console (Window → General → Console) shows no red error messages.</p>
+</blockquote>
+<h2>Part 2 — Set up your backup</h2>
+<p>Choose one, and tell your instructor which.</p>
+<ul>
+<li><strong>Unity Version Control:</strong> in Unity Hub, open your project's menu (⋯) and choose <strong>Use Unity Version Control</strong>, then <strong>Connect to Version Control</strong>. At the end of every work session, open <strong>Window → Unity Version Control</strong> in Unity, write a short comment, and check in.</li>
+<li><strong>SSD:</strong> work from your SSD. Once a week, copy the whole project folder to a second device at home. Don't keep the project in a cloud-synced folder such as OneDrive.</li>
+</ul>
+<h2>Part 3 — Look at the project folders</h2>
+<p>In the <strong>Project</strong> window, open <code>Assets</code>:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 3 — Look at the project folders</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Folder</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Whose</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The course</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Don't edit, move or rename anything in here</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Game</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Yours</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Everything for your own game goes here (from week 8)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Scenes/Exercises</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Yours</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Your saved copies of the exercise scenes</td>
+</tr>
+</tbody>
+</table>
+<h2>Part 4 — Make scene A</h2>
+<ol>
+<li>In the Project window, open <code>Assets/Scenes</code> and double-click <strong>SampleScene</strong>.</li>
+<li>Choose <strong>File → Save As…</strong> and save it in <code>Assets/Scenes/Exercises</code> as <code>Ex01_Bootstrap</code>.</li>
+<li>In the <strong>Hierarchy</strong>, select <strong>Main Camera</strong>.</li>
+<li>In the <strong>Inspector</strong>, find the <strong>Camera</strong> component, open <strong>Environment</strong>, and change the <strong>Background</strong> color to any color you like.</li>
+<li>Save the scene (<strong>Ctrl+S</strong>, or <strong>Cmd+S</strong> on Mac).</li>
+</ol>
+<h2>Part 5 — Make scene B</h2>
+<ol>
+<li>Choose <strong>File → Save As…</strong> again and save the scene in the same folder as <code>Ex01_SceneB</code>.</li>
+<li>Change the Main Camera's <strong>Background</strong> to a clearly different color.</li>
+<li>Save the scene.</li>
+</ol>
+<p>You now have two scenes that look different, so you can tell which one is showing.</p>
+<h2>Part 6 — Add both scenes to the Scene List</h2>
+<p>Unity can only load a scene while the game is running if the scene is in the Scene List.</p>
+<ol>
+<li>Choose <strong>File → Build Profiles</strong>.</li>
+<li>Select <strong>Open Scene List</strong>.</li>
+<li>Drag <code>Ex01_Bootstrap</code> and <code>Ex01_SceneB</code> from the Project window into the list.</li>
+<li>Remove <code>SampleScene</code> from the list: select it and press <strong>Backspace</strong> (<strong>Delete</strong> on Mac).</li>
+<li>Close the Build Profiles window.</li>
+</ol>
+<h2>Part 7 — Add a Scene Changer to each scene</h2>
+<p><strong>In <code>Ex01_SceneB</code></strong> (the scene you have open):</p>
+<ol>
+<li>In the Hierarchy, right-click and choose <strong>Create Empty</strong>. Name the new object <code>Scene Changer</code>.</li>
+<li>With it selected, click <strong>Add Component</strong> in the Inspector and search for <strong>Scene Changer</strong>. Add it.</li>
+<li>Set its fields:
+<ul>
+<li><strong>Scene Name:</strong> <code>Ex01_Bootstrap</code></li>
+<li><strong>Load After Seconds:</strong> <code>0</code></li>
+<li><strong>Load On Action:</strong> click the small circle at the right of the field and double-click <strong>Player/Jump</strong>.</li>
+</ul>
+</li>
+<li>Save the scene.</li>
+</ol>
+<p><strong>In <code>Ex01_Bootstrap</code>:</strong></p>
+<ol>
+<li>Open <code>Ex01_Bootstrap</code> from the Project window.</li>
+<li>Repeat steps 1–3, but set <strong>Scene Name</strong> to <code>Ex01_SceneB</code>.</li>
+<li>Save the scene.</li>
+</ol>
+<blockquote>
+<p><strong>Spelling matters.</strong> The Scene Name must match the scene's file name exactly, without <code>.unity</code>.</p>
+</blockquote>
+<h2>Part 8 — Play</h2>
+<ol>
+<li>Press <strong>Play</strong>.</li>
+<li>Click once in the <strong>Game</strong> view, then press <strong>Space</strong> (or the bottom face button on a gamepad). The screen fades out, the other scene loads, and the screen fades in.</li>
+<li>Press Space again to go back.</li>
+<li>While the game is running, look at the Hierarchy. Under <strong>DontDestroyOnLoad</strong> there is an object named <strong>[Course Services]</strong>. Select it: it has a <strong>Scene Loader</strong> and a <strong>Screen Fader</strong>.</li>
+<li>Stop the game. Open <code>Ex01_SceneB</code> and press Play from there. It works the same way.</li>
+</ol>
+<p>You never added [Course Services] to either scene. The <strong>Bootstrapper</strong> creates it when the game starts, before the first scene loads, and it stays alive when scenes change. That's why you can press Play from any scene.</p>
+<h2>Part 9 — Experiment</h2>
+<p>Try each of these, press Play, and watch what happens. Put each one back afterwards.</p>
+<ol>
+<li><strong>A timer.</strong> On one Scene Changer, set <strong>Load After Seconds</strong> to <code>3</code>. The scene now changes by itself after 3 seconds.</li>
+<li><strong>A wrong name.</strong> Change one <strong>Scene Name</strong> to <code>Ex01_SceneC</code>. Press Space, then read the red message in the Console. It tells you what's wrong and how to fix it.</li>
+<li><strong>A missing scene.</strong> Fix the name, then remove <code>Ex01_SceneB</code> from the Scene List (File → Build Profiles → Open Scene List, select it, press Backspace) and try again. Read the Console message, then add the scene back.</li>
+</ol>
+<p>Reading Console messages is how you'll find most problems this semester.</p>
+<h2>Check-off</h2>
+<p>Show your instructor:</p>
+<ul>
+<li>Your project opens with no red errors in the Console.</li>
+<li>Your backup is set up (Unity Version Control, or SSD plus a second copy at home).</li>
+<li><code>Ex01_Bootstrap</code> and <code>Ex01_SceneB</code> are saved in <code>Assets/Scenes/Exercises</code>.</li>
+<li>Pressing Space switches between the two scenes with a fade, starting from either scene.</li>
+<li>You can point to [Course Services] in the Hierarchy while the game runs, and say what creates it.</li>
+</ul>
+<h2>If something goes wrong</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something goes wrong</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What you see</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Nothing happens when you press Space</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Click in the Game view first. Check that <strong>Load On Action</strong> is set to <strong>Player/Jump</strong>.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">"can't find a scene named…" in the Console</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check the spelling of <strong>Scene Name</strong>, and check that the scene is in the Scene List.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The scene changes back straight away</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">That's the timer. Set <strong>Load After Seconds</strong> to <code>0</code>.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">You can't find <strong>Scene Changer</strong> in Add Component</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check the Console for red errors. Scripts don't appear until all errors are fixed.</td>
+</tr>
+</tbody>
+</table>

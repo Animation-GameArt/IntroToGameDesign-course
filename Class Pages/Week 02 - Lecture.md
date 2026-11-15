@@ -12,7 +12,7 @@ tags:
 
 **Exercise:** Ex 01 — Bootstrap. Download the course project, set up a backup, and switch between two scenes with a fade.
 
-**Also due:** the project setup check, done in person: the project opens, and the student can show how it's backed up. The pitch post is due the day before next class.
+**Also due:** the project setup check, done in person: the project opens, and the student can show how it's backed up. The pitch post is due by 11:59 PM the night before next class.
 
 ## Lecture topics, expanded
 

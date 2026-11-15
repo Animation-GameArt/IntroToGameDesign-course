@@ -24,7 +24,7 @@ Today you pitch your game to the room. Then we open up Unity's building blocks, 
 
 ## Before class
 
-- Your **pitch post is due in the Canvas Discussion the day before class.** You present from it, so there are no slides to make.
+- Your **pitch post is due in the Canvas Discussion by 11:59 PM the night before class.** You present from it, so there are no slides to make.
 - Practice your pitch out loud once. Aim for two minutes.
 
 ## Lecture topics
@@ -57,7 +57,7 @@ Worth 2 points: one for **Implementation** (it runs, and the feature works), one
 
 | What | When | Points |
 |---|---|---|
-| Pitch | Canvas Discussion, the day before class; presented in class | TBD |
+| Pitch | 11:59 PM the night before class, Canvas Discussion; presented in class | TBD |
 | Ex 02 — Events | end of class | 2 pts |
 
 Run the matching tab of the course checklist before you submit. Every box on it is a graded criterion.

@@ -1,0 +1,239 @@
+<p><strong>Week 4 · checked off in lab</strong></p>
+<p>In this exercise you replace the rolling ball with a character you control. You build a small level with platforms, then tune how the character feels to play. At the end you swap in a top-down controller to see a different style of movement.</p>
+<h2>What you'll learn</h2>
+<ul>
+<li>How a player controller turns input into movement</li>
+<li>What the <strong>Input Reader</strong> is, and why scripts ask it for input and not the keyboard</li>
+<li>What <strong>game feel</strong> is, and how a few numbers change it</li>
+<li>Three tricks most platformers use: <strong>coyote time</strong>, <strong>jump buffering</strong> and <strong>short hops</strong></li>
+<li>How a platformer controller and a top-down controller differ</li>
+</ul>
+<h2>Part 1 — Start the scene</h2>
+<ol>
+<li>Open <code>Ex02_Events</code> from <code>Assets/Scenes/Exercises</code>.</li>
+<li>Choose <strong>File → Save As…</strong> and save it in the same folder as <code>Ex03_Player</code>.</li>
+<li>Delete the <code>Ball</code>.</li>
+<li>Delete the <code>Scene Changer</code>. It restarts the scene when you press Space, and Space is about to become the jump button.</li>
+</ol>
+<h2>Part 2 — Rebuild the level</h2>
+<p><strong>The ground</strong></p>
+<ol>
+<li>Select <code>Ramp</code> and rename it <code>Ground</code>.</li>
+<li>Set its <strong>Transform</strong> to:
+<ul>
+<li>Position: <code>0, -1, 0</code></li>
+<li>Rotation: <code>0, 0, 0</code></li>
+<li>Scale: <code>18, 0.5, 1</code></li>
+</ul>
+</li>
+</ol>
+<p><strong>Walls</strong>, so the character can't leave the screen:</p>
+<ol>
+<li>Create a <strong>Square</strong> sprite named <code>Wall Left</code>. Position <code>-8.75, 2, 0</code>, Scale <code>0.5, 10, 1</code>. Add a <strong>Box Collider 2D</strong>.</li>
+<li>Duplicate it (<strong>Ctrl+D</strong>), name the copy <code>Wall Right</code>, and set its Position to <code>8.75, 2, 0</code>.</li>
+</ol>
+<p><strong>Platforms</strong></p>
+<ol>
+<li>Create a <strong>Square</strong> sprite named <code>Platform A</code>. Position <code>-3, 0.75, 0</code>, Scale <code>3, 0.5, 1</code>. Add a <strong>Box Collider 2D</strong>.</li>
+<li>Duplicate it, name the copy <code>Platform B</code>, and set its Position to <code>1.5, 2.5, 0</code>.</li>
+</ol>
+<p><strong>Move the pickups, door and text</strong></p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 2 — Rebuild the level</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Object</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Position</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Scale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Coin</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>-6, 0, 0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">unchanged</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Coin (1)</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>-3, 1.75, 0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">unchanged</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Key</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1.5, 3.5, 0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">unchanged</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Door</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>4.5, 3.25, 0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.5, 8, 1</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Score Text</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>-6, 4.25, 0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">unchanged</td>
+</tr>
+</tbody>
+</table>
+<p><strong>A treasure behind the door</strong></p>
+<ol>
+<li>Duplicate a coin and name the copy <code>Treasure</code>. Position <code>7, 0, 0</code>, Scale <code>1, 1, 1</code>.</li>
+<li>In its <strong>Collectible</strong> component, set <strong>Amount</strong> to <code>10</code>.</li>
+</ol>
+<h2>Part 3 — Create the player</h2>
+<ol>
+<li>Choose <strong>GameObject → 2D Object → Sprites → Capsule</strong>. Name it <code>Player</code>.</li>
+<li>Set its Position to <code>-7, 1, 0</code> and give it a color.</li>
+<li>Set its <strong>Tag</strong> to <strong>Player</strong>, so it can collect things.</li>
+<li>Add a <strong>Capsule Collider 2D</strong>.</li>
+<li>Add the <strong>Platformer Controller 2D</strong> component. A <strong>Rigidbody 2D</strong> is added with it.</li>
+<li>Look at the controller's <strong>Input</strong> field. It should already hold <code>InputReader</code>. If it's empty, drag <code>InputReader</code> in from <code>Assets/_Course/Core/Input</code>.</li>
+</ol>
+<p>Press <strong>Play</strong> and click in the Game view.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 3 — Create the player</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Action</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Keyboard</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Gamepad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Move</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>A / D</strong> or the <strong>arrow keys</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Left stick</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Jump</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Space</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Bottom face button</td>
+</tr>
+</tbody>
+</table>
+<p>Collect the coins, get the key from the top platform, and go through the door to the treasure.</p>
+<h2>Part 4 — Where the input comes from</h2>
+<p>The controller never checks the keyboard. It asks the <strong>Input Reader</strong>: "which way is Move pointing?" and "tell me when Jump is pressed."</p>
+<ol>
+<li>In the Project window, open <code>Assets/_Course/Core/Input</code> and double-click <code>InputSystem_Actions</code>.</li>
+<li>Select the <strong>Player</strong> action map, then the <strong>Move</strong> action. Its bindings include WASD, the arrow keys and the gamepad's left stick.</li>
+<li>Select <strong>Jump</strong>. Its bindings include Space and the gamepad's bottom button.</li>
+<li>Close the window without changing anything.</li>
+</ol>
+<p>Because the controller only knows "Move" and "Jump", it works with every device in that list. If a gamepad is available, plug it in and play. No settings need to change.</p>
+<h2>Part 5 — Tune the game feel</h2>
+<p><strong>Game feel</strong> is how the controls feel in your hands: heavy or light, sharp or slippery. It comes from a handful of numbers on the controller.</p>
+<p>Select <code>Player</code>, press <strong>Play</strong>, and change the values below while the game runs. Change one at a time, and put each back before trying the next.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 5 — Tune the game feel</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Setting</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Try</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What changes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Max Speed</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>3</code>, then <code>12</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">How fast the character runs</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Acceleration</strong> and <strong>Deceleration</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>10</code> each</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The character takes time to speed up and slides to a stop, like ice</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Acceleration</strong> and <strong>Deceleration</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>500</code> each</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The character starts and stops at once</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Air Control</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code>, then <code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">How much you can steer in mid-air</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Jump Height</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1.5</code>, then <code>5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">How high a full jump goes, in units</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Gravity Scale</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code>, then <code>6</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Floaty jumps, then fast and heavy ones</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Extra Air Jumps</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A double jump</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Values changed during Play are lost when you stop.</strong> To keep them: while still playing, click the <strong>⋮</strong> menu on the component and choose <strong>Copy Component</strong>. Stop the game, then choose <strong>⋮ → Paste Component Values</strong>.</p>
+</blockquote>
+<h3>Three tricks that make jumping feel fair</h3>
+<p>Players don't press buttons at exactly the right moment. These settings forgive small mistakes. Set each one to <code>0</code> to feel the game without it, then put it back.</p>
+<ol>
+<li><strong>Coyote Time</strong> (default <code>0.1</code>). Run off the edge of a platform and press Jump just after leaving it. With coyote time, the jump still works. Set it to <code>0</code> and the same press does nothing.</li>
+<li><strong>Jump Buffer</strong> (default <code>0.1</code>). Jump, and press Jump again just before landing. With a buffer, the character jumps again the moment it lands. Set it to <code>0</code> and the early press is ignored.</li>
+<li><strong>Short Hop Speed Kept</strong> (default <code>0.5</code>). Tap Jump quickly, then hold it down. A tap gives a low hop; a hold gives a full jump. Set it to <code>1</code> and every jump is the same height.</li>
+</ol>
+<p>When you've found values you like, copy them and paste them after stopping, as described above.</p>
+<h2>Part 6 — A top-down version</h2>
+<p>The same level, seen as if from above, with a different controller.</p>
+<ol>
+<li>Choose <strong>File → Save As…</strong> and save the scene as <code>Ex03_TopDown</code>.</li>
+<li>Select <code>Player</code>. On the <strong>Platformer Controller 2D</strong>, click <strong>⋮ → Remove Component</strong>.</li>
+<li>Add the <strong>Top Down Controller 2D</strong> component. Check that its <strong>Input</strong> field holds <code>InputReader</code>.</li>
+</ol>
+<p>Press <strong>Play</strong>. The character now moves in all four directions with <strong>W A S D</strong>, and there is no gravity or jumping. The ground, walls and platforms are now all just walls.</p>
+<ol start="4">
+<li>Change <strong>Facing</strong> to <strong>Rotate To Movement</strong> and play again. The character turns to point the way it moves.</li>
+<li>Move the coins, key and treasure to places that make sense for a top-down room.</li>
+</ol>
+<p>The pickups, the score, the key and the door all work exactly as before. Nothing about them had to change, because they never knew what kind of player was collecting them.</p>
+<h2>Check-off</h2>
+<p>Show your instructor:</p>
+<ul>
+<li>In <code>Ex03_Player</code>, the character runs, jumps, collects the coins and key, and reaches the treasure.</li>
+<li>You changed at least three movement settings from their defaults, and can say why.</li>
+<li>You can show what coyote time and jump buffering do by turning each one off.</li>
+<li>In <code>Ex03_TopDown</code>, the character moves in all directions and can still collect everything.</li>
+<li>You can explain what the Input Reader is for.</li>
+</ul>
+<h2>If something goes wrong</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something goes wrong</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What you see</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The scene restarts when you press Space</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Delete the <code>Scene Changer</code> object.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The character doesn't move</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Click in the Game view. Check that the controller's <strong>Input</strong> field holds <code>InputReader</code>.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The character falls through the ground</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player needs a <strong>Capsule Collider 2D</strong>, and the ground needs a <strong>Box Collider 2D</strong>.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The character can't jump</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check that <strong>Ground Layers</strong> is set to <strong>Everything</strong>, and that <strong>Jump Height</strong> isn't <code>0</code>.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The character can jump over the door</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check the door's Position and Scale against the table in Part 2.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A red message says "Input is empty"</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Drag <code>InputReader</code> from <code>Assets/_Course/Core/Input</code> into the controller's <strong>Input</strong> field.</td>
+</tr>
+</tbody>
+</table>
