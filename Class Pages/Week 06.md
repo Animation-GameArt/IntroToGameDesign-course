@@ -1,0 +1,76 @@
+---
+title: "Week 6 — Systems & Opponents"
+course: GAME 1303
+week: 6
+status: draft
+tags:
+  - game1303
+  - class-page
+---
+
+# Week 6 — Systems & Opponents
+
+**GAME 1303**
+
+A game has stakes when something can be lost. Today you add health, damage and an opponent, and choose whether your fight happens in real time or in turns.
+
+## This week at a glance
+
+| Block | Time | What happens |
+|---|---|---|
+| Lecture | 9:00 – 10:30 | Design topic + engine features |
+| Exercise | 10:30 – 11:30 | Ex 05 — Combat — 2 pts, submitted today |
+| Lab | 12:00 – 1:50 | Peer review of ten-pager drafts |
+
+## Before class
+
+- Bring your **ten-pager draft** today. You'll trade it with another student during lab.
+- Decide which version of today's exercise fits your game better: real-time or turn-based.
+
+## Lecture topics
+
+| Section | Topics |
+|---|---|
+| Unity 6.3 | Health, damage and respawning · Pickups, spawners and object pooling · State machines and simple enemy AI · Turn-based systems · Winning and losing |
+
+Details: [Lecture] Week 6
+
+## Exercise — Ex 05 — Combat
+
+Choose one. **Real-time:** a patrolling enemy, damage, a spawner and respawning. **Turn-based:** a turn manager, player and enemy turns, attacks, and winning and losing.
+
+Open the version for your section:
+
+- Ex 05 — Combat — Unity *(tutorial coming)*
+
+Worth 2 points: one for **Implementation** (it runs, and the feature works), one for the **Design decision** (a deliberate, defensible choice beyond the defaults). Due at the end of the class period. Late work earns the Implementation point only.
+
+**This week's design decision:** Make one deliberate difficulty choice, such as where an enemy patrols, how fast a spawner runs, or how much damage an attack does, and say what you want the player to feel.
+
+## Lab goals
+
+- Trade ten-pager drafts with another student and review theirs against the template.
+- Give two specific notes: one thing that's clear, and one thing you couldn't picture.
+- Check your own page 10. Do the course scripts you listed cover your mechanics?
+
+## Due this week
+
+| What | When | Points |
+|---|---|---|
+| Ex 05 — Combat | end of class | 2 pts |
+| Ten-pager draft | in class, for peer review | TBD |
+
+Run the matching tab of the course checklist before you submit. Every box on it is a graded criterion.
+
+## Next week
+
+**Ex 06 — UI.** Menus, a pause screen and a HUD finish the sandbox game. The **final ten-pager** is due next week.
+
+## Links
+
+- Assignment: Ten-pager draft
+- [Ten-Pager Template](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Templates/Ten-Pager%20Template.md)
+- Ex 05 — Combat tutorial (coming)
+- [Course schedule](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Schedule/GAME%201303%20Course%20Schedule.md)
+- Grade sheet
+- Submission checklist
