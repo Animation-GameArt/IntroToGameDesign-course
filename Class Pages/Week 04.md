@@ -31,7 +31,7 @@ Two games can have the same jump and feel nothing alike. Today you put a charact
 
 | Section | Topics |
 |---|---|
-| Unity 6.3 | The Input System: actions, bindings and the Input Reader · Game feel: acceleration, jump arcs and gravity · Coyote time, jump buffering and short hops · Writing a one-sheet · Drawing screen layouts |
+| Unity 6.3 | The Input System: actions, bindings and the Input Reader · Game feel: acceleration, jump arcs and gravity · Coyote time, jump buffering and short hops |
 
 Details: [Lecture] Week 4
 

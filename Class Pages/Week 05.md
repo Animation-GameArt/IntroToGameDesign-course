@@ -31,7 +31,7 @@ A level is a lesson plan the player doesn't know they're following. Today you bu
 
 | Section | Topics |
 |---|---|
-| Unity 6.3 | Level design: pacing, and teach, test, twist · Hazards and checkpoints · Tilemaps: palettes, layers and colliders · Cinemachine: follow, dead zones and bounds · Writing a ten-pager |
+| Unity 6.3 | Level design: pacing, and teach, test, twist · Hazards and checkpoints · Tilemaps: palettes, layers and colliders · Cinemachine: follow, dead zones and bounds |
 
 Details: [Lecture] Week 5
 

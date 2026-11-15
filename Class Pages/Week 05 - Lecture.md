@@ -12,7 +12,7 @@ tags:
 
 **Exercise:** Ex 04 — Level. A level wider than the screen, a following camera with bounds, hazards and checkpoints.
 
-**Also due:** the screen layouts, in Canvas by 11:59 PM: sketches of the title screen, HUD, pause menu and win or lose screen. The ten-pager is introduced today, with a draft due next week.
+**Also due:** the screen layouts, in Canvas by 11:59 PM: sketches of the title screen, HUD, pause menu and win or lose screen. The ten-pager draft is due next week; read the assignment together from the page's Next week section.
 
 ## Lecture topics, expanded
 
@@ -22,7 +22,7 @@ tags:
 
 **Tilemaps.** A Tilemap paints a level onto a grid from a palette of tiles. Cover the palette, painting and erasing, and separate Tilemaps for ground, background and hazards. Add a Tilemap Collider so the ground is solid, and show Rule Tiles choosing the right edge and corner pieces automatically. Because the character's jump height is in units and the grid is in units, students can design gaps and ledges by counting tiles.
 
-**Cameras with Cinemachine.** Once the level is wider than the screen, the camera becomes part of the design. A Cinemachine camera follows the player with a **dead zone**, so small movements don't shake the view, and stays inside **bounds**, so it never shows past the level's edge. What the camera shows decides what's fair: a hazard the player couldn't see coming isn't a challenge. Finish by walking the ten-pager template, which expands the one-sheet into ten sections.
+**Cameras with Cinemachine.** Once the level is wider than the screen, the camera becomes part of the design. A Cinemachine camera follows the player with a **dead zone**, so small movements don't shake the view, and stays inside **bounds**, so it never shows past the level's edge. What the camera shows decides what's fair: a hazard the player couldn't see coming isn't a challenge.
 
 ## Connecting it forward
 
