@@ -3,7 +3,7 @@ title: Unity Course Script Library — Research & Planning
 created: 2026-11-02
 status: planning
 course: GAME 1303
-unity: 6000.5+
+unity: 6000.3.10f1 (Unity 6.3 LTS)
 tags:
   - unity
   - gamedev
@@ -15,7 +15,7 @@ tags:
 # Unity Course Script Library — Research & Planning
 
 > [!abstract] Goal
-> A shared set of basic scripts covering most game types, for use in college game courses. Targets **Unity 6000.5+** and uses the **Input System**, **UI Toolkit**, **ScriptableObjects**, **Cinemachine**, **TextMeshPro**, **Timeline** and **Tilemaps**. This note covers research and planning only. No code yet.
+> A shared set of basic scripts covering most game types, for use in college game courses. Targets **Unity 6000.3.10f1 (Unity 6.3 LTS)** and uses the **Input System**, **UI Toolkit**, **ScriptableObjects**, **Cinemachine**, **TextMeshPro**, **Timeline** and **Tilemaps**. This note covers research and planning only. No code yet.
 
 ---
 
@@ -38,7 +38,7 @@ Shared gameplay systems live in a **Common Gameplay** layer that sits between Co
 > [!warning] Use URP for everything
 > The Built-In Render Pipeline is officially deprecated as of Unity 6.5. 2D lights and shadows also require URP.
 
-- **Version strategy.** 6.5 is a *Supported* release that builds on 6.3 LTS and progresses toward **6.7 LTS**. Lock one version per semester, and plan to move to 6.7 LTS when it ships.
+- **Version strategy.** The course uses **Unity 6000.3.10f1 (6.3 LTS)** and stays on it until there is a significant update; 6.7 LTS is the next likely move. The 6.5 notes in this section apply only once the course moves past 6.3. On 6.3 the low-level 2D physics API still has its old name, and the 6.5 2D additions aren't available.
 - **2D physics.** `LowLevelPhysics2D` was renamed to **PhysicsCore2D** and moved to the `Unity.U2D.Physics` namespace. Student-facing scripts stay on standard `Rigidbody2D`, because PhysicsCore2D is still changing and is aimed at large-scale simulation.
 - **2D additions in 6.5:** custom 2D lights and shadows, a 2D Profiler module, and a sprite blend shape API.
 - **TextMeshPro.** Still maintained: 6.5 added new TMP callbacks for custom asset loading. TMP is now part of the uGUI package.
@@ -288,7 +288,7 @@ Diegetic text uses the first one. It's still the best tool for many small in-wor
 - **Masking:** no arbitrary-shape masking. `overflow: hidden` always clips to a rectangle, so rounded clipping doesn't work yet. Unity says world-space masking is planned.
 - **Colliders:** the auto-generated panel collider can conflict with `XRGrabInteractable`. Set **Collider Is Trigger** on the panel, or assign interactable colliders manually.
 - **Editor testing:** when testing over Meta Horizon Link in the Editor, input only reaches UI Toolkit while the **Game view has focus**. Warn students about this one.
-- **Scroll views in VR:** grab-and-drag scrolling needs 6000.3.8f1, 6000.4.0b9, 6000.5.0a7 or newer. Our 6000.5+ baseline covers it.
+- **Scroll views in VR:** grab-and-drag scrolling needs 6000.3.8f1, 6000.4.0b9, 6000.5.0a7 or newer. The course version, 6000.3.10f1, covers it.
 
 ### Teaching vocabulary
 - **Non-diegetic:** screen HUD, not part of the world.
@@ -345,7 +345,7 @@ Ren'Py is a separate Python engine, so it can't be used inside Unity.
   - Option B: separate template projects per genre.
 - [ ] **Architecture style.** Strict SO event channels (decoupled, inspector-driven, good for teaching), a few singletons for simplicity (`AudioManager`, `GameManager`), or a hybrid.
 - [ ] **Dialogue tool.** Standardize on one, Yarn Spinner or Ink, so the Narrative module isn't built twice.
-- [ ] **Unity version lock** per semester; plan the move to 6.7 LTS.
+- [x] **Unity version:** 6000.3.10f1 (6.3 LTS), kept until there is a significant update.
 - [ ] **Build order.** Students mostly build 2D, so:
   1. Core
   2. 2D module → Platformer, Top-down and Shooter kits

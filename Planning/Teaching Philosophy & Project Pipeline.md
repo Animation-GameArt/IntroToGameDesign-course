@@ -39,12 +39,12 @@ These came up in the current semester:
 2. **Exercises before games.** Weeks 1–7 of Unity time go to the exercises, in one shared sandbox game. Game production starts in week 8.
 3. **Paper before Unity.** Students pitch in week 3 so they have a goal, then design on paper in weeks 3–7. The design documents are complete before they build.
 4. **Layout before UI.** Students draw their screen layouts before the UI lecture, so they can see how UI Toolkit turns their own drawing into a working screen.
-5. **Exercises teach what every game needs.** Input, events, scenes, health and score, UI, winning and losing. Genre mechanics are delivered in kits after the pitch.
+5. **Exercises teach what every game needs.** Input, events, scenes, health and score, UI, winning and losing. Genre mechanics are delivered in kits after the pitch. Where an exercise has to choose a style of play, it offers a choice: Exercise 05 comes in a real-time and a turn-based version.
 6. **The core is frozen during the semester.** Core scripts change only to fix errors. New features and renames wait for the next semester's version.
 7. **Add, never replace.** Genre kits and game-specific scripts go in their own folders and depend on the core. Importing one can't break the exercises or another student's setup.
 8. **Clear ownership.** The instructor owns `Assets/_Course/`. The student owns everything else. Updates only touch the instructor's folder.
 9. **Games stay within the supported genres.** Students pitch games that fit the prepared genre kits, with only limited custom scripts for each game.
-10. **Few tools.** Students need Unity and a way to back up their work. They don't need Git or a GitHub account.
+10. **Few tools.** Students need Unity and a way to back up their work. They don't need Git or a GitHub account, and GitHub isn't used in the lab. Students who want to may use their own GitHub account and repository on their own computers.
 
 ---
 
@@ -65,7 +65,7 @@ Files flow in one direction: from the instructor's GitHub repository to the stud
 - **`IntroToGameDesign-template`** is the Unity project students start from. It contains the core scripts and the exercise scenes.
 - **`IntroToGameDesign-course`** holds the schedule, design-document templates, tutorials and planning notes.
 - Both are public. Anyone can download; only collaborators the instructor adds can change them. **Students have no write access and need no GitHub account.**
-- The instructor (with Claude) writes and tests changes here. Git is used on the instructor's side only.
+- The instructor (with Claude) writes and tests changes here. Git is the instructor's tool here; students only download.
 - Each tested version is published as a **Release** with a version number:
 
 | Published on the Release page | For whom |
@@ -111,7 +111,7 @@ To install an update: with the project open, double-click the `.unitypackage` (o
 
 ### Stage 4 — Unity Version Control or SSD: keeping the work safe
 
-Students choose one. Either way, the work is theirs and stays private to them.
+Students choose one. Whichever they choose, the work is theirs.
 
 **Option A — Unity Version Control (recommended)**
 
@@ -126,8 +126,13 @@ Students choose one. Either way, the work is theirs and stays private to them.
 - **The SSD is the working copy, not a backup.** If it's lost or fails, the project is gone.
 - Once a week, copy the project folder (without `Library`) to a second device at home. Don't keep or open the project in a cloud-synced folder such as OneDrive; Unity projects don't work well there.
 
+**Option C — the student's own GitHub repository (optional)**
+
+- Students with their own GitHub account may keep their project in their own repository, using their own computer and tools.
+- This isn't taught or supported in the lab.
+
 > [!note] Checking off exercises
-> Students' projects aren't visible to the instructor online in either option. Exercises and milestones are checked in person, in lab.
+> Students' projects aren't visible to the instructor online. Exercises and milestones are checked in person, in lab.
 
 ---
 
@@ -136,7 +141,7 @@ Students choose one. Either way, the work is theirs and stays private to them.
 | Purpose | When | Delivered as | Goes into |
 |---|---|---|---|
 | 1. A unified script set for the exercises | Week 1 | The template project ZIP | `_Course/Core`, `_Course/Exercises` |
-| 2. Starting scripts for each pitched game | After week 3 pitches; used from week 8 | Genre kit packages, prepared before the semester. Game-specific packages, written in weeks 4–7. | `_Course/Kits/<Genre>`, `_Course/Games/<GameName>` |
+| 2. Starting scripts for each pitched game | After week 3 pitches; used from week 8 | Genre kit packages, prepared before the semester. Game-specific packages and tutorials, written in weeks 3–4. | `_Course/Kits/<Genre>`, `_Course/Games/<GameName>` |
 | 3. Fixes, clarifications and added functions | Any time | Cumulative `Update` package, plus a refreshed project ZIP | `_Course` only |
 
 Most genres should be covered by kits prepared in advance, so few new scripts are needed after the pitches. Anything unique to one game stays in that game's own folder and never changes the core.
@@ -159,19 +164,20 @@ A useful kit or game-specific script from one semester can be promoted into the 
 
 | Weeks | In Unity | On paper | Scripts in use |
 |---|---|---|---|
-| 1–2 | Setup and first exercises | Three game ideas; pitch preparation | Core |
+| 1–2 | Setup (week 1), then the course project is downloaded and the first exercise starts (week 2) | Three game ideas; pitch preparation | Core |
 | 3 | Exercises | **Pitch** | Core |
 | 4–7 | Exercises (sandbox finished in week 7) | One-sheet, screen layout, ten-pager | Core |
 | 8–10 | The student's own game begins | Production backlog | Core + kit + game scripts |
 | 11–15 | Studio: build, playtest, fix | Playtest report | Core + kit + game scripts |
 | 16 | — | Post-mortem | — |
 
-Pitching in week 3 gives the instructor weeks 4–7 to prepare each game's scripts and tutorials, so they're ready when production starts in week 8.
+Students post three game ideas to a Canvas Discussion in week 1 and a written pitch, with any artwork, to a Canvas Discussion in week 3. The instructor prepares each game's scripts and tutorials in weeks 3–4, well before production starts in week 8.
 
 ---
 
 ## 7. To verify before the semester
 
+- [ ] **Software request.** Keep **Unity 6000.3.10f1** (Unity 6.3 LTS) and Unity Hub on the lab software request for the Spring semester. The course stays on this version until there is a significant update. Ask whether Git or GitHub Desktop can be added to the list.
 - [ ] **Unity Version Control cost for students.** Unity's pages disagree. One support article says cloud-hosted version control has no per-seat charge and the first 25 GB per organization each month is free; another mentions a free tier of three seats; the Hub page says enabling it starts a free trial of DevOps. Confirm what a student account gets and whether anything expires mid-semester.
 - [ ] **Ignored folders.** Confirm that connecting a project through the Hub excludes `Library`, `Temp` and `Logs` from check-ins. If it doesn't, ship an `ignore.conf` file in the template.
 - [ ] **Unity Version Control on lab computers.** Confirm students can sign in and check in from the lab.
