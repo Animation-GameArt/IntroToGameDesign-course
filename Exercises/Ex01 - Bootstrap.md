@@ -114,7 +114,7 @@ Try each of these, press Play, and watch what happens. Put each one back afterwa
 
 1. **A timer.** On one Scene Changer, set **Load After Seconds** to `3`. The scene now changes by itself after 3 seconds.
 2. **A wrong name.** Change one **Scene Name** to `Ex01_SceneC`. Press Space, then read the red message in the Console. It tells you what's wrong and how to fix it.
-3. **A missing scene.** Fix the name, then remove `Ex01_SceneB` from the Scene List (File → Build Profiles → Scene List) and try again. Read the Console message, then add the scene back.
+3. **A missing scene.** Fix the name, then remove (backspace) `Ex01_SceneB` from the Scene List (File → Build Profiles → Open Scene List) and try again. Read the Console message, then add the scene back.
 
 Reading Console messages is how you'll find most problems this semester.
 
