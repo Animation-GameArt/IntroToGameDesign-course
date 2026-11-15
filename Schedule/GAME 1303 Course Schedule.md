@@ -47,8 +47,8 @@ Each exercise is its own scene in `Assets/Scenes/Exercises/`. When an exercise b
 | 05 | `Ex05_Combat.unity` | Ex04 |
 | 06 | `Ex06_UI.unity` | Ex05 — **sandbox complete** |
 
-> [!tip] Starting your own game early
-> Once your pitch is approved (week 3), you may repeat each exercise directly in your own game's scenes as well. Your game and the sandbox share one project and one set of course scripts, so they will not conflict.
+> [!note] Your own game starts in week 8
+> Weeks 1–7 in Unity are for the exercises. During weeks 3–7 your own game is designed on paper: pitch, one-sheet, screen layout and ten-pager. You start building it in Unity in week 8.
 
 ---
 
@@ -61,8 +61,8 @@ Each exercise is its own scene in `Assets/Scenes/Exercises/`. When an exercise b
 | 1 | **L1 · Games, Genres & the Industry.** What makes a game, core loops, the genre map (2D / 3D / 2.5D / VR / AR / narrative), roles and studios, indie vs. AAA | **Ex00 · Setup:** install Unity 6000.5, create your project, import the course packages, choose a track, enter Play mode | **Three game ideas** (one-line pitches) |
 | 2 | **L2 · Pitching, Scope & Project Management.** How to pitch, scoping to 13 weeks, Git and GitHub, task boards | **Ex01 · Bootstrap:** Git repository, Bootstrapper, SceneLoader, first commit | **Repository link** |
 | 3 | **Pitch Day**, then **L3 · Unity Fundamentals.** GameObjects, components, prefabs, the script lifecycle, ScriptableObjects, Console and breakpoints | **Ex02 · Events:** event channels, SO variables, a collectible and a score counter | **Pitch presentation** |
-| 4 | **L4 · Input & Game Feel.** The Input System, control schemes, game feel (coyote time, jump buffering, acceleration). Writing a one-sheet | **Ex03 · Player:** InputReader and the player controller for your track | **One-sheet** |
-| 5 | **L5 · Level Design & Cameras.** Pacing, teaching through the level, Tilemaps (2D) or ProBuilder (3D), Cinemachine. Writing a ten-pager | **Ex04 · Level:** build a short level, camera follow and bounds, hazards, checkpoints | — |
+| 4 | **L4 · Input & Game Feel.** The Input System, control schemes, game feel (coyote time, jump buffering, acceleration). Writing a one-sheet. Drawing screen layouts | **Ex03 · Player:** InputReader and the player controller for your track | **One-sheet** |
+| 5 | **L5 · Level Design & Cameras.** Pacing, teaching through the level, Tilemaps (2D) or ProBuilder (3D), Cinemachine. Writing a ten-pager | **Ex04 · Level:** build a short level, camera follow and bounds, hazards, checkpoints | **Screen layout** (wireframes of your main screens) |
 | 6 | **L6 · Game Systems & AI.** Health and damage, pickups, object pooling, spawners, state machines, simple enemy AI | **Ex05 · Combat:** a patrolling enemy, damage, a spawner, respawning | **Ten-pager draft** (peer review) |
 | 7 | **L7 · UI & UX.** UI Toolkit screens and HUD, diegetic vs. screen UI, world-space text, menus and pause | **Ex06 · UI:** main menu, pause, HUD, damage popups. **Sandbox complete** | **Ten-pager (final)** |
 
@@ -97,6 +97,7 @@ Each exercise is its own scene in `Assets/Scenes/Exercises/`. When an exercise b
 | Milestone | Definition |
 |---|---|
 | **One-sheet** | A one-page summary of your game for an approval meeting. Template: `One-Sheet Template` |
+| **Screen layout** | Paper or digital wireframes of your game's main screens: title, HUD, pause, and win/lose. They show what the player sees and where. You'll use them for page 6 of the ten-pager and for the UI lecture in week 7 |
 | **Ten-pager** | A ten-page design document covering the whole game. Template: `Ten-Pager Template` |
 | **Production backlog** | Every feature from your ten-pager, broken into tasks on your task board, with a week assigned |
 | **First build** | Your game builds and runs outside the Editor and is uploaded to a private itch.io page |

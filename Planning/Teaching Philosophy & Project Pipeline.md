@@ -43,7 +43,8 @@ These came up in the current semester:
 6. **The core is frozen during the semester.** Core scripts change only to fix errors. New features and renames wait for the next semester's version.
 7. **Add, never replace.** Genre kits and game-specific scripts go in their own folders and depend on the core. Importing one can't break the exercises or another student's setup.
 8. **Clear ownership.** The instructor owns `Assets/_Course/`. The student owns everything else. Updates only touch the instructor's folder.
-9. **Few tools.** Students need Unity and a way to back up their work. They don't need Git or a GitHub account.
+9. **Games stay within the supported genres.** Students pitch games that fit the prepared genre kits, with only limited custom scripts for each game.
+10. **Few tools.** Students need Unity and a way to back up their work. They don't need Git or a GitHub account.
 
 ---
 
@@ -123,7 +124,7 @@ Students choose one. Either way, the work is theirs and stays private to them.
 
 - The project lives on the SSD and is opened from it.
 - **The SSD is the working copy, not a backup.** If it's lost or fails, the project is gone.
-- Once a week, copy the project folder (without `Library`) to a second place, such as OneDrive or another drive.
+- Once a week, copy the project folder (without `Library`) to a second device at home. Don't keep or open the project in a cloud-synced folder such as OneDrive; Unity projects don't work well there.
 
 > [!note] Checking off exercises
 > Students' projects aren't visible to the instructor online in either option. Exercises and milestones are checked in person, in lab.
@@ -173,10 +174,10 @@ Pitching in week 3 gives the instructor weeks 4–7 to prepare each game's scrip
 
 Proposed changes to `GAME 1303 Course Schedule`, not yet applied:
 
-- [ ] **Week 5 due item: Screen layout.** Paper or digital wireframes of the game's main screens (title, HUD, pause, win/lose). Week 5 currently has nothing due, and the layouts feed page 6 of the ten-pager and the week 7 UI lecture.
+- [x] **Week 5 due item: Screen layout.** *(Approved and applied.)* Paper or digital wireframes of the game's main screens (title, HUD, pause, win/lose). Week 5 currently has nothing due, and the layouts feed page 6 of the ten-pager and the week 7 UI lecture.
 - [ ] **Week 2 due item:** replace "Repository link" with a **project setup check** (project opens; Unity Version Control connected or SSD backup plan stated).
 - [ ] **Lecture 2 and Ex01:** replace Git and GitHub with Unity Version Control and backup habits.
-- [ ] **Remove the "Starting your own game early" tip.** Students don't build their game in Unity before week 8.
+- [x] **Remove the "Starting your own game early" tip.** *(Applied.)* Students don't build their game in Unity before week 8.
 - [ ] **Exercise 05 (Combat):** reframe around systems every game uses (health, score, spawning, winning and losing). Enemy combat moves to the kits.
 - [ ] **Update `GitHub Repository Setup`:** remove GitHub Classroom and "Use this template"; describe Releases with ZIP and `.unitypackage` files.
 
