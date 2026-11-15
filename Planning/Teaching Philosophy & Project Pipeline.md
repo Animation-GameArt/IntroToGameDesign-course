@@ -92,6 +92,7 @@ The first time the project opens, Unity builds its `Library` folder, which takes
 | Folder | Owner | Contents |
 |---|---|---|
 | `Assets/_Course/Core/` | Instructor | Core scripts. Fixed only for errors during the semester. |
+| `Assets/_Course/TwoD/` | Instructor | Scripts for 2D games, such as the player controllers. |
 | `Assets/_Course/Exercises/` | Instructor | Exercise scenes and prefabs. |
 | `Assets/_Course/Kits/<Genre>/` | Instructor | Genre kits, imported after the pitch. |
 | `Assets/_Course/Games/<GameName>/` | Instructor | Scripts written for one student's game. |
