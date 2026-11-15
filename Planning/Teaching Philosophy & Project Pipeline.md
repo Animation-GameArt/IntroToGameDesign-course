@@ -170,20 +170,7 @@ Pitching in week 3 gives the instructor weeks 4–7 to prepare each game's scrip
 
 ---
 
-## 7. Schedule changes this implies
-
-Proposed changes to `GAME 1303 Course Schedule`, not yet applied:
-
-- [x] **Week 5 due item: Screen layout.** *(Approved and applied.)* Paper or digital wireframes of the game's main screens (title, HUD, pause, win/lose). Week 5 currently has nothing due, and the layouts feed page 6 of the ten-pager and the week 7 UI lecture.
-- [ ] **Week 2 due item:** replace "Repository link" with a **project setup check** (project opens; Unity Version Control connected or SSD backup plan stated).
-- [ ] **Lecture 2 and Ex01:** replace Git and GitHub with Unity Version Control and backup habits.
-- [x] **Remove the "Starting your own game early" tip.** *(Applied.)* Students don't build their game in Unity before week 8.
-- [ ] **Exercise 05 (Combat):** reframe around systems every game uses (health, score, spawning, winning and losing). Enemy combat moves to the kits.
-- [ ] **Update `GitHub Repository Setup`:** remove GitHub Classroom and "Use this template"; describe Releases with ZIP and `.unitypackage` files.
-
----
-
-## 8. To verify before the semester
+## 7. To verify before the semester
 
 - [ ] **Unity Version Control cost for students.** Unity's pages disagree. One support article says cloud-hosted version control has no per-seat charge and the first 25 GB per organization each month is free; another mentions a free tier of three seats; the Hub page says enabling it starts a free trial of DevOps. Confirm what a student account gets and whether anything expires mid-semester.
 - [ ] **Ignored folders.** Confirm that connecting a project through the Hub excludes `Library`, `Temp` and `Logs` from check-ins. If it doesn't, ship an `ignore.conf` file in the template.
