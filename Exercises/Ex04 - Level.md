@@ -43,10 +43,14 @@ Press **Play** and walk off the right end of the ground. The player falls, touch
 
 **Make a tile**
 
-1. In `Ex04_Data`, right-click and choose **Create → 2D → Sprites → Square**. Name it `GroundTile`.
+A tile is made from a sprite **asset**: a file in the Project window. A sprite object in the Hierarchy won't work.
+
+1. In the **Project** window, open `Ex04_Data`. Right-click an empty part of the folder and choose **Create → 2D → Sprites → Square**. A new file appears in the folder. Name it `GroundTile`.
 2. Choose **Window → 2D → Tile Palette**.
 3. In the Tile Palette, open the palette dropdown and choose **Create New Palette**. Name it `Ex04 Palette` and save it in `Ex04_Data`.
-4. Drag `GroundTile` from the Project window into the empty palette. When asked where to save the tile, choose `Ex04_Data`.
+4. Drag `GroundTile` from the **Project** window into the empty palette. A dialog asks where to save the tile: choose `Ex04_Data`.
+
+> **Check:** `Ex04_Data` now holds three things: the `GroundTile` sprite, a `GroundTile` tile, and `Ex04 Palette`. If no dialog appeared in step 4, the tile wasn't made. Check that you dragged the file from the Project window.
 
 **Make the Tilemap**
 
@@ -57,7 +61,7 @@ Press **Play** and walk off the right end of the ground. The player falls, touch
 
 **Paint**
 
-1. In the Tile Palette, check that **Active Target** is `Ground Tiles`. Select the **Paint** tool (the brush) and click your tile.
+1. In the Tile Palette, check that **Active Target** is `Ground Tiles`. Select the **Paint** tool (the brush, or press **B**) and click your tile. When you move the mouse over the Scene view, you should see the tile itself under the cursor, not only an outline.
 2. In the Scene view, paint a row of tiles that continues the ground to the right, starting where `Ground` ends. The top of the tiles should be level with the top of `Ground`.
 3. Paint this layout, counting tiles from left to right:
 
@@ -85,7 +89,7 @@ Press **Play**. Run to the right. The small gap has a floor, so falling in costs
 
 1. In the Hierarchy, right-click `Grid` and choose **2D Object → Tilemap → Rectangular**. Name the new Tilemap `Hazard Tiles`.
 2. In its **Tilemap** component, set the **Color** to red.
-3. In the Tile Palette, change **Active Tilemap** to `Hazard Tiles`.
+3. In the Tile Palette, change **Active Target** to `Hazard Tiles`.
 4. In the middle of the spike run, paint 2 tiles **on top of** the ground, one row above it.
 5. Select `Hazard Tiles`. Add a **Tilemap Collider 2D** and tick **Is Trigger**.
 6. Add the **Kill Zone** component.
@@ -184,7 +188,8 @@ Show your instructor:
 |---|---|
 | The player falls through the tiles | `Ground Tiles` needs a **Tilemap Collider 2D**. Check that **Is Trigger** is not ticked on it. |
 | The tiles don't line up with `Ground` | Check that `Grid` is at Position `0, 0.25, 0`. |
-| Painting does nothing | Check **Active Tilemap** in the Tile Palette, and that the Paint tool and a tile are selected. |
+| Painting shows only an outline and places nothing | The palette has no real tile in it. `Ex04_Data` must hold a `GroundTile` sprite **and** a `GroundTile` tile. If it doesn't, delete `Ex04 Palette` and redo the "Make a tile" steps in Part 3. |
+| Painting does nothing | Check **Active Target** in the Tile Palette, and that the Paint tool and a tile are selected. |
 | The spikes are solid and don't hurt | Tick **Is Trigger** on the `Hazard Tiles` collider, and check it has a **Kill Zone**. |
 | The checkpoint doesn't turn green | Check that `Player` has a **Respawner**, and that the checkpoint's collider has **Is Trigger** ticked. |
 | The camera doesn't move | Check that the Cinemachine camera's **Tracking Target** is `Player`. |
