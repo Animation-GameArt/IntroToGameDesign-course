@@ -23,7 +23,7 @@ What is built, what is left, the order to build it in, and the decisions that bl
 | Class and Lecture pages, weeks 1–7 | Drafted |
 | Canvas HTML copies, rebuilt automatically | Working |
 | Ex 00 tutorial | Not started |
-| Genre map page for students | Not started. Needs the genre list decided |
+| Genre map page for students | Drafted (`Guides/Genre Map.md`) |
 | Genre kits and kit guides | Not started |
 | Scripts for weeks 8–10 (audio, juice, cutscenes, dialogue, saving, settings) | Not started |
 | Class and Lecture pages, weeks 8–16 | Not started |
@@ -42,8 +42,8 @@ What is built, what is left, the order to build it in, and the decisions that bl
 
 ### Phase 2 — What students need before they pitch
 
-- [ ] Decide the supported genre list (decision 1).
-- [ ] **Genre Map** page: for each genre, the core loop, example games, what the kit provides, a sensible scope for eight weeks, and what is out of scope.
+- [x] Decide the supported genre list (decision 1).
+- [x] **Genre Map** page, drafted in `Guides/Genre Map.md`: for each genre, the core loop, example games, what the kit provides, a sensible scope for eight weeks, and what is out of scope.
 - [ ] Assignment pages: Three game ideas, Pitch, One-sheet, Screen layout, Ten-pager draft and final.
 - [ ] A pitch format that names the genre from the map and lists the game's mechanics, so each pitch can be checked against its kit.
 
@@ -56,7 +56,15 @@ One kit at a time, in priority order. For each kit:
 3. The instructor follows the guide in Unity. That tests the scripts and the guide, and the result becomes the kit's sample.
 4. The kit is exported as its own `.unitypackage`: scripts, sample scene, prefabs and data.
 
-- [ ] Kit list and order (decision 1)
+**Build order** (fourteen kits; visual novel and dating sim share one):
+
+1. Small, and they settle the kit format: platformer, top-down adventure, turn-based battle, arcade classic
+2. Medium: top-down shooter, endless runner, grid puzzle, tower defense, management and strategy, visual novel with dating sim
+3. The 3D template project and 3D script module, then the 3D platformer kit
+4. Large: card game, farming and life sim, horror and stealth
+
+Kits aren't used until week 8 of the semester, so the later ones can be finished during weeks 1–7.
+
 - [ ] Sample art (decision 2)
 
 ### Phase 4 — Weeks 8–16
@@ -83,7 +91,7 @@ One kit at a time, in priority order. For each kit:
 
 | # | Decision | Recommendation | Blocks |
 |---|---|---|---|
-| 1 | Which genres are on the map for the first semester, and in what order the kits are built | Ten 2D genres. Three come almost entirely from the sandbox: platformer, top-down adventure, turn-based battle. Seven need new kits: top-down shooter, grid puzzle, tower defense, management and strategy, visual novel, endless runner, arcade classics. Everything else needs instructor approval or waits | Genre map, pitch format, all kits |
+| 1 | Which genres are on the map for the first semester | **Decided:** fifteen genres. 2D: arcade classic, platformer, top-down adventure, turn-based battle, endless runner, top-down shooter, grid puzzle, tower defense, management and strategy, card game, farming and life sim. Narrative: visual novel, dating sim (one kit). 3D: 3D platformer, horror and stealth. No VR or AR. Lectures and exercises stay 2D | — |
 | 2 | Art in kit samples | A CC0 art pack, so samples look like games and students see how real sprites are set up. Plain shapes stay in the exercises | Kit samples |
 | 3 | How each kit's sample is built | The instructor builds it by following the kit guide, as with the exercises | Instructor time per kit |
 | 4 | Dialogue tool | Yarn Spinner, as the one supported tool | Visual novel kit, Lecture 8 |

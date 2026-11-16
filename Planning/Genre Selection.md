@@ -1,7 +1,7 @@
 ---
 title: Genre Selection
 course: GAME 1303 — Intro to Game Design
-status: needs a decision
+status: decided 2026-11-16
 tags:
   - game1303
   - planning
@@ -10,6 +10,8 @@ tags:
 ---
 
 # Genre Selection
+
+**Decided.** The ticked genres are on the first-semester Genre Map (`Guides/Genre Map.md`). VR and AR are left out: they have their own projects in other courses.
 
 Tick every genre that students may pitch in the **first semester**. Each ticked genre gets a place on the student Genre Map and a kit. Anything left unticked isn't offered yet.
 

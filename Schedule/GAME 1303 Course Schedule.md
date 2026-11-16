@@ -13,7 +13,7 @@ tags:
 
 > [!info] How this course works
 > - **Weeks 1–10:** a lecture each week, paired with a lab.
-> - **Weeks 1–7:** each lab builds one step of a small **sandbox game** in your chosen track (2D or 3D). The sandbox uses the same course scripts you will use in your own game.
+> - **Weeks 1–7:** each lab builds one step of a small **sandbox game** in 2D. The sandbox uses the same course scripts you will use in your own game.
 > - **Weeks 11–15:** studio weeks, where you build, playtest and debug your own game.
 > - **Week 16:** post-mortem presentations.
 >
@@ -23,10 +23,21 @@ tags:
 
 ---
 
-## Tracks
+## Exercises, and your own game
 
-| Track | Sandbox game | Use it if your game is… |
-|---|---|---|
+Everyone builds the same **2D sandbox game** in the exercises, whatever kind of game they plan to make. What the exercises teach (events, variables, input, health, checkpoints, UI) is used in every genre.
+
+Your own game fits one of the genres on the **Genre Map**. In week 8 you import that genre's kit and start building.
+
+| Your game is… | You start it from… |
+|---|---|
+| 2D, or a visual novel | The course project you've used since week 2 |
+| 3D | A 3D version of the course project, starting in week 8 |
+
+> [!note] VR and AR
+> VR and AR games aren't part of this course. They have their own projects in other courses.
+
+---|---|---|
 | **2D** | A small "collect and escape" platformer / top-down game | 2D platformer, top-down, shooter, puzzle, tactics, visual novel, card game |
 | **3D** | A third-person collect-a-thon | 3D, 2.5D (isometric or side-scrolling with 3D art) |
 
@@ -60,11 +71,11 @@ Week 1 uses a practice project. From week 2 on, you work in the **course project
 
 | Wk | Lecture | Lab exercise (checked off in lab) | Due this week |
 |---|---|---|---|
-| 1 | **L1 · Games, Genres & the Industry.** What makes a game, core loops, the genre map (2D / 3D / 2.5D / VR / AR / narrative), roles and studios, indie vs. AAA | **Ex00 · Setup:** install Unity Hub and Unity 6000.3.10f1, make a practice project, tour the Editor, enter Play mode | **Three game ideas** (Canvas Discussion) |
-| 2 | **L2 · Pitching, Scope & Project Management.** How to pitch, scoping to 13 weeks, task boards, backing up your project (Unity Version Control or SSD) | **Ex01 · Bootstrap:** download the course project from GitHub, add it in Unity Hub, choose a track, set up your backup, Bootstrapper, SceneLoader | **Project setup check** |
+| 1 | **L1 · Games, Genres & the Industry.** What makes a game, core loops, the Genre Map, roles and studios, indie vs. AAA | **Ex00 · Setup:** install Unity Hub and Unity 6000.3.10f1, make a practice project, tour the Editor, enter Play mode | **Three game ideas** (Canvas Discussion) |
+| 2 | **L2 · Pitching, Scope & Project Management.** How to pitch, scoping to 13 weeks, task boards, backing up your project (Unity Version Control or SSD) | **Ex01 · Bootstrap:** download the course project from GitHub, add it in Unity Hub, set up your backup, Bootstrapper, SceneLoader | **Project setup check** |
 | 3 | **Pitch Day:** live pitches in class, presented from your Canvas Discussion post. Then **L3 · Unity Fundamentals.** GameObjects, components, prefabs, the script lifecycle, ScriptableObjects, Console and breakpoints | **Ex02 · Events:** event channels, SO variables, a collectible and a score counter | **Pitch** (Canvas Discussion post, due 11:59 PM the night before class; presented live in class) |
-| 4 | **L4 · Input & Game Feel.** The Input System, control schemes, game feel (coyote time, jump buffering, acceleration). | **Ex03 · Player:** InputReader and the player controller for your track | **One-sheet** |
-| 5 | **L5 · Level Design & Cameras.** Pacing, teaching through the level, Tilemaps (2D) or ProBuilder (3D), Cinemachine | **Ex04 · Level:** build a short level, camera follow and bounds, hazards, checkpoints | **Screen layout** (wireframes of your main screens) |
+| 4 | **L4 · Input & Game Feel.** The Input System, control schemes, game feel (coyote time, jump buffering, acceleration). | **Ex03 · Player:** the Input Reader, a platformer controller and a top-down controller | **One-sheet** |
+| 5 | **L5 · Level Design & Cameras.** Pacing, teaching through the level, Tilemaps, Cinemachine | **Ex04 · Level:** build a short level, camera follow and bounds, hazards, checkpoints | **Screen layout** (wireframes of your main screens) |
 | 6 | **L6 · Game Systems & AI.** Health and damage, pickups, object pooling, spawners, state machines, simple enemy AI, turn-based systems | **Ex05 · Combat.** Choose one. *Real-time:* a patrolling enemy, damage, a spawner, respawning. *Turn-based:* a turn manager, player and enemy turns, attacks and damage, winning and losing | **Ten-pager draft** (peer review) |
 | 7 | **L7 · UI & UX.** UI Toolkit screens and HUD, diegetic vs. screen UI, world-space text, menus and pause | **Ex06 · UI:** main menu, pause, HUD, damage popups. **Sandbox complete** | **Ten-pager (final)** |
 

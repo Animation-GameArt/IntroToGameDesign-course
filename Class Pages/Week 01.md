@@ -51,7 +51,7 @@ Worth 2 points: one for **Implementation** (it runs, and the feature works), one
 
 - Write a one-line core loop for three games you know well. It's practice for your own ideas.
 - Draft your three game ideas. One line each: who the player is, what they do, and what makes it fun.
-- Choose ideas that fit a genre on the genre map. You'll build one of them.
+- Choose ideas that fit a genre on the **Genre Map**. You'll build one of them.
 
 ## Due this week
 
@@ -69,6 +69,7 @@ Run the matching tab of the course checklist before you submit. Every box on it 
 ## Links
 
 - Discussion: Three game ideas
+- [Genre Map](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Genre%20Map.md)
 - [Course schedule](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Schedule/GAME%201303%20Course%20Schedule.md)
 - [Unity Hub download](https://unity.com/download)
 - Grade sheet

@@ -51,7 +51,7 @@ Worth 2 points: one for **Implementation** (it runs, and the feature works), one
 
 - Pick the one idea you'll pitch. Read the feedback on your Discussion post first.
 - Write your pitch post: a logline, the core loop, what makes it different, and any artwork you have.
-- Check the idea against the supported genres. If it doesn't fit one, talk to your instructor today.
+- Check the idea against the **Genre Map**. If it doesn't fit a genre there, talk to your instructor today.
 
 ## Due this week
 
@@ -71,6 +71,7 @@ Run the matching tab of the course checklist before you submit. Every box on it 
 - [Course project (latest release)](https://github.com/Animation-GameArt/IntroToGameDesign-template/releases/latest)
 - [Ex 01 — Bootstrap tutorial](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex01%20-%20Bootstrap.md)
 - Discussion: Pitch
+- [Genre Map](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Genre%20Map.md)
 - [Course schedule](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Schedule/GAME%201303%20Course%20Schedule.md)
 - Grade sheet
 - Submission checklist
