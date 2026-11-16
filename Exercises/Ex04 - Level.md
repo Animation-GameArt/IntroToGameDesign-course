@@ -57,7 +57,7 @@ Press **Play** and walk off the right end of the ground. The player falls, touch
 
 **Paint**
 
-1. In the Tile Palette, check that **Active Tilemap** is `Ground Tiles`. Select the **Paint** tool (the brush) and click your tile.
+1. In the Tile Palette, check that **Active Target** is `Ground Tiles`. Select the **Paint** tool (the brush) and click your tile.
 2. In the Scene view, paint a row of tiles that continues the ground to the right, starting where `Ground` ends. The top of the tiles should be level with the top of `Ground`.
 3. Paint this layout, counting tiles from left to right:
 
