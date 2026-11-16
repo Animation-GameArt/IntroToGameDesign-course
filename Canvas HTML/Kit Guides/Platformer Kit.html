@@ -1,0 +1,206 @@
+<p>The Platformer Kit is a starting point for side-view run-and-jump games. It adds a few scripts to the ones you used in the exercises, a set of ready-made prefabs, and a small sample game with two levels that you can play, take apart and build on.</p>
+<h2>What the kit covers</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">What the kit covers</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The kit does this</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The kit doesn't do this</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Running and jumping, with every setting from Exercise 03</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Wall jumps, dashes, ladders, swimming</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Stomping on enemies</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Shooting or melee attacks</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Walking and flying enemies</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Bosses</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Moving platforms, one-way platforms, springs</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Slopes</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Coins, hearts, keys and locks</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">An inventory</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Spikes, pits, checkpoints</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Lives, Game Over, a sequence of levels</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Saving progress between sessions</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A HUD, pause menu, main menu and credits</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+</tbody>
+</table>
+<p>If your pitch needs something in the right-hand column, it has to be one of your agreed custom scripts, or it has to be cut.</p>
+<h2>Install the kit</h2>
+<ol>
+<li>Download the Platformer Kit package from the course project's <strong>Releases</strong> page.</li>
+<li>With your project open in Unity, double-click the package and click <strong>Import</strong>.</li>
+<li>Open <strong>File → Build Profiles → Open Scene List</strong>. From <code>Assets/_Course/Kits/Platformer/Sample/Scenes</code>, add these four scenes, next to each other and in this order:
+<ol>
+<li><code>Platformer_Menu</code></li>
+<li><code>Platformer_Level1</code></li>
+<li><code>Platformer_Level2</code></li>
+<li><code>Platformer_Win</code></li>
+</ol>
+</li>
+<li>Open <code>Platformer_Menu</code> and press <strong>Play</strong>.</li>
+</ol>
+<p>Play the sample through once before you change anything.</p>
+<h2>What's in the sample</h2>
+<p>Open <code>Platformer_Level1</code> and click through the Hierarchy. Everything in the level is one of these prefabs, from <code>Sample/Prefabs</code>.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">What's in the sample</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Prefab</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What it is</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Settings worth changing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Player</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The character: controller, health, respawning, sprite animation</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Everything on <strong>Platformer Controller 2D</strong>; <strong>Max Health</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Coin</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Adds 1 to <code>Coins</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Amount</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Heart</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Gives back 1 health</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Heal</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Key</code> and <code>Lock</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The key raises <code>KeyCollected</code>; the lock hears it and disappears</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Goal Gem</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Raises <code>LevelCompleted</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Spikes</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Costs health on touch</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Damage</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Spring</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Launches the player</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Bounce Height</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>One-Way Platform</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Can be jumped through from below</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Moving Platform</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Carries the player along a path</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Stops</strong>, <strong>Speed</strong>, <strong>Wait At Stops</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Checkpoint</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Where the player returns after dying</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Walker</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Patrols; can be stomped; hurts from the side</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Patrol Speed</strong>, <strong>Chase Range</strong>, <strong>Bounce Height</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Flyer</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Flies along a path; hurts on touch</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Stops</strong>, <strong>Speed</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Level Systems</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The HUD, pause menu, Level Complete and Game Over screens, the rules and the pit</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+</tbody>
+</table>
+<p>Select a <code>Moving Platform</code> or a <code>Flyer</code> in the Scene view to see its path drawn as a line.</p>
+<h2>How the sample fits together</h2>
+<p>It's built the way the exercises were: objects announce things, and other objects listen.</p>
+<p><strong>Losing a life.</strong> When the player's Health runs out, it does two things. It subtracts 1 from the <code>Lives</code> variable, and the Respawner sends the player back to the last checkpoint. In <code>Level Systems</code>, <code>Game Rules</code> watches <code>Lives</code>. When it reaches 0, it raises the <code>GameOver</code> event, and the Game Over screen, which listens for that event, appears.</p>
+<p><strong>Finishing a level.</strong> The <code>Goal Gem</code> raises <code>LevelCompleted</code>. The Level Complete screen listens for it and appears. Its <strong>Next Level</strong> button loads whichever scene comes next in the Scene List, so the order of that list is the order of your levels.</p>
+<p><strong>Carrying things between levels.</strong> <code>Coins</code> and <code>Lives</code> are variable assets, so they keep their values when the scene changes. They are reset in the menu scene, which is why going back to the menu starts a new game.</p>
+<h2>Start your own game</h2>
+<ol>
+<li>In <code>Assets/_Game</code>, create a <code>Scenes</code> folder. Create a new 2D scene there for your first level.</li>
+<li>Drag in <code>Level Systems</code> and <code>Player</code> from the kit's <code>Sample/Prefabs</code>.</li>
+<li>Add a Cinemachine camera that follows the player, with bounds, as in Exercise 04.</li>
+<li>Create a Tilemap for the ground, as in Exercise 04. Open <strong>Window → 2D → Tile Palette</strong> and choose <code>Platformer Palette</code> to paint with the kit's tiles.</li>
+<li>Place prefabs to build the level.</li>
+<li>Copy the menu and win scenes into <code>Assets/_Game/Scenes</code>, and put <strong>your</strong> scenes in the Scene List in the order they should be played.</li>
+</ol>
+<h3>Changing a prefab</h3>
+<p>Don't edit the kit's prefabs: an update to the kit would undo your changes. Make a <strong>variant</strong>, which is your own version that still follows the original.</p>
+<ol>
+<li>Right-click the prefab in the Project window and choose <strong>Create → Prefab Variant</strong>.</li>
+<li>Move the variant into <code>Assets/_Game/Prefabs</code> and rename it.</li>
+<li>Edit the variant, and use it in your levels.</li>
+</ol>
+<h3>Using your own data</h3>
+<p>The sample's <code>Coins</code>, <code>Lives</code> and events are in the kit's <code>Sample/Data</code> folder, and you can use them as they are. If you want different starting values, such as 5 lives, create your own variables in <code>Assets/_Game/Data</code> and put them into your prefab variants.</p>
+<h2>Recipes</h2>
+<p><strong>Change the character's look.</strong> Make a variant of <code>Player</code>. Change the Sprite Renderer's sprite, and the <strong>Idle</strong>, <strong>Walk</strong> and <strong>In Air</strong> sprites on the Platformer Sprite Animator. The art pack has five characters in <code>Tiles/Characters</code>.</p>
+<p><strong>A double jump.</strong> On your <code>Player</code> variant, set <strong>Extra Air Jumps</strong> to <code>1</code>.</p>
+<p><strong>An enemy that takes two stomps.</strong> On a <code>Walker</code> variant, add a <strong>Health</strong> component with Max Health <code>2</code>, Invulnerable Time <code>0.3</code> and When Health Runs Out set to <strong>Deactivate</strong>.</p>
+<p><strong>A faster or wider-ranging platform.</strong> Change <strong>Speed</strong> and <strong>Stops</strong> on a <code>Moving Platform</code>. A second stop makes an L-shaped path, and <strong>Path Mode: Loop</strong> makes it circle.</p>
+<p><strong>A door that needs ten coins.</strong> Add an <strong>Int Variable Condition</strong> to a <code>Lock</code>: Variable <code>Coins</code>, Comparison <strong>At Least</strong>, Value <code>10</code>. Under <strong>On Became True</strong>, hide the lock with <strong>GameObject → SetActive</strong>, unticked.</p>
+<p><strong>Enemies worth points.</strong> On a <code>Walker</code> variant, set the Stompable Enemy's <strong>Add To</strong> to <code>Coins</code>, or to a score variable of your own.</p>
+<p><strong>A level with no lives.</strong> Remove the <strong>Int Variable Condition</strong> from <code>Game Rules</code> in a <code>Level Systems</code> variant. The player then respawns forever.</p>
+<p><strong>Another theme.</strong> The palette has sand and snow versions of the ground. Paint with those for a desert or winter level.</p>
+<h2>If something goes wrong</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something goes wrong</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What you see</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Next Level</strong> does nothing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check the Scene List. The next level must come right after the current one. The Console says so if it's missing.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player slides off moving platforms</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The platform must have a <strong>Waypoint Mover 2D</strong>, and the player must use the <strong>Platformer Controller 2D</strong>.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Stomping hurts the player</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The enemy needs <strong>Stompable Enemy 2D</strong> and must not also have <strong>Damage On Touch</strong>. Its collider must not be a trigger.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Thin lines show between tiles</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Create a <strong>Sprite Atlas</strong> (<strong>Create → 2D → Sprite Atlas</strong>), add the art pack's <code>Tiles</code> folder to it, and set its Filter Mode to <strong>Point</strong> and its Padding to <code>4</code>.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Lives don't reset for a new game</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Start from the menu scene. Its <code>Game Rules</code> object resets <code>Lives</code> and <code>Coins</code>.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The HUD is tiny or huge</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check that each UI Document's <strong>Panel Settings</strong> is <code>CoursePanelSettings</code>.</td>
+</tr>
+</tbody>
+</table>

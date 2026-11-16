@@ -58,7 +58,7 @@ One kit at a time, in priority order. For each kit:
 
 **Build order** (fourteen kits; visual novel and dating sim share one):
 
-1. Small, and they settle the kit format: platformer, top-down adventure, turn-based battle, arcade classic
+1. Small, and they settle the kit format: platformer (scripts and guides written; the sample needs building and testing), top-down adventure, turn-based battle, arcade classic
 2. Medium: top-down shooter, endless runner, grid puzzle, tower defense, management and strategy, visual novel with dating sim
 3. The 3D template project and 3D script module, then the 3D platformer kit
 4. Large: card game, farming and life sim, horror and stealth
@@ -89,6 +89,9 @@ Kits aren't used until week 8 of the semester, so the later ones can be finished
 - [ ] Topic pages (decision 6).
 
 ### Phase 5 — Release
+
+- [ ] Keep kits, art packs and exercise solutions out of the student project ZIP. They stay in the repository for development; a `.gitattributes` file with `export-ignore` lines leaves them out of GitHub's ZIP downloads, and each kit is exported as its own package.
+- [ ] Update Exercise 06 to use the shared `CoursePanelSettings` asset, once it exists.
 
 - [ ] Assign points to every exercise and assignment (decision 7).
 - [ ] Tag v1.0, publish the Release, export the update and kit packages.

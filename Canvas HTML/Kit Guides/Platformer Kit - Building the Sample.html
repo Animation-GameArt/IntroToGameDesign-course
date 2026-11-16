@@ -1,0 +1,587 @@
+<p><strong>For the instructor.</strong> These steps build the kit's sample game once, in the template project. Building it tests every kit script, and the result is what students import. Students read <strong>Platformer Kit</strong>, not this page.</p>
+<p>Everything goes in <code>Assets/_Course/Kits/Platformer/Sample/</code>. The art is in <code>Assets/_Course/Art/Kenney/kenney_pixel-platformer/Tiles</code>. Sprite names below, such as <code>tile_0151</code>, are files in that folder; names that start with <code>Characters/</code> are in its <code>Characters</code> subfolder.</p>
+<p>Collider sizes are starting points. Adjust each one until it fits the artwork.</p>
+<h2>Before you start</h2>
+<ol>
+<li>Pull the template project. It should be version 0.9.0 or later (<code>Assets/_Course/VERSION.txt</code>), with no red errors in the Console.</li>
+<li>In <code>Assets/_Course/Kits/Platformer</code>, create a folder <code>Sample</code>, and inside it the folders <code>Data</code>, <code>Prefabs</code>, <code>Scenes</code> and <code>Tiles</code>.</li>
+</ol>
+<h3>One-time setup: shared Panel Settings</h3>
+<p>All course UI should share one Panel Settings asset, so every screen scales the same way.</p>
+<ol>
+<li>In <code>Assets/_Course/Core/UI</code>, choose <strong>Create → UI Toolkit → Panel Settings Asset</strong>. Name it <code>CoursePanelSettings</code>.</li>
+<li>In the Inspector, set <strong>Scale Mode</strong> to <strong>Scale With Screen Size</strong>, and <strong>Reference Resolution</strong> to <code>1920</code> × <code>1080</code>.</li>
+<li>Check that <strong>Theme Style Sheet</strong> is filled in. If it's empty, create any UI Document once with <strong>GameObject → UI Toolkit → UI Document</strong>. That creates <code>Assets/UI Toolkit/UnityThemes/UnityDefaultRuntimeTheme</code>. Drag it into the field, then delete the UI Document.</li>
+</ol>
+<p>Use <code>CoursePanelSettings</code> as the <strong>Panel Settings</strong> of every UI Document below.</p>
+<h2>Part 1 — Data</h2>
+<p>In <code>Sample/Data</code>, create:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 1 — Data</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Asset</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Type</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Setting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Coins</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Int Variable</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Initial Value <code>0</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Lives</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Int Variable</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Initial Value <code>3</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>PlayerHealth</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Int Variable</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Initial Value <code>0</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>LevelCompleted</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Void Event Channel</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>GameOver</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Void Event Channel</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>KeyCollected</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Void Event Channel</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+</tbody>
+</table>
+<h2>Part 2 — The first scene</h2>
+<ol>
+<li>Choose <strong>File → New Scene</strong>, pick the 2D template, and save it in <code>Sample/Scenes</code> as <code>Platformer_Level1</code>.</li>
+<li>Select <code>Main Camera</code>. Set the Camera's <strong>Background</strong> to a sky color, such as a pale blue.</li>
+</ol>
+<p>Build each prefab below in this scene, drag it into <code>Sample/Prefabs</code>, then delete it from the scene unless a step says to keep it.</p>
+<h2>Part 3 — Prefabs</h2>
+<p>For every sprite, set <strong>Order in Layer</strong> as listed, so things draw in the right order: background <code>-10</code>, tiles <code>0</code>, pickups <code>3</code>, enemies <code>5</code>, player <code>10</code>.</p>
+<h3>Player</h3>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Player</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Step</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Setting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Sprite</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Characters/tile_0000</code>, Order in Layer <code>10</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Tag</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Player</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Capsule Collider 2D</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Size <code>0.8, 1.1</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Platformer Controller 2D</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Input</strong> fills itself in</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Health</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Max Health <code>3</code>, Invulnerable Time <code>1</code>, Health Variable <code>PlayerHealth</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Health → On Died</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>+</strong>, drag in the <code>Lives</code> asset, choose <strong>IntVariable → Add (int)</strong>, value <code>-1</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Respawner</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">defaults</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Health Popups</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">defaults</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Platformer Sprite Animator</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Idle <code>Characters/tile_0000</code>; Walk: <code>tile_0000</code>, <code>tile_0001</code>; In Air <code>tile_0001</code></td>
+</tr>
+</tbody>
+</table>
+<h3>Pickups</h3>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Pickups</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Prefab</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Sprite</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Collider (Is Trigger ticked)</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Component settings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Coin</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0151</code>, order <code>3</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Circle Collider 2D, Radius <code>0.3</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Collectible:</strong> Add To <code>Coins</code>, Amount <code>1</code>. <strong>Sprite Flipbook:</strong> Frames <code>tile_0151</code>, <code>tile_0152</code>; Frames Per Second <code>6</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Heart</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0044</code>, order <code>3</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Circle Collider 2D, Radius <code>0.35</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Collectible:</strong> Add To empty, Heal <code>1</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Key</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0027</code>, order <code>3</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Box Collider 2D</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Collectible:</strong> Add To empty, Raise Event <code>KeyCollected</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Goal Gem</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0067</code>, order <code>3</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Circle Collider 2D, Radius <code>0.4</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Trigger Zone:</strong> Only Once ticked, Raise On Enter <code>LevelCompleted</code></td>
+</tr>
+</tbody>
+</table>
+<h3>Obstacles</h3>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Obstacles</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Prefab</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Sprite</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Collider</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Component settings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Lock</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0028</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Box Collider 2D, solid</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Void Event Listener:</strong> Channel <code>KeyCollected</code>; Response: drag in the <code>Lock</code> itself, <strong>GameObject → SetActive (bool)</strong>, unticked</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Spikes</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0068</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Box Collider 2D, <strong>Is Trigger</strong>, Size <code>0.8, 0.4</code>, Offset <code>0, -0.3</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Damage On Touch:</strong> defaults</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Spring</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0107</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Box Collider 2D, <strong>Is Trigger</strong>, Size <code>0.8, 0.4</code>, Offset <code>0, -0.1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Bounce Pad 2D:</strong> Bounce Height <code>6</code>, Fired Sprite <code>tile_0108</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>One-Way Platform</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0146</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Box Collider 2D, solid, fitted to the plank, <strong>Used By Effector</strong> ticked</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Platform Effector 2D:</strong> Use One Way ticked</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Checkpoint</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0111</code>, Color mid-grey</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Box Collider 2D, <strong>Is Trigger</strong>, Size <code>1, 2</code>, Offset <code>0, 0.5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Checkpoint:</strong> Indicator is the <code>Checkpoint</code> itself, Active Color white. <strong>Sprite Flipbook:</strong> Frames <code>tile_0111</code>, <code>tile_0112</code>; Frames Per Second <code>4</code></td>
+</tr>
+</tbody>
+</table>
+<h3>Moving Platform</h3>
+<ol>
+<li>Create an empty GameObject named <code>Moving Platform</code>.</li>
+<li>Give it three child sprites: <code>tile_0001</code> at X <code>-1</code>, <code>tile_0002</code> at X <code>0</code>, <code>tile_0003</code> at X <code>1</code>.</li>
+<li>On the parent, add a <strong>Box Collider 2D</strong> with Size <code>3, 1</code>.</li>
+<li>On the parent, add <strong>Waypoint Mover 2D</strong>: Stops has one entry, <code>4, 0</code>; Speed <code>2</code>; Wait At Stops <code>0.5</code>. A Rigidbody 2D is added with it.</li>
+</ol>
+<h3>Enemies</h3>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Enemies</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Prefab</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Sprite</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Collider</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Component settings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Walker</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Characters/tile_0018</code>, order <code>5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Box Collider 2D, solid, Size <code>0.75, 0.6</code>, Offset <code>0, -0.3</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Patrol Enemy 2D:</strong> defaults. <strong>Stompable Enemy 2D:</strong> defaults. <strong>Sprite Flipbook:</strong> Frames <code>Characters/tile_0018</code>, <code>tile_0019</code>; Frames Per Second <code>4</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Flyer</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Characters/tile_0024</code>, order <code>5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Circle Collider 2D, <strong>Is Trigger</strong>, Radius <code>0.35</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Waypoint Mover 2D:</strong> Stops <code>4, 0</code>; Speed <code>2</code>; Wait At Stops <code>0</code>. <strong>Damage On Touch:</strong> defaults. <strong>Sprite Flipbook:</strong> Frames <code>Characters/tile_0024</code>, <code>tile_0025</code>, <code>tile_0026</code>, <code>tile_0025</code>; Frames Per Second <code>8</code></td>
+</tr>
+</tbody>
+</table>
+<p>The Walker uses <strong>Stompable Enemy 2D</strong> in place of Damage On Touch. Don't add both.</p>
+<h3>Level Systems</h3>
+<p>This prefab holds everything a level needs besides the level itself: the HUD, the menus, the rules and the pit. Create an empty GameObject named <code>Level Systems</code> at Position <code>0, 0, 0</code>, with these children.</p>
+<p><strong><code>Scene Changer</code></strong> — a <strong>Scene Changer</strong> with Scene Name left empty.</p>
+<p><strong><code>To Menu</code></strong> — a <strong>Scene Changer</strong> with Scene Name <code>Platformer_Menu</code>.</p>
+<p><strong><code>Game Rules</code></strong></p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Level Systems</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Component</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Settings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Int Variable Condition</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Variable <code>Lives</code>, Comparison <strong>At Most</strong>, Value <code>0</code>, Only Once ticked, Raise Event <code>GameOver</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Variable Resetter</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Variables: <code>Lives</code>, <code>Coins</code>. <strong>Untick</strong> Reset When Scene Starts, so lives and coins carry from level to level</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>Pit</code></strong> — Position <code>0, -12, 0</code>. A <strong>Box Collider 2D</strong> with Is Trigger ticked and Size <code>400, 2</code>, and a <strong>Kill Zone</strong>.</p>
+<p><strong><code>HUD</code></strong> — a UI Document with Source Asset <code>PlatformerHUD</code> (from <code>Kits/Platformer/UI</code>) and Sort Order <code>0</code>, plus a <strong>UI Variable Binder</strong>:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Level Systems (2)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Label Name</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Variable</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>health-label</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>PlayerHealth</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Health: {0}</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>lives-label</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Lives</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Lives: {0}</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>coins-label</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Coins</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Coins: {0}</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>Pause Menu</code></strong> — a UI Document with Source Asset <code>PauseMenu</code> (from <code>Core/UI</code>) and Sort Order <code>1</code>.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Level Systems (3)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Component</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Settings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Screen</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Hidden At Start ticked, Select When Shown <code>resume-button</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Pause Controller</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">fills itself in</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Button Events</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>resume-button</code> → <code>Pause Menu</code>, <strong>PauseController → Resume</strong>. <code>restart-button</code> → <code>Scene Changer</code>, <strong>SceneChanger → ReloadScene</strong>. <code>menu-button</code> → <code>To Menu</code>, <strong>SceneChanger → Load</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>Level Complete</code></strong> — a UI Document with Source Asset <code>LevelComplete</code> (from <code>Kits/Platformer/UI</code>) and Sort Order <code>2</code>.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Level Systems (4)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Component</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Settings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Screen</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Hidden At Start ticked, Select When Shown <code>next-button</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Variable Binder</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>coins-label</code>, <code>Coins</code>, <code>Coins: {0}</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Void Event Listener</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Channel <code>LevelCompleted</code>. Response 1: <code>Level Complete</code>, <strong>UIScreen → Show</strong>. Response 2: the <code>InputReader</code> asset, <strong>InputReader → DisablePlayerInput</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Button Events</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>next-button</code> → <code>Scene Changer</code>, <strong>SceneChanger → LoadNextScene</strong>. <code>menu-button</code> → <code>To Menu</code>, <strong>SceneChanger → Load</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>Game Over</code></strong> — a UI Document with Source Asset <code>GameOver</code> (from <code>Core/UI</code>) and Sort Order <code>3</code>.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Level Systems (5)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Component</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Settings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Screen</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Hidden At Start ticked, Select When Shown <code>try-again-button</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Variable Binder</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>score-label</code>, <code>Coins</code>, <code>Coins: {0}</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Void Event Listener</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Channel <code>GameOver</code>. Response 1: <code>Game Over</code>, <strong>UIScreen → Show</strong>. Response 2: the <code>InputReader</code> asset, <strong>InputReader → DisablePlayerInput</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Button Events</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>try-again-button</code> → two responses, in this order: <code>Game Rules</code>, <strong>VariableResetter → ResetAll</strong>; then <code>Scene Changer</code>, <strong>SceneChanger → ReloadScene</strong>. <code>menu-button</code> → <code>To Menu</code>, <strong>SceneChanger → Load</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Drag <code>Level Systems</code> into <code>Sample/Prefabs</code>, and <strong>keep</strong> one in the scene.</p>
+<h2>Part 4 — Tiles</h2>
+<ol>
+<li>Open <strong>Window → 2D → Tile Palette</strong> and create a new palette named <code>Platformer Palette</code>, saved in <code>Sample/Tiles</code>.</li>
+<li>In the Project window, open the art pack's <code>Tiles</code> folder. Select all the sprites directly in it (<code>tile_0000</code> to <code>tile_0179</code>, not the subfolders) and drag them into the palette. Save the tile assets in <code>Sample/Tiles</code>.</li>
+<li>In the scene, create a Tilemap (<strong>GameObject → 2D Object → Tilemap → Rectangular</strong>) and name it <code>Ground</code>. Add a <strong>Tilemap Collider 2D</strong> and a <strong>Composite Collider 2D</strong>, set the Rigidbody 2D's <strong>Body Type</strong> to <strong>Static</strong>, and set the Tilemap Collider's <strong>Composite Operation</strong> to <strong>Merge</strong>.</li>
+<li>Right-click <code>Grid</code> and add a second Tilemap named <code>Decor</code>, with no collider. Set its Tilemap Renderer's <strong>Order in Layer</strong> to <code>-1</code>.</li>
+</ol>
+<p>Tiles worth knowing:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 4 — Tiles</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Use</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Tiles</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Ground surface: left end, middle, right end</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0021</code>, <code>tile_0022</code>, <code>tile_0023</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Dirt under the surface</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0121</code>, <code>tile_0122</code>, <code>tile_0123</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Floating ledge: left, middle, right</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0001</code>, <code>tile_0002</code>, <code>tile_0003</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A single block</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0000</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Crate, brick</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0026</code>, <code>tile_0006</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Plants, signs, clouds (for <code>Decor</code>)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0124</code>–<code>tile_0129</code>, <code>tile_0084</code>–<code>tile_0088</code>, <code>tile_0153</code>–<code>tile_0156</code></td>
+</tr>
+</tbody>
+</table>
+<p>The pack also has sand (<code>tile_0040</code>–<code>tile_0063</code>) and snow (<code>tile_0080</code>–<code>tile_0103</code>) versions of the ground.</p>
+<h2>Part 5 — Level 1</h2>
+<ol>
+<li>Add the <code>Player</code> prefab near the left end of where the level will start.</li>
+<li>Select <code>Player</code> in the Hierarchy and choose <strong>GameObject → Cinemachine → Targeted Cameras → 2D Camera</strong>. Set the Lens <strong>Orthographic Size</strong> to <code>5</code>.</li>
+<li>Add a <code>Camera Bounds</code> object with a trigger Box Collider 2D that covers the level, and give the Cinemachine camera a <strong>Cinemachine Confiner 2D</strong> that uses it, as in Exercise 04.</li>
+<li>Paint and place the level. Each beat introduces one thing:</li>
+</ol>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 5 — Level 1</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Beat</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What to build</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What it shows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">1</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Flat ground with three <code>Coin</code>s</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Collecting</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">2</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A two-tile gap with a coin above it</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Jumping</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">3</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A flat stretch with a <code>Walker</code>, boxed in by a block at each end</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Stomping</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">4</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A <code>Checkpoint</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Checkpoints</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">5</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A wide gap with a <code>Moving Platform</code> crossing it</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Moving platforms</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">6</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A <code>Spring</code> up to a high ledge that holds the <code>Key</code>, with two <code>One-Way Platform</code>s as steps</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Springs, one-way platforms, the key</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">7</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A <code>Lock</code> block in a wall of ground tiles, blocking the way on</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Key and lock</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">8</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A <code>Heart</code>, then two <code>Spikes</code>, then a gap with a <code>Flyer</code> crossing it</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Health, hazards, a flying enemy</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">9</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The <code>Goal Gem</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Finishing the level</td>
+</tr>
+</tbody>
+</table>
+<ol start="5">
+<li>Decorate with the <code>Decor</code> Tilemap.</li>
+<li>Save the scene.</li>
+</ol>
+<h2>Part 6 — Level 2</h2>
+<ol>
+<li>With <code>Platformer_Level1</code> open, choose <strong>File → Save As…</strong> and save it as <code>Platformer_Level2</code>.</li>
+<li>Repaint it as a shorter, harder level. Use the same prefabs in new combinations, such as a Walker on a Moving Platform, or Spikes under a row of One-Way Platforms.</li>
+</ol>
+<h2>Part 7 — Menu scene</h2>
+<ol>
+<li>Create a new 2D scene and save it as <code>Platformer_Menu</code>.</li>
+<li>Create these objects:</li>
+</ol>
+<p><strong><code>Main Menu</code></strong> — a UI Document with Source Asset <code>PlatformerMenu</code> (from <code>Kits/Platformer/UI</code>).</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 7 — Menu scene</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Component</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Settings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Screen</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Select When Shown <code>play-button</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Scene Changer</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Scene Name <code>Platformer_Level1</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Button Events</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>play-button</code> → <code>Main Menu</code>, <strong>SceneChanger → Load</strong>. <code>credits-button</code> → <code>Credits</code>, <strong>UIScreen → Show</strong>. <code>quit-button</code> → <code>Main Menu</code>, <strong>SceneChanger → QuitGame</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>Credits</code></strong> — a UI Document with Source Asset <code>Credits</code> (from <code>Core/UI</code>) and Sort Order <code>1</code>.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 7 — Menu scene (2)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Component</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Settings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Screen</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Hidden At Start ticked, Select When Shown <code>back-button</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Credits</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Credit Files: <code>Course Credits</code> (from <code>Assets/_Course/Credits</code>)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Button Events</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>back-button</code> → <code>Credits</code>, <strong>UIScreen → Hide</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>Game Rules</code></strong> — a <strong>Variable Resetter</strong> with Variables <code>Lives</code> and <code>Coins</code>, and Reset When Scene Starts <strong>ticked</strong>. Every visit to the menu starts a new game.</p>
+<h2>Part 8 — Win scene</h2>
+<ol>
+<li>Create a new 2D scene and save it as <code>Platformer_Win</code>.</li>
+<li>Create these objects:</li>
+</ol>
+<p><strong><code>To Level 1</code></strong> — a <strong>Scene Changer</strong> with Scene Name <code>Platformer_Level1</code>.</p>
+<p><strong><code>To Menu</code></strong> — a <strong>Scene Changer</strong> with Scene Name <code>Platformer_Menu</code>.</p>
+<p><strong><code>Game Rules</code></strong> — a <strong>Variable Resetter</strong> with Variables <code>Lives</code> and <code>Coins</code>, and Reset When Scene Starts <strong>unticked</strong>.</p>
+<p><strong><code>Win Screen</code></strong> — a UI Document with Source Asset <code>EndScreen</code> (from <code>Core/UI</code>).</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 8 — Win scene</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Component</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Settings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Screen</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Select When Shown <code>play-again-button</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Variable Binder</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>score-label</code>, <code>Coins</code>, <code>Coins: {0}</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Button Events</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>play-again-button</code> → two responses, in this order: <code>Game Rules</code>, <strong>VariableResetter → ResetAll</strong>; then <code>To Level 1</code>, <strong>SceneChanger → Load</strong>. <code>menu-button</code> → <code>To Menu</code>, <strong>SceneChanger → Load</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>Part 9 — Scene List</h2>
+<p>Open <strong>File → Build Profiles → Open Scene List</strong> and add the four scenes, next to each other and in this order:</p>
+<ol>
+<li><code>Platformer_Menu</code></li>
+<li><code>Platformer_Level1</code></li>
+<li><code>Platformer_Level2</code></li>
+<li><code>Platformer_Win</code></li>
+</ol>
+<p>The Level Complete screen's <strong>Next Level</strong> button loads whichever scene comes next in the list.</p>
+<h2>Part 10 — Test</h2>
+<p>Start from <code>Platformer_Menu</code> and check each line.</p>
+<ul>
+<li>Play, Credits and Back work on the menu.</li>
+<li>The character walks, jumps and changes sprite when walking and in the air.</li>
+<li>Coins spin, are collected, and the HUD counts them.</li>
+<li>Landing on a Walker removes it and bounces the player. Touching its side costs health.</li>
+<li>The player rides the Moving Platform without sliding off, in both directions.</li>
+<li>The player can jump up through a One-Way Platform and stand on it.</li>
+<li>The Spring launches the player and shows its fired sprite for a moment.</li>
+<li>The Key removes the Lock.</li>
+<li>Spikes and the Flyer cost health. The Heart gives health back, and floating numbers appear.</li>
+<li>The Checkpoint turns from grey to white, and the player returns there after dying.</li>
+<li>Each death costs a life. At 0 lives the Game Over screen appears, and Try Again starts with 3 lives.</li>
+<li>Falling into the pit costs a life.</li>
+<li>The Goal Gem shows Level Complete, and Next Level loads Level 2, then the Win scene.</li>
+<li>Coins and lives carry from Level 1 to Level 2, and reset from the menu.</li>
+<li>Esc pauses, and Resume, Restart and Main Menu work.</li>
+</ul>
+<p>Note anything that fails, with the Console message if there is one.</p>
+<h2>Part 11 — Commit</h2>
+<p>Commit and push the <code>Sample</code> folder with its <code>.meta</code> files.</p>
+<h2>Later — Exporting the kit</h2>
+<p>When the kit is released, export it with <strong>Assets → Export Package</strong>. Include <code>Assets/_Course/Kits/Platformer</code> and <code>Assets/_Course/Art/Kenney/kenney_pixel-platformer</code>. Untick everything else that Unity adds as a dependency: students already have the Core and 2D scripts in their project, at the version their project was made from.</p>
