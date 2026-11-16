@@ -26,4 +26,4 @@ tags:
 
 ## Connecting it forward
 
-Health, score and the win and lose conditions exist after today, but the player can't see any of them except in the Inspector. Next week's HUD and menus put them on screen, using the screen layouts from Week 5. The peer-review notes from lab feed the final ten-pager, due next week, which closes pre-production.
+Health, score and the win and lose conditions exist after today, but the player can't see any of them except in the Inspector. Next week's HUD and menus put them on screen, using the screen layouts from Week 5. The peer-review notes from lab feed the final ten-pager, due the night before next class, which closes pre-production.
