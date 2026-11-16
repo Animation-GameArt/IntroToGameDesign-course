@@ -3,7 +3,7 @@ title: "Exercise 06 — UI"
 course: GAME 1303
 week: 7
 status: draft
-course_version: 0.7.0
+course_version: 0.8.0
 unity: 6000.3.10f1
 tags:
   - game1303
@@ -108,8 +108,30 @@ The goal still only raises `LevelCompleted`, exactly as it did in Exercise 04. Y
 | `play-button` | Drag in `Main Menu`, choose **SceneChanger → Load** |
 | `quit-button` | Drag in `Main Menu`, choose **SceneChanger → QuitGame** |
 
-6. Save the scene.
-7. Open the Scene List (**File → Build Profiles → Open Scene List**). Add `Ex06_MainMenu` and drag it to the **top** of the list. The first scene in the list is the one a built game starts with.
+**Add a credits screen**
+
+Every asset you didn't make yourself must be credited. The credits are plain text files, so they're easy to keep up to date.
+
+1. In the Project window, open `Assets/_Game` and double-click `Credits`. Replace the title and name with your own, and save.
+2. Create a **UI Document** named `Credits`. Set its **Source Asset** to `Credits` from `Assets/_Course/Core/UI`, and its **Sort Order** to `1`.
+3. Add a **UI Screen**. Tick **Hidden At Start** and set **Select When Shown** to `back-button`.
+4. Add the **UI Credits** component. Under **Credit Files**, click **+** twice. Drag in your `Credits` file from `Assets/_Game` first, then `Course Credits` from `Assets/_Course/Credits`.
+5. Add **UI Button Events** with one button:
+
+| Button Name | On Click |
+|---|---|
+| `back-button` | Drag in `Credits`, choose **UIScreen → Hide** |
+
+6. Select `Main Menu`. In its **UI Button Events**, add a third button:
+
+| Button Name | On Click |
+|---|---|
+| `credits-button` | Drag in `Credits`, choose **UIScreen → Show** |
+
+**Finish the menu scene**
+
+1. Save the scene.
+2. Open the Scene List (**File → Build Profiles → Open Scene List**). Add `Ex06_MainMenu` and drag it to the **top** of the list. The first scene in the list is the one a built game starts with.
 
 **Connect the Main Menu buttons in the level**
 
@@ -161,6 +183,7 @@ Show your instructor:
 - [ ] Esc pauses and un-pauses, and the pause menu's three buttons work.
 - [ ] Reaching the goal shows the win screen with the score.
 - [ ] The game starts at the main menu, and you can get from every screen to every other.
+- [ ] The Credits screen shows your name and the course credits.
 - [ ] Damage and healing show as floating numbers.
 - [ ] You changed the HUD's layout, and can say why it shows what it shows.
 
@@ -175,6 +198,7 @@ The sandbox game is complete. Every script in it is one you can use in your own 
 | Buttons don't react to clicks | Check the **Button Name** spelling in UI Button Events, and read the Console for a warning that names the missing button. |
 | The pause menu shows at the start | Tick **Hidden At Start** on its UI Screen. |
 | Esc does nothing | Check that the Pause Controller's **Input** field holds `InputReader`. Click in the Game view first. |
+| The Credits screen is empty | Check that **Credit Files** on the UI Credits component holds both text files. |
 | The pause menu is behind the HUD | Set the Pause Menu's **Sort Order** higher than the HUD's. |
 | After winning, the player can't move in the next round | This is fixed when a scene loads. Use **Play Again** or **Main Menu**, not the Editor's Play button, to continue. |
 | A menu can't be used with a gamepad | Set **Select When Shown** on its UI Screen to the name of its first button. |

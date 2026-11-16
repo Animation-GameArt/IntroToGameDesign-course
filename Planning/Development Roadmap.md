@@ -65,7 +65,20 @@ One kit at a time, in priority order. For each kit:
 
 Kits aren't used until week 8 of the semester, so the later ones can be finished during weeks 1–7.
 
-- [ ] Sample art (decision 2)
+**Kenney packs to try first** (to be confirmed as each kit is built):
+
+| Kit | Pack |
+|---|---|
+| Platformer | Pixel Platformer |
+| Top-down adventure | Tiny Dungeon, Tiny Town |
+| Top-down shooter | Pixel Shmup, or Space Shooter Redux |
+| Grid puzzle | Sokoban |
+| Tower defense | Tower Defense (top-down) |
+| Card game | Playing Cards Pack |
+| Menus and HUD | UI Pack |
+| Sound effects | Interface Sounds, Impact Sounds |
+| 3D kits | Platformer Kit, Prototype Textures |
+
 
 ### Phase 4 — Weeks 8–16
 
@@ -92,14 +105,14 @@ Kits aren't used until week 8 of the semester, so the later ones can be finished
 | # | Decision | Recommendation | Blocks |
 |---|---|---|---|
 | 1 | Which genres are on the map for the first semester | **Decided:** fifteen genres. 2D: arcade classic, platformer, top-down adventure, turn-based battle, endless runner, top-down shooter, grid puzzle, tower defense, management and strategy, card game, farming and life sim. Narrative: visual novel, dating sim (one kit). 3D: 3D platformer, horror and stealth. No VR or AR. Lectures and exercises stay 2D | — |
-| 2 | Art in kit samples | A CC0 art pack, so samples look like games and students see how real sprites are set up. Plain shapes stay in the exercises | Kit samples |
+| 2 | Art in kit samples | **Decided:** Kenney's CC0 packs, kept under `Assets/_Course/Art/Kenney/<Pack>/` with each pack's license file. Every pack is listed in `Course Credits`, which the game's Credits screen shows. Plain shapes stay in the exercises | — |
 | 3 | How each kit's sample is built | The instructor builds it by following the kit guide, as with the exercises | Instructor time per kit |
-| 4 | Dialogue tool | Yarn Spinner, as the one supported tool | Visual novel kit, Lecture 8 |
+| 4 | Dialogue tool | **Decided:** Yarn Spinner. To be installed from a package registry and not from a Git URL, so lab computers don't need Git | — |
 | 5 | Are there graded exercises in weeks 8–10? | Yes: three short exercises done inside the student's own game (feedback and audio; saving and a build; a bug list and profiling) | Weeks 8–10 pages, point totals |
 | 6 | What a Topic page is | Needs a sample from the current course | Topic pages |
 | 7 | Point scale, and the current checklist and grade sheet | Needs the current documents | Assignment pages, rubrics |
 | 8 | Limit on per-game custom scripts | A fixed number per student, such as two or three small scripts, agreed at pitch approval | Scope of Phase 6 |
-| 9 | Does Game & Simulation Group Project start from the same template project? | Yes. Kits need Core, so the simplest path is the same template with any kits imported | Kit packaging |
+| 9 | Does Game & Simulation Group Project start from the same template project? | **Decided:** yes. It uses the same template scripts, with kits imported as needed | — |
 
 ## Open risks
 
