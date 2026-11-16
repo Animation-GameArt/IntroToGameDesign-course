@@ -24,12 +24,16 @@
 <p>Press <strong>Play</strong> and walk off the right end of the ground. The player falls, touches the pit, and is back at the start.</p>
 <h2>Part 3 — Paint the ground with a Tilemap</h2>
 <p><strong>Make a tile</strong></p>
+<p>A tile is made from a sprite <strong>asset</strong>: a file in the Project window. A sprite object in the Hierarchy won't work.</p>
 <ol>
-<li>In <code>Ex04_Data</code>, right-click and choose <strong>Create → 2D → Sprites → Square</strong>. Name it <code>GroundTile</code>.</li>
+<li>In the <strong>Project</strong> window, open <code>Ex04_Data</code>. Right-click an empty part of the folder and choose <strong>Create → 2D → Sprites → Square</strong>. A new file appears in the folder. Name it <code>GroundTile</code>.</li>
 <li>Choose <strong>Window → 2D → Tile Palette</strong>.</li>
 <li>In the Tile Palette, open the palette dropdown and choose <strong>Create New Palette</strong>. Name it <code>Ex04 Palette</code> and save it in <code>Ex04_Data</code>.</li>
-<li>Drag <code>GroundTile</code> from the Project window into the empty palette. When asked where to save the tile, choose <code>Ex04_Data</code>.</li>
+<li>Drag <code>GroundTile</code> from the <strong>Project</strong> window into the empty palette. A dialog asks where to save the tile: choose <code>Ex04_Data</code>.</li>
 </ol>
+<blockquote>
+<p><strong>Check:</strong> <code>Ex04_Data</code> now holds three things: the <code>GroundTile</code> sprite, a <code>GroundTile</code> tile, and <code>Ex04 Palette</code>. If no dialog appeared in step 4, the tile wasn't made. Check that you dragged the file from the Project window.</p>
+</blockquote>
 <p><strong>Make the Tilemap</strong></p>
 <ol>
 <li>Choose <strong>GameObject → 2D Object → Tilemap → Rectangular</strong>. This creates a <code>Grid</code> with a <code>Tilemap</code> inside it.</li>
@@ -39,7 +43,7 @@
 </ol>
 <p><strong>Paint</strong></p>
 <ol>
-<li>In the Tile Palette, check that <strong>Active Target</strong> is <code>Ground Tiles</code>. Select the <strong>Paint</strong> tool (the brush) and click your tile.</li>
+<li>In the Tile Palette, check that <strong>Active Target</strong> is <code>Ground Tiles</code>. Select the <strong>Paint</strong> tool (the brush, or press <strong>B</strong>) and click your tile. When you move the mouse over the Scene view, you should see the tile itself under the cursor, not only an outline.</li>
 <li>In the Scene view, paint a row of tiles that continues the ground to the right, starting where <code>Ground</code> ends. The top of the tiles should be level with the top of <code>Ground</code>.</li>
 <li>Paint this layout, counting tiles from left to right:</li>
 </ol>
@@ -101,7 +105,7 @@
 <ol>
 <li>In the Hierarchy, right-click <code>Grid</code> and choose <strong>2D Object → Tilemap → Rectangular</strong>. Name the new Tilemap <code>Hazard Tiles</code>.</li>
 <li>In its <strong>Tilemap</strong> component, set the <strong>Color</strong> to red.</li>
-<li>In the Tile Palette, change <strong>Active Tilemap</strong> to <code>Hazard Tiles</code>.</li>
+<li>In the Tile Palette, change <strong>Active Target</strong> to <code>Hazard Tiles</code>.</li>
 <li>In the middle of the spike run, paint 2 tiles <strong>on top of</strong> the ground, one row above it.</li>
 <li>Select <code>Hazard Tiles</code>. Add a <strong>Tilemap Collider 2D</strong> and tick <strong>Is Trigger</strong>.</li>
 <li>Add the <strong>Kill Zone</strong> component.</li>
@@ -218,8 +222,12 @@
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check that <code>Grid</code> is at Position <code>0, 0.25, 0</code>.</td>
 </tr>
 <tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Painting shows only an outline and places nothing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The palette has no real tile in it. <code>Ex04_Data</code> must hold a <code>GroundTile</code> sprite <strong>and</strong> a <code>GroundTile</code> tile. If it doesn't, delete <code>Ex04 Palette</code> and redo the "Make a tile" steps in Part 3.</td>
+</tr>
+<tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Painting does nothing</td>
-<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check <strong>Active Tilemap</strong> in the Tile Palette, and that the Paint tool and a tile are selected.</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check <strong>Active Target</strong> in the Tile Palette, and that the Paint tool and a tile are selected.</td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The spikes are solid and don't hurt</td>
