@@ -24,7 +24,7 @@ A game has stakes when something can be lost. Today you add health, damage and a
 
 ## Before class
 
-- Bring your **ten-pager draft** today. You'll trade it with another student during lab.
+- Your **ten-pager draft is due by 11:59 PM the night before class**, in Canvas. You'll trade it with another student during lab.
 - Decide which version of today's exercise fits your game better: real-time or turn-based.
 
 ## Lecture topics
@@ -53,19 +53,20 @@ Worth 2 points: one for **Implementation** (it runs, and the feature works), one
 - Trade ten-pager drafts with another student and review theirs against the template.
 - Give two specific notes: one thing that's clear, and one thing you couldn't picture.
 - Check your own page 10. Do the course scripts you listed cover your mechanics?
+- Start revising from your notes. The final ten-pager is due by 11:59 PM the night before next class.
 
 ## Due this week
 
 | What | When | Points |
 |---|---|---|
 | Ex 05 — Combat | end of class | 2 pts |
-| Ten-pager draft | in class, for peer review | TBD |
+| Ten-pager draft | 11:59 PM the night before class, Canvas; peer review in lab | TBD |
 
 Run the matching tab of the course checklist before you submit. Every box on it is a graded criterion.
 
 ## Next week
 
-**Ex 06 — UI.** Menus, a pause screen and a HUD finish the sandbox game. The **final ten-pager** is due next week.
+**Ex 06 — UI.** Menus, a pause screen and a HUD finish the sandbox game. The **final ten-pager** is due by 11:59 PM the night before class.
 
 ## Links
 

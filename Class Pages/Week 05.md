@@ -20,11 +20,11 @@ A level is a lesson plan the player doesn't know they're following. Today you bu
 |---|---|---|
 | Lecture | 9:00 – 10:30 | Design topic + engine features |
 | Exercise | 10:30 – 11:30 | Ex 04 — Level — 2 pts, submitted today |
-| Lab | 12:00 – 1:50 | Finish your screen layouts; start your ten-pager |
+| Lab | 12:00 – 1:50 | Work on your ten-pager draft |
 
 ## Before class
 
-- Your **screen layouts are due tonight, 11:59 PM** in Canvas.
+- Your **screen layouts are due by 11:59 PM the night before class**, in Canvas.
 - Think of a first level you remember from any game. What did it make you do before anything could hurt you?
 
 ## Lecture topics
@@ -49,22 +49,22 @@ Worth 2 points: one for **Implementation** (it runs, and the feature works), one
 
 ## Lab goals
 
-- Finish and submit your screen layouts.
 - Open the ten-pager template and fill in page 1 from your approved one-sheet.
-- Sketch your game's first level or screen on paper. It goes on page 5.
+- Put your screen layouts on page 6, and sketch your game's first level or screen for page 5.
+- Get something onto every page. The draft is due by 11:59 PM the night before next class.
 
 ## Due this week
 
 | What | When | Points |
 |---|---|---|
 | Ex 04 — Level | end of class | 2 pts |
-| Screen layout | 11:59 PM, Canvas | TBD |
+| Screen layout | 11:59 PM the night before class, Canvas | TBD |
 
 Run the matching tab of the course checklist before you submit. Every box on it is a graded criterion.
 
 ## Next week
 
-**Ex 05 — Combat.** Health, damage, an enemy and a spawner, in a real-time or a turn-based version. Bring a **ten-pager draft** next week for peer review.
+**Ex 05 — Combat.** Health, damage, an enemy and a spawner, in a real-time or a turn-based version. Your **ten-pager draft** is due by 11:59 PM the night before class, for peer review in lab.
 
 ## Links
 

@@ -51,7 +51,7 @@ Worth 2 points: one for **Implementation** (it runs, and the feature works), one
 
 - Write down the feedback from your pitch while it's fresh.
 - Decide what changes. A pitch that was approved with conditions needs those conditions met in the one-sheet.
-- Start the one-sheet template. It's due next week.
+- Start the one-sheet. It's due by 11:59 PM the night before next class.
 
 ## Due this week
 
@@ -64,7 +64,7 @@ Run the matching tab of the course checklist before you submit. Every box on it 
 
 ## Next week
 
-**Ex 03 — Player.** You replace the ball with a character you control and tune how it feels. The **one-sheet** is due next week.
+**Ex 03 — Player.** You replace the ball with a character you control and tune how it feels. The **one-sheet** is due by 11:59 PM the night before class.
 
 ## Links
 

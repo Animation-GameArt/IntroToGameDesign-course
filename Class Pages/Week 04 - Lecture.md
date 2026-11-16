@@ -12,7 +12,7 @@ tags:
 
 **Exercise:** Ex 03 — Player. A controllable character, a small level, a game-feel tuning pass and a top-down variant.
 
-**Also due:** the one-sheet, in Canvas by 11:59 PM. One page: logline, story summary, core loop, unique selling points, comparable games and a key image. The screen layout assignment comes next; read it together from the page's Next week section.
+**Also due:** the one-sheet, in Canvas by 11:59 PM the night before class. One page: logline, story summary, core loop, unique selling points, comparable games and a key image. The screen layout assignment comes next; read it together from the page's Next week section.
 
 ## Lecture topics, expanded
 
@@ -24,4 +24,4 @@ tags:
 
 ## Connecting it forward
 
-The level built today is deliberately small and fits on one screen. Next week it grows past the screen edge, which is what makes a following camera, hazards and checkpoints necessary. The tuned jump height matters there too: every gap and ledge in Ex 04 is measured against it. The one-sheet handed in tonight is expanded section by section into the ten-pager over the next three weeks.
+The level built today is deliberately small and fits on one screen. Next week it grows past the screen edge, which is what makes a following camera, hazards and checkpoints necessary. The tuned jump height matters there too: every gap and ledge in Ex 04 is measured against it. The one-sheet handed in before class is expanded section by section into the ten-pager over the next three weeks.

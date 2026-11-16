@@ -12,7 +12,7 @@ tags:
 
 **Exercise:** Ex 06 — UI. A main menu, a pause screen, a HUD and damage popups, completing the sandbox game.
 
-**Also due:** the final ten-pager, in Canvas by 11:59 PM. It's the plan each student builds from, starting next week.
+**Also due:** the final ten-pager, in Canvas by 11:59 PM the night before class. It's the plan each student builds from, starting next week.
 
 ## Lecture topics, expanded
 

@@ -20,11 +20,11 @@ Two games can have the same jump and feel nothing alike. Today you put a charact
 |---|---|---|
 | Lecture | 9:00 – 10:30 | Design topic + engine features |
 | Exercise | 10:30 – 11:30 | Ex 03 — Player — 2 pts, submitted today |
-| Lab | 12:00 – 1:50 | Finish your one-sheet; start your screen layouts |
+| Lab | 12:00 – 1:50 | Work on your screen layouts |
 
 ## Before class
 
-- Your **one-sheet is due tonight, 11:59 PM** in Canvas. Bring your draft.
+- Your **one-sheet is due by 11:59 PM the night before class**, in Canvas.
 - Play a platformer you like for five minutes and pay attention to the jump. How long are you in the air? Can you steer?
 
 ## Lecture topics
@@ -49,22 +49,22 @@ Worth 2 points: one for **Implementation** (it runs, and the feature works), one
 
 ## Lab goals
 
-- Finish the one-sheet. It must fit on one page.
-- Get one other student to read it and tell you, in their own words, what the player does.
-- Start sketching your screen layouts: title, HUD, pause, and win or lose. They're due next week.
+- Sketch your screen layouts: title, HUD, pause, and win or lose. They're due by 11:59 PM the night before next class.
+- For each screen, list what the player must be able to see, then decide where it goes.
+- Show your HUD sketch to another student and ask them what each part means.
 
 ## Due this week
 
 | What | When | Points |
 |---|---|---|
 | Ex 03 — Player | end of class | 2 pts |
-| One-sheet | 11:59 PM, Canvas | TBD |
+| One-sheet | 11:59 PM the night before class, Canvas | TBD |
 
 Run the matching tab of the course checklist before you submit. Every box on it is a graded criterion.
 
 ## Next week
 
-**Ex 04 — Level.** You build a level that teaches the player before it tests them, and add a camera that follows. **Screen layouts** are due next week.
+**Ex 04 — Level.** You build a level that teaches the player before it tests them, and add a camera that follows. **Screen layouts** are due by 11:59 PM the night before class.
 
 ## Links
 

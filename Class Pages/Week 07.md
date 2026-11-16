@@ -20,11 +20,11 @@ The player only knows what the screen tells them. Today you turn your layout ske
 |---|---|---|
 | Lecture | 9:00 – 10:30 | Design topic + engine features |
 | Exercise | 10:30 – 11:30 | Ex 06 — UI — 2 pts, submitted today |
-| Lab | 12:00 – 1:50 | Finish your ten-pager |
+| Lab | 12:00 – 1:50 | Start your production backlog |
 
 ## Before class
 
-- Your **final ten-pager is due tonight, 11:59 PM** in Canvas.
+- Your **final ten-pager is due by 11:59 PM the night before class**, in Canvas.
 - Have your screen layouts from Week 5 with you. You'll build from them.
 
 ## Lecture topics
@@ -49,22 +49,22 @@ Worth 2 points: one for **Implementation** (it runs, and the feature works), one
 
 ## Lab goals
 
-- Apply your peer-review notes and finish the ten-pager.
-- Check page 10: your course packages, your must-have list and your milestone plan.
-- Read the whole document once as if you were going to build it from nothing else. Next week, you do.
+- Turn each feature in your ten-pager into tasks on a task board.
+- Give every task a week, using the milestone plan on page 10.
+- Mark the must-have tasks. Those get built first.
 
 ## Due this week
 
 | What | When | Points |
 |---|---|---|
 | Ex 06 — UI | end of class | 2 pts |
-| Ten-pager (final) | 11:59 PM, Canvas | TBD |
+| Ten-pager (final) | 11:59 PM the night before class, Canvas | TBD |
 
 Run the matching tab of the course checklist before you submit. Every box on it is a graded criterion.
 
 ## Next week
 
-**Your game starts.** You import your genre kit and begin building from your ten-pager. The **production backlog**, a task board built from the ten-pager, is due next week.
+**Your game starts.** You import your genre kit and begin building from your ten-pager. The **production backlog**, a task board built from the ten-pager, is due by 11:59 PM the night before class.
 
 ## Links
 

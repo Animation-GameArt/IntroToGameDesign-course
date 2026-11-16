@@ -12,7 +12,7 @@ tags:
 
 **Exercise:** Ex 05 — Combat. Real-time (enemy, damage, spawner, respawn) or turn-based (turn manager, turns, attacks, win and lose).
 
-**Also due:** the ten-pager draft, brought to class for peer review during lab. It doesn't need to be finished, but every page needs something on it.
+**Also due:** the ten-pager draft, in Canvas by 11:59 PM the night before class, for peer review during lab. It doesn't need to be finished, but every page needs something on it.
 
 ## Lecture topics, expanded
 

@@ -12,7 +12,7 @@ tags:
 
 **Exercise:** Ex 04 — Level. A level wider than the screen, a following camera with bounds, hazards and checkpoints.
 
-**Also due:** the screen layouts, in Canvas by 11:59 PM: sketches of the title screen, HUD, pause menu and win or lose screen. The ten-pager draft is due next week; read the assignment together from the page's Next week section.
+**Also due:** the screen layouts, in Canvas by 11:59 PM the night before class: sketches of the title screen, HUD, pause menu and win or lose screen. The ten-pager draft is due the night before next class; read the assignment together from the page's Next week section.
 
 ## Lecture topics, expanded
 
@@ -26,4 +26,4 @@ tags:
 
 ## Connecting it forward
 
-The level from today is where next week's enemy patrols and where its spawner sits. Checkpoints become respawn points once the player has health to lose. On paper, the screen layouts submitted tonight go straight onto page 6 of the ten-pager, and the level sketch from lab goes onto page 5.
+The level from today is where next week's enemy patrols and where its spawner sits. Checkpoints become respawn points once the player has health to lose. On paper, the screen layouts submitted before class go straight onto page 6 of the ten-pager, and the level sketch from lab goes onto page 5.

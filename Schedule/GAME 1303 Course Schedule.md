@@ -18,6 +18,8 @@ tags:
 > - **Week 16:** post-mortem presentations.
 >
 > **No more than one project item is due each week.** Exercises are finished and checked off **in lab**, then backed up with your project. They are not separate homework submissions.
+>
+> **Project items are due at 11:59 PM the night before class.** That way class time is for feedback and building, not for finishing. The one exception is Week 1's three game ideas, which are due at 11:59 PM on the day of the first class.
 
 ---
 
