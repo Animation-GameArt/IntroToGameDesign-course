@@ -69,7 +69,7 @@ Kits aren't used until week 8 of the semester, so the later ones can be finished
 
 | Kit | Pack |
 |---|---|
-| Platformer | Pixel Platformer |
+| Platformer | Pixel Platformer (in the template) |
 | Top-down adventure | Tiny Dungeon, Tiny Town |
 | Top-down shooter | Pixel Shmup, or Space Shooter Redux |
 | Grid puzzle | Sokoban |
@@ -105,7 +105,7 @@ Kits aren't used until week 8 of the semester, so the later ones can be finished
 | # | Decision | Recommendation | Blocks |
 |---|---|---|---|
 | 1 | Which genres are on the map for the first semester | **Decided:** fifteen genres. 2D: arcade classic, platformer, top-down adventure, turn-based battle, endless runner, top-down shooter, grid puzzle, tower defense, management and strategy, card game, farming and life sim. Narrative: visual novel, dating sim (one kit). 3D: 3D platformer, horror and stealth. No VR or AR. Lectures and exercises stay 2D | — |
-| 2 | Art in kit samples | **Decided:** Kenney's CC0 packs, kept under `Assets/_Course/Art/Kenney/<Pack>/` with each pack's license file. Every pack is listed in `Course Credits`, which the game's Credits screen shows. Plain shapes stay in the exercises | — |
+| 2 | Art in kit samples | **Decided:** Kenney's CC0 packs, kept under `Assets/_Course/Art/Kenney/` in a folder named as Kenney's download is named (for example `kenney_pixel-platformer`), with the pack's license file. Each pack gets an entry in `CourseArtImporter`, which sets its import settings. Every pack is listed in `Course Credits`, which the game's Credits screen shows. Plain shapes stay in the exercises | — |
 | 3 | How each kit's sample is built | The instructor builds it by following the kit guide, as with the exercises | Instructor time per kit |
 | 4 | Dialogue tool | **Decided:** Yarn Spinner. To be installed from a package registry and not from a Git URL, so lab computers don't need Git | — |
 | 5 | Are there graded exercises in weeks 8–10? | Yes: three short exercises done inside the student's own game (feedback and audio; saving and a build; a bug list and profiling) | Weeks 8–10 pages, point totals |
