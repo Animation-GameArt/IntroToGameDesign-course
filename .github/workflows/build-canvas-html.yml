@@ -9,6 +9,7 @@ on:
       - "Class Pages/**.md"
       - "Exercises/**.md"
       - "Guides/**.md"
+      - "Kit Guides/**.md"
       - "Schedule/**.md"
       - "tools/build_canvas_html.py"
   workflow_dispatch:
