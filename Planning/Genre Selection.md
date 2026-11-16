@@ -21,32 +21,32 @@ Tick every genre that students may pitch in the **first semester**. Each ticked 
 
 ## 2D — works in the current template
 
-- [ ] ★ **Platformer** · small · run, jump, collect, reach the goal
-- [ ] ★ **Top-down action/adventure** (Zelda-like) · small · explore rooms, keys and doors, simple combat
-- [ ] ★ **Top-down or twin-stick shooter** · medium · aim, shoot, waves of enemies
+- [x] ★ **Platformer** · small · run, jump, collect, reach the goal
+- [x] ★ **Top-down action/adventure** (Zelda-like) · small · explore rooms, keys and doors, simple combat
+- [x] ★ **Top-down or twin-stick shooter** · medium · aim, shoot, waves of enemies
 - [ ] **Scrolling shooter (shmup)** · small once the shooter kit exists · shares the shooter kit
-- [ ] ★ **Endless runner** · medium · auto-run, dodge, distance score
-- [ ] ★ **Grid puzzle** (Sokoban-style) · medium · step-by-step moves, undo, level list
+- [x] ★ **Endless runner** · medium · auto-run, dodge, distance score
+- [x] ★ **Grid puzzle** (Sokoban-style) · medium · step-by-step moves, undo, level list
 - [ ] **Physics puzzle** · small · mostly Unity physics plus the sandbox scripts
 - [ ] **Match-3** · large · board logic, cascades, combos
-- [ ] ★ **Tower defense** · medium · paths, towers, waves, currency
-- [ ] ★ **Turn-based battle** · small · the turn-based Exercise 05, extended
+- [x] ★ **Tower defense** · medium · paths, towers, waves, currency
+- [x] ★ **Turn-based battle** · small · the turn-based Exercise 05, extended
 - [ ] **Turn-based tactics** (grid movement, several units) · large · pathfinding, action points
-- [ ] ★ **Management / strategy** (Hammurabi-style, small town builder) · medium · turns or ticks, resources, events, heavy on UI
-- [ ] ★ **Arcade classics** (Pong, Breakout, Asteroids) · small · good for a first finished game
+- [x] ★ **Management / strategy** (Hammurabi-style, small town builder) · medium · turns or ticks, resources, events, heavy on UI
+- [x] ★ **Arcade classics** (Pong, Breakout, Asteroids) · small · good for a first finished game
 - [ ] **Idle / clicker** · medium · big numbers, generators, upgrades
 - [ ] **Point-and-click adventure** · medium · hotspots, inventory, item combining
 - [ ] **Metroidvania** · large · a platformer plus ability gates and a connected map; hard to finish in eight weeks
 - [ ] **Roguelike** · large · procedural rooms, loot, run-based progression
-- [ ] **Card game / deckbuilder** · large · card effects, deck and hand, turn phases
-- [ ] **Farming / life sim** · large · time cycle, crops, inventory, shop
+- [x] **Card game / deckbuilder** · large · card effects, deck and hand, turn phases
+- [x] **Farming / life sim** · large · time cycle, crops, inventory, shop
 - [ ] **Fighting (1v1)** · large · hitboxes, move timing, a second player or an AI opponent
 - [ ] **Isometric game on a 2D isometric Tilemap** · medium · the top-down kit with an isometric view
 
 ## Narrative / dialogue — works in the current template, needs the dialogue tool
 
-- [ ] ★ **Visual novel** · medium · dialogue, choices, characters, backgrounds, save slots
-- [ ] **Dating sim** · small once the visual novel kit exists · shares the kit, adds relationship scores
+- [x] ★ **Visual novel** · medium · dialogue, choices, characters, backgrounds, save slots
+- [x] **Dating sim** · small once the visual novel kit exists · shares the kit, adds relationship scores
 - [ ] **Interactive fiction** · small once the visual novel kit exists · shares the kit, text only
 - [ ] **Detective / mystery** · medium · the visual novel kit plus clues and an inventory
 - [ ] **Branching cutscene game** · medium · the visual novel kit plus Timeline
@@ -57,10 +57,10 @@ Tick every genre that students may pitch in the **first semester**. Each ticked 
 - [ ] **First-person exploration / walking sim** · medium after the 3D module
 - [ ] **FPS** · large
 - [ ] **Third-person action/adventure** · large
-- [ ] **3D platformer** · medium after the 3D module
+- [x] **3D platformer** · medium after the 3D module
 - [ ] **Racing** (arcade or kart) · large
 - [ ] **Survival / crafting** · large
-- [ ] **Horror / stealth** · large
+- [x] **Horror / stealth** · large
 - [ ] **RPG** (action or open-world-lite) · large
 - [ ] **RTS / city builder** · large
 - [ ] **Physics sandbox** · small after the 3D module
