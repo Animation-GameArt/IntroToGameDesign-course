@@ -149,7 +149,48 @@
 </tr>
 </tbody>
 </table>
+<p><strong>Add a credits screen</strong></p>
+<p>Every asset you didn't make yourself must be credited. The credits are plain text files, so they're easy to keep up to date.</p>
+<ol>
+<li>In the Project window, open <code>Assets/_Game</code> and double-click <code>Credits</code>. Replace the title and name with your own, and save.</li>
+<li>Create a <strong>UI Document</strong> named <code>Credits</code>. Set its <strong>Source Asset</strong> to <code>Credits</code> from <code>Assets/_Course/Core/UI</code>, and its <strong>Sort Order</strong> to <code>1</code>.</li>
+<li>Add a <strong>UI Screen</strong>. Tick <strong>Hidden At Start</strong> and set <strong>Select When Shown</strong> to <code>back-button</code>.</li>
+<li>Add the <strong>UI Credits</strong> component. Under <strong>Credit Files</strong>, click <strong>+</strong> twice. Drag in your <code>Credits</code> file from <code>Assets/_Game</code> first, then <code>Course Credits</code> from <code>Assets/_Course/Credits</code>.</li>
+<li>Add <strong>UI Button Events</strong> with one button:</li>
+</ol>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 5 — A main menu (2)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Button Name</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">On Click</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>back-button</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Drag in <code>Credits</code>, choose <strong>UIScreen → Hide</strong></td>
+</tr>
+</tbody>
+</table>
 <ol start="6">
+<li>Select <code>Main Menu</code>. In its <strong>UI Button Events</strong>, add a third button:</li>
+</ol>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 5 — A main menu (3)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Button Name</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">On Click</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>credits-button</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Drag in <code>Credits</code>, choose <strong>UIScreen → Show</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Finish the menu scene</strong></p>
+<ol>
 <li>Save the scene.</li>
 <li>Open the Scene List (<strong>File → Build Profiles → Open Scene List</strong>). Add <code>Ex06_MainMenu</code> and drag it to the <strong>top</strong> of the list. The first scene in the list is the one a built game starts with.</li>
 </ol>
@@ -159,7 +200,7 @@
 <li>Create an empty GameObject named <code>To Main Menu</code>. Add a <strong>Scene Changer</strong> and set its <strong>Scene Name</strong> to <code>Ex06_MainMenu</code>.</li>
 <li>Select <code>Pause Menu</code>. In <strong>UI Button Events</strong>, add a third button:</li>
 </ol>
-<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 5 — A main menu (2)</caption>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 5 — A main menu (4)</caption>
 <thead>
 <tr>
 <th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Button Name</th>
@@ -209,6 +250,7 @@
 <li>Esc pauses and un-pauses, and the pause menu's three buttons work.</li>
 <li>Reaching the goal shows the win screen with the score.</li>
 <li>The game starts at the main menu, and you can get from every screen to every other.</li>
+<li>The Credits screen shows your name and the course credits.</li>
 <li>Damage and healing show as floating numbers.</li>
 <li>You changed the HUD's layout, and can say why it shows what it shows.</li>
 </ul>
@@ -241,6 +283,10 @@
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Esc does nothing</td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check that the Pause Controller's <strong>Input</strong> field holds <code>InputReader</code>. Click in the Game view first.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Credits screen is empty</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check that <strong>Credit Files</strong> on the UI Credits component holds both text files.</td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The pause menu is behind the HUD</td>
