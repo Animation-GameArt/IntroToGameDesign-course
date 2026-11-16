@@ -1,0 +1,41 @@
+---
+title: "First Playable"
+course: GAME 1303
+week: 10
+status: draft
+tags:
+  - game1303
+  - assignment
+---
+
+# First Playable
+
+**GAME 1303 · Due by 11:59 PM the night before the Week 10 class · Points: TBD**
+
+Your first milestone build: one complete pass through your core loop, running outside Unity. It can be rough and the art can be placeholder.
+
+## What to submit
+
+The link to your private itch.io page, in Canvas, with a short note: what is in the build, and what comes next.
+
+## Requirements
+
+Each line is a graded criterion.
+
+- [ ] The build runs on a computer without Unity.
+- [ ] The player can start the game.
+- [ ] The main mechanic from your ten-pager works.
+- [ ] The player can win or lose, or reach the end of the loop.
+- [ ] The player can start again without restarting the program.
+- [ ] Nothing stops the game from being played through: no crash, and no way to get permanently stuck.
+- [ ] Your note names what's in the build and the next three tasks on your board.
+
+## Tips
+
+- Placeholder art is expected. Squares and circles are fine.
+- One level, one enemy type and one goal are enough.
+- Make the build two days early. Something always goes wrong the first time.
+
+## Grading
+
+Points are to be assigned. Each requirement above is checked as met or not met.

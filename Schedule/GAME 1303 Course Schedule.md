@@ -65,6 +65,19 @@ Week 1 uses a practice project. From week 2 on, you work in the **course project
 
 ---
 
+## Exercises after week 7
+
+From week 8 the exercises happen inside your own game, so they have no scene files of their own.
+
+| # | Exercise | Week |
+|---|---|---|
+| 07 | Juice & Audio | 8 |
+| 08 | Save & Build: includes your first build, uploaded to a private itch.io page | 9 |
+| 09 | Debug & Profile | 10 |
+| 10 | Playtest: includes your playtest notes and the changes you choose from them | 13 |
+
+---
+
 ## Week-by-week schedule
 
 ### Phase 1 — Foundations
@@ -81,21 +94,23 @@ Week 1 uses a practice project. From week 2 on, you work in the **course project
 
 ### Phase 2 — Your Game
 
-| Wk | Lecture | Lab (in your own game) | Due this week |
+| Wk | Lecture | Exercise (in your own game) | Due this week |
 |---|---|---|---|
-| 8 | **L8 · Juice, Audio & Storytelling.** Feedback, screen shake, sound design, Timeline cutscenes, dialogue | Audio, camera shake, a cutscene or dialogue in your game | **Production backlog** (task board built from your ten-pager) |
-| 9 | **L9 · Saving, Builds & Playtesting.** Save systems, settings, building for Windows/WebGL, publishing to itch.io, running a playtest | Save/load, settings menu, first build | **First build** (private itch.io page) |
-| 10 | **L10 · Debugging, Profiling & Production.** Finding and fixing bugs, the Profiler, bug triage, cutting scope, milestones | Profile your game, set up a bug list | **First Playable** |
+| 8 | **L8 · Juice, Audio & Storytelling.** Feedback, camera shake, sound and music, Timeline cutscenes, dialogue | **Ex07 · Juice & Audio:** feedback for three actions, music, one camera shake | **Production backlog** |
+| 9 | **L9 · Saving, Builds & Playtesting.** What to save, settings, building for Windows and Web, publishing privately on itch.io, watching someone play | **Ex08 · Save & Build:** save one thing, a volume setting, your first build uploaded | — |
+| 10 | **L10 · Debugging, Profiling & Production.** Reproducing bugs, reading errors, the Profiler, bug triage, cutting scope, milestones | **Ex09 · Debug & Profile:** a bug list, one bug fixed, one Profiler reading | **First Playable** |
 
 ### Phase 3 — Studio
 
-| Wk | Focus | Due this week |
-|---|---|---|
-| 11 | Core loop complete; stand-ups and bug triage | **Sprint review** (core loop) |
-| 12 | All features in, even if rough | **Alpha** |
-| 13 | Cross-team playtesting; turn feedback into tasks | **Playtest report** |
-| 14 | All content in; polish and bug fixing | **Beta** |
-| 15 | Final fixes, store page, release | **Gold** (public itch.io release) |
+Each studio class opens with a stand-up and a short topic. The rest is time to build.
+
+| Wk | Focus | In class | Due this week |
+|---|---|---|---|
+| 11 | Core loop complete and feeling right | Sprint review: two-minute demos | **Sprint review build** |
+| 12 | All features in, even if rough | Alpha check against your must-have list | **Alpha** |
+| 13 | Playtesting | **Ex10 · Playtest:** three classmates play while you watch | — |
+| 14 | All content in; fixes and polish only | Bug bash | **Beta** |
+| 15 | Release | Release check of each public page | **Gold** (public itch.io release) |
 
 ### Week 16 — Post-Mortem
 
@@ -116,11 +131,9 @@ Week 1 uses a practice project. From week 2 on, you work in the **course project
 | **Screen layout** | Paper or digital wireframes of your game's main screens: title, HUD, pause, and win/lose. They show what the player sees and where. You'll use them for page 6 of the ten-pager and for the UI lecture in week 7 |
 | **Ten-pager** | A ten-page design document covering the whole game. Template: `Ten-Pager Template` |
 | **Production backlog** | Every feature from your ten-pager, broken into tasks on your task board, with a week assigned |
-| **First build** | Your game builds and runs outside the Editor and is uploaded to a private itch.io page |
 | **First Playable** | One complete pass through your core loop: the player can start, play, and win or lose |
-| **Sprint review** | The core loop is complete and feels right, demonstrated in class |
+| **Sprint review build** | The core loop is complete and feels right. Uploaded before class and shown in a two-minute demo |
 | **Alpha** | Every feature exists and works, even if the art, audio and balance are placeholders |
-| **Playtest report** | Notes from at least three outside playtesters, and the tasks you created from their feedback |
 | **Beta** | All content is in. From here on, only bug fixes and polish |
 | **Gold** | The finished game, publicly released on itch.io with a store page |
 | **Post-mortem** | A presentation reviewing the project honestly |
