@@ -43,4 +43,4 @@ Points are to be assigned. Each requirement above is checked as met or not met.
 
 - [Store Pages](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Store%20Pages.md)
 - [Final Build Checks](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Final%20Build%20Checks.md)
-- [Publishing on itch.io](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Publishing%20on%20itch.io)
+- [Publishing on itch.io](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Publishing%20on%20itch.io.md)

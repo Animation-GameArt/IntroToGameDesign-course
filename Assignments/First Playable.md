@@ -43,5 +43,5 @@ Points are to be assigned. Each requirement above is checked as met or not met.
 ## Related topics
 
 - [Making a Build](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Making%20a%20Build.md)
-- [Publishing on itch.io](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Publishing%20on%20itch.io)
+- [Publishing on itch.io](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Publishing%20on%20itch.io.md)
 - [Finding and Fixing Bugs](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Finding%20and%20Fixing%20Bugs.md)

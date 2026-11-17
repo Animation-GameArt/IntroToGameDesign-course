@@ -31,7 +31,7 @@ Each topic has its own page with the lecture's intent, key ideas, an in-class pl
 - [Saving Progress](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Saving%20Progress.md)
 - [Settings Players Expect](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Settings%20Players%20Expect.md)
 - [Making a Build](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Making%20a%20Build.md)
-- [Publishing on itch.io](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Publishing%20on%20itch.io)
+- [Publishing on itch.io](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Publishing%20on%20itch.io.md)
 - [Watching Someone Play](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Watching%20Someone%20Play.md)
 
 ## Connecting it forward

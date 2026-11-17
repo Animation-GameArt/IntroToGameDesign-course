@@ -38,5 +38,5 @@ At Gold, each student's itch.io page becomes public. The release check asks whet
 ## Where it comes up
 
 - [Gold](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Assignments/Gold.md).
-- [Publishing on itch.io](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Publishing%20on%20itch.io) (Week 9).
+- [Publishing on itch.io](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Publishing%20on%20itch.io.md) (Week 9).
 - [One-Sheet](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Assignments/One-Sheet.md): the logline.
