@@ -158,3 +158,9 @@ Show your instructor:
 | The character can't jump | Check that **Ground Layers** is set to **Everything**, and that **Jump Height** isn't `0`. |
 | The character can jump over the door | Check the door's Position and Scale against the table in Part 2. |
 | A red message says "Input is empty" | Drag `InputReader` from `Assets/_Course/Core/Input` into the controller's **Input** field. |
+
+## Related topics
+
+- [The Input System and the Input Reader](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/The%20Input%20System%20and%20the%20Input%20Reader.md)
+- [Game Feel](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Game%20Feel.md)
+- [Forgiving Controls](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Forgiving%20Controls.md)

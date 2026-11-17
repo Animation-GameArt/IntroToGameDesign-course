@@ -1,0 +1,78 @@
+<p><strong>Week 2 · <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Class%20Pages/Week%2002%20-%20Lecture.md">[Lecture] Week 2</a></strong></p>
+<blockquote>
+<p><strong>In one sentence</strong><br/>Every student works in one Unity project, downloaded once, with clear rules about which folders are the course's and which are theirs.</p>
+</blockquote>
+<h2>What this topic is for</h2>
+<p>The course project replaces separate script collections, which caused errors when mixed. Students should leave this lecture knowing where everything lives, which folders they must not edit, and why Play works from any scene.</p>
+<h2>Key ideas</h2>
+<ul>
+<li><strong>One download.</strong> Students download the project ZIP from the template's <strong>Releases</strong> page, unzip it fully, rename the folder, and add it in Unity Hub with <strong>Add → Add project from disk</strong>.</li>
+<li><strong>Folder ownership:</strong></li>
+</ul>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Key ideas</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Folder</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Whose</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Assets/_Course/</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The course</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Never edit, move or rename anything here. Updates overwrite it</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Assets/_Game/</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The student</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Everything for their own game</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Assets/Scenes/Exercises/</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The student</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Their <strong>Save As</strong> copies of exercise scenes</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Copy to change.</strong> To change a course script, prefab or screen, copy it into <code>_Game</code> and edit the copy, or make a prefab variant.</li>
+<li><strong>Updates.</strong> Fixes come as a <code>.unitypackage</code> on the Releases page. Importing one only changes <code>_Course</code>. <code>Assets/_Course/VERSION.txt</code> shows which version a student has.</li>
+<li><strong>The Scene List.</strong> A scene can only be loaded during play if it is in <strong>File → Build Profiles → Scene List</strong>. The first scene in the list is the one a built game starts with.</li>
+<li><strong>The Bootstrapper.</strong> Before any scene loads, the course creates a <code>[Course Services]</code> object that holds the Scene Loader. It's never added by hand, so Play works from any scene. Students can see it under <strong>DontDestroyOnLoad</strong> in the Hierarchy while the game runs.</li>
+</ul>
+<h2>In class</h2>
+<ol>
+<li>Download, unzip, add and open the project live.</li>
+<li>Tour the folders and the rules.</li>
+<li>Press Play and show <code>[Course Services]</code> appear.</li>
+</ol>
+<h2>Common problems</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Common problems</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What happens</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Unity can't open the project</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">It's still inside the ZIP, or the Unity version is wrong</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">"Can't find a scene named…"</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The scene isn't in the Scene List, or the name is misspelled</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A student's change to a course file disappeared</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">An update overwrote <code>_Course</code></td>
+</tr>
+</tbody>
+</table>
+<h2>Where it comes up</h2>
+<ul>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex01%20-%20Bootstrap.md">Ex 01 — Bootstrap</a>.</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Assignments/Project%20Setup%20Check.md">Project Setup Check</a>.</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Platformer%20Kit.md">Platformer Kit</a>: kits install into <code>_Course</code> too.</li>
+</ul>

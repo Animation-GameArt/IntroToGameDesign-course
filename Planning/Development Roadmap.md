@@ -27,8 +27,8 @@ What is built, what is left, the order to build it in, and the decisions that bl
 | Genre kits and kit guides | Not started |
 | Scripts for weeks 8–10 (audio, juice, cutscenes, dialogue, saving, settings) | Not started |
 | Class and Lecture pages, weeks 8–16 | Drafted |
-| Topic pages | Not started. Needs a sample |
-| Assignment pages and rubrics | Weeks 8–16 drafted (seven milestone pages, points to be assigned). Weeks 1–7 not started |
+| Topic pages | Weeks 1–6 drafted (24 pages). Weeks 7–16 not started |
+| Assignment pages and rubrics | All 14 drafted, weeks 1–16. Points to be assigned |
 | Per-game scripts and guides | After pitch week |
 
 ## Order of work
@@ -112,7 +112,7 @@ Kits aren't used until week 8 of the semester, so the later ones can be finished
 | 3 | How each kit's sample is built | The instructor builds it by following the kit guide, as with the exercises | Instructor time per kit |
 | 4 | Dialogue tool | **Decided:** Yarn Spinner. To be installed from a package registry and not from a Git URL, so lab computers don't need Git | — |
 | 5 | Are there graded exercises in weeks 8–10? | Yes: three short exercises done inside the student's own game (feedback and audio; saving and a build; a bug list and profiling) | Weeks 8–10 pages, point totals |
-| 6 | What a Topic page is | Needs a sample from the current course | Topic pages |
+| 6 | What a Topic page is | **Decided:** one page per lecture topic in `Topics/`, with the lecture's intent, key ideas, an in-class plan, common problems, where the topic comes up, and further resources. Linked from the Lecture page, the Class page and the exercises | — |
 | 7 | Point scale, and the current checklist and grade sheet | Needs the current documents | Assignment pages, rubrics |
 | 8 | Limit on per-game custom scripts | A fixed number per student, such as two or three small scripts, agreed at pitch approval | Scope of Phase 6 |
 | 9 | Does Game & Simulation Group Project start from the same template project? | **Decided:** yes. It uses the same template scripts, with kits imported as needed | — |

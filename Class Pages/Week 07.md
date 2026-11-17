@@ -68,7 +68,8 @@ Run the matching tab of the course checklist before you submit. Every box on it 
 
 ## Links
 
-- Assignment: Ten-pager
+- [Assignment: Ten-Pager](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Assignments/Ten-Pager.md)
+- [Assignment: Production Backlog](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Assignments/Production%20Backlog.md)
 - [Ten-Pager Template](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Templates/Ten-Pager%20Template.md)
 - [Ex 06 — UI tutorial](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex06%20-%20UI.md)
 - [Course schedule](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Schedule/GAME%201303%20Course%20Schedule.md)

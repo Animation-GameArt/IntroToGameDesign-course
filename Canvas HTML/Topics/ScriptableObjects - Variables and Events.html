@@ -1,0 +1,59 @@
+<p><strong>Week 3 · <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Class%20Pages/Week%2003%20-%20Lecture.md">[Lecture] Week 3</a></strong></p>
+<blockquote>
+<p><strong>In one sentence</strong><br/>A ScriptableObject is data saved as a file, and the course uses two kinds, variables and event channels, so objects can share information without knowing about each other.</p>
+</blockquote>
+<h2>What this topic is for</h2>
+<p>This is the course's main architecture. Once students understand it, the HUD, pickups, doors, lives, game over and win screens all work the same way. They should leave able to explain why the key in Ex 02 doesn't need to know about the door.</p>
+<h2>Key ideas</h2>
+<ul>
+<li><strong>Data that lives outside the scene.</strong> A ScriptableObject is an asset in the Project window, like a sprite or a sound. It keeps its value when scenes change.</li>
+<li><strong>Variables share a value.</strong> An Int Variable named <code>Score</code> holds one number. A coin adds to it. A label shows it. Neither knows the other exists.</li>
+<li><strong>Event channels share a moment.</strong> A Void Event Channel named <code>KeyCollected</code> is raised by the key. A door listens and hides itself. More listeners can be added without touching the key.</li>
+<li><strong>Direct references break; shared assets don't.</strong> If the coin held a reference to the score text, deleting or renaming the text would break the coin. With a shared variable, any number of texts can come and go.</li>
+<li><strong>Variables reset when the game starts, not when a scene loads.</strong> That's why the score carries between levels, and why a Variable Resetter exists for scenes that should start fresh.</li>
+<li><strong>Inspector helpers.</strong> During Play, a variable shows its current value in the Inspector, and a Void Event Channel has a <strong>Raise</strong> button for testing.</li>
+</ul>
+<h2>In class</h2>
+<ol>
+<li>Draw two diagrams: coin → text, with a direct link; and coin → <code>Score</code> ← text. Delete the text in each and ask what breaks.</li>
+<li>In Play mode, click <strong>Raise</strong> on <code>KeyCollected</code> and watch the door open with no key collected.</li>
+</ol>
+<h2>The course's assets</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">The course's assets</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Asset</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Create menu</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Typical use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Int, Float, Bool, String Variable</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Create → Collin Game → Variables</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Score, health, paused, a message</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Void Event Channel</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Create → Collin Game → Events</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Key collected, level complete, game over</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Int, Float, Bool, String, GameObject Event Channel</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Create → Collin Game → Events</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">An event that carries a value</td>
+</tr>
+</tbody>
+</table>
+<h2>Where it comes up</h2>
+<ul>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex02%20-%20Events.md">Ex 02 — Events</a>: introduced.</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex04%20-%20Level.md">Ex 04</a>: <code>LevelCompleted</code>.</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex06%20-%20UI.md">Ex 06</a>: the HUD listens to the same variables.</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Platformer%20Kit.md">Platformer Kit</a>: lives and game over.</li>
+</ul>
+<h2>Further resources</h2>
+<ul>
+<li>Unity Manual, <a href="https://docs.unity.com/en-us/engine/6000.3/manual/scripting/get-started/fundamental-unity-types/class-scriptable-object">ScriptableObject data assets</a>.</li>
+<li>Robert Nystrom, <em>Game Programming Patterns</em>, <a href="https://gameprogrammingpatterns.com/observer.html">Observer</a>: the pattern behind event channels, explained for game developers.</li>
+</ul>

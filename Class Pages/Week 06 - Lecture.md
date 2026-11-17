@@ -24,6 +24,15 @@ tags:
 
 **Turn-based systems, and winning and losing.** Some games swap reflexes for decisions. A **turn manager** keeps track of whose turn it is and what they're allowed to do, and the same health and damage sit underneath. Students whose game is a puzzle, tactics or strategy game should take the turn-based version of the exercise. Close with win and lose conditions: every game needs both to be stated plainly, and both are events the rest of the game reacts to.
 
+## Topic notes
+
+Each topic has its own page with the lecture's intent, a demo plan, common problems and further resources.
+
+- [Health and Damage](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Health%20and%20Damage.md)
+- [Spawners and Pooling](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Spawners%20and%20Pooling.md)
+- [State Machines and Enemy AI](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/State%20Machines%20and%20Enemy%20AI.md)
+- [Turn-Based Systems](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Turn-Based%20Systems.md)
+
 ## Connecting it forward
 
 Health, score and the win and lose conditions exist after today, but the player can't see any of them except in the Inspector. Next week's HUD and menus put them on screen, using the screen layouts from Week 5. The peer-review notes from lab feed the final ten-pager, due the night before next class, which closes pre-production.

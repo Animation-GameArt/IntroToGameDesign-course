@@ -35,6 +35,8 @@ Every game is a small set of actions repeated until they get interesting. Today 
 
 Details: [Lecture] Week 1
 
+Topic notes: [Core Loops](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Core%20Loops.md) · [Genres and the Genre Map](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Genres%20and%20the%20Genre%20Map.md) · [How Games Get Made](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/How%20Games%20Get%20Made.md) · [Unity Hub and the Editor](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Unity%20Hub%20and%20the%20Editor.md)
+
 ## Exercise — Ex 00 — Setup
 
 Install Unity Hub and Unity 6000.3.10f1, make a practice project, tour the Editor, and press Play.
@@ -68,7 +70,7 @@ Run the matching tab of the course checklist before you submit. Every box on it 
 
 ## Links
 
-- Discussion: Three game ideas
+- [Assignment: Three Game Ideas](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Assignments/Three%20Game%20Ideas.md) (a Canvas Discussion)
 - [Genre Map](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Genre%20Map.md)
 - [Course schedule](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Schedule/GAME%201303%20Course%20Schedule.md)
 - [Unity Hub download](https://unity.com/download)

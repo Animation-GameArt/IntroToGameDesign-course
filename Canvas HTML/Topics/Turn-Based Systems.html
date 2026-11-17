@@ -1,0 +1,50 @@
+<p><strong>Week 6 · <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Class%20Pages/Week%2006%20-%20Lecture.md">[Lecture] Week 6</a></strong></p>
+<blockquote>
+<p><strong>In one sentence</strong><br/>Turn-based games swap reflexes for decisions, and they're only as interesting as the choices they offer on each turn.</p>
+</blockquote>
+<h2>What this topic is for</h2>
+<p>Students making puzzle, tactics, strategy or card games take the turn-based version of Ex 05. Everyone should leave knowing how a turn manager works, and how to state a win and a lose condition for any game.</p>
+<h2>Key ideas</h2>
+<ul>
+<li><strong>A turn manager</strong> keeps the order, tells each participant when their turn starts, and checks after every turn whether the battle is over.</li>
+<li><strong>A turn ends with an action.</strong> The player chooses; the computer follows a rule.</li>
+<li><strong>Simple rules for opponents.</strong> "Heal if health is low and a heal is left; otherwise attack" is enough to feel deliberate.</li>
+<li><strong>Interesting choices need costs.</strong> If attacking is always best, there's no decision. Limited heals, defending, or a stronger attack that costs something create one.</li>
+<li><strong>Win and lose conditions.</strong> Every game states both plainly. Here: the player wins when no opponents can act, and loses when nobody on their side can.</li>
+<li><strong>The same Health underneath.</strong> Turn-based combat uses the same Health component as real-time, with invulnerable time at zero.</li>
+</ul>
+<h2>In the course project</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">In the course project</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Component</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Turn Manager</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Turn order, rounds, win and lose</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Turn Taker</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Marks a participant, and which side it's on</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Turn Actions</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Attack and heal; controlled by the player or the computer</td>
+</tr>
+</tbody>
+</table>
+<h2>In class</h2>
+<ol>
+<li>Play the turn-based exercise with default numbers, and ask whether there's ever a reason to heal.</li>
+<li>Change one number until there is.</li>
+<li>Ask every student to write the win and lose conditions of their own game in one line each.</li>
+</ol>
+<h2>Where it comes up</h2>
+<ul>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex05%20-%20Combat%20%28Turn-Based%29.md">Ex 05 — Combat (Turn-Based)</a>.</li>
+<li>The turn-based battle, card game, management and strategy kits.</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Assignments/Ten-Pager.md">Ten-Pager</a>, page 2: win and lose conditions.</li>
+</ul>

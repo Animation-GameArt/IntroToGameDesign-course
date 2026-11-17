@@ -1,0 +1,88 @@
+<p><strong>Week 3 · <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Class%20Pages/Week%2003%20-%20Lecture.md">[Lecture] Week 3</a></strong></p>
+<blockquote>
+<p><strong>In one sentence</strong><br/>Unity runs a script's methods at set moments, and when something goes wrong the Console says what and where, if you read the first message.</p>
+</blockquote>
+<h2>What this topic is for</h2>
+<p>Students in this course write little code, but they read errors every week. The goal is that a student facing a red message reads it, finds the object it names, and either fixes it or reports it precisely.</p>
+<h2>Key ideas</h2>
+<ul>
+<li><strong>The script lifecycle.</strong> Unity calls methods with special names at set moments:</li>
+</ul>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Key ideas</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Method</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">When</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Awake</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Once, when the object is created</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>OnEnable</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Each time the object is switched on</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Start</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Once, just before the first frame it's active</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Update</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Every frame</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>FixedUpdate</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">On the physics clock, used for movement</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>OnDisable</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Each time the object is switched off</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>The Console's three kinds of message.</strong> White messages are information, yellow are warnings, red are errors. A red error that appears while editing stops <strong>all</strong> scripts from compiling, so nothing new appears in Add Component until it's fixed.</li>
+<li><strong>Read the first red message.</strong> Later errors are often caused by the first one. The message names a script and a line; double-clicking it opens that line.</li>
+<li><strong>The course scripts explain themselves.</strong> Common mistakes, such as an empty field or a misspelled scene name, produce plain-language messages that name the object and the fix.</li>
+<li><strong>Logging and breakpoints.</strong> A log message shows a value at one moment. A breakpoint stops the game at a line so every value can be inspected. Breakpoints come back in Week 10.</li>
+</ul>
+<h2>In class</h2>
+<ol>
+<li>Cause three errors on purpose: an empty Input field, a misspelled scene name, a scene missing from the Scene List. Read each message aloud and fix it.</li>
+<li>Click a message and show it highlighting the object in the Hierarchy.</li>
+</ol>
+<h2>Common problems</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Common problems</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Students often…</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Help them by…</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Scroll to the newest error</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Pointing to the first one</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Report "it doesn't work"</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Asking for the exact Console message</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Ignore yellow warnings</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Showing that the course's warnings usually name a missing setting</td>
+</tr>
+</tbody>
+</table>
+<h2>Where it comes up</h2>
+<ul>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex01%20-%20Bootstrap.md">Ex 01</a>, Part 9: reading the Scene Loader's messages.</li>
+<li>Every exercise's "If something goes wrong" table.</li>
+</ul>
+<h2>Further resources</h2>
+<ul>
+<li>Unity Manual, <a href="https://docs.unity.com/en-us/engine/6000.3/manual/scripting/managing-update-order/execution-order">Event function execution order</a>.</li>
+<li>Unity Manual, <a href="https://docs.unity.com/en-us/engine/6000.3/manual/unity-editor/editor-windows-views-reference/console-window/console">Console window reference</a>.</li>
+</ul>

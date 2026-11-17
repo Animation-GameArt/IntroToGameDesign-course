@@ -12,6 +12,7 @@ on:
       - "Guides/**.md"
       - "Kit Guides/**.md"
       - "Schedule/**.md"
+      - "Topics/**.md"
       - "tools/build_canvas_html.py"
   workflow_dispatch:
 

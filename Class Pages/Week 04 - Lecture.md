@@ -22,6 +22,14 @@ tags:
 
 **Coyote time, jump buffering and short hops.** Players press buttons slightly early and slightly late. **Coyote time** lets a jump still work for a moment after walking off a ledge. **Jump buffering** remembers a press made just before landing. **Short hops** make a tap lower than a held press. Turn each off in front of the class and have a student play. The game doesn't get harder in an interesting way; it just feels unfair. These settings are invisible when they work, which is the point.
 
+## Topic notes
+
+Each topic has its own page with the lecture's intent, a demo plan, common problems and further resources.
+
+- [The Input System and the Input Reader](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/The%20Input%20System%20and%20the%20Input%20Reader.md)
+- [Game Feel](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Game%20Feel.md)
+- [Forgiving Controls](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Forgiving%20Controls.md)
+
 ## Connecting it forward
 
 The level built today is deliberately small and fits on one screen. Next week it grows past the screen edge, which is what makes a following camera, hazards and checkpoints necessary. The tuned jump height matters there too: every gap and ledge in Ex 04 is measured against it. The one-sheet handed in before class is expanded section by section into the ten-pager over the next three weeks.

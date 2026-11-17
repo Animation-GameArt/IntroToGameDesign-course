@@ -136,3 +136,9 @@ Show your instructor:
 | "can't find a scene named…" in the Console | Check the spelling of **Scene Name**, and check that the scene is in the Scene List. |
 | The scene changes back straight away | That's the timer. Set **Load After Seconds** to `0`. |
 | You can't find **Scene Changer** in Add Component | Check the Console for red errors. Scripts don't appear until all errors are fixed. |
+
+## Related topics
+
+- [The Course Project](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/The%20Course%20Project.md)
+- [Backing Up Your Project](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Backing%20Up%20Your%20Project.md)
+- [Scripts and the Console](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Scripts%20and%20the%20Console.md)

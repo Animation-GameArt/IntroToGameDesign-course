@@ -35,6 +35,8 @@ A game has stakes when something can be lost. Today you add health, damage and a
 
 Details: [Lecture] Week 6
 
+Topic notes: [Health and Damage](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Health%20and%20Damage.md) · [Spawners and Pooling](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Spawners%20and%20Pooling.md) · [State Machines and Enemy AI](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/State%20Machines%20and%20Enemy%20AI.md) · [Turn-Based Systems](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Turn-Based%20Systems.md)
+
 ## Exercise — Ex 05 — Combat
 
 Choose one. **Real-time:** a patrolling enemy, damage, a spawner and respawning. **Turn-based:** a turn manager, player and enemy turns, attacks, and winning and losing.
@@ -70,7 +72,8 @@ Run the matching tab of the course checklist before you submit. Every box on it 
 
 ## Links
 
-- Assignment: Ten-pager draft
+- [Assignment: Ten-Pager Draft](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Assignments/Ten-Pager%20Draft.md)
+- [Assignment: Ten-Pager](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Assignments/Ten-Pager.md)
 - [Ten-Pager Template](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Templates/Ten-Pager%20Template.md)
 - [Ex 05 — Combat tutorial (real-time)](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex05%20-%20Combat.md)
 - [Ex 05 — Combat tutorial (turn-based)](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex05%20-%20Combat%20%28Turn-Based%29.md)

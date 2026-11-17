@@ -1,0 +1,52 @@
+<p><strong>Week 5 · <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Class%20Pages/Week%2005%20-%20Lecture.md">[Lecture] Week 5</a></strong></p>
+<blockquote>
+<p><strong>In one sentence</strong><br/>A hazard gives a mistake a cost, a checkpoint decides how big that cost is, and placing both well is what makes a hard level fair.</p>
+</blockquote>
+<h2>What this topic is for</h2>
+<p>Students learn that difficulty is two decisions: how hard a section is, and how much the player loses by failing it. They also see their first respawn system, which Week 6 extends with health.</p>
+<h2>Key ideas</h2>
+<ul>
+<li><strong>Hazards.</strong> Pits, spikes, enemies. A hazard is only fair if the player can see it before it matters.</li>
+<li><strong>The cost of failing.</strong> Losing a life, going back to a checkpoint, going back to the start. The bigger the cost, the more a section must be learnable.</li>
+<li><strong>Checkpoints after the hard part.</strong> A checkpoint right after a hard section means failing the next one doesn't make the player replay it.</li>
+<li><strong>Checkpoints that are too frequent</strong> remove tension. Too rare, and players replay easy parts to retry hard ones.</li>
+<li><strong>Events.</strong> "The player died" and "checkpoint reached" are moments that other things react to: the camera, the HUD, a sound.</li>
+</ul>
+<h2>In the course project</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">In the course project</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Component</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Respawner</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">On the player. Remembers where to come back to</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Checkpoint</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A trigger. Moves the player's respawn point here, and can change color</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Kill Zone</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A trigger or solid. Sends the player back at once, or takes all their health</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Damage On Touch</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Takes one point of health (Week 6)</td>
+</tr>
+</tbody>
+</table>
+<h2>In class</h2>
+<ol>
+<li>Play a section with a checkpoint at its end, then the same section with the checkpoint moved before it. Ask which felt fair.</li>
+<li>Show a hazard that appears just off screen, then move the camera so it's visible in time.</li>
+</ol>
+<h2>Where it comes up</h2>
+<ul>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex04%20-%20Level.md">Ex 04 — Level</a>: pit, spikes, checkpoint.</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex05%20-%20Combat.md">Ex 05 — Combat</a>: spikes that cost health instead.</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Health%20and%20Damage.md">Health and Damage</a>.</li>
+</ul>

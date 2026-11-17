@@ -202,3 +202,8 @@ The sandbox game is complete. Every script in it is one you can use in your own 
 | The pause menu is behind the HUD | Set the Pause Menu's **Sort Order** higher than the HUD's. |
 | After winning, the player can't move in the next round | This is fixed when a scene loads. Use **Play Again** or **Main Menu**, not the Editor's Play button, to continue. |
 | A menu can't be used with a gamepad | Set **Select When Shown** on its UI Screen to the name of its first button. |
+
+## Related topics
+
+- [ScriptableObjects: Variables and Events](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/ScriptableObjects%20-%20Variables%20and%20Events.md)
+- [Health and Damage](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Health%20and%20Damage.md)

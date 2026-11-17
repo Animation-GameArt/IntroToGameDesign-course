@@ -35,6 +35,8 @@ A level is a lesson plan the player doesn't know they're following. Today you bu
 
 Details: [Lecture] Week 5
 
+Topic notes: [Teach, Test, Twist](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Teach%2C%20Test%2C%20Twist.md) · [Hazards and Checkpoints](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Hazards%20and%20Checkpoints.md) · [Tilemaps](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Tilemaps.md) · [Cameras with Cinemachine](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Cameras%20with%20Cinemachine.md)
+
 ## Exercise — Ex 04 — Level
 
 Build a short level wider than the screen, with a following camera, camera bounds, hazards and checkpoints.
@@ -68,7 +70,8 @@ Run the matching tab of the course checklist before you submit. Every box on it 
 
 ## Links
 
-- Assignment: Screen layout
+- [Assignment: Screen Layout](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Assignments/Screen%20Layout.md)
+- [Assignment: Ten-Pager Draft](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Assignments/Ten-Pager%20Draft.md)
 - [Ten-Pager Template](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Templates/Ten-Pager%20Template.md)
 - [Ex 04 — Level tutorial](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex04%20-%20Level.md)
 - [Course schedule](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Schedule/GAME%201303%20Course%20Schedule.md)

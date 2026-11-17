@@ -146,3 +146,9 @@ Show your instructor:
 | The enemy spins in place | It has no room. Give it a wider stretch of ground. |
 | No rocks appear | Check that the Spawner's **Prefab** field holds the `Rock` from the Project window, not from the Hierarchy. |
 | Rocks pile up forever | The `Rock` prefab needs the **Lifetime** component. |
+
+## Related topics
+
+- [Health and Damage](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Health%20and%20Damage.md)
+- [Spawners and Pooling](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Spawners%20and%20Pooling.md)
+- [State Machines and Enemy AI](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/State%20Machines%20and%20Enemy%20AI.md)

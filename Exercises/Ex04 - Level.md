@@ -195,3 +195,10 @@ Show your instructor:
 | The camera doesn't move | Check that the Cinemachine camera's **Tracking Target** is `Player`. |
 | The camera jumps or sticks at the edges | Make `Camera Bounds` bigger. It must be taller than the camera's view, which is 10 units. |
 | The player can't jump after the camera was added | The `Camera Bounds` collider must have **Is Trigger** ticked. |
+
+## Related topics
+
+- [Teach, Test, Twist](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Teach%2C%20Test%2C%20Twist.md)
+- [Hazards and Checkpoints](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Hazards%20and%20Checkpoints.md)
+- [Tilemaps](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Tilemaps.md)
+- [Cameras with Cinemachine](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Cameras%20with%20Cinemachine.md)

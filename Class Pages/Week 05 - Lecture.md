@@ -24,6 +24,15 @@ tags:
 
 **Cameras with Cinemachine.** Once the level is wider than the screen, the camera becomes part of the design. A Cinemachine camera follows the player with a **dead zone**, so small movements don't shake the view, and stays inside **bounds**, so it never shows past the level's edge. What the camera shows decides what's fair: a hazard the player couldn't see coming isn't a challenge.
 
+## Topic notes
+
+Each topic has its own page with the lecture's intent, a demo plan, common problems and further resources.
+
+- [Teach, Test, Twist](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Teach%2C%20Test%2C%20Twist.md)
+- [Hazards and Checkpoints](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Hazards%20and%20Checkpoints.md)
+- [Tilemaps](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Tilemaps.md)
+- [Cameras with Cinemachine](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Cameras%20with%20Cinemachine.md)
+
 ## Connecting it forward
 
 The level from today is where next week's enemy patrols and where its spawner sits. Checkpoints become respawn points once the player has health to lose. On paper, the screen layouts submitted before class go straight onto page 6 of the ten-pager, and the level sketch from lab goes onto page 5.

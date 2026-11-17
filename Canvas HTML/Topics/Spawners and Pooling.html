@@ -1,0 +1,57 @@
+<p><strong>Week 6 · <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Class%20Pages/Week%2006%20-%20Lecture.md">[Lecture] Week 6</a></strong></p>
+<blockquote>
+<p><strong>In one sentence</strong><br/>A spawner creates objects over time from a prefab, pooling reuses them instead of creating and destroying them, and the spawner's timing is a difficulty curve.</p>
+</blockquote>
+<h2>What this topic is for</h2>
+<p>Students build their first spawner and learn the design layer on top of it: how many, how often and what kind is a schedule that shapes difficulty over time.</p>
+<h2>Key ideas</h2>
+<ul>
+<li><strong>Spawners make copies of a prefab</strong> at one or more spawn points, on a timer.</li>
+<li><strong>Limits keep it under control.</strong> A maximum number at once, and optionally a total.</li>
+<li><strong>Pooling.</strong> Creating and destroying objects is slow when it happens often. A pool switches finished objects off and switches them back on for the next spawn. The course's Spawner pools automatically: objects that are switched off by Health, Lifetime or Damage On Touch are reused.</li>
+<li><strong>Lifetime.</strong> Objects that might never be destroyed, such as a rock that misses, need a Lifetime so they're switched off after a few seconds.</li>
+<li><strong>Difficulty is a curve.</strong> Draw it before touching settings: a ramp, a plateau, a spike, a rest. The spawner's interval and maximum are how the curve is built.</li>
+</ul>
+<h2>In the course project</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">In the course project</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Setting on Spawner</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Controls</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Prefab</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">What is made</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Spawn Points</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Where, chosen at random</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Interval, Start Delay</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">How often, and when it begins</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Max At Once, Total To Spawn</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">How many</td>
+</tr>
+</tbody>
+</table>
+<h2>In class</h2>
+<ol>
+<li>Draw a difficulty curve on the board for a two-minute section.</li>
+<li>Set a spawner to match the first part of it, then change Interval live.</li>
+<li>Set Max At Once to <code>0</code> (no limit) with a short interval, and open the Profiler (Week 10 preview) to show why limits matter.</li>
+</ol>
+<h2>Where it comes up</h2>
+<ul>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex05%20-%20Combat.md">Ex 05 — Combat</a>, Part 5: falling rocks.</li>
+<li>Tower defense, shooter and runner kits use spawners for waves and obstacles.</li>
+</ul>
+<h2>Further resources</h2>
+<ul>
+<li>Robert Nystrom, <em>Game Programming Patterns</em>, <a href="https://gameprogrammingpatterns.com/object-pool.html">Object Pool</a>.</li>
+<li>Unity Manual, <a href="https://docs.unity.com/en-us/engine/6000.3/manual/analysis/performance-memory/managed-memory/optimizing-code-managed-memory/reusable-code">Reusable code</a>, including Unity's built-in object pool.</li>
+</ul>

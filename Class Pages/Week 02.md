@@ -35,6 +35,8 @@ An idea becomes a project when someone else understands it and you know what you
 
 Details: [Lecture] Week 2
 
+Topic notes: [How to Pitch](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/How%20to%20Pitch.md) · [Scope](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Scope.md) · [Task Boards and Milestones](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Task%20Boards%20and%20Milestones.md) · [Backing Up Your Project](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Backing%20Up%20Your%20Project.md) · [The Course Project](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/The%20Course%20Project.md)
+
 ## Exercise — Ex 01 — Bootstrap
 
 Download the course project, add it in Unity Hub, set up your backup, and make two scenes that switch with a fade.
@@ -70,7 +72,8 @@ Run the matching tab of the course checklist before you submit. Every box on it 
 
 - [Course project (latest release)](https://github.com/Animation-GameArt/IntroToGameDesign-template/releases/latest)
 - [Ex 01 — Bootstrap tutorial](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex01%20-%20Bootstrap.md)
-- Discussion: Pitch
+- [Assignment: Project Setup Check](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Assignments/Project%20Setup%20Check.md)
+- [Assignment: Pitch](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Assignments/Pitch.md) (a Canvas Discussion)
 - [Genre Map](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Genre%20Map.md)
 - [Course schedule](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Schedule/GAME%201303%20Course%20Schedule.md)
 - Grade sheet

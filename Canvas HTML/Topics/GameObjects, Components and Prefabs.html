@@ -1,0 +1,81 @@
+<p><strong>Week 3 · <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Class%20Pages/Week%2003%20-%20Lecture.md">[Lecture] Week 3</a></strong></p>
+<blockquote>
+<p><strong>In one sentence</strong><br/>A GameObject is an empty container, components give it everything it does, and a prefab saves a finished GameObject as a reusable template.</p>
+</blockquote>
+<h2>What this topic is for</h2>
+<p>This is the idea every later exercise depends on. Students should be able to look at any object in a scene and explain what each of its components contributes, and know when to make a prefab.</p>
+<h2>Key ideas</h2>
+<ul>
+<li><strong>A GameObject does nothing by itself.</strong> It has a name, a position (its Transform) and a list of components.</li>
+<li><strong>Components add abilities:</strong></li>
+</ul>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Key ideas</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Component</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Gives the object</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Sprite Renderer</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Something to see</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Collider 2D</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A shape that can touch other shapes</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Rigidbody 2D</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Movement under physics: gravity, speed, collisions</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A course script, such as Collectible</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A behavior</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Composition.</strong> Building objects by combining components is how nearly everything in the course works. A coin and a key are the same object with different settings on the same Collectible component.</li>
+<li><strong>Triggers and solid colliders.</strong> A solid collider blocks. A collider with <strong>Is Trigger</strong> ticked notices touches but lets things pass through. A touch is only noticed if at least one of the two objects has a Rigidbody.</li>
+<li><strong>Prefabs.</strong> Drag a finished GameObject into the Project window and it becomes a prefab. Copies placed in scenes stay linked to it, so changing the prefab changes them all.</li>
+<li><strong>Prefab variants.</strong> A variant is a student's own version of a prefab that still follows the original. It's how students change kit prefabs without editing course files.</li>
+</ul>
+<h2>In class</h2>
+<ol>
+<li>Build the ball from <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex02%20-%20Events.md">Ex 02</a> one component at a time, pressing Play after each: sprite, then collider, then Rigidbody.</li>
+<li>Turn a coin into a prefab, place five, change the prefab's color, and watch all five change.</li>
+</ol>
+<h2>Common problems</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Common problems</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What happens</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Objects pass through each other</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">One has no collider, or both colliders are triggers</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A trigger never fires</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Neither object has a Rigidbody 2D</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Editing one copy didn't change the others</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The edit was made on the copy, not the prefab</td>
+</tr>
+</tbody>
+</table>
+<h2>Where it comes up</h2>
+<ul>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex02%20-%20Events.md">Ex 02 — Events</a>: building from components.</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex05%20-%20Combat.md">Ex 05 — Combat</a>: the Rock prefab.</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Platformer%20Kit.md">Platformer Kit</a>: prefab variants.</li>
+</ul>
+<h2>Further resources</h2>
+<ul>
+<li>Unity Manual, <a href="https://docs.unity.com/en-us/engine/6000.3/manual/working-with-gameobjects/prefabs/introduction">Introduction to prefabs</a>.</li>
+</ul>

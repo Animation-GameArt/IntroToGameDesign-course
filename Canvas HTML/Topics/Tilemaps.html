@@ -1,0 +1,89 @@
+<p><strong>Week 5 · <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Class%20Pages/Week%2005%20-%20Lecture.md">[Lecture] Week 5</a></strong></p>
+<blockquote>
+<p><strong>In one sentence</strong><br/>A Tilemap paints a level onto a grid from a palette of tiles, which is how most 2D levels in the course are built.</p>
+</blockquote>
+<h2>What this topic is for</h2>
+<p>Students should be able to make a palette, paint solid ground on one Tilemap and hazards on another, and understand why one tile equals one unit.</p>
+<h2>Key ideas</h2>
+<ul>
+<li><strong>The pieces:</strong></li>
+</ul>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Key ideas</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Piece</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Sprite</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">An image file in the Project window</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Tile</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">An asset made from a sprite, which can be painted</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Tile Palette</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A window of tiles to paint with</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Grid</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The object that holds Tilemaps and sets the cell size</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Tilemap</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">One painted layer, such as ground or hazards</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Tiles are made from files.</strong> A tile can only be made from a sprite in the <strong>Project</strong> window. A sprite object dragged from the Hierarchy goes into the palette but paints nothing, and the brush shows only an outline.</li>
+<li><strong>Separate layers by purpose.</strong> Ground on one Tilemap with a solid collider. Hazards on another with a trigger collider and a Kill Zone or Damage On Touch. Decoration on a third with no collider.</li>
+<li><strong>Colliders.</strong> A Tilemap Collider 2D gives every tile a shape. A Composite Collider 2D merges them into one smooth outline, so characters don't catch on seams.</li>
+<li><strong>One tile, one unit.</strong> The course's art packs import at one tile per unit, so a three-unit jump clears three tiles. Levels can be designed by counting.</li>
+</ul>
+<h2>In class</h2>
+<ol>
+<li>Make a palette from one sprite file, live, and point out the dialog that asks where to save the tile. That dialog means it worked.</li>
+<li>Paint ground, add colliders, and play.</li>
+<li>Add a hazard layer.</li>
+</ol>
+<h2>Common problems</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Common problems</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What happens</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The brush shows only an outline and paints nothing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The palette holds a scene object, not a tile. Remake it from a sprite file</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Painting does nothing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Wrong <strong>Active Target</strong>, or the Paint tool isn't selected</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player snags on edges</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">No Composite Collider 2D, or Composite Operation isn't <strong>Merge</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Thin lines between tiles</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Add a Sprite Atlas with padding</td>
+</tr>
+</tbody>
+</table>
+<h2>Where it comes up</h2>
+<ul>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex04%20-%20Level.md">Ex 04 — Level</a>, Parts 3 and 4.</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Platformer%20Kit%20-%20Building%20the%20Sample.md">Platformer Kit sample</a>, Part 4.</li>
+</ul>
+<h2>Further resources</h2>
+<ul>
+<li>Unity Manual, <a href="https://docs.unity3d.com/6/Documentation/Manual/tilemaps/tiles-for-tilemaps/create-tile-assets.html">Create tile assets</a>.</li>
+<li>Unity Manual, <a href="https://docs.unity3d.com/Manual/tile-palette-tools-landing.html">Tile palette tools</a>.</li>
+</ul>

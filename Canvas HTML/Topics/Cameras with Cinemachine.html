@@ -1,0 +1,80 @@
+<p><strong>Week 5 · <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Class%20Pages/Week%2005%20-%20Lecture.md">[Lecture] Week 5</a></strong></p>
+<blockquote>
+<p><strong>In one sentence</strong><br/>Once a level is wider than the screen, the camera becomes part of the design, and Cinemachine lets students set its behavior with a few settings instead of code.</p>
+</blockquote>
+<h2>What this topic is for</h2>
+<p>Students should be able to add a following camera, keep it inside the level, and change how closely it follows. They should also understand that what the camera shows decides what is fair.</p>
+<h2>Key ideas</h2>
+<ul>
+<li><strong>A Cinemachine camera directs the Main Camera.</strong> The Main Camera does the drawing; the Cinemachine camera decides where it points.</li>
+<li><strong>Tracking Target.</strong> The object the camera follows, usually the player.</li>
+<li><strong>Orthographic Size.</strong> Half the height of the view, in units. Size <code>5</code> shows ten units top to bottom.</li>
+<li><strong>Position Composer settings:</strong></li>
+</ul>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Key ideas</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Setting</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Damping</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">How quickly the camera catches up. Higher is smoother but lags</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Dead Zone</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">An area the player can move in without the camera moving</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Lookahead</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Shifts the view ahead of the player's movement</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Bounds.</strong> A Cinemachine Confiner 2D keeps the camera inside a shape, usually a trigger Box Collider 2D around the level, so it never shows empty space past the edges.</li>
+<li><strong>The camera decides fairness.</strong> A hazard the player couldn't see in time isn't a challenge. Lookahead and a wider view help fast games.</li>
+</ul>
+<h2>In class</h2>
+<ol>
+<li>Add a 2D Cinemachine camera following the player.</li>
+<li>Change Damping and Dead Zone live and have the class describe each.</li>
+<li>Add bounds and show the empty space disappear.</li>
+</ol>
+<h2>Common problems</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Common problems</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What happens</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The camera doesn't move</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Tracking Target is empty</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The camera sticks or jumps at edges</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The bounds shape is smaller than the view</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player stops jumping after bounds were added</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The bounds collider isn't a trigger, so the player is standing inside it</td>
+</tr>
+</tbody>
+</table>
+<h2>Where it comes up</h2>
+<ul>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex04%20-%20Level.md">Ex 04 — Level</a>, Parts 6 and 9.</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Platformer%20Kit%20-%20Building%20the%20Sample.md">Platformer Kit sample</a>, Part 5.</li>
+<li>3D games in Week 8 use a different Cinemachine setup.</li>
+</ul>
+<h2>Further resources</h2>
+<ul>
+<li>Cinemachine manual, <a href="https://docs.unity3d.com/Packages/com.unity.cinemachine@3.1/manual/Cinemachine2D.html">Cinemachine and 2D graphics</a>.</li>
+<li>Cinemachine manual, <a href="https://docs.unity3d.com/Packages/com.unity.cinemachine@3.1/manual/CinemachinePositionComposer.html">Position Composer</a>.</li>
+<li>Cinemachine manual, <a href="https://docs.unity3d.com/Packages/com.unity.cinemachine@3.1/manual/CinemachineConfiner2D.html">Cinemachine Confiner 2D</a>.</li>
+</ul>

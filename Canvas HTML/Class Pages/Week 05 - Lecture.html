@@ -5,5 +5,13 @@
 <p><strong>Hazards and checkpoints.</strong> A hazard gives a mistake a cost. A checkpoint decides how big that cost is. Placed after every hard section, checkpoints keep a difficult level from being a punishing one. Placed too far apart, they make the player replay the easy parts to retry the hard one. Show both in the course project, and tie them back to the event channels from Week 3: "the player died" and "checkpoint reached" are events that the level, the camera and later the HUD can all react to.</p>
 <p><strong>Tilemaps.</strong> A Tilemap paints a level onto a grid from a palette of tiles. Cover the palette, painting and erasing, and separate Tilemaps for ground, background and hazards. Add a Tilemap Collider so the ground is solid, and show Rule Tiles choosing the right edge and corner pieces automatically. Because the character's jump height is in units and the grid is in units, students can design gaps and ledges by counting tiles.</p>
 <p><strong>Cameras with Cinemachine.</strong> Once the level is wider than the screen, the camera becomes part of the design. A Cinemachine camera follows the player with a <strong>dead zone</strong>, so small movements don't shake the view, and stays inside <strong>bounds</strong>, so it never shows past the level's edge. What the camera shows decides what's fair: a hazard the player couldn't see coming isn't a challenge.</p>
+<h2>Topic notes</h2>
+<p>Each topic has its own page with the lecture's intent, a demo plan, common problems and further resources.</p>
+<ul>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Teach%2C%20Test%2C%20Twist.md">Teach, Test, Twist</a></li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Hazards%20and%20Checkpoints.md">Hazards and Checkpoints</a></li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Tilemaps.md">Tilemaps</a></li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Cameras%20with%20Cinemachine.md">Cameras with Cinemachine</a></li>
+</ul>
 <h2>Connecting it forward</h2>
 <p>The level from today is where next week's enemy patrols and where its spawner sits. Checkpoints become respawn points once the player has health to lose. On paper, the screen layouts submitted before class go straight onto page 6 of the ten-pager, and the level sketch from lab goes onto page 5.</p>

@@ -26,7 +26,7 @@ from markdown_it import MarkdownIt
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "Canvas HTML"
-SOURCES = ["Assignments", "Class Pages", "Exercises", "Guides", "Kit Guides", "Schedule"]
+SOURCES = ["Assignments", "Class Pages", "Exercises", "Guides", "Kit Guides", "Schedule", "Topics"]
 
 TABLE_STYLE = "border-collapse: collapse; width: 100%;"
 CELL_STYLE = "border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"

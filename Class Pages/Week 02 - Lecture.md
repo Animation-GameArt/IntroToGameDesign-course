@@ -24,6 +24,16 @@ tags:
 
 **The course project and the Bootstrapper.** Tour the folders: `_Course` belongs to the course and is never edited, `_Game` belongs to the student, and exercise scenes are saved as copies in `Scenes/Exercises`. Explain the **Scene List**: a scene can only be loaded during play if it's on that list. Then show the `[Course Services]` object in the Hierarchy during Play. The Bootstrapper creates it before any scene loads, so the Scene Loader is always there and Play works from any scene.
 
+## Topic notes
+
+Each topic has its own page with the lecture's intent, a demo plan, common problems and further resources.
+
+- [How to Pitch](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/How%20to%20Pitch.md)
+- [Scope](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Scope.md)
+- [Task Boards and Milestones](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Task%20Boards%20and%20Milestones.md)
+- [Backing Up Your Project](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Backing%20Up%20Your%20Project.md)
+- [The Course Project](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/The%20Course%20Project.md)
+
 ## Connecting it forward
 
 The two scenes from today become the starting point for Ex 02, through **Save As**, and that habit continues through Ex 06. The Scene Changer returns whenever a level needs to restart or a menu needs a button. On the design side, the pitch post due before next class is the first document in a chain: pitch, one-sheet, screen layout, ten-pager.

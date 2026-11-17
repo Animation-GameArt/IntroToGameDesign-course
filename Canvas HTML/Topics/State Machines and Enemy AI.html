@@ -1,0 +1,54 @@
+<p><strong>Week 6 · <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Class%20Pages/Week%2006%20-%20Lecture.md">[Lecture] Week 6</a></strong></p>
+<blockquote>
+<p><strong>In one sentence</strong><br/>An enemy that feels alive is usually in one of a few states, with simple rules for moving between them, and good enemies show the player which state they're in.</p>
+</blockquote>
+<h2>What this topic is for</h2>
+<p>Students meet the state machine through the course's patrolling enemy, and learn to describe any enemy, or their own, as circles and arrows before building it.</p>
+<h2>Key ideas</h2>
+<ul>
+<li><strong>States.</strong> What the enemy is doing right now: patrolling, chasing, attacking, stunned.</li>
+<li><strong>Transitions.</strong> The rules for changing state: "if the player is within 4 units, chase"; "if the player leaves, patrol."</li>
+<li><strong>One state at a time.</strong> Each state does one clear thing, which makes enemies easy to reason about and to debug.</li>
+<li><strong>Readable enemies.</strong> Players should be able to see what an enemy is about to do. A pause before a charge, a color change when it notices you. A player should lose to their own mistake, not to a surprise.</li>
+<li><strong>Simple rules go a long way.</strong> Turning at walls and ledges, and chasing within a range, produces behavior that feels purposeful.</li>
+</ul>
+<h2>In the course project</h2>
+<p><strong>Patrol Enemy 2D</strong> has two states:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">In the course project</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">State</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Does</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Changes when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Patrol</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Walks; turns at walls and ledges</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player comes within Chase Range</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Chase</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Walks toward the player; won't walk off a ledge</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player leaves Chase Range</td>
+</tr>
+</tbody>
+</table>
+<p>Selecting the enemy shows its chase range as a circle in the Scene view.</p>
+<h2>In class</h2>
+<ol>
+<li>Draw the patrol enemy as two circles and two arrows.</li>
+<li>Draw a third state on the board, such as "stunned after being stomped," and ask what transitions in and out of it.</li>
+<li>Have students draw a state machine for one enemy in their own game.</li>
+</ol>
+<h2>Where it comes up</h2>
+<ul>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex05%20-%20Combat.md">Ex 05 — Combat</a>, Part 4.</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Platformer%20Kit.md">Platformer Kit</a>: the Walker uses this enemy.</li>
+<li>The horror and stealth kit uses more states: patrol, investigate, chase.</li>
+</ul>
+<h2>Further resources</h2>
+<ul>
+<li>Robert Nystrom, <em>Game Programming Patterns</em>, <a href="https://gameprogrammingpatterns.com/state.html">State</a>.</li>
+</ul>

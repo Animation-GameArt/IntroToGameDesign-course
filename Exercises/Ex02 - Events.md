@@ -167,3 +167,8 @@ Show your instructor:
 | The score text doesn't change | Check that the coins' **Add To** field and the label's **Variable** field both hold `Score`. |
 | The door doesn't open | Check that the key's **Raise Event** and the door's **Channel** both hold `KeyCollected`, and that the Response is set to **GameObject → SetActive** with the box unticked. |
 | The text is huge or missing | Check **Font Size** is `8` and Position is `0, 4, 0`. |
+
+## Related topics
+
+- [GameObjects, Components and Prefabs](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/GameObjects%2C%20Components%20and%20Prefabs.md)
+- [ScriptableObjects: Variables and Events](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/ScriptableObjects%20-%20Variables%20and%20Events.md)

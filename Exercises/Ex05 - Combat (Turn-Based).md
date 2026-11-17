@@ -175,3 +175,8 @@ Show your instructor:
 | The slime never takes its turn | Check that the slime's **Controlled By** is **Computer** and that it's in the **Turn Order**. |
 | The battle never ends | Check that **Player Side** is ticked on the hero and unticked on the slime. |
 | A text shows nothing | Check the label's **Variable**, and that the same asset is set on the Health, Turn Manager or Turn Actions component. |
+
+## Related topics
+
+- [Health and Damage](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Health%20and%20Damage.md)
+- [Turn-Based Systems](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Turn-Based%20Systems.md)

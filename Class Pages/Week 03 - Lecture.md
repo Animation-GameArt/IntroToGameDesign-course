@@ -24,6 +24,15 @@ tags:
 
 **ScriptableObjects: variables and event channels.** A ScriptableObject is data saved as an asset in the Project window, outside any scene. The course uses two kinds. A **variable** holds one shared value, such as the score. An **event channel** announces a moment, such as "key collected." The coin adds to the score without knowing a text exists. The key raises its event without knowing there's a door. Contrast this with objects that hold direct references to each other, which break as soon as one is removed or renamed.
 
+## Topic notes
+
+Each topic has its own page with the lecture's intent, a demo plan, common problems and further resources.
+
+- [Running Pitch Day](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Running%20Pitch%20Day.md)
+- [GameObjects, Components and Prefabs](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/GameObjects%2C%20Components%20and%20Prefabs.md)
+- [Scripts and the Console](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Scripts%20and%20the%20Console.md)
+- [ScriptableObjects: Variables and Events](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/ScriptableObjects%20-%20Variables%20and%20Events.md)
+
 ## Connecting it forward
 
 Every later exercise leans on today's two assets. The score variable from Ex 02 is the same one the HUD shows in Ex 06, and event channels carry the player's death, the level's end and the pause state. The collectible written today is collected by a rolling ball; next week the same collectible, unchanged, is collected by a player character.

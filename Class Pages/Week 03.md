@@ -35,6 +35,8 @@ Today you pitch your game to the room. Then we open up Unity's building blocks, 
 
 Details: [Lecture] Week 3
 
+Topic notes: [Running Pitch Day](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Running%20Pitch%20Day.md) · [GameObjects, Components and Prefabs](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/GameObjects%2C%20Components%20and%20Prefabs.md) · [Scripts and the Console](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Scripts%20and%20the%20Console.md) · [ScriptableObjects: Variables and Events](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/ScriptableObjects%20-%20Variables%20and%20Events.md)
+
 ## Exercise — Ex 02 — Events
 
 A ball rolls down a ramp and collects coins. A variable asset holds the score, a text shows it, and a key raises an event that opens a door.
@@ -68,7 +70,8 @@ Run the matching tab of the course checklist before you submit. Every box on it 
 
 ## Links
 
-- Discussion: Pitch
+- [Assignment: Pitch](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Assignments/Pitch.md) (a Canvas Discussion)
+- [Assignment: One-Sheet](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Assignments/One-Sheet.md)
 - [Ex 02 — Events tutorial](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex02%20-%20Events.md)
 - [One-Sheet Template](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Templates/One-Sheet%20Template.md)
 - [Course schedule](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Schedule/GAME%201303%20Course%20Schedule.md)

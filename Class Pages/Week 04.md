@@ -35,6 +35,8 @@ Two games can have the same jump and feel nothing alike. Today you put a charact
 
 Details: [Lecture] Week 4
 
+Topic notes: [The Input System and the Input Reader](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/The%20Input%20System%20and%20the%20Input%20Reader.md) · [Game Feel](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Game%20Feel.md) · [Forgiving Controls](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Forgiving%20Controls.md)
+
 ## Exercise — Ex 03 — Player
 
 Replace the ball with a character, build a small level with platforms, tune the movement, then swap in a top-down controller.
@@ -68,7 +70,8 @@ Run the matching tab of the course checklist before you submit. Every box on it 
 
 ## Links
 
-- Assignment: One-sheet
+- [Assignment: One-Sheet](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Assignments/One-Sheet.md)
+- [Assignment: Screen Layout](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Assignments/Screen%20Layout.md)
 - [One-Sheet Template](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Templates/One-Sheet%20Template.md)
 - [Ex 03 — Player tutorial](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex03%20-%20Player.md)
 - [Course schedule](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Schedule/GAME%201303%20Course%20Schedule.md)

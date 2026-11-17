@@ -1,0 +1,58 @@
+<p><strong>Week 4 · <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Class%20Pages/Week%2004%20-%20Lecture.md">[Lecture] Week 4</a></strong></p>
+<blockquote>
+<p><strong>In one sentence</strong><br/>Unity's Input System describes controls as actions bound to many devices, and the course's Input Reader lets every script ask for an action without caring which device produced it.</p>
+</blockquote>
+<h2>What this topic is for</h2>
+<p>Students should understand why their character works on keyboard and gamepad without any extra setup, and where to look if they want to change a control.</p>
+<h2>Key ideas</h2>
+<ul>
+<li><strong>Actions, not keys.</strong> An action is something the player does: Move, Jump, Attack, Pause. Each action has <strong>bindings</strong> to keys, buttons and sticks. Move is bound to WASD, the arrow keys and the left stick at once.</li>
+<li><strong>Action maps.</strong> Actions are grouped. <strong>Player</strong> holds gameplay actions; <strong>UI</strong> holds menu navigation.</li>
+<li><strong>The project's actions.</strong> The course project's actions file is <code>Assets/_Course/Core/Input/InputSystem_Actions</code>. Open it to see every action and binding.</li>
+<li><strong>The Input Reader.</strong> Course scripts never read a key. They ask the <code>InputReader</code> asset:
+<ul>
+<li><strong>values</strong> that can be read any time, such as <code>Move</code>, <code>JumpHeld</code>;</li>
+<li><strong>events</strong> that fire at a moment, such as <code>JumpPressed</code>, <code>PausePressed</code>.</li>
+</ul>
+</li>
+<li><strong>Switching controls off.</strong> The Input Reader can switch the player's controls off and back on, for pause menus, cutscenes and end screens. Pause keeps working so the game can be un-paused. Controls switch back on whenever a scene loads.</li>
+</ul>
+<h2>In class</h2>
+<ol>
+<li>Open the actions file and follow Move and Jump to their bindings.</li>
+<li>Plug in a gamepad and play Ex 03 with no changes.</li>
+<li>Show a controller's <strong>Input</strong> field filling itself in when the component is added.</li>
+</ol>
+<h2>Common problems</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Common problems</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What happens</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Nothing responds</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Game view doesn't have focus. Click in it</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">"Input is empty" in the Console</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The controller's Input field needs the <code>InputReader</code> asset</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A student changed a binding and an update undid it</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The actions file is in <code>_Course</code>. Changing controls is a custom-script conversation</td>
+</tr>
+</tbody>
+</table>
+<h2>Where it comes up</h2>
+<ul>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex03%20-%20Player.md">Ex 03 — Player</a>, Part 4.</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex05%20-%20Combat%20%28Turn-Based%29.md">Ex 05 — Turn-Based</a>: Attack and Interact as menu choices.</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex06%20-%20UI.md">Ex 06 — UI</a>: Pause.</li>
+</ul>
+<h2>Further resources</h2>
+<ul>
+<li>Input System manual (version 1.18), <a href="https://docs.unity3d.com/Packages/com.unity.inputsystem@1.18/manual/Actions.html">Actions</a>.</li>
+</ul>
