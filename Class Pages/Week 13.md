@@ -36,6 +36,8 @@ You can't test your own game. You know where everything is, what every button do
 
 Details: [Lecture] Week 13
 
+Topic notes: [Running a Playtest](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Running%20a%20Playtest.md)
+
 ## Exercise — Ex 10 — Playtest
 
 Three classmates play your game while you watch and take notes without helping. Then you turn what you saw into tasks on your board.

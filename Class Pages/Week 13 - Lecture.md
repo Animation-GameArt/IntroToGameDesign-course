@@ -24,6 +24,12 @@ tags:
 
 **Reading difficulty.** Mark where each player failed, and how many tries each section took. A section nobody fails may be too easy or may just be a rest. A section everyone fails five times is a wall. Compare this with the difficulty the student intended in their ten-pager. The fix is usually a number or a checkpoint, not a new feature.
 
+## Topic notes
+
+Each topic has its own page with the lecture's intent, key ideas, an in-class plan and further resources.
+
+- [Running a Playtest](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Running%20a%20Playtest.md)
+
 ## Connecting it forward
 
 The three changes chosen today are the first things checked in the Beta build. The bugs found go on the list that next week's bug bash adds to.

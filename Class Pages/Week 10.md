@@ -35,6 +35,8 @@ Every game has bugs. Finished games are the ones whose developers decided which 
 
 Details: [Lecture] Week 10
 
+Topic notes: [Finding and Fixing Bugs](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Finding%20and%20Fixing%20Bugs.md) · [The Profiler](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/The%20Profiler.md) · [Bug Triage and Cutting Scope](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Bug%20Triage%20and%20Cutting%20Scope.md)
+
 ## Exercise — Ex 09 — Debug & Profile
 
 In your own game: start a bug list, find and fix one real bug using the Console or a breakpoint, and record one Profiler reading.

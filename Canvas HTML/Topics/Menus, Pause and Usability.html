@@ -1,0 +1,54 @@
+<p><strong>Week 7 · <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Class%20Pages/Week%2007%20-%20Lecture.md">[Lecture] Week 7</a></strong></p>
+<blockquote>
+<p><strong>In one sentence</strong><br/>Every game needs the same few screens, pausing is a game state the rest of the game respects, and usable UI is readable, escapable and works with a gamepad.</p>
+</blockquote>
+<h2>What this topic is for</h2>
+<p>Students build the screen flow every finished game has, and learn the basic usability checks that decide whether a game feels finished.</p>
+<h2>Key ideas</h2>
+<ul>
+<li><strong>The screen flow:</strong> title → play → pause → win or lose → back to the title. Every screen except the HUD has a way out.</li>
+<li><strong>Pause is a state.</strong> Time stops, the player's controls switch off, and the pause menu appears. The Pause button keeps working so the game can be un-paused.</li>
+<li><strong>Win and lose screens listen for events.</strong> The goal raises <code>LevelCompleted</code>; the screen shows itself. The goal never knows about the screen.</li>
+<li><strong>Gamepad navigation.</strong> A menu needs a selected button when it appears, or a gamepad can't use it. Set <strong>Select When Shown</strong> on its UI Screen.</li>
+<li><strong>Readable text.</strong> Large enough to read from a normal distance, with strong contrast against what's behind it.</li>
+<li><strong>Less is more on the HUD.</strong> Show what the player needs every moment. Everything else goes in a menu or nowhere.</li>
+<li><strong>Credits.</strong> Every finished game has a credits screen. The course's version reads text files, so it's easy to keep current.</li>
+</ul>
+<h2>In the course project</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">In the course project</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Component</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Screen</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Shows and hides a screen; selects the first button</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Button Events</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Connects buttons to actions</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Pause Controller</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The pause state</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Credits</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Fills the credits screen</td>
+</tr>
+</tbody>
+</table>
+<h2>In class</h2>
+<ol>
+<li>Walk the screen flow of a finished game, counting screens.</li>
+<li>Try a student's menu with a gamepad only.</li>
+</ol>
+<h2>Where it comes up</h2>
+<ul>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex06%20-%20UI.md">Ex 06 — UI</a>, Parts 3 to 5.</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/The%20Polish%20Checklist.md">The Polish Checklist</a> (Week 14).</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Credits%20and%20Licenses.md">Credits and Licenses</a>.</li>
+</ul>

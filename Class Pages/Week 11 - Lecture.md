@@ -20,6 +20,13 @@ tags:
 
 **A tuning pass.** Tuning is changing numbers, not adding features. Pick the main action. Change one value at a time while the game runs, as in Exercise 03. Write down the values that work, because changes made during Play are lost. Thirty minutes of tuning often improves a game more than a week of new features.
 
+## Topic notes
+
+Each topic has its own page with the lecture's intent, key ideas, an in-class plan and further resources.
+
+- [Stand-Ups](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Stand-Ups.md)
+- [A Tuning Pass](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/A%20Tuning%20Pass.md)
+
 ## Connecting it forward
 
 The sprint review is the first of four in-class checks: sprint review, Alpha, the playtest and Beta. Whatever a student named as not feeling right today should be the first thing visibly fixed in the Alpha build.

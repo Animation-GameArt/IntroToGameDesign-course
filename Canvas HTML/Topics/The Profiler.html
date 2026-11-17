@@ -1,0 +1,29 @@
+<p><strong>Week 10 · <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Class%20Pages/Week%2010%20-%20Lecture.md">[Lecture] Week 10</a></strong></p>
+<blockquote>
+<p><strong>In one sentence</strong><br/>When a game stutters, the Profiler shows how long each frame took and where the time went, so you can stop guessing.</p>
+</blockquote>
+<h2>What this topic is for</h2>
+<p>Students take one Profiler reading of their own game in Ex 09. At this level the skill is narrow: find a spike, find what caused it, change one thing, measure again.</p>
+<h2>Key ideas</h2>
+<ul>
+<li><strong>Frames.</strong> A smooth game draws about 60 frames a second, so each frame has roughly 16 milliseconds.</li>
+<li><strong>The Profiler</strong> (<strong>Window → Analysis → Profiler</strong>) records frames while the game plays, as a graph.</li>
+<li><strong>Spikes</strong> are frames that took much longer than the rest. They're what the player feels as a stutter.</li>
+<li><strong>Select a spike</strong> to see which scripts and systems used the time.</li>
+<li><strong>Common causes in student games:</strong> spawning without limits, creating and destroying many objects, very large images, and too many lights.</li>
+<li><strong>Measure before and after</strong> a change, so the fix is proven.</li>
+</ul>
+<h2>In class</h2>
+<ol>
+<li>Set a Spawner to no limit and a short interval. Record, find the spike, and select it.</li>
+<li>Restore the limit and record again.</li>
+</ol>
+<h2>Where it comes up</h2>
+<ul>
+<li>Ex 09 — Debug &amp; Profile.</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Spawners%20and%20Pooling.md">Spawners and Pooling</a>.</li>
+</ul>
+<h2>Further resources</h2>
+<ul>
+<li>Unity Manual, <a href="https://docs.unity.com/en-us/engine/6000.3/manual/analysis/profiler/window">Profiler window</a>.</li>
+</ul>

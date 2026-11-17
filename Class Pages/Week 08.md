@@ -36,6 +36,8 @@ Your game starts today. The sandbox is finished, your ten-pager is approved, and
 
 Details: [Lecture] Week 8
 
+Topic notes: [Feedback and Juice](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Feedback%20and%20Juice.md) · [Camera Shake and Hit Pause](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Camera%20Shake%20and%20Hit%20Pause.md) · [Sound and Music](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Sound%20and%20Music.md) · [Cutscenes with Timeline](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Cutscenes%20with%20Timeline.md) · [Dialogue with Yarn Spinner](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Dialogue%20with%20Yarn%20Spinner.md)
+
 ## Exercise — Ex 07 — Juice & Audio
 
 In your own game: add sound and visual feedback to your three most common actions, add background music, and add one camera shake.

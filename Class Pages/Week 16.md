@@ -35,6 +35,8 @@ Sixteen weeks ago you had three one-line ideas. Today you have a released game. 
 
 Details: [Lecture] Week 16
 
+Topic notes: [Writing a Post-Mortem](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Writing%20a%20Post-Mortem.md) · [Running Post-Mortem Presentations](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Running%20Post-Mortem%20Presentations.md)
+
 ## In class — Presentations
 
 Each student has five minutes: one minute showing the game, then what went right, what went wrong, what they'd change, and how the finished game compares with the scope in their ten-pager. Two minutes of questions follow.

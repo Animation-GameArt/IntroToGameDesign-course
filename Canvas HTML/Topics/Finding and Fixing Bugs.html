@@ -1,0 +1,58 @@
+<p><strong>Week 10 · <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Class%20Pages/Week%2010%20-%20Lecture.md">[Lecture] Week 10</a></strong></p>
+<blockquote>
+<p><strong>In one sentence</strong><br/>A bug can only be fixed with confidence once it can be made to happen on purpose, and the Console and breakpoints show why it happens.</p>
+</blockquote>
+<h2>What this topic is for</h2>
+<p>Students start a bug list in Ex 09, find and fix one real bug, and learn to report a problem precisely enough to get help.</p>
+<h2>Key ideas</h2>
+<ul>
+<li><strong>Reproduce it.</strong> Write the exact steps. Make it happen twice. A bug that can't be repeated can't be confirmed fixed.</li>
+<li><strong>Change one thing at a time.</strong> Then test again.</li>
+<li><strong>Read the first red error.</strong> It names a script and a line. Later errors are often caused by it. See <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Scripts%20and%20the%20Console.md">Scripts and the Console</a>.</li>
+<li><strong>Common families of student bugs:</strong></li>
+</ul>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Key ideas</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Symptom</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Usual cause</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">"…is empty" or "not set"</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A field left empty in the Inspector</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Works once, then stops</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">An object was destroyed while something still used it</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Nothing happens</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A misspelled name, a wrong tag, a missing collider or trigger</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Works in the Editor, not in the build</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A scene missing from the Scene List</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Log messages</strong> show a value at one moment. <strong>Breakpoints</strong> stop the game at a line so every value can be inspected, using the code editor attached to Unity.</li>
+<li><strong>A good bug report:</strong> what you did, what you expected, what happened, and the Console message.</li>
+</ul>
+<h2>In class</h2>
+<ol>
+<li>Fix one bug live using only the Console.</li>
+<li>Fix another by setting a breakpoint and inspecting a value.</li>
+</ol>
+<h2>Where it comes up</h2>
+<ul>
+<li>Ex 09 — Debug &amp; Profile.</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Bug%20Triage%20and%20Cutting%20Scope.md">Bug Triage and Cutting Scope</a>.</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Script%20Reference.md">Script Reference</a>: common Console messages.</li>
+</ul>
+<h2>Further resources</h2>
+<ul>
+<li>Unity Manual, <a href="https://docs.unity.com/en-us/engine/6000.3/manual/programming-environment/environment-and-tools/debugging-and-diagnostics/managed-code-debugging">Set up C# debugging</a>.</li>
+</ul>

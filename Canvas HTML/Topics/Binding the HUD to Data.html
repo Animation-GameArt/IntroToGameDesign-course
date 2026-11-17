@@ -1,0 +1,44 @@
+<p><strong>Week 7 · <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Class%20Pages/Week%2007%20-%20Lecture.md">[Lecture] Week 7</a></strong></p>
+<blockquote>
+<p><strong>In one sentence</strong><br/>The HUD listens to the same variable assets the game changes, so it is always correct and never needs to know the player exists.</p>
+</blockquote>
+<h2>What this topic is for</h2>
+<p>This closes the loop started in Week 3. Students see that the <code>Score</code> variable a coin changed in Ex 02 is the same one the HUD shows in Ex 06, and why that design survives the player being respawned, levels changing and objects being deleted.</p>
+<h2>Key ideas</h2>
+<ul>
+<li><strong>Listen, don't ask.</strong> The UI Variable Binder is told when a variable changes. It doesn't check every frame.</li>
+<li><strong>The HUD knows values, not objects.</strong> It shows <code>PlayerHealth</code> and <code>Score</code>. It has no reference to the player or the coins.</li>
+<li><strong>The alternative breaks.</strong> A HUD that reaches into the player object every frame breaks when the player is respawned, renamed or replaced.</li>
+<li><strong>One value, many views.</strong> The same <code>Score</code> can appear on the HUD, the win screen and a world-space label at once.</li>
+</ul>
+<h2>In the course project</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">In the course project</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Component</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Shows variables in</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Variable Binder</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A UI Document's labels (screen UI)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Variable Label</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A TextMeshPro text in the world</td>
+</tr>
+</tbody>
+</table>
+<p>Both use a <strong>Format</strong> such as <code>Score: {0}</code>.</p>
+<h2>In class</h2>
+<ol>
+<li>Show a HUD that reads the player directly, then delete and respawn the player. Watch it fail.</li>
+<li>Replace it with the UI Variable Binder and repeat.</li>
+</ol>
+<h2>Where it comes up</h2>
+<ul>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex06%20-%20UI.md">Ex 06 — UI</a>, Part 2.</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/ScriptableObjects%20-%20Variables%20and%20Events.md">ScriptableObjects: Variables and Events</a>.</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Platformer%20Kit.md">Platformer Kit</a>: health, lives and coins.</li>
+</ul>

@@ -35,6 +35,8 @@ Beta means the content is complete. Every level, every sprite, every sound and e
 
 Details: [Lecture] Week 14
 
+Topic notes: [Running a Bug Bash](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Running%20a%20Bug%20Bash.md) · [The Polish Checklist](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/The%20Polish%20Checklist.md) · [Credits and Licenses](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Credits%20and%20Licenses.md)
+
 ## In class — Bug bash
 
 Students swap games and try to break them for fifteen minutes, then swap again. Every bug is written down with the steps that caused it. Each developer leaves with a list, triages it, and fixes the must-fix items before Gold.

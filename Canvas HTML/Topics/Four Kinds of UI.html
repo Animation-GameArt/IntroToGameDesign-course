@@ -1,0 +1,65 @@
+<p><strong>Week 7 · <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Class%20Pages/Week%2007%20-%20Lecture.md">[Lecture] Week 7</a></strong></p>
+<blockquote>
+<p><strong>In one sentence</strong><br/>Game UI can sit on the screen, live in the world, float in the world, or change the screen itself, and choosing the right kind is a design decision.</p>
+</blockquote>
+<h2>What this topic is for</h2>
+<p>Students get a vocabulary for UI choices and sort their own layout sketches with it. Some will move a HUD element into the world; most will simply be able to explain why theirs is on screen.</p>
+<h2>Key ideas</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Key ideas</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Kind</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Part of the world?</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Characters aware of it?</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Examples</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Built with</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Screen</strong> (non-diegetic)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">No</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">No</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Menus, HUD</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Toolkit, screen space</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Diegetic</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Yes</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Yes</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A computer terminal, a health bar on a suit</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Toolkit in world space, or sprites</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Spatial</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Placed in it</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">No</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A name above a character, damage numbers, a waypoint arrow</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">TextMeshPro text in the world</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Meta</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">No</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">No, but it shows the character's state</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A red flash when hurt, a blurred screen when dizzy</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Screen effects</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Screen UI is the default</strong> and the easiest to read.</li>
+<li><strong>Diegetic UI adds immersion</strong> but must still be readable at a glance.</li>
+<li><strong>Spatial UI puts information where the player is already looking.</strong> The course's Health Popups are spatial.</li>
+<li><strong>Meta UI is felt more than read.</strong> Use it for states, not numbers.</li>
+</ul>
+<h2>In class</h2>
+<ol>
+<li>Show one example of each from well-known games.</li>
+<li>Have students label each element in their own screen layout with its kind.</li>
+</ol>
+<h2>Where it comes up</h2>
+<ul>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex06%20-%20UI.md">Ex 06 — UI</a>: the HUD (screen) and damage numbers (spatial).</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Assignments/Screen%20Layout.md">Screen Layout</a>: the HUD note asks which elements are on screen and which are in the world.</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Assignments/Ten-Pager.md">Ten-Pager</a>, page 6.</li>
+</ul>

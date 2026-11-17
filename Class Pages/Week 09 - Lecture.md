@@ -24,6 +24,16 @@ tags:
 
 **How to watch someone play.** Students have played their own game hundreds of times and can no longer see it fresh. The rule for a playtest is simple and hard: give the player the game, and say nothing. Watch where they hesitate, what they try that doesn't work, and where they give up. What a player does is better evidence than what they say afterwards. A two-minute test in lab today is practice for the full playtest in Week 13.
 
+## Topic notes
+
+Each topic has its own page with the lecture's intent, key ideas, an in-class plan and further resources.
+
+- [Saving Progress](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Saving%20Progress.md)
+- [Settings Players Expect](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Settings%20Players%20Expect.md)
+- [Making a Build](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Making%20a%20Build.md)
+- [Publishing on itch.io](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Publishing%20on%20itch.io)
+- [Watching Someone Play](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Watching%20Someone%20Play.md)
+
 ## Connecting it forward
 
 Every milestone from here is a build, uploaded the night before class, so today's upload is rehearsal for First Playable, Alpha, Beta and Gold. The two-minute test in lab is the same skill as the Week 13 playtest, in small.

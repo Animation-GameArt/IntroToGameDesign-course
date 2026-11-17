@@ -35,6 +35,8 @@ Your game is public. Today you check that a stranger could find it, understand w
 
 Details: [Lecture] Week 15
 
+Topic notes: [Store Pages](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Store%20Pages.md) · [Final Build Checks](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Final%20Build%20Checks.md)
+
 ## In class — Release check
 
 Each page is opened on the class screen. Another student downloads the game and runs it. The check is whether someone who has never seen the game can tell what it is from the page, get it running, and start playing.

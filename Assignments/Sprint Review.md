@@ -38,3 +38,8 @@ Each line is a graded criterion.
 ## Grading
 
 Points are to be assigned. Each requirement above is checked as met or not met.
+
+## Related topics
+
+- [A Tuning Pass](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/A%20Tuning%20Pass.md)
+- [Stand-Ups](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Stand-Ups.md)

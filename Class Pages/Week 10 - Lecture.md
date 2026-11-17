@@ -24,6 +24,14 @@ tags:
 
 **Triage, cutting and milestones.** Sort every bug by how bad it is and how often it happens: must fix, should fix, won't fix. Deciding not to fix something is a legitimate, professional choice. The same goes for features: cut the nice-to-haves now, on purpose, or lose them later by accident. Then define the remaining milestones in one line each. First Playable: the loop works once. Alpha: every feature exists. Beta: all content is in. Gold: released.
 
+## Topic notes
+
+Each topic has its own page with the lecture's intent, key ideas, an in-class plan and further resources.
+
+- [Finding and Fixing Bugs](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Finding%20and%20Fixing%20Bugs.md)
+- [The Profiler](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/The%20Profiler.md)
+- [Bug Triage and Cutting Scope](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Bug%20Triage%20and%20Cutting%20Scope.md)
+
 ## Connecting it forward
 
 This is the last lecture. From next week each class opens with a stand-up and a short topic, and the rest is studio time. The bug list started today is used at every milestone, and the bug bash in Week 14 adds to it.

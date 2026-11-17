@@ -24,6 +24,16 @@ tags:
 
 **Cutscenes and dialogue.** A Timeline plays a planned sequence: the camera moves, a character walks in, a door opens. Player controls are switched off while it runs. Dialogue uses Yarn Spinner, where a conversation is written as a plain script with choices. Be direct about scope. A solo game in eight weeks has room for an opening, an ending and a few lines in between. Most of a small game's story is told by what the level shows.
 
+## Topic notes
+
+Each topic has its own page with the lecture's intent, key ideas, an in-class plan and further resources.
+
+- [Feedback and Juice](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Feedback%20and%20Juice.md)
+- [Camera Shake and Hit Pause](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Camera%20Shake%20and%20Hit%20Pause.md)
+- [Sound and Music](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Sound%20and%20Music.md)
+- [Cutscenes with Timeline](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Cutscenes%20with%20Timeline.md)
+- [Dialogue with Yarn Spinner](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Dialogue%20with%20Yarn%20Spinner.md)
+
 ## Connecting it forward
 
 This is the first week of production, so the exercise happens inside each student's own project, and so does every exercise from here on. The backlog submitted before class is checked against the build at every milestone. Next week's exercise produces the first build, which is why the game has to run cleanly by then.

@@ -35,6 +35,8 @@ A game that only runs inside Unity on your computer isn't finished, and it isn't
 
 Details: [Lecture] Week 9
 
+Topic notes: [Saving Progress](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Saving%20Progress.md) · [Settings Players Expect](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Settings%20Players%20Expect.md) · [Making a Build](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Making%20a%20Build.md) · [Publishing on itch.io](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Publishing%20on%20itch.io) · [Watching Someone Play](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Watching%20Someone%20Play.md)
+
 ## Exercise — Ex 08 — Save & Build
 
 In your own game: save and load one thing that matters, add a volume setting, then make a build and upload it to a private itch.io page.

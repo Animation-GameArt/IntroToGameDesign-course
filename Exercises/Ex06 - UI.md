@@ -205,5 +205,9 @@ The sandbox game is complete. Every script in it is one you can use in your own 
 
 ## Related topics
 
+- [UI Toolkit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/UI%20Toolkit.md)
+- [Binding the HUD to Data](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Binding%20the%20HUD%20to%20Data.md)
+- [Four Kinds of UI](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Four%20Kinds%20of%20UI.md)
+- [Menus, Pause and Usability](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Menus%2C%20Pause%20and%20Usability.md)
 - [ScriptableObjects: Variables and Events](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/ScriptableObjects%20-%20Variables%20and%20Events.md)
 - [Health and Damage](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Health%20and%20Damage.md)

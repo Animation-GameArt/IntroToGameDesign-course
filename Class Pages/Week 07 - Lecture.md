@@ -24,6 +24,15 @@ tags:
 
 **Menus, pause and usability.** Walk the screen flow every game needs: title, play, pause, win or lose, and back. Pausing is a game state, and the rest of the game reacts to it: time stops and player controls switch off. Then the basics of usable UI: text large enough to read, enough contrast, and menus that work with a gamepad as well as a mouse. Ask what the player needs to see at every moment, and remove anything else from the HUD.
 
+## Topic notes
+
+Each topic has its own page with the lecture's intent, key ideas, an in-class plan and further resources.
+
+- [UI Toolkit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/UI%20Toolkit.md)
+- [Binding the HUD to Data](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Binding%20the%20HUD%20to%20Data.md)
+- [Four Kinds of UI](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Four%20Kinds%20of%20UI.md)
+- [Menus, Pause and Usability](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Menus%2C%20Pause%20and%20Usability.md)
+
 ## Connecting it forward
 
 The sandbox game is complete after today: scenes, events, a player, a level, opponents and UI, all built from the scripts students will use in their own games. Next week those scripts stay the same and the subject changes. Each student imports the kit for their genre and starts their own project, with the ten-pager as the plan and the production backlog as the first week's work.

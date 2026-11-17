@@ -28,7 +28,7 @@ What is built, what is left, the order to build it in, and the decisions that bl
 | Genre kits and kit guides | Not started |
 | Scripts for weeks 8–10 (audio, juice, cutscenes, dialogue, saving, settings) | Not started |
 | Class and Lecture pages, weeks 8–16 | Drafted |
-| Topic pages | Weeks 1–6 drafted (24 pages). Weeks 7–16 not started |
+| Topic pages | All 16 weeks drafted (54 pages). Weeks 8–9 describe course scripts still to be written |
 | Assignment pages and rubrics | All 14 drafted, weeks 1–16. Points to be assigned |
 | Per-game scripts and guides | After pitch week |
 
@@ -87,7 +87,7 @@ Kits aren't used until week 8 of the semester, so the later ones can be finished
 - [x] Class and Lecture pages for weeks 8–16.
 - [ ] Exercise tutorials Ex 07–10. The class pages assume them (decision 5, still to be confirmed): Juice & Audio, Save & Build, Debug & Profile, Playtest.
 - [x] Assignment pages: Production Backlog, First Playable, Sprint Review, Alpha, Beta, Gold, Post-Mortem. The first build moved into Ex 08 and the playtest report into Ex 10.
-- [ ] Topic pages (decision 6).
+- [x] Topic pages (decision 6).
 
 ### Phase 5 — Release
 

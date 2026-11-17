@@ -35,6 +35,8 @@ Lectures are over. From today, class is a studio: a short stand-up, a short topi
 
 Details: [Lecture] Week 11
 
+Topic notes: [Stand-Ups](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Stand-Ups.md) · [A Tuning Pass](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/A%20Tuning%20Pass.md)
+
 ## In class — Sprint review
 
 Each student demos for two minutes: play the core loop once, name one thing that feels right, and name one thing that doesn't. The class and the instructor give one suggestion each. Keep to time. A demo that runs long takes studio time from everyone.

@@ -38,3 +38,9 @@ Each line is a graded criterion.
 ## Grading
 
 Points are to be assigned. Each requirement above is checked as met or not met.
+
+## Related topics
+
+- [Running a Bug Bash](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Running%20a%20Bug%20Bash.md)
+- [The Polish Checklist](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/The%20Polish%20Checklist.md)
+- [Credits and Licenses](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Credits%20and%20Licenses.md)

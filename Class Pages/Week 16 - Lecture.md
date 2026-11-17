@@ -20,6 +20,13 @@ tags:
 
 **What carries forward.** Each student leaves with a released game on a public page, a design document and a post-mortem: the start of a portfolio. The Group Project course starts from the same template and the same kits, so the scripts are already familiar and the new problem is working as a team. Close by asking what the class would change about the course itself, and write the answers down for next semester.
 
+## Topic notes
+
+Each topic has its own page with the lecture's intent, key ideas, an in-class plan and further resources.
+
+- [Writing a Post-Mortem](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Writing%20a%20Post-Mortem.md)
+- [Running Post-Mortem Presentations](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Running%20Post-Mortem%20Presentations.md)
+
 ## Connecting it forward
 
 The class's answers about the course feed directly into the next version of the scripts, the kits and these pages. Useful per-game scripts written this semester can be promoted into the kits for the next one.

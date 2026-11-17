@@ -40,3 +40,8 @@ Each line is a graded criterion.
 ## Grading
 
 Points are to be assigned. Each requirement above is checked as met or not met.
+
+## Related topics
+
+- [Task Boards and Milestones](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Task%20Boards%20and%20Milestones.md)
+- [Scope](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Scope.md)

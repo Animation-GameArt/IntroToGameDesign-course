@@ -22,6 +22,13 @@ tags:
 
 **What a post-mortem is.** A post-mortem is an honest review of a finished project, written for the next project's benefit. What went right, so it can be repeated. What went wrong, so it can be avoided. It isn't an apology and it isn't an advertisement. The most useful ones compare the plan with the result: the ten-pager's scope page against the released game.
 
+## Topic notes
+
+Each topic has its own page with the lecture's intent, key ideas, an in-class plan and further resources.
+
+- [Store Pages](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Store%20Pages.md)
+- [Final Build Checks](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Final%20Build%20Checks.md)
+
 ## Connecting it forward
 
 The comparison between the ten-pager and the finished game, started in lab today, is the center of next week's presentation. The released page is also the first entry in each student's portfolio.

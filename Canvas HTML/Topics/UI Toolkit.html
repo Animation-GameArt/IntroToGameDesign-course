@@ -1,0 +1,88 @@
+<p><strong>Week 7 · <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Class%20Pages/Week%2007%20-%20Lecture.md">[Lecture] Week 7</a></strong></p>
+<blockquote>
+<p><strong>In one sentence</strong><br/>UI Toolkit builds screens the way web pages are built: a UXML file for structure, a USS file for style, and a UI Document that puts the screen in a scene.</p>
+</blockquote>
+<h2>What this topic is for</h2>
+<p>Students turn their Week 5 layout sketches into working screens. They should leave able to put a course screen into a scene, change its layout in UI Builder, and say which file controls what.</p>
+<h2>Key ideas</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Key ideas</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Part</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What it is</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">In the course project</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UXML</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The structure: this button inside this panel</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>HUD</code>, <code>MainMenu</code>, <code>PauseMenu</code>, <code>EndScreen</code>, <code>GameOver</code>, <code>Credits</code> in <code>_Course/Core/UI</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">USS</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The style: colors, sizes, spacing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>CourseTheme.uss</code>, shared by every screen</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Document</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A component that shows a UXML file in a scene</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>GameObject → UI Toolkit → UI Document</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Panel Settings</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">How screens scale to the window</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">One shared asset for every screen</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Builder</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The visual editor for UXML and USS</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Double-click a UXML file</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Names connect UI to scripts.</strong> Course components find elements by name, such as <code>score-label</code> or <code>play-button</code>. Rename an element and the connection breaks.</li>
+<li><strong>One style sheet, one look.</strong> Every screen shares <code>CourseTheme.uss</code>, which is why the menus look like one design.</li>
+<li><strong>Sort Order</strong> decides which UI Document draws on top.</li>
+<li><strong>Copy before changing.</strong> Students copy a UXML file into <code>_Game</code> and edit the copy.</li>
+</ul>
+<h2>In class</h2>
+<ol>
+<li>Take a student's layout sketch and rebuild it in UI Builder from the course HUD.</li>
+<li>Change one rule in a copy of the style sheet and watch every element using it change.</li>
+</ol>
+<h2>Common problems</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Common problems</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What happens</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A screen is blank</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Source Asset or Panel Settings is empty</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A label never updates</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Its name was changed in UI Builder</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A menu is hidden behind the HUD</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Its Sort Order is lower</td>
+</tr>
+</tbody>
+</table>
+<h2>Where it comes up</h2>
+<ul>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex06%20-%20UI.md">Ex 06 — UI</a>.</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Assignments/Screen%20Layout.md">Screen Layout</a>: the plan for these screens.</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Script%20Reference.md">Script Reference</a>: every screen's element names.</li>
+</ul>
+<h2>Further resources</h2>
+<ul>
+<li>Unity Manual, <a href="https://docs.unity3d.com/Manual/ui-systems/introduction-ui-toolkit.html">Introduction to UI Toolkit</a>.</li>
+<li>Unity Manual, <a href="https://docs.unity3d.com/Manual/UIB-getting-started.html">Get started with UI Builder</a>.</li>
+</ul>

@@ -20,6 +20,14 @@ tags:
 
 **Teaching the player in the first minute.** Return to teach and test from Week 5, applied to the student's own opening. Does the first screen let the player try the main action safely? Is the goal visible? A game that needs its developer standing beside it to explain the controls will fail next week's playtest, where nobody is allowed to explain anything.
 
+## Topic notes
+
+Each topic has its own page with the lecture's intent, key ideas, an in-class plan and further resources.
+
+- [Alpha and the Feature Freeze](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Alpha%20and%20the%20Feature%20Freeze.md)
+- [Replacing Placeholders](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Replacing%20Placeholders.md)
+- [Teaching the Player in the First Minute](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Teaching%20the%20Player%20in%20the%20First%20Minute.md)
+
 ## Connecting it forward
 
 The three playtest questions written in lab are the plan for Week 13. Alpha is also the last point at which cutting a feature is cheap. After it, anything unfinished costs polish time.

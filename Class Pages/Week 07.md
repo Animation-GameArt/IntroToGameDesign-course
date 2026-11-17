@@ -35,6 +35,8 @@ The player only knows what the screen tells them. Today you turn your layout ske
 
 Details: [Lecture] Week 7
 
+Topic notes: [UI Toolkit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/UI%20Toolkit.md) · [Binding the HUD to Data](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Binding%20the%20HUD%20to%20Data.md) · [Four Kinds of UI](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Four%20Kinds%20of%20UI.md) · [Menus, Pause and Usability](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Menus%2C%20Pause%20and%20Usability.md)
+
 ## Exercise — Ex 06 — UI
 
 Add a main menu, a pause screen, a HUD and damage popups. This completes the sandbox game.

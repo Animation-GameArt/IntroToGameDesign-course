@@ -35,6 +35,8 @@ Alpha means everything is in. It can be rough, the art can be placeholder, but e
 
 Details: [Lecture] Week 12
 
+Topic notes: [Alpha and the Feature Freeze](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Alpha%20and%20the%20Feature%20Freeze.md) · [Replacing Placeholders](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Replacing%20Placeholders.md) · [Teaching the Player in the First Minute](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Teaching%20the%20Player%20in%20the%20First%20Minute.md)
+
 ## In class — Alpha check
 
 During studio time the instructor plays each game for a few minutes against the student's must-have list. Each feature is marked as there, partly there or missing. A missing feature is either finished this week or cut, and the student decides which today.

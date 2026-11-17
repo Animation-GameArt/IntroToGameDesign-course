@@ -38,3 +38,9 @@ Each line is a graded criterion.
 ## Grading
 
 Points are to be assigned. Each requirement above is checked as met or not met.
+
+## Related topics
+
+- [Alpha and the Feature Freeze](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Alpha%20and%20the%20Feature%20Freeze.md)
+- [Replacing Placeholders](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Replacing%20Placeholders.md)
+- [Teaching the Player in the First Minute](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Teaching%20the%20Player%20in%20the%20First%20Minute.md)
