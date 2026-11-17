@@ -1,0 +1,657 @@
+---
+title: "Script Reference"
+course: GAME 1303
+type: guide
+status: draft
+course_version: 0.9.0
+unity: 6000.3.10f1
+tags:
+  - game1303
+  - guide
+  - scripts
+---
+
+# Script Reference
+
+Every course script in the course project, as of version **0.9.0**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
+
+## Finding the scripts
+
+| To add a… | Use |
+|---|---|
+| Component (on a GameObject) | **Add Component → Collin Game →** *group* → *name* |
+| Asset (a variable, an event, the Input Reader) | Right-click in the Project window → **Create → Collin Game →** *group* → *name* |
+| Editor tool | The **Collin Game** menu at the top of the Editor |
+
+Every script explains its settings: hover over a field in the Inspector to see its tooltip. When something is set up wrong, the script writes a plain-language message to the Console that names the object and the fix.
+
+> [!warning] Don't edit course files
+> Everything in `Assets/_Course` is replaced when the course is updated. To change a script, prefab or screen, copy it into `Assets/_Game` and change the copy. For prefabs, make a **Prefab Variant**.
+
+## Directory map
+
+| Folder | Assembly | Contents |
+|---|---|---|
+| `_Course/Core/GameFlow` | `CollinGame.Core` | Starting the game, loading scenes, fades |
+| `_Course/Core/Events` | `CollinGame.Core` | Event channels and listeners |
+| `_Course/Core/Variables` | `CollinGame.Core` | Variable assets, and components that show, reset and watch them |
+| `_Course/Core/Input` | `CollinGame.Core` | The Input Reader and the project's input actions |
+| `_Course/Core/Gameplay` | `CollinGame.Core` | Health, damage, pickups, checkpoints, zones, spawning |
+| `_Course/Core/TurnBased` | `CollinGame.Core` | Turn order, turn takers and their actions |
+| `_Course/Core/UI` | `CollinGame.Core` | UI Toolkit screens, their style sheet, and the components that run them |
+| `_Course/Core/Editor` | `CollinGame.Core.Editor` | Inspector helpers and the art importer. Editor only |
+| `_Course/TwoD/Movement` | `CollinGame.TwoD` | 2D character controllers and moving objects |
+| `_Course/TwoD/AI` | `CollinGame.TwoD` | 2D enemies |
+| `_Course/TwoD/Visuals` | `CollinGame.TwoD` | Simple sprite animation |
+| `_Course/Kits/Platformer/Scripts` | `CollinGame.Kits.Platformer` | Platformer kit scripts |
+| `_Course/Kits/Platformer/UI` | — | Platformer kit screens |
+| `_Course/Art/Kenney` | — | Kenney art packs (CC0) |
+| `_Course/Credits` | — | The course's credits text |
+
+Each folder's scripts can use the folders above it in this order: Core, then TwoD, then Kits. Core never depends on a kit, so adding or removing a kit can't break the exercises.
+
+## How the pieces fit together
+
+Most course scripts never talk to each other directly. They share **assets** instead.
+
+| Pattern | Example | Why |
+|---|---|---|
+| A component **changes a variable**; others **show or watch** it | A Collectible adds to `Score`; a UI Variable Binder shows it; an Int Variable Condition reacts when it reaches 10 | The coin doesn't need to know the HUD exists |
+| A component **raises an event**; others **listen** | A Trigger Zone raises `LevelCompleted`; a Void Event Listener shows the win screen | The goal doesn't need to know what happens when it's reached |
+| A component **asks the Input Reader** | The Platformer Controller reads `Move` and listens for `JumpPressed` | Works on keyboard and gamepad; controls can be switched off in one place |
+| Components on the **same GameObject** cooperate | Health and Respawner on the player: when health runs out, the Respawner refills it | No wiring needed |
+
+The main families:
+
+| Family | Scripts |
+|---|---|
+| Starting and changing scenes | Bootstrapper → Scene Loader + Screen Fader; Scene Changer |
+| Sharing data | Variables, Variable Label, UI Variable Binder, Variable Resetter, Int Variable Condition |
+| Sharing moments | Event Channels, Event Listeners, Trigger Zone, Checkpoint, Health, Collectible |
+| Player | Input Reader → Platformer or Top Down Controller 2D; Health; Respawner |
+| Hurting and healing | Damage On Touch, Kill Zone, Stompable Enemy 2D → Health ← Collectible (Heal) |
+| Dying and coming back | Health → Respawner ← Checkpoint, Kill Zone |
+| Spawning | Spawner → a prefab with Health, Lifetime or Damage On Touch (Remove Self After Hit) |
+| Turns | Turn Manager → Turn Taker ← Turn Actions → Health |
+| Screens | UI Document + UI Screen + UI Button Events + UI Variable Binder; Pause Controller; UI Credits |
+
+---
+
+## Game flow
+
+### Bootstrapper
+
+`Core/GameFlow/Bootstrapper.cs` · runs by itself; never added to anything
+
+Before the first scene loads, creates an object named **[Course Services]** that holds a Scene Loader and a Screen Fader, and keeps it alive across scene changes. That's why you can press Play from any scene. While playing, you can find it under **DontDestroyOnLoad** in the Hierarchy.
+
+Optional: if a prefab named `CourseServices` exists in a `Resources` folder, it's used in place of an empty object, so its settings can be changed.
+
+**Works with:** Scene Loader, Screen Fader. **Used in:** [Ex 01](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex01%20-%20Bootstrap.md).
+
+### Scene Loader
+
+`Core/GameFlow/SceneLoader.cs` · created by the Bootstrapper
+
+Loads scenes with a fade out and a fade in. There is always exactly one. It refuses to load a scene that isn't in the Scene List (**File → Build Profiles → Scene List**) and says so in the Console. Loading a scene also un-pauses the game.
+
+| Setting | Default | |
+|---|---|---|
+| Fade Duration | `0.35` | Seconds for each fade. `0` switches with no fade |
+
+From a script: `SceneLoader.Instance.LoadScene("Level2")`, `ReloadScene()`, `LoadNextScene()`, `QuitGame()`.
+
+### Screen Fader
+
+`Core/GameFlow/ScreenFader.cs` · created with the Scene Loader
+
+The full-screen color the Scene Loader fades through. Setting: **Color** (black).
+
+### Scene Changer
+
+`Core/GameFlow/SceneChanger.cs` · **Add Component → Collin Game → Core → Scene Changer**
+
+Changes scene with no code. Type a scene name, then start the change in one of three ways.
+
+| Setting | Default | |
+|---|---|---|
+| Scene Name | — | Exactly as the file is named, without `.unity` |
+| Load After Seconds | `0` | Load by itself after this many seconds. `0` is off |
+| Load On Action | — | Load when the player uses an input action, such as **Player/Jump** |
+
+Its methods can be chosen from any button or event response: **Load**, **ReloadScene**, **LoadNextScene** (the next scene in the Scene List), **QuitGame** (stops Play mode in the Editor).
+
+**How to use it:**
+
+1. Create an empty GameObject and add a Scene Changer.
+2. Type the **Scene Name**, and add that scene to the Scene List.
+3. Choose how it starts: a timer, an input action, or a button's On Click (**SceneChanger → Load**).
+
+**Works with:** UI Button Events, Void Event Listener, Variable Resetter. **Used in:** [Ex 01](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex01%20-%20Bootstrap.md), [Ex 04](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex04%20-%20Level.md), [Ex 06](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex06%20-%20UI.md).
+
+---
+
+## Variables
+
+Variable assets hold one shared value outside any scene. They go back to their **Initial Value** each time the game starts, and **keep** their value when scenes change. During Play, the Inspector shows each variable's **Current Value**.
+
+| Asset | Create menu | Holds | Extra methods |
+|---|---|---|---|
+| Int Variable | Create → Collin Game → Variables → Int Variable | A whole number: score, coins, lives | **Add (int)**; use a negative number to subtract |
+| Float Variable | … → Float Variable | A decimal: time, speed | **Add (float)** |
+| Bool Variable | … → Bool Variable | True or false: paused, has the key | **Toggle** |
+| String Variable | … → String Variable | Text: a message, a name | |
+
+All variables have **Description** (a note for yourself), **Initial Value** and **Log Changes** (writes each change to the Console).
+
+**Used in:** [Ex 02](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex02%20-%20Events.md) onward. **Background:** [ScriptableObjects: Variables and Events](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/ScriptableObjects%20-%20Variables%20and%20Events.md).
+
+### Variable Label
+
+`Core/Variables/VariableLabel.cs` · **Add Component → Collin Game → Core → Variable Label**
+
+Shows a variable in a **TextMeshPro** text in the world, and keeps it up to date. Add it to the same GameObject as the text.
+
+| Setting | Default | |
+|---|---|---|
+| Variable | — | Any variable asset |
+| Label | this object's text | The text to write into |
+| Format | `{0}` | `{0}` is replaced by the value, so `Score: {0}` shows "Score: 3" |
+
+For screen UI, use **UI Variable Binder** instead. **Used in:** [Ex 02](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex02%20-%20Events.md), [Ex 05 (turn-based)](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex05%20-%20Combat%20%28Turn-Based%29.md).
+
+### Variable Resetter
+
+`Core/Variables/VariableResetter.cs` · **Add Component → Collin Game → Core → Variable Resetter**
+
+Sets variables back to their Initial Value: when the scene starts, or when **ResetAll** is called from a button or event. Leave a variable out of its list if it should carry between scenes.
+
+| Setting | Default | |
+|---|---|---|
+| Variables | — | The variables to reset |
+| Reset When Scene Starts | ticked | Untick to reset only when ResetAll is called |
+
+**Used in:** [Ex 02](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex02%20-%20Events.md), [Platformer Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Platformer%20Kit.md) (lives and coins).
+
+### Int Variable Condition
+
+`Core/Variables/IntVariableCondition.cs` · **Add Component → Collin Game → Core → Int Variable Condition**
+
+Watches a number and reacts when it reaches a value: game over at 0 lives, a door opening at 10 coins.
+
+| Setting | Default | |
+|---|---|---|
+| Variable | — | The Int Variable to watch |
+| Comparison | At Least | **Equal To**, **At Least** or **At Most** |
+| Value | `1` | The value to compare with |
+| Only Once | ticked | Untick to react every time the condition becomes true again |
+| Raise Event | — | Optional event channel |
+| On Became True | — | Things to do |
+
+**Works with:** any Int Variable, Void Event Channel. **Used in:** [Platformer Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Platformer%20Kit.md) (game over).
+
+---
+
+## Events
+
+An event channel is an asset that one object **raises** and any number of objects **listen** to.
+
+| Asset | Create menu | Carries |
+|---|---|---|
+| Void Event Channel | Create → Collin Game → Events → Void Event Channel | Nothing: "this happened" |
+| Int, Float, Bool, String, GameObject Event Channel | … → *type* Event Channel | A value of that type |
+
+Every channel has **Description** and **Log When Raised**. During Play, a Void Event Channel's Inspector has a **Raise** button for testing.
+
+**Raised by:** Collectible (Raise Event), Trigger Zone, Checkpoint, Health (Raise On Died), Respawner, Int Variable Condition, Turn Manager, or a script calling `Raise()`.
+
+### Event Listeners
+
+`Core/Events/` · **Add Component → Collin Game → Events →** *type* **Event Listener**
+
+Runs a **Response** when its **Channel** is raised. Typed listeners pass the value along. A listener only listens while its GameObject is active.
+
+**How to use one:**
+
+1. Add a **Void Event Listener** to the object that should react.
+2. Drag the event channel asset into **Channel**.
+3. Under **Response**, click **+**, drag in the object to act on, and choose a method, such as **GameObject → SetActive** or **UIScreen → Show**.
+
+**Used in:** [Ex 02](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex02%20-%20Events.md) (the door), [Ex 04](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex04%20-%20Level.md), [Ex 06](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex06%20-%20UI.md) (the win screen).
+
+---
+
+## Input
+
+### Input Reader
+
+`Core/Input/InputReader.cs` and the asset `Core/Input/InputReader` · already in the project
+
+The one place course scripts get player input. It reads the project's input actions (`Core/Input/InputSystem_Actions`) and offers them as values and events. Leave its **Actions** field empty to use the project's actions.
+
+| Values (read any time) | Events (at a moment) |
+|---|---|
+| Move, Look | JumpPressed, JumpReleased |
+| JumpHeld, AttackHeld, InteractHeld, CrouchHeld, SprintHeld | AttackPressed/Released, InteractPressed/Released |
+| | CrouchPressed/Released, SprintPressed/Released |
+| | PreviousPressed, NextPressed, PausePressed |
+
+**DisablePlayerInput** and **EnablePlayerInput** switch the player's controls off and on, for pauses, cutscenes and end screens. Pause keeps working while they're off, and controls switch back on whenever a scene loads.
+
+| Action | Keyboard and mouse | Gamepad |
+|---|---|---|
+| Move | WASD, arrow keys | Left stick |
+| Jump | Space | Bottom face button |
+| Attack | Enter, left mouse button | Left face button |
+| Interact | E | Top face button |
+| Pause | Esc | Start |
+
+**Used by:** both 2D controllers, Turn Actions, Pause Controller, Scene Changer (Load On Action). Components that need it fill in their **Input** field themselves when added. **Background:** [The Input System and the Input Reader](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/The%20Input%20System%20and%20the%20Input%20Reader.md).
+
+---
+
+## 2D movement
+
+### Platformer Controller 2D
+
+`TwoD/Movement/PlatformerController2D.cs` · **Add Component → Collin Game → 2D → Platformer Controller 2D**
+
+A side-view character that runs and jumps. Adds and sets up its own Rigidbody 2D. Needs a 2D collider; a Capsule Collider 2D works well. It rides moving platforms, passes up through one-way platforms, and can be launched by springs and stomps.
+
+| Group | Setting | Default |
+|---|---|---|
+| Input | Input | `InputReader` |
+| Running | Max Speed · Acceleration · Deceleration · Air Control | `7` · `60` · `70` · `0.6` |
+| Jumping | Jump Height (units) · Extra Air Jumps · Short Hop Speed Kept · Coyote Time · Jump Buffer Time | `3` · `0` · `0.5` · `0.1` · `0.1` |
+| Gravity | Gravity Scale · Fall Gravity Multiplier · Max Fall Speed | `3` · `1.5` · `20` |
+| Ground check | Ground Layers · Ground Check Distance | Everything · `0.08` |
+| Looks | Sprite To Flip | first sprite found |
+| Events | On Jump · On Land | |
+
+Selecting the character shows its ground check as a box: green on the ground, red in the air.
+
+**Works with:** Input Reader, Health, Respawner, Platformer Sprite Animator, Bounce Pad 2D, Stompable Enemy 2D, Waypoint Mover 2D. **Used in:** [Ex 03](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex03%20-%20Player.md) onward. **Background:** [Game Feel](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Game%20Feel.md), [Forgiving Controls](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Forgiving%20Controls.md).
+
+### Top Down Controller 2D
+
+`TwoD/Movement/TopDownController2D.cs` · **Add Component → Collin Game → 2D → Top Down Controller 2D**
+
+A character seen from above that moves in any direction. Adds its own Rigidbody 2D with gravity off.
+
+| Setting | Default | |
+|---|---|---|
+| Input | `InputReader` | |
+| Max Speed · Acceleration · Deceleration | `6` · `50` · `60` | |
+| Facing | Flip Sprite | **None**, **Flip Sprite**, or **Rotate To Movement** |
+| Sprite To Flip | first sprite found | |
+
+**Used in:** [Ex 03](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex03%20-%20Player.md), Part 6.
+
+### Waypoint Mover 2D
+
+`TwoD/Movement/WaypointMover2D.cs` · **Add Component → Collin Game → 2D → Waypoint Mover 2D**
+
+Moves an object along a path, over and over: moving platforms, flying enemies, saw blades. Sets its own Rigidbody 2D to Kinematic.
+
+| Setting | Default | |
+|---|---|---|
+| Stops | `(4, 0)` | Positions measured from where the object starts |
+| Path Mode | Back And Forth | Or **Loop** |
+| Speed | `2` | Units per second |
+| Wait At Stops | `0.5` | Seconds |
+
+Selecting the object draws its path. A character with the Platformer Controller 2D is carried along when standing on it.
+
+**Used in:** [Platformer Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Platformer%20Kit.md) (Moving Platform, Flyer).
+
+---
+
+## 2D enemies and visuals
+
+### Patrol Enemy 2D
+
+`TwoD/AI/PatrolEnemy2D.cs` · **Add Component → Collin Game → 2D → Patrol Enemy 2D**
+
+A side-view enemy with two states. **Patrol:** walks and turns at walls and ledges. **Chase:** walks toward the player while within Chase Range, without walking off ledges. Adds its own Rigidbody 2D. It doesn't hurt anything by itself: add **Damage On Touch** or **Stompable Enemy 2D**.
+
+| Setting | Default | |
+|---|---|---|
+| Patrol Speed · Start Moving Right | `2` · ticked | |
+| Turn At Ledges · Turn At Walls | ticked · ticked | |
+| Max Distance From Start | `0` | `0` is no limit |
+| Chase Tag · Chase Range · Chase Speed | `Player` · `0` · `3.5` | Range `0` never chases |
+| Solid Layers | Everything | |
+| Sprite To Flip | first sprite found | |
+
+Selecting the enemy shows its chase range as a circle. **Used in:** [Ex 05](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex05%20-%20Combat.md). **Background:** [State Machines and Enemy AI](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/State%20Machines%20and%20Enemy%20AI.md).
+
+### Sprite Flipbook
+
+`TwoD/Visuals/SpriteFlipbook.cs` · **Add Component → Collin Game → 2D → Sprite Flipbook**
+
+Plays a few sprites in a loop: a spinning coin, a waving flag. No Animator needed. Settings: **Frames**, **Frames Per Second** (`6`), **Target** (this object's sprite), **Random Start** (ticked, so copies don't move in step).
+
+---
+
+## Gameplay
+
+All gameplay components work in 2D and 3D. Those that react to touch need a collider, and at least one of the two touching objects needs a Rigidbody. Most have a **tag** setting that defaults to `Player`; leave it empty to react to anything.
+
+### Collectible
+
+`Core/Gameplay/Collectible.cs` · **Add Component → Collin Game → Core → Collectible**
+
+Something that can be picked up. Needs a collider with **Is Trigger** ticked.
+
+| Setting | Default | |
+|---|---|---|
+| Collector Tag | `Player` | |
+| Add To · Amount | — · `1` | An Int Variable to add to |
+| Heal | `0` | Health given to the collector |
+| Raise Event | — | An event channel |
+| On Collected | — | Things to do |
+| Destroy When Collected | ticked | Untick to hide it instead |
+
+**Used in:** [Ex 02](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex02%20-%20Events.md) onward. Coins, keys, hearts and gems are all Collectibles with different settings.
+
+### Health
+
+`Core/Gameplay/Health.cs` · **Add Component → Collin Game → Core → Health**
+
+Health that can be lost and regained. Starts full each time the object appears. Announces damage, healing and death, so nothing needs to check it.
+
+| Setting | Default | |
+|---|---|---|
+| Max Health | `3` | |
+| Invulnerable Time | `1` | Seconds after a hit when no damage is taken. Use `0` for turn-based |
+| When Health Runs Out | Nothing | **Nothing** (use with a Respawner), **Deactivate** (a Spawner can reuse it), **Destroy** |
+| Health Variable | — | Kept equal to current health, for the HUD |
+| Raise On Died | — | An event channel |
+| On Damaged · On Healed · On Died | — | Things to do |
+
+Other components call **TakeDamage**, **Heal** and **Kill**.
+
+**Works with:** Respawner, Damage On Touch, Kill Zone, Stompable Enemy 2D, Collectible (Heal), Health Popups, Turn Actions, Turn Taker. **Background:** [Health and Damage](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Health%20and%20Damage.md).
+
+### Respawner
+
+`Core/Gameplay/Respawner.cs` · **Add Component → Collin Game → Core → Respawner**
+
+Sends an object back to its respawn point, stops it, and refills its Health. The respawn point starts where the object begins the scene, and moves when it touches a Checkpoint.
+
+| Setting | Default | |
+|---|---|---|
+| Respawn When Health Runs Out | ticked | Needs a Health on the same object |
+| Raise On Respawn · On Respawn | — | |
+
+**Works with:** Health, Checkpoint, Kill Zone. **Used in:** [Ex 04](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex04%20-%20Level.md).
+
+### Checkpoint
+
+`Core/Gameplay/Checkpoint.cs` · **Add Component → Collin Game → Core → Checkpoint**
+
+When an object with a Respawner touches it, the respawn point moves here. Needs a trigger collider.
+
+| Setting | Default | |
+|---|---|---|
+| Activator Tag | `Player` | |
+| Respawn Point | this object | An exact place to reappear |
+| Indicator · Active Color | — · green | A sprite that changes color when reached |
+| Raise On Activated · On Activated | — | |
+
+**Background:** [Hazards and Checkpoints](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Hazards%20and%20Checkpoints.md).
+
+### Kill Zone
+
+`Core/Gameplay/KillZone.cs` · **Add Component → Collin Game → Core → Kill Zone**
+
+Anything that touches it is out at once: pits, lava. Takes all Health, or, with no Health, respawns the object. Works as a trigger or as a solid. Setting: **Target Tag** (`Player`).
+
+### Damage On Touch
+
+`Core/Gameplay/DamageOnTouch.cs` · **Add Component → Collin Game → Core → Damage On Touch**
+
+Hurts anything with Health that touches it: spikes, enemies, rocks. Works as a trigger or as a solid.
+
+| Setting | Default | |
+|---|---|---|
+| Target Tag | `Player` | |
+| Damage | `1` | |
+| Repeat Every | `0.5` | Hurt again while still touching. `0` hurts only on first touch |
+| Remove Self After Hit | unticked | For rocks and projectiles |
+| On Hit | — | |
+
+### Trigger Zone
+
+`Core/Gameplay/TriggerZone.cs` · **Add Component → Collin Game → Core → Trigger Zone**
+
+An area that reacts when something enters or leaves: a goal, a trap, a door that opens as you approach. Needs a trigger collider.
+
+| Setting | Default | |
+|---|---|---|
+| Trigger Tag | `Player` | |
+| Only Once | unticked | |
+| Raise On Enter · On Enter | — | |
+| Raise On Exit · On Exit | — | |
+
+**Used in:** [Ex 04](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex04%20-%20Level.md) (the goal).
+
+### Spawner
+
+`Core/Gameplay/Spawner.cs` · **Add Component → Collin Game → Core → Spawner**
+
+Creates copies of a prefab over time, and reuses copies that have been switched off (pooling).
+
+| Setting | Default | |
+|---|---|---|
+| Prefab | — | From the Project window, not the Hierarchy |
+| Spawn Points | this object | Picked at random |
+| Start Automatically · Start Delay · Interval | ticked · `1` · `2` | |
+| Max At Once · Total To Spawn | `5` · `0` | `0` is no limit |
+| On Spawned · On Finished | — | |
+
+Methods: **StartSpawning**, **StopSpawning**, **SpawnOne**.
+
+**Works with:** prefabs that switch themselves off: Health (Deactivate), Lifetime, Damage On Touch (Remove Self After Hit). **Used in:** [Ex 05](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex05%20-%20Combat.md). **Background:** [Spawners and Pooling](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Spawners%20and%20Pooling.md).
+
+### Lifetime
+
+`Core/Gameplay/Lifetime.cs` · **Add Component → Collin Game → Core → Lifetime**
+
+Removes an object after a number of seconds. Settings: **Seconds** (`5`), **When Time Is Up** (**Deactivate**, so a Spawner can reuse it, or **Destroy**).
+
+---
+
+## Turn-based
+
+Background: [Turn-Based Systems](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Turn-Based%20Systems.md). Used in: [Ex 05 (turn-based)](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex05%20-%20Combat%20%28Turn-Based%29.md).
+
+### Turn Manager
+
+`Core/TurnBased/TurnManager.cs` · **Add Component → Collin Game → Turn Based → Turn Manager**
+
+Runs a battle: keeps the turn order, starts each turn, counts rounds, and decides when it's won (no opponents can act) or lost (nobody on the player's side can act).
+
+| Setting | Default | |
+|---|---|---|
+| Turn Order | — | Turn Takers, in order |
+| Start Automatically · Pause Between Turns | ticked · `0.6` | |
+| Status Text · Round Variable | — | A String and an Int Variable to show |
+| Raise On Player Won · Raise On Player Lost | — | Event channels |
+| On Battle Started · On Player Won · On Player Lost | — | |
+
+### Turn Taker
+
+`Core/TurnBased/TurnTaker.cs` · **Add Component → Collin Game → Turn Based → Turn Taker**
+
+Marks a participant. Skipped once its Health runs out. Settings: **Display Name**, **Player Side**, **On Turn Started**, **On Turn Ended**.
+
+### Turn Actions
+
+`Core/TurnBased/TurnActions.cs` · **Add Component → Collin Game → Turn Based → Turn Actions**
+
+Attack or heal; each uses up the turn. **Player** control waits for Attack (Enter) or Interact (E). **Computer** control waits, heals if its health is low and a heal is left, and attacks otherwise.
+
+| Setting | Default | |
+|---|---|---|
+| Controlled By · Input | Player · `InputReader` | |
+| Attack Target · Attack Damage | — · `2` | The opponent's Health |
+| Heal Amount · Heals Available | `3` · `2` | |
+| Think Time · Heal When Health At Or Below | `1` · `2` | Computer only |
+| Message Text | — | A String Variable describing the last action |
+| On Attack · On Heal | — | |
+
+---
+
+## UI
+
+### Screens
+
+UXML files in `Core/UI`, styled by `CourseTheme.uss`. Put one in a scene with **GameObject → UI Toolkit → UI Document**, then set its **Source Asset**. Components find elements by **name**, so copies in `_Game` must keep these names.
+
+| Screen | Element names |
+|---|---|
+| `HUD` | `health-label`, `score-label` |
+| `MainMenu` | `title-label`, `subtitle-label`, `play-button`, `credits-button`, `quit-button` |
+| `PauseMenu` | `resume-button`, `restart-button`, `menu-button` |
+| `EndScreen` | `score-label`, `play-again-button`, `menu-button` |
+| `GameOver` | `score-label`, `try-again-button`, `menu-button` |
+| `Credits` | `credits-label`, `back-button` |
+
+To change a screen's look, copy the UXML into `Assets/_Game` and edit it in **UI Builder** (double-click it).
+
+### UI Screen
+
+`Core/UI/UIScreen.cs` · **Add Component → Collin Game → UI → UI Screen**
+
+Shows and hides a whole UI Document. Methods: **Show**, **Hide**, **Toggle**.
+
+| Setting | Default | |
+|---|---|---|
+| Hidden At Start | unticked | Tick for pause, win and credits screens |
+| Select When Shown | — | The button to select first, so a gamepad can use the menu |
+
+### UI Button Events
+
+`Core/UI/UIButtonEvents.cs` · **Add Component → Collin Game → UI → UI Button Events**
+
+Connects buttons to the scene with no code. For each button, type its **Button Name** and set **On Click**.
+
+### UI Variable Binder
+
+`Core/UI/UIVariableBinder.cs` · **Add Component → Collin Game → UI → UI Variable Binder**
+
+Shows variables in a UI Document's labels and keeps them current. For each binding: **Label Name**, **Variable**, **Format** (`{0}` is the value).
+
+### Pause Controller
+
+`Core/UI/PauseController.cs` · **Add Component → Collin Game → UI → Pause Controller**
+
+Pauses and un-pauses on the Pause action: stops time, switches off the player's controls, and shows the pause screen. Put it on the pause menu's UI Document; its fields fill themselves in.
+
+| Setting | | |
+|---|---|---|
+| Input · Pause Screen | `InputReader` · this UI Screen | |
+| Paused Variable | — | A Bool Variable kept equal to "paused" |
+| On Paused · On Resumed | — | |
+
+Methods: **Pause**, **Resume**, **TogglePause**.
+
+### UI Credits
+
+`Core/UI/UICredits.cs` · **Add Component → Collin Game → UI → UI Credits**
+
+Fills the Credits screen from text files. List **Credit Files** in order: the student's `Assets/_Game/Credits` first, then `Assets/_Course/Credits/Course Credits`.
+
+### Health Popups
+
+`Core/UI/HealthPopups.cs` · **Add Component → Collin Game → UI → Health Popups**
+
+Floating "-1" and "+1" above an object when its Health changes. Add it next to a Health. Settings: **Damage Color**, **Heal Color**, **Font Size** (`5`), **Offset** (`0, 1.2, 0`). Uses **Floating Text**, which scripts can also call directly: `FloatingText.Spawn("Hello", position, Color.white)`.
+
+**Used in:** [Ex 06](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex06%20-%20UI.md).
+
+---
+
+## Platformer kit
+
+Imported with the Platformer Kit package. See [Platformer Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Platformer%20Kit.md).
+
+### Stompable Enemy 2D
+
+`Kits/Platformer/Scripts/StompableEnemy2D.cs` · **Add Component → Collin Game → Platformer Kit → Stompable Enemy 2D**
+
+An enemy that's defeated by landing on it. From above, the enemy is hurt and the player bounces. From any other side, the player is hurt. Needs a **solid** collider. Use it instead of Damage On Touch. Without Health, one stomp removes it.
+
+| Setting | Default | |
+|---|---|---|
+| Player Tag | `Player` | |
+| Stomp Damage · Bounce Height | `1` · `2` | |
+| Add To · Amount | — · `1` | Points for a stomp |
+| On Stomped | — | |
+| Touch Damage · Repeat Every | `1` · `0.5` | |
+
+### Bounce Pad 2D
+
+`Kits/Platformer/Scripts/BouncePad2D.cs` · **Add Component → Collin Game → Platformer Kit → Bounce Pad 2D**
+
+A spring. Needs a trigger collider over its top. Settings: **Target Tag**, **Bounce Height** (`6`), **Sprite To Change**, **Fired Sprite**, **Fired Time** (`0.2`), **On Bounce**.
+
+### Platformer Sprite Animator
+
+`Kits/Platformer/Scripts/PlatformerSpriteAnimator.cs` · **Add Component → Collin Game → Platformer Kit → Platformer Sprite Animator**
+
+Changes the character's sprite: **Idle** when standing, **Walk** frames when moving, **In Air** when jumping or falling. Needs the Platformer Controller 2D on the same object. **Walk Frames Per Second**: `8`.
+
+### Kit screens
+
+| Screen | Element names |
+|---|---|
+| `PlatformerHUD` | `health-label`, `lives-label`, `coins-label` |
+| `PlatformerMenu` | `title-label`, `subtitle-label`, `play-button`, `credits-button`, `quit-button` |
+| `LevelComplete` | `coins-label`, `next-button`, `menu-button` |
+
+---
+
+## Editor tools
+
+| Tool | Where | What it does |
+|---|---|---|
+| Current Value | Inspector of any variable, during Play | Shows the live value |
+| Raise | Inspector of any Void Event Channel, during Play | Raises the event, for testing |
+| Reapply Art Import Settings | **Collin Game → Art** menu | Gives the course's art packs their pixel-art settings again |
+
+---
+
+## Recipes
+
+| To make… | Use |
+|---|---|
+| A coin that adds to the score | Trigger collider + **Collectible** (Add To `Score`) |
+| A key that opens a door | Key: **Collectible** (Raise Event `KeyCollected`). Door: **Void Event Listener** → **GameObject → SetActive**, unticked |
+| A door that opens at 10 coins | **Int Variable Condition** (Coins, At Least, 10) → hide the door |
+| Spikes | Trigger collider + **Damage On Touch** |
+| A bottomless pit | Large trigger collider below the level + **Kill Zone** |
+| A player who dies and comes back | **Health** + **Respawner**, plus **Checkpoint**s in the level |
+| Lives | Health's **On Died** → `Lives` **Add (-1)**; **Int Variable Condition** (Lives, At Most, 0) raises `GameOver` |
+| A goal that ends the level | Trigger collider + **Trigger Zone** (Raise On Enter `LevelCompleted`) |
+| A win screen | UI Document (`EndScreen`) + **UI Screen** (Hidden At Start) + **Void Event Listener** (`LevelCompleted` → **UIScreen → Show**) |
+| A HUD | UI Document (`HUD`) + **UI Variable Binder** |
+| A pause menu | UI Document (`PauseMenu`) + **UI Screen** + **Pause Controller** + **UI Button Events** |
+| Falling rocks | A rock prefab (**Damage On Touch** with Remove Self After Hit, **Lifetime**) + **Spawner** |
+| A moving platform | Collider + **Waypoint Mover 2D** |
+| An enemy that patrols and hurts | Solid collider + **Patrol Enemy 2D** + **Damage On Touch** or **Stompable Enemy 2D** |
+| A turn-based battle | **Turn Manager** + a **Turn Taker**, **Turn Actions** and **Health** on each participant |
+| Starting a new game from the menu | **Variable Resetter** in the menu scene, with every variable that carries between levels |
+
+## Common Console messages
+
+| Message says… | Fix |
+|---|---|
+| "Input is empty" | Drag `InputReader` from `Assets/_Course/Core/Input` into the **Input** field |
+| "can't find a scene named…" | Check the spelling, and add the scene to the Scene List |
+| "no Channel is set" / "no Variable is set" | Fill in the empty field the message names |
+| "there is no button named…" / "no label named…" | Check the name against the UXML element names above |
+| "has no Respawner" | Add a **Respawner** to the player |
+| "has no 2D collider" | Add a collider to the object named |
+| "Prefab is empty" | Drag a prefab from the **Project** window into the Spawner |

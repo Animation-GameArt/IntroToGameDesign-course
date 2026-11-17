@@ -23,6 +23,7 @@ What is built, what is left, the order to build it in, and the decisions that bl
 | Class and Lecture pages, weeks 1–7 | Drafted |
 | Canvas HTML copies, rebuilt automatically | Working |
 | Ex 00 tutorial | Not started |
+| Script Reference (`Guides/Script Reference.md`) | Written for v0.9.0. Update whenever scripts change |
 | Genre map page for students | Drafted (`Guides/Genre Map.md`) |
 | Genre kits and kit guides | Not started |
 | Scripts for weeks 8–10 (audio, juice, cutscenes, dialogue, saving, settings) | Not started |
