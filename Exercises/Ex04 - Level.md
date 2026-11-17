@@ -109,7 +109,7 @@ Press **Play**. Touch the checkpoint: it turns green. Now fall into the big gap.
 
 ## Part 6 — A camera that follows
 
-1. In the Hierarchy, select `Player`. Then choose **GameObject → Cinemachine → Targeted Cameras → 2D Camera**.
+1. In the Hierarchy, select `Player`. Then choose **Right Click → Cinemachine → Targeted Cameras → 2D Camera**.
 2. Select the new Cinemachine camera. Check that **Tracking Target** is `Player`. If it's empty, drag `Player` in.
 3. Under **Lens**, set **Orthographic Size** to `5`.
 
