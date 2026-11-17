@@ -37,13 +37,6 @@ Your own game fits one of the genres on the **Genre Map**. In week 8 you import 
 > [!note] VR and AR
 > VR and AR games aren't part of this course. They have their own projects in other courses.
 
----|---|---|
-| **2D** | A small "collect and escape" platformer / top-down game | 2D platformer, top-down, shooter, puzzle, tactics, visual novel, card game |
-| **3D** | A third-person collect-a-thon | 3D, 2.5D (isometric or side-scrolling with 3D art) |
-
-> [!note] VR and AR
-> VR and AR games need instructor approval. These students complete the **3D** track first, then add the XR module.
-
 ---
 
 ## Exercise scenes
