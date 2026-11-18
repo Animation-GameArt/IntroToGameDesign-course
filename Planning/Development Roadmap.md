@@ -18,14 +18,14 @@ What is built, what is left, the order to build it in, and the decisions that bl
 | Piece | State |
 |---|---|
 | Schedule, teaching philosophy, design-doc templates | Written |
-| Template project with Core and 2D scripts (v0.7.0) | Written. Ex 01–02 tested in Unity; Ex 03–06 scripts not yet tested |
-| Exercise tutorials Ex 01–06 (two versions of Ex 05) | Drafted. Ex 01–02 tested |
+| Template project with Core, 2D and Platformer kit scripts (v0.9.0) | Written; everything compiles. Ex 01–03 tested; Ex 04 in progress; Ex 05–06 not yet tested |
+| Exercise tutorials Ex 01–06 (two versions of Ex 05) | Drafted. Ex 01–03 tested |
 | Class and Lecture pages, weeks 1–7 | Drafted |
 | Canvas HTML copies, rebuilt automatically | Working |
 | Ex 00 tutorial | Not started |
 | Script Reference (`Guides/Script Reference.md`) | Written for v0.9.0. Update whenever scripts change |
 | Genre map page for students | Drafted (`Guides/Genre Map.md`) |
-| Genre kits and kit guides | Not started |
+| Genre kits and kit guides | Platformer: scripts and both guides written; sample not built. Other 13 kits not started |
 | Scripts for weeks 8–10 (audio, juice, cutscenes, dialogue, saving, settings) | Not started |
 | Class and Lecture pages, weeks 8–16 | Drafted |
 | Topic pages | All 16 weeks drafted (54 pages). Weeks 8–9 describe course scripts still to be written |
@@ -45,8 +45,8 @@ What is built, what is left, the order to build it in, and the decisions that bl
 
 - [x] Decide the supported genre list (decision 1).
 - [x] **Genre Map** page, drafted in `Guides/Genre Map.md`: for each genre, the core loop, example games, what the kit provides, a sensible scope for eight weeks, and what is out of scope.
-- [ ] Assignment pages: Three game ideas, Pitch, One-sheet, Screen layout, Ten-pager draft and final.
-- [ ] A pitch format that names the genre from the map and lists the game's mechanics, so each pitch can be checked against its kit.
+- [x] Assignment pages: Three game ideas, Pitch, One-sheet, Screen layout, Ten-pager draft and final.
+- [x] A pitch format that names the genre from the map and lists the game's mechanics, so each pitch can be checked against its kit.
 
 ### Phase 3 — Genre kits
 
