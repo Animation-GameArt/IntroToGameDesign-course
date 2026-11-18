@@ -44,7 +44,7 @@ Students start a bug list in Ex 09, find and fix one real bug, and learn to repo
 
 ## Where it comes up
 
-- Ex 09 — Debug & Profile.
+- [Ex 09 — Debug & Profile](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex09%20-%20Debug%20%26%20Profile.md).
 - [Bug Triage and Cutting Scope](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Bug%20Triage%20and%20Cutting%20Scope.md).
 - [Script Reference](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Script%20Reference.md): common Console messages.
 

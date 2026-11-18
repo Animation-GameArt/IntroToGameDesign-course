@@ -1,0 +1,139 @@
+<p><strong>Week 10 · in your own game · submitted at the end of class</strong></p>
+<p>In this exercise you start a bug list, find and fix one real bug, take one reading with the Profiler, and sort your bugs into must fix, should fix and won't fix.</p>
+<h2>What you'll learn</h2>
+<ul>
+<li>How to reproduce a bug and write it down so it can be fixed</li>
+<li>How to use the Console, a log message and a breakpoint</li>
+<li>How to read the Profiler</li>
+<li>How to triage</li>
+</ul>
+<h2>Part 1 — Start a bug list</h2>
+<p>Make a table in a document, a spreadsheet or your task board. Add every bug you already know about.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 1 — Start a bug list</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">#</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Steps to make it happen</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Expected</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What happened</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Console message</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">1</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Steps</strong> are exact: "Jump onto the moving platform while it turns around," not "platforms are buggy."</p>
+<h2>Part 2 — Reproduce one bug</h2>
+<ol>
+<li>Pick one bug from your list.</li>
+<li>Follow your steps and make it happen.</li>
+<li>Make it happen a second time. If you can't, add more detail to the steps until you can.</li>
+</ol>
+<h2>Part 3 — Find out why</h2>
+<p>Try these in order. Stop when you understand the bug.</p>
+<p><strong>The Console</strong></p>
+<ol>
+<li>Clear the Console, then reproduce the bug.</li>
+<li>Read the <strong>first</strong> red or yellow message. Click it once to highlight the object it names; double-click it to open the script line.</li>
+<li>If it's a course message, it says what's wrong and how to fix it.</li>
+</ol>
+<p><strong>The Inspector, during Play</strong></p>
+<ol>
+<li>Reproduce the bug while watching the object in the Inspector.</li>
+<li>Watch the values change. For a variable asset, select it and watch <strong>Current Value</strong>.</li>
+</ol>
+<p><strong>A breakpoint</strong> (for your own scripts)</p>
+<ol>
+<li>Open your script in your code editor. Click in the margin next to a line to set a breakpoint (a red dot).</li>
+<li>Attach the editor to Unity: in Visual Studio, <strong>Attach to Unity</strong>; in VS Code, the <strong>Attach to Unity</strong> debug configuration.</li>
+<li>If Unity asks to switch to <strong>Debug mode</strong>, allow it. The bug icon in the bottom-right of the Editor shows the mode.</li>
+<li>Press <strong>Play</strong> and reproduce the bug. Unity stops at your line. Hover over names to see their values.</li>
+<li>Stop debugging and remove the breakpoint when you're done.</li>
+</ol>
+<h2>Part 4 — Fix it</h2>
+<ol>
+<li>Change <strong>one</strong> thing.</li>
+<li>Follow your steps again. The bug shouldn't happen.</li>
+<li>Try once more to be sure, then mark it fixed on your list.</li>
+</ol>
+<h2>Part 5 — A Profiler reading</h2>
+<ol>
+<li>Open <strong>Window → Analysis → Profiler</strong>.</li>
+<li>Press <strong>Play</strong>, then play the busiest part of your game for about 20 seconds: the most enemies, the most effects.</li>
+<li>Stop the game. In the Profiler's <strong>CPU Usage</strong> graph, click the tallest spike.</li>
+<li>In the panel below, look at the top lines. Note the total time for that frame in milliseconds, and the name at the top of the list.</li>
+<li>Take a screenshot.</li>
+</ol>
+<p>About 16 milliseconds a frame is smooth. If your spikes are far above that, look at what the top line names: a spawner with no limit is a common cause. Change one thing and take a second reading.</p>
+<h2>Part 6 — Your design decision: triage</h2>
+<p>Give every bug on your list a priority.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 6 — Your design decision: triage</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Priority</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Must fix</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Crashes, getting stuck, losing progress, anything that stops play</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Should fix</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Noticeable, but the game can be played and finished</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Won't fix</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Rare or minor, and the time is better spent elsewhere</td>
+</tr>
+</tbody>
+</table>
+<p>Choose one <strong>won't fix</strong> and write one sentence defending it.</p>
+<h2>Check-off</h2>
+<p>Submit in Canvas, by the end of class:</p>
+<ul>
+<li>Your bug list, with at least five bugs written as steps.</li>
+<li>One bug fixed, with a sentence on what caused it and what you changed.</li>
+<li>Your Profiler screenshot, with the frame time and the top line noted.</li>
+<li>Every bug triaged, and one "won't fix" defended.</li>
+</ul>
+<h2>If something goes wrong</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something goes wrong</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What you see</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The breakpoint is hollow and never stops</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The code editor isn't attached, or Unity isn't in Debug mode</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Profiler graph is empty</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Press Play with the Profiler window open, or click <strong>Record</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">You can't make the bug happen again</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Add detail to the steps: where you were, what you pressed, in what order</td>
+</tr>
+</tbody>
+</table>
+<h2>Related topics</h2>
+<ul>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Finding%20and%20Fixing%20Bugs.md">Finding and Fixing Bugs</a></li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/The%20Profiler.md">The Profiler</a></li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Bug%20Triage%20and%20Cutting%20Scope.md">Bug Triage and Cutting Scope</a></li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Scripts%20and%20the%20Console.md">Scripts and the Console</a></li>
+</ul>

@@ -29,7 +29,7 @@ Students add one camera shake to their game in Ex 07, and learn to use it with r
 - **Direction.** A shake in the direction of the hit reads better than a random one.
 
 > [!note] Course scripts
-> A course helper for triggering a shake from an event is planned for the Week 8 scripts. Until then, Cinemachine's own Impulse components can be used directly.
+> **Camera Shake** (on any object, with a Cinemachine Impulse Listener on the camera) and **Hit Stop** (on the player). Call **Shake** and **Stop** from any event. See the [Script Reference](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Script%20Reference.md).
 
 ## In class
 
@@ -38,7 +38,7 @@ Students add one camera shake to their game in Ex 07, and learn to use it with r
 
 ## Where it comes up
 
-- Ex 07 — Juice & Audio.
+- [Ex 07 — Juice & Audio](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex07%20-%20Juice%20%26%20Audio.md).
 - [Feedback and Juice](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Feedback%20and%20Juice.md).
 - [Cameras with Cinemachine](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Cameras%20with%20Cinemachine.md).
 

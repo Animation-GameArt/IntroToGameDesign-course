@@ -22,13 +22,13 @@ What is built, what is left, the order to build it in, and the decisions that bl
 | Exercise tutorials Ex 01–06 (two versions of Ex 05) | Drafted. Ex 01–03 tested |
 | Class and Lecture pages, weeks 1–7 | Drafted |
 | Canvas HTML copies, rebuilt automatically | Working |
-| Ex 00 tutorial | Not started |
-| Script Reference (`Guides/Script Reference.md`) | Written for v0.9.0. Update whenever scripts change |
+| Ex 00 tutorial | Drafted |
+| Script Reference (`Guides/Script Reference.md`) | Written for v0.10.0. Update whenever scripts change |
 | Genre map page for students | Drafted (`Guides/Genre Map.md`) |
 | Genre kits and kit guides | Platformer: scripts and both guides written; sample not built. Other 13 kits not started |
-| Scripts for weeks 8–10 (audio, juice, cutscenes, dialogue, saving, settings) | Not started |
+| Scripts for weeks 8–10 (v0.10.0) | Audio, music, camera shake, hit stop, cutscenes, saving, high score and settings written, not yet compiled. Dialogue is part of the visual novel kit |
 | Class and Lecture pages, weeks 8–16 | Drafted |
-| Topic pages | All 16 weeks drafted (54 pages). Weeks 8–9 describe course scripts still to be written |
+| Topic pages | All 16 weeks drafted (54 pages) |
 | Assignment pages and rubrics | All 14 drafted, weeks 1–16. Points to be assigned |
 | Per-game scripts and guides | After pitch week |
 
@@ -37,7 +37,7 @@ What is built, what is left, the order to build it in, and the decisions that bl
 ### Phase 1 — Finish the sandbox (weeks 1–7 material)
 
 - [ ] Test Ex 03, 04, 05 (both versions) and 06 in Unity, in order. Fix what breaks.
-- [ ] Write the Ex 00 tutorial (install, practice project, Editor tour).
+- [x] Write the Ex 00 tutorial (install, practice project, Editor tour).
 - [ ] Move the reference solutions to `Assets/_Course/Exercises/Solutions/`.
 - [ ] Match the Week 5–7 lecture pages to the real script names.
 
@@ -83,9 +83,9 @@ Kits aren't used until week 8 of the semester, so the later ones can be finished
 
 ### Phase 4 — Weeks 8–16
 
-- [ ] Scripts for Lectures 8–10: audio, camera shake and feedback, Timeline cutscenes, dialogue, saving, settings, builds.
+- [x] Scripts for Lectures 8–10: audio, camera shake and hit stop, Timeline cutscenes, saving, settings (v0.10.0). Dialogue moves to the visual novel kit.
 - [x] Class and Lecture pages for weeks 8–16.
-- [ ] Exercise tutorials Ex 07–10. The class pages assume them (decision 5, still to be confirmed): Juice & Audio, Save & Build, Debug & Profile, Playtest.
+- [x] Exercise tutorials Ex 07–10 drafted. The class pages assume them (decision 5, still to be confirmed): Juice & Audio, Save & Build, Debug & Profile, Playtest.
 - [x] Assignment pages: Production Backlog, First Playable, Sprint Review, Alpha, Beta, Gold, Post-Mortem. The first build moved into Ex 08 and the playtest report into Ex 10.
 - [x] Topic pages (decision 6).
 

@@ -1,4 +1,4 @@
-<p>Every course script in the course project, as of version <strong>0.9.0</strong>: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in <code>Assets/_Course/VERSION.txt</code>.</p>
+<p>Every course script in the course project, as of version <strong>0.10.0</strong>: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in <code>Assets/_Course/VERSION.txt</code>.</p>
 <h2>Finding the scripts</h2>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Finding the scripts</caption>
 <thead>
@@ -70,6 +70,21 @@
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Core/UI</code></td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>CollinGame.Core</code></td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Toolkit screens, their style sheet, and the components that run them</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Core/Audio</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>CollinGame.Core</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Sound effects, music and volume</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Core/Effects</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>CollinGame.Core</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Camera shake, hit stop, cutscenes</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Core/Saving</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>CollinGame.Core</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Saving variables and high scores</td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Core/Editor</code></td>
@@ -190,7 +205,19 @@
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Screens</td>
-<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Document + UI Screen + UI Button Events + UI Variable Binder; Pause Controller; UI Credits</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Document + UI Screen + UI Button Events + UI Variable Binder; Pause Controller; UI Credits; UI Settings</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Sound</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Sound Effect assets (played from any event); Music Player → Audio Service</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Feedback</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Camera Shake, Hit Stop, Health Popups</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Saving</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Variable Saver, High Score</td>
 </tr>
 </tbody>
 </table>
@@ -198,9 +225,9 @@
 <h2>Game flow</h2>
 <h3>Bootstrapper</h3>
 <p><code>Core/GameFlow/Bootstrapper.cs</code> · runs by itself; never added to anything</p>
-<p>Before the first scene loads, creates an object named <strong>[Course Services]</strong> that holds a Scene Loader and a Screen Fader, and keeps it alive across scene changes. That's why you can press Play from any scene. While playing, you can find it under <strong>DontDestroyOnLoad</strong> in the Hierarchy.</p>
+<p>Before the first scene loads, creates an object named <strong>[Course Services]</strong> that holds a Scene Loader, a Screen Fader and the Audio Service, and keeps it alive across scene changes. That's why you can press Play from any scene. While playing, you can find it under <strong>DontDestroyOnLoad</strong> in the Hierarchy.</p>
 <p>Optional: if a prefab named <code>CourseServices</code> exists in a <code>Resources</code> folder, it's used in place of an empty object, so its settings can be changed.</p>
-<p><strong>Works with:</strong> Scene Loader, Screen Fader. <strong>Used in:</strong> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex01%20-%20Bootstrap.md">Ex 01</a>.</p>
+<p><strong>Works with:</strong> Scene Loader, Screen Fader, Audio Service. <strong>Used in:</strong> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex01%20-%20Bootstrap.md">Ex 01</a>.</p>
 <h3>Scene Loader</h3>
 <p><code>Core/GameFlow/SceneLoader.cs</code> · created by the Bootstrapper</p>
 <p>Loads scenes with a fade out and a fade in. There is always exactly one. It refuses to load a scene that isn't in the Scene List (<strong>File → Build Profiles → Scene List</strong>) and says so in the Console. Loading a scene also un-pauses the game.</p>
@@ -1063,11 +1090,11 @@
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>MainMenu</code></td>
-<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>title-label</code>, <code>subtitle-label</code>, <code>play-button</code>, <code>credits-button</code>, <code>quit-button</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>title-label</code>, <code>subtitle-label</code>, <code>play-button</code>, <code>settings-button</code>, <code>credits-button</code>, <code>quit-button</code></td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>PauseMenu</code></td>
-<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>resume-button</code>, <code>restart-button</code>, <code>menu-button</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>resume-button</code>, <code>settings-button</code>, <code>restart-button</code>, <code>menu-button</code></td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>EndScreen</code></td>
@@ -1080,6 +1107,10 @@
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Credits</code></td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>credits-label</code>, <code>back-button</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Settings</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>music-slider</code>, <code>effects-slider</code>, <code>fullscreen-toggle</code>, <code>back-button</code></td>
 </tr>
 </tbody>
 </table>
@@ -1143,7 +1174,11 @@
 </tr>
 </tbody>
 </table>
-<p>Methods: <strong>Pause</strong>, <strong>Resume</strong>, <strong>TogglePause</strong>.</p>
+<p>Methods: <strong>Pause</strong>, <strong>Resume</strong>, <strong>TogglePause</strong>. It doesn't pause during a cutscene.</p>
+<h3>UI Settings</h3>
+<p><code>Core/UI/UISettings.cs</code> · <strong>Add Component → Collin Game → UI → UI Settings</strong></p>
+<p>Runs the <code>Settings</code> screen: music volume, sound effects volume, and full screen (hidden in Web builds). Changes apply at once and are saved on the player's computer. Optional <strong>Preview Sound</strong>: a Sound Effect played when the effects slider moves.</p>
+<p><strong>Used in:</strong> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex08%20-%20Save%20%26%20Build.md">Ex 08</a>.</p>
 <h3>UI Credits</h3>
 <p><code>Core/UI/UICredits.cs</code> · <strong>Add Component → Collin Game → UI → UI Credits</strong></p>
 <p>Fills the Credits screen from text files. List <strong>Credit Files</strong> in order: the student's <code>Assets/_Game/Credits</code> first, then <code>Assets/_Course/Credits/Course Credits</code>.</p>
@@ -1214,7 +1249,7 @@
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>PlatformerMenu</code></td>
-<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>title-label</code>, <code>subtitle-label</code>, <code>play-button</code>, <code>credits-button</code>, <code>quit-button</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>title-label</code>, <code>subtitle-label</code>, <code>play-button</code>, <code>settings-button</code>, <code>credits-button</code>, <code>quit-button</code></td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>LevelComplete</code></td>
@@ -1222,6 +1257,128 @@
 </tr>
 </tbody>
 </table>
+<hr/>
+<h2>Audio</h2>
+<p>Background: <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Sound%20and%20Music.md">Sound and Music</a>. Used in: <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex07%20-%20Juice%20%26%20Audio.md">Ex 07</a>.</p>
+<h3>Sound Effect</h3>
+<p><code>Core/Audio/SoundEffect.cs</code> · <strong>Create → Collin Game → Audio → Sound Effect</strong></p>
+<p>An asset holding one or more clips. Play it from <strong>any event</strong>: click <strong>+</strong>, drag the Sound Effect asset (from the Project window) into the object field, and choose <strong>SoundEffect → Play</strong>.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Sound Effect</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Setting</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Default</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Clips</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">With several, a different one plays each time</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Volume</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player's effects volume is applied on top</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Pitch Variation</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.05</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Random change each time, so repeats don't grate</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Minimum Gap</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.05</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Seconds; stops the same sound stacking up</td>
+</tr>
+</tbody>
+</table>
+<h3>Music Player</h3>
+<p><code>Core/Audio/MusicPlayer.cs</code> · <strong>Add Component → Collin Game → Audio → Music Player</strong></p>
+<p>Plays looping music in a scene. Same music in the next scene carries on; different music crossfades. Settings: <strong>Music</strong>, <strong>Volume</strong> (<code>0.7</code>), <strong>Fade Time</strong> (<code>1</code>), <strong>Play On Start</strong> (ticked). Methods: <strong>Play</strong>, <strong>PlayClip (AudioClip)</strong>, <strong>Stop</strong>.</p>
+<h3>Audio Service</h3>
+<p><code>Core/Audio/AudioService.cs</code> · created by the Bootstrapper</p>
+<p>Plays every sound effect and the music, and holds the two volume settings (saved on the player's computer). It's never added by hand. From a script: <code>AudioService.Instance.MusicVolume</code>, <code>EffectsVolume</code>.</p>
+<hr/>
+<h2>Effects</h2>
+<h3>Camera Shake</h3>
+<p><code>Core/Effects/CameraShake.cs</code> · <strong>Add Component → Collin Game → Effects → Camera Shake</strong></p>
+<p>Shakes the camera. Adds a Cinemachine Impulse Source. The Cinemachine camera needs a <strong>Cinemachine Impulse Listener</strong> extension (<strong>Add Extension</strong>), or nothing shakes. Setting: <strong>Strength</strong> (<code>1</code>). Methods: <strong>Shake</strong>, <strong>ShakeWithStrength (float)</strong>.</p>
+<h3>Hit Stop</h3>
+<p><code>Core/Effects/HitStop.cs</code> · <strong>Add Component → Collin Game → Effects → Hit Stop</strong></p>
+<p>Freezes the game for a moment on a big hit. Put it on an object that stays in the scene, such as the player. Setting: <strong>Duration</strong> (<code>0.06</code> seconds). Methods: <strong>Stop</strong>, <strong>StopFor (float)</strong>. It never un-pauses a paused game.</p>
+<h3>Cutscene Player</h3>
+<p><code>Core/Effects/CutscenePlayer.cs</code> · <strong>Add Component → Collin Game → Effects → Cutscene Player</strong></p>
+<p>Plays the Timeline on the same object's <strong>Playable Director</strong> as a cutscene: the player's controls are off while it plays, the Pause button skips it, and pausing is blocked during it.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Cutscene Player</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Setting</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Default</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Input</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>InputReader</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Play On Start · Can Skip</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">ticked · ticked</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Raise On Finished · On Started · On Finished</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+</tbody>
+</table>
+<p>Methods: <strong>Play</strong>, <strong>Skip</strong>. Background: <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Cutscenes%20with%20Timeline.md">Cutscenes with Timeline</a>.</p>
+<hr/>
+<h2>Saving</h2>
+<p>Background: <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Saving%20Progress.md">Saving Progress</a>. Used in: <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex08%20-%20Save%20%26%20Build.md">Ex 08</a>. Both save on the player's computer, and both work in Web builds.</p>
+<h3>Variable Saver</h3>
+<p><code>Core/Saving/VariableSaver.cs</code> · <strong>Add Component → Collin Game → Saving → Variable Saver</strong></p>
+<p>Saves listed variable assets and loads them again.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Variable Saver</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Setting</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Default</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Save Name</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Progress</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Savers with the same name share one save</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Variables</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Each must have a different asset name</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Load When Scene Starts</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">ticked</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Save When Scene Ends</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">unticked</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Also saves when the game closes</td>
+</tr>
+</tbody>
+</table>
+<p>Methods: <strong>Save</strong>, <strong>Load</strong>, <strong>DeleteSave</strong> (for "New Game"). A <strong>Variable Resetter</strong> that resets the same variables when the scene starts will undo the load.</p>
+<h3>High Score</h3>
+<p><code>Core/Saving/HighScore.cs</code> · <strong>Add Component → Collin Game → Saving → High Score</strong></p>
+<p>Watches <strong>Score</strong> and copies it into <strong>Best</strong> whenever it's higher, saving the best. Settings: <strong>Score</strong>, <strong>Best</strong>, <strong>Save Name</strong>, <strong>On New Best</strong>. Method: <strong>ResetBest</strong>.</p>
 <hr/>
 <h2>Editor tools</h2>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Editor tools</caption>
@@ -1319,6 +1476,30 @@
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A turn-based battle</td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Turn Manager</strong> + a <strong>Turn Taker</strong>, <strong>Turn Actions</strong> and <strong>Health</strong> on each participant</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Sound for an action</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A <strong>Sound Effect</strong> asset; the action's event → <strong>SoundEffect → Play</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Music</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A <strong>Music Player</strong> in each scene</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A shake when hurt</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Camera Shake</strong> on the player, <strong>Impulse Listener</strong> on the camera; Health <strong>On Damaged</strong> → <strong>CameraShake → Shake</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A settings screen</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Document (<code>Settings</code>) + <strong>UI Screen</strong> + <strong>UI Settings</strong> + <strong>UI Button Events</strong>; the menu's <code>settings-button</code> → <strong>UIScreen → Show</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A saved high score</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>High Score</strong> (Score, Best) + Best shown with a <strong>UI Variable Binder</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">An opening cutscene</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A Timeline on a <strong>Playable Director</strong> + <strong>Cutscene Player</strong></td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Starting a new game from the menu</td>

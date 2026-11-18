@@ -30,7 +30,7 @@ Not every game needs a cutscene. Students should know what Timeline can do, see 
 - **Short and skippable.** A solo game in eight weeks has room for an opening and an ending. Let players skip.
 
 > [!note] Course scripts
-> A course Cutscene Player that switches controls off and on and offers a skip button is planned for the Week 8 scripts.
+> **Cutscene Player**, next to the Playable Director: switches the player's controls off while the Timeline plays, lets the player skip with Pause, and raises an event when it ends. See the [Script Reference](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Script%20Reference.md).
 
 ## In class
 

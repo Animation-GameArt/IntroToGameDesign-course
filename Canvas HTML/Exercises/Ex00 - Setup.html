@@ -1,0 +1,143 @@
+<p><strong>Week 1 · checked off in lab</strong></p>
+<p>In this exercise you install Unity, make a practice project, and learn your way around the Editor. The practice project is thrown away afterwards. Next week you download the real course project.</p>
+<blockquote>
+<p><strong>On a lab computer?</strong> Unity Hub and Unity are already installed. Skip Part 1 and start at Part 2.</p>
+</blockquote>
+<h2>What you'll learn</h2>
+<ul>
+<li>How Unity Hub manages Unity versions and projects</li>
+<li>The six Editor windows you'll use every week</li>
+<li>What Play mode is, and why changes made in it disappear</li>
+<li>The difference between an object in a scene and a file in the project</li>
+</ul>
+<h2>Part 1 — Install Unity (your own computer)</h2>
+<ol>
+<li>Download and install <strong>Unity Hub</strong> from <a href="https://unity.com/download">unity.com/download</a>.</li>
+<li>Open Unity Hub and sign in with a Unity account. Creating one is free.</li>
+<li>Choose <strong>Installs → Install Editor</strong>. Find <strong>Unity 6000.3.10f1</strong>. If it isn't listed under the current releases, look in the <strong>Archive</strong> tab.</li>
+<li>When asked for modules, tick:
+<ul>
+<li><strong>Web Build Support</strong>: you'll use it to publish your game in Week 9.</li>
+<li>The build support for your own computer (Windows or Mac), if it's offered.</li>
+</ul>
+</li>
+<li>Click <strong>Install</strong> and wait. It's a large download, so start it early.</li>
+</ol>
+<blockquote>
+<p><strong>Check:</strong> Installs lists <strong>6000.3.10f1</strong>. Everyone in the course uses exactly this version.</p>
+</blockquote>
+<h2>Part 2 — Make a practice project</h2>
+<ol>
+<li>In Unity Hub, choose <strong>Projects → New project</strong>.</li>
+<li>Check that the Editor version at the top is <strong>6000.3.10f1</strong>.</li>
+<li>Choose the <strong>Universal 2D</strong> template.</li>
+<li>Name the project <code>Practice</code>, choose where to save it (your laptop or SSD), and click <strong>Create project</strong>.</li>
+</ol>
+<p>The first time a project opens takes a few minutes.</p>
+<h2>Part 3 — Tour the Editor</h2>
+<p>Find each window. If one is missing, open it from the <strong>Window</strong> menu.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 3 — Tour the Editor</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Window</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What it shows</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Try this</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Scene</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The level, for building it</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Scroll to zoom. Hold the middle mouse button (or <strong>Alt</strong> and drag on a trackpad) to move around</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Game</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">What the player sees</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Click its tab</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Hierarchy</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Every object in the open scene</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Click <strong>Main Camera</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Inspector</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The settings of whatever is selected</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">With Main Camera selected, find its <strong>Camera</strong> component</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Project</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Every file in the project</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Open the <code>Assets</code> folder</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Console</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Messages and errors</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Find it under <strong>Window → General → Console</strong> if it isn't open</td>
+</tr>
+</tbody>
+</table>
+<h2>Part 4 — Add something to the scene</h2>
+<ol>
+<li>Choose <strong>GameObject → 2D Object → Sprites → Square</strong>. A white square appears in the Scene view and in the Hierarchy.</li>
+<li>With the square selected, look at the Inspector. Find the <strong>Transform</strong> and change <strong>Position</strong> to <code>2, 1, 0</code>.</li>
+<li>Find the <strong>Sprite Renderer</strong> and change its <strong>Color</strong>.</li>
+<li>Use the tools in the top-left of the Scene view to <strong>Move</strong> (W), <strong>Rotate</strong> (E) and <strong>Scale</strong> (R) the square by dragging.</li>
+</ol>
+<blockquote>
+<p><strong>Scene objects and project files.</strong> The square you made is an <strong>object in the scene</strong>. It's listed in the Hierarchy. A <strong>file in the project</strong> is listed in the Project window and can be used in many scenes. Some Unity tools only accept files. Keep the difference in mind; it comes up again in Exercise 04.</p>
+</blockquote>
+<h2>Part 5 — Play mode</h2>
+<ol>
+<li>Press <strong>Play</strong> (the triangle at the top of the Editor). The Game view shows what the player would see.</li>
+<li>While the game is playing, select the square and change its <strong>Color</strong> in the Inspector.</li>
+<li>Press <strong>Play</strong> again to stop.</li>
+</ol>
+<p>The color goes back to what it was. <strong>Anything you change during Play mode is lost when you stop.</strong> This is the most common way students lose work in Unity. Before you change something, check whether the Play button is lit.</p>
+<h2>Part 6 — Save</h2>
+<ol>
+<li>Choose <strong>File → Save</strong> (<strong>Ctrl+S</strong>, or <strong>Cmd+S</strong> on Mac).</li>
+<li>Close Unity, then open the project again from Unity Hub. Your square is still there.</li>
+</ol>
+<h2>Part 7 — Your design decision</h2>
+<p>Using only sprites (squares, circles, capsules and triangles from <strong>GameObject → 2D Object → Sprites</strong>), arrange a scene that suggests one of your three game ideas. Change colors, sizes and positions. Be ready to say what the idea is and what each shape stands for.</p>
+<h2>Check-off</h2>
+<p>Show your instructor:</p>
+<ul>
+<li>Unity 6000.3.10f1 opens your practice project.</li>
+<li>You can name the six windows and say what each one is for.</li>
+<li>You can show what happens to a change made during Play mode.</li>
+<li>Your scene of shapes, and the game idea it suggests.</li>
+</ul>
+<h2>If something goes wrong</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something goes wrong</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What you see</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">6000.3.10f1 isn't in the list</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Look in the <strong>Archive</strong> tab of Install Editor</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The install fails</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check free disk space. Unity needs several gigabytes</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A window is missing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Open it from the <strong>Window</strong> menu, or choose <strong>Window → Layouts → Default</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Changes disappeared</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">They were made during Play mode</td>
+</tr>
+</tbody>
+</table>
+<h2>Related topics</h2>
+<ul>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Unity%20Hub%20and%20the%20Editor.md">Unity Hub and the Editor</a></li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Core%20Loops.md">Core Loops</a></li>
+</ul>

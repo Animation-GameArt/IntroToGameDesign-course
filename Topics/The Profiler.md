@@ -36,7 +36,7 @@ Students take one Profiler reading of their own game in Ex 09. At this level the
 
 ## Where it comes up
 
-- Ex 09 — Debug & Profile.
+- [Ex 09 — Debug & Profile](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex09%20-%20Debug%20%26%20Profile.md).
 - [Spawners and Pooling](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Spawners%20and%20Pooling.md).
 
 ## Further resources

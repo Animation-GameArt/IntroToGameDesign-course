@@ -29,7 +29,7 @@ Students add at least a volume setting in Ex 08, and plan the others for the pol
 | Full screen or windowed (desktop builds) | Players switch to answer a message |
 | Camera shake off (if the game shakes) | Comfort |
 
-- **Settings are saved** so players don't set them every time.
+- **Settings are saved** so players don't set them every time. The course's **Settings** screen and **UI Settings** component provide both volumes and full screen.
 - **Settings live in a menu reached from the title and from pause.**
 - **Controls should be listed somewhere,** in the game or on the store page.
 
@@ -40,6 +40,6 @@ Students add at least a volume setting in Ex 08, and plan the others for the pol
 
 ## Where it comes up
 
-- Ex 08 — Save & Build.
+- [Ex 08 — Save & Build](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex08%20-%20Save%20%26%20Build.md).
 - [Sound and Music](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Sound%20and%20Music.md).
 - [The Polish Checklist](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/The%20Polish%20Checklist.md).

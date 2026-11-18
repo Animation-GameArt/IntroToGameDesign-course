@@ -43,7 +43,7 @@ In your own game: start a bug list, find and fix one real bug using the Console 
 
 Open the version for your section:
 
-- Ex 09 — Debug & Profile — Unity *(tutorial coming)*
+- [Ex 09 — Debug & Profile — Unity](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex09%20-%20Debug%20%26%20Profile.md)
 
 Worth 2 points: one for **Implementation** (it runs, and the feature works), one for the **Design decision** (a deliberate, defensible choice beyond the defaults). Due at the end of the class period. Late work earns the Implementation point only.
 

@@ -45,7 +45,7 @@ This is the first week of students' own games. Before they add content, they lea
 
 ## Where it comes up
 
-- Ex 07 — Juice & Audio.
+- [Ex 07 — Juice & Audio](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex07%20-%20Juice%20%26%20Audio.md).
 - [Camera Shake and Hit Pause](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Camera%20Shake%20and%20Hit%20Pause.md), [Sound and Music](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Sound%20and%20Music.md).
 
 ## Further resources

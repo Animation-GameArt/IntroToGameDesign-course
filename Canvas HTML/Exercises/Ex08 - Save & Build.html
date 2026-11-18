@@ -1,0 +1,159 @@
+<p><strong>Week 9 · in your own game · submitted at the end of class</strong></p>
+<p>In this exercise you add a Settings screen, save one thing that matters, then make your first build and put it on a private itch.io page. Every milestone from here on is a link to that page.</p>
+<blockquote>
+<p><strong>Before class:</strong> your game must have <strong>no red errors</strong> in the Console, or it can't be built. Create a free account on <a href="https://itch.io">itch.io</a>.</p>
+</blockquote>
+<h2>What you'll learn</h2>
+<ul>
+<li>How settings are shown and saved</li>
+<li>How to save progress or a high score so it survives closing the game</li>
+<li>How to make a Web build</li>
+<li>How to publish a build privately on itch.io</li>
+</ul>
+<h2>Part 1 — A Settings screen</h2>
+<p>Do this in your menu scene.</p>
+<ol>
+<li>Create a <strong>UI Document</strong> named <code>Settings</code>. Set its <strong>Source Asset</strong> to <code>Settings</code> from <code>Assets/_Course/Core/UI</code>, and its <strong>Sort Order</strong> to <code>1</code>.</li>
+<li>Add a <strong>UI Screen</strong>. Tick <strong>Hidden At Start</strong> and set <strong>Select When Shown</strong> to <code>music-slider</code>.</li>
+<li>Add the <strong>UI Settings</strong> component. Optional: drag one of your Sound Effects into <strong>Preview Sound</strong>, so moving the effects slider plays it.</li>
+<li>Add <strong>UI Button Events</strong> with one button:</li>
+</ol>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 1 — A Settings screen</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Button Name</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">On Click</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>back-button</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Drag in <code>Settings</code>, choose <strong>UIScreen → Hide</strong></td>
+</tr>
+</tbody>
+</table>
+<ol start="5">
+<li>Select your <code>Main Menu</code>. In its <strong>UI Button Events</strong>, add:</li>
+</ol>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 1 — A Settings screen (2)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Button Name</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">On Click</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>settings-button</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Drag in <code>Settings</code>, choose <strong>UIScreen → Show</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Press <strong>Play</strong> and open Settings. Move the sliders while music plays. Stop the game and play again: the volumes are remembered.</p>
+<p><strong>In the pause menu too.</strong> In each level, the Pause Menu also has a <strong>Settings</strong> button. Add a <code>Settings</code> UI Document to the level the same way, with <strong>Sort Order</strong> <code>2</code>, and connect <code>settings-button</code> in the Pause Menu's <strong>UI Button Events</strong>.</p>
+<h2>Part 2 — Save one thing</h2>
+<p>Decide what your player would be upset to lose. Then do <strong>one</strong> of these.</p>
+<h3>A — A high score</h3>
+<p>For arcade games, runners and shooters.</p>
+<ol>
+<li>In <code>Assets/_Game/Data</code>, create an <strong>Int Variable</strong> named <code>BestScore</code>.</li>
+<li>In your level, add the <strong>High Score</strong> component to an object such as <code>Game Rules</code>. Set <strong>Score</strong> to your score variable and <strong>Best</strong> to <code>BestScore</code>.</li>
+<li>Show <code>BestScore</code> on your HUD or end screen, with a <strong>UI Variable Binder</strong> binding such as <code>Best: {0}</code>. If the screen has no spare label, copy the screen's UXML into <code>Assets/_Game</code> and add a label in UI Builder.</li>
+</ol>
+<h3>B — Progress</h3>
+<p>For games with levels, collections or unlocks.</p>
+<ol>
+<li>Decide which variables are progress, such as <code>Coins</code> or a <code>LevelsUnlocked</code> number.</li>
+<li>Add the <strong>Variable Saver</strong> component to an object in each level. List those variables under <strong>Variables</strong>.</li>
+<li>Make it save at a sensible moment. For example, on the Level Complete screen's listener, add a response: <strong>VariableSaver → Save</strong>. Or tick <strong>Save When Scene Ends</strong>.</li>
+<li>If your menu has a "New Game" path, add <strong>VariableSaver → DeleteSave</strong> to it.</li>
+</ol>
+<blockquote>
+<p><strong>Saving and resetting.</strong> If the same scene also has a <strong>Variable Resetter</strong> that resets these variables when the scene starts, it will undo the load. Untick its <strong>Reset When Scene Starts</strong>.</p>
+</blockquote>
+<p><strong>Test it:</strong> play, change the value, stop, and play again. The value should still be there.</p>
+<h2>Part 3 — Make a Web build</h2>
+<ol>
+<li>Open <strong>File → Build Profiles</strong>.</li>
+<li>Under <strong>Platforms</strong>, select <strong>Web</strong>. If it says the module isn't installed, add <strong>Web Build Support</strong> to Unity 6000.3.10f1 from Unity Hub's <strong>Installs</strong> page, then restart Unity.</li>
+<li>Click <strong>Switch Platform</strong> and wait.</li>
+<li>Open the <strong>Scene List</strong>. Check that it has every scene in your game, in order, and that your <strong>menu scene is first</strong>. Untick any exercise scenes.</li>
+<li>Click <strong>Player Settings</strong>. Set <strong>Company Name</strong> to your name and <strong>Product Name</strong> to your game's title. Under <strong>Publishing Settings</strong>, tick <strong>Decompression Fallback</strong>.</li>
+<li>Back in Build Profiles, click <strong>Build And Run</strong>. Create a folder named <code>Builds</code> next to your <code>Assets</code> folder (not inside it) and choose it.</li>
+</ol>
+<p>When the build finishes, it opens in your browser. Play it start to finish.</p>
+<blockquote>
+<p><strong>Write down anything that's different from the Editor.</strong> Missing scenes, text that doesn't fit, sounds that don't play. Fixing them is today's lab.</p>
+</blockquote>
+<h2>Part 4 — Publish privately on itch.io</h2>
+<ol>
+<li>In the <code>Builds</code> folder, select <strong>everything inside it</strong> (the <code>index.html</code> file and the folders next to it) and compress it into a ZIP. <code>index.html</code> must be at the top level of the ZIP, not inside another folder.</li>
+<li>On itch.io, choose <strong>Upload new project</strong>.</li>
+<li>Set:
+<ul>
+<li><strong>Title:</strong> your game's title</li>
+<li><strong>Kind of project:</strong> HTML</li>
+<li><strong>Uploads:</strong> your ZIP. Tick <strong>This file will be played in the browser</strong>.</li>
+<li><strong>Embed options:</strong> a viewport of <code>960</code> × <code>540</code>, and tick <strong>Fullscreen button</strong>.</li>
+<li><strong>Visibility &amp; access:</strong> <strong>Draft</strong> for now.</li>
+</ul>
+</li>
+<li>Click <strong>Save</strong>, then <strong>View page</strong>, and play the game on the page.</li>
+</ol>
+<h2>Part 5 — Your design decision</h2>
+<p>Write two sentences: what your game saves, and when it saves it. Say what the player would lose without it. If your game saves nothing but settings, say why that's right for your game.</p>
+<h2>Check-off</h2>
+<p>Submit in Canvas, by the end of class: the link to your itch.io page (as a draft, it's only visible to you, so also add a screenshot of it running), and your two sentences.</p>
+<ul>
+<li>The Settings screen opens from the main menu, and volume changes are remembered.</li>
+<li>One thing is saved and loads again after the game is closed.</li>
+<li>A Web build runs in the browser, starting at your menu.</li>
+<li>The build is uploaded to a private itch.io page and plays there.</li>
+<li>Two sentences on what you save and why.</li>
+</ul>
+<h2>If something goes wrong</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something goes wrong</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What you see</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The build fails</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Read the first red error in the Console. A project with errors can't be built</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The build starts on the wrong scene</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Drag your menu scene to the top of the Scene List</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A level is missing in the build</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Add its scene to the Scene List</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">itch.io shows a blank page or a loading error</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Tick <strong>Decompression Fallback</strong> in Player Settings, rebuild, and upload again</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">itch.io says it can't find <code>index.html</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The ZIP has an extra folder level. Zip the files inside <code>Builds</code>, not the folder</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The saved value doesn't come back</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A <strong>Variable Resetter</strong> is resetting it, or <strong>Save</strong> was never called</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The sliders do nothing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The <strong>UI Settings</strong> component is missing, or the slider names were changed</td>
+</tr>
+</tbody>
+</table>
+<h2>Related topics</h2>
+<ul>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Saving%20Progress.md">Saving Progress</a></li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Settings%20Players%20Expect.md">Settings Players Expect</a></li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Making%20a%20Build.md">Making a Build</a></li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Publishing%20on%20itch.io.md">Publishing on itch.io</a></li>
+</ul>

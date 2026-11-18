@@ -3,7 +3,7 @@ title: "Script Reference"
 course: GAME 1303
 type: guide
 status: draft
-course_version: 0.9.0
+course_version: 0.10.0
 unity: 6000.3.10f1
 tags:
   - game1303
@@ -13,7 +13,7 @@ tags:
 
 # Script Reference
 
-Every course script in the course project, as of version **0.9.0**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
+Every course script in the course project, as of version **0.10.0**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
 
 ## Finding the scripts
 
@@ -39,6 +39,9 @@ Every script explains its settings: hover over a field in the Inspector to see i
 | `_Course/Core/Gameplay` | `CollinGame.Core` | Health, damage, pickups, checkpoints, zones, spawning |
 | `_Course/Core/TurnBased` | `CollinGame.Core` | Turn order, turn takers and their actions |
 | `_Course/Core/UI` | `CollinGame.Core` | UI Toolkit screens, their style sheet, and the components that run them |
+| `_Course/Core/Audio` | `CollinGame.Core` | Sound effects, music and volume |
+| `_Course/Core/Effects` | `CollinGame.Core` | Camera shake, hit stop, cutscenes |
+| `_Course/Core/Saving` | `CollinGame.Core` | Saving variables and high scores |
 | `_Course/Core/Editor` | `CollinGame.Core.Editor` | Inspector helpers and the art importer. Editor only |
 | `_Course/TwoD/Movement` | `CollinGame.TwoD` | 2D character controllers and moving objects |
 | `_Course/TwoD/AI` | `CollinGame.TwoD` | 2D enemies |
@@ -73,7 +76,10 @@ The main families:
 | Dying and coming back | Health → Respawner ← Checkpoint, Kill Zone |
 | Spawning | Spawner → a prefab with Health, Lifetime or Damage On Touch (Remove Self After Hit) |
 | Turns | Turn Manager → Turn Taker ← Turn Actions → Health |
-| Screens | UI Document + UI Screen + UI Button Events + UI Variable Binder; Pause Controller; UI Credits |
+| Screens | UI Document + UI Screen + UI Button Events + UI Variable Binder; Pause Controller; UI Credits; UI Settings |
+| Sound | Sound Effect assets (played from any event); Music Player → Audio Service |
+| Feedback | Camera Shake, Hit Stop, Health Popups |
+| Saving | Variable Saver, High Score |
 
 ---
 
@@ -83,11 +89,11 @@ The main families:
 
 `Core/GameFlow/Bootstrapper.cs` · runs by itself; never added to anything
 
-Before the first scene loads, creates an object named **[Course Services]** that holds a Scene Loader and a Screen Fader, and keeps it alive across scene changes. That's why you can press Play from any scene. While playing, you can find it under **DontDestroyOnLoad** in the Hierarchy.
+Before the first scene loads, creates an object named **[Course Services]** that holds a Scene Loader, a Screen Fader and the Audio Service, and keeps it alive across scene changes. That's why you can press Play from any scene. While playing, you can find it under **DontDestroyOnLoad** in the Hierarchy.
 
 Optional: if a prefab named `CourseServices` exists in a `Resources` folder, it's used in place of an empty object, so its settings can be changed.
 
-**Works with:** Scene Loader, Screen Fader. **Used in:** [Ex 01](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex01%20-%20Bootstrap.md).
+**Works with:** Scene Loader, Screen Fader, Audio Service. **Used in:** [Ex 01](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex01%20-%20Bootstrap.md).
 
 ### Scene Loader
 
@@ -512,11 +518,12 @@ UXML files in `Core/UI`, styled by `CourseTheme.uss`. Put one in a scene with **
 | Screen | Element names |
 |---|---|
 | `HUD` | `health-label`, `score-label` |
-| `MainMenu` | `title-label`, `subtitle-label`, `play-button`, `credits-button`, `quit-button` |
-| `PauseMenu` | `resume-button`, `restart-button`, `menu-button` |
+| `MainMenu` | `title-label`, `subtitle-label`, `play-button`, `settings-button`, `credits-button`, `quit-button` |
+| `PauseMenu` | `resume-button`, `settings-button`, `restart-button`, `menu-button` |
 | `EndScreen` | `score-label`, `play-again-button`, `menu-button` |
 | `GameOver` | `score-label`, `try-again-button`, `menu-button` |
 | `Credits` | `credits-label`, `back-button` |
+| `Settings` | `music-slider`, `effects-slider`, `fullscreen-toggle`, `back-button` |
 
 To change a screen's look, copy the UXML into `Assets/_Game` and edit it in **UI Builder** (double-click it).
 
@@ -555,7 +562,15 @@ Pauses and un-pauses on the Pause action: stops time, switches off the player's 
 | Paused Variable | — | A Bool Variable kept equal to "paused" |
 | On Paused · On Resumed | — | |
 
-Methods: **Pause**, **Resume**, **TogglePause**.
+Methods: **Pause**, **Resume**, **TogglePause**. It doesn't pause during a cutscene.
+
+### UI Settings
+
+`Core/UI/UISettings.cs` · **Add Component → Collin Game → UI → UI Settings**
+
+Runs the `Settings` screen: music volume, sound effects volume, and full screen (hidden in Web builds). Changes apply at once and are saved on the player's computer. Optional **Preview Sound**: a Sound Effect played when the effects slider moves.
+
+**Used in:** [Ex 08](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex08%20-%20Save%20%26%20Build.md).
 
 ### UI Credits
 
@@ -608,8 +623,96 @@ Changes the character's sprite: **Idle** when standing, **Walk** frames when mov
 | Screen | Element names |
 |---|---|
 | `PlatformerHUD` | `health-label`, `lives-label`, `coins-label` |
-| `PlatformerMenu` | `title-label`, `subtitle-label`, `play-button`, `credits-button`, `quit-button` |
+| `PlatformerMenu` | `title-label`, `subtitle-label`, `play-button`, `settings-button`, `credits-button`, `quit-button` |
 | `LevelComplete` | `coins-label`, `next-button`, `menu-button` |
+
+---
+
+## Audio
+
+Background: [Sound and Music](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Sound%20and%20Music.md). Used in: [Ex 07](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex07%20-%20Juice%20%26%20Audio.md).
+
+### Sound Effect
+
+`Core/Audio/SoundEffect.cs` · **Create → Collin Game → Audio → Sound Effect**
+
+An asset holding one or more clips. Play it from **any event**: click **+**, drag the Sound Effect asset (from the Project window) into the object field, and choose **SoundEffect → Play**.
+
+| Setting | Default | |
+|---|---|---|
+| Clips | — | With several, a different one plays each time |
+| Volume | `1` | The player's effects volume is applied on top |
+| Pitch Variation | `0.05` | Random change each time, so repeats don't grate |
+| Minimum Gap | `0.05` | Seconds; stops the same sound stacking up |
+
+### Music Player
+
+`Core/Audio/MusicPlayer.cs` · **Add Component → Collin Game → Audio → Music Player**
+
+Plays looping music in a scene. Same music in the next scene carries on; different music crossfades. Settings: **Music**, **Volume** (`0.7`), **Fade Time** (`1`), **Play On Start** (ticked). Methods: **Play**, **PlayClip (AudioClip)**, **Stop**.
+
+### Audio Service
+
+`Core/Audio/AudioService.cs` · created by the Bootstrapper
+
+Plays every sound effect and the music, and holds the two volume settings (saved on the player's computer). It's never added by hand. From a script: `AudioService.Instance.MusicVolume`, `EffectsVolume`.
+
+---
+
+## Effects
+
+### Camera Shake
+
+`Core/Effects/CameraShake.cs` · **Add Component → Collin Game → Effects → Camera Shake**
+
+Shakes the camera. Adds a Cinemachine Impulse Source. The Cinemachine camera needs a **Cinemachine Impulse Listener** extension (**Add Extension**), or nothing shakes. Setting: **Strength** (`1`). Methods: **Shake**, **ShakeWithStrength (float)**.
+
+### Hit Stop
+
+`Core/Effects/HitStop.cs` · **Add Component → Collin Game → Effects → Hit Stop**
+
+Freezes the game for a moment on a big hit. Put it on an object that stays in the scene, such as the player. Setting: **Duration** (`0.06` seconds). Methods: **Stop**, **StopFor (float)**. It never un-pauses a paused game.
+
+### Cutscene Player
+
+`Core/Effects/CutscenePlayer.cs` · **Add Component → Collin Game → Effects → Cutscene Player**
+
+Plays the Timeline on the same object's **Playable Director** as a cutscene: the player's controls are off while it plays, the Pause button skips it, and pausing is blocked during it.
+
+| Setting | Default | |
+|---|---|---|
+| Input | `InputReader` | |
+| Play On Start · Can Skip | ticked · ticked | |
+| Raise On Finished · On Started · On Finished | — | |
+
+Methods: **Play**, **Skip**. Background: [Cutscenes with Timeline](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Cutscenes%20with%20Timeline.md).
+
+---
+
+## Saving
+
+Background: [Saving Progress](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Saving%20Progress.md). Used in: [Ex 08](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex08%20-%20Save%20%26%20Build.md). Both save on the player's computer, and both work in Web builds.
+
+### Variable Saver
+
+`Core/Saving/VariableSaver.cs` · **Add Component → Collin Game → Saving → Variable Saver**
+
+Saves listed variable assets and loads them again.
+
+| Setting | Default | |
+|---|---|---|
+| Save Name | `Progress` | Savers with the same name share one save |
+| Variables | — | Each must have a different asset name |
+| Load When Scene Starts | ticked | |
+| Save When Scene Ends | unticked | Also saves when the game closes |
+
+Methods: **Save**, **Load**, **DeleteSave** (for "New Game"). A **Variable Resetter** that resets the same variables when the scene starts will undo the load.
+
+### High Score
+
+`Core/Saving/HighScore.cs` · **Add Component → Collin Game → Saving → High Score**
+
+Watches **Score** and copies it into **Best** whenever it's higher, saving the best. Settings: **Score**, **Best**, **Save Name**, **On New Best**. Method: **ResetBest**.
 
 ---
 
@@ -642,6 +745,12 @@ Changes the character's sprite: **Idle** when standing, **Walk** frames when mov
 | A moving platform | Collider + **Waypoint Mover 2D** |
 | An enemy that patrols and hurts | Solid collider + **Patrol Enemy 2D** + **Damage On Touch** or **Stompable Enemy 2D** |
 | A turn-based battle | **Turn Manager** + a **Turn Taker**, **Turn Actions** and **Health** on each participant |
+| Sound for an action | A **Sound Effect** asset; the action's event → **SoundEffect → Play** |
+| Music | A **Music Player** in each scene |
+| A shake when hurt | **Camera Shake** on the player, **Impulse Listener** on the camera; Health **On Damaged** → **CameraShake → Shake** |
+| A settings screen | UI Document (`Settings`) + **UI Screen** + **UI Settings** + **UI Button Events**; the menu's `settings-button` → **UIScreen → Show** |
+| A saved high score | **High Score** (Score, Best) + Best shown with a **UI Variable Binder** |
+| An opening cutscene | A Timeline on a **Playable Director** + **Cutscene Player** |
 | Starting a new game from the menu | **Variable Resetter** in the menu scene, with every variable that carries between levels |
 
 ## Common Console messages

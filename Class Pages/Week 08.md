@@ -44,7 +44,7 @@ In your own game: add sound and visual feedback to your three most common action
 
 Open the version for your section:
 
-- Ex 07 — Juice & Audio — Unity *(tutorial coming)*
+- [Ex 07 — Juice & Audio — Unity](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex07%20-%20Juice%20%26%20Audio.md)
 
 Worth 2 points: one for **Implementation** (it runs, and the feature works), one for the **Design decision** (a deliberate, defensible choice beyond the defaults). Due at the end of the class period. Late work earns the Implementation point only.
 

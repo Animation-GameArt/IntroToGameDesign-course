@@ -43,7 +43,7 @@ Install Unity Hub and Unity 6000.3.10f1, make a practice project, tour the Edito
 
 Open the version for your section:
 
-- Ex 00 — Setup — Unity *(tutorial coming)*
+- [Ex 00 — Setup — Unity](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex00%20-%20Setup.md)
 
 Worth 2 points: one for **Implementation** (it runs, and the feature works), one for the **Design decision** (a deliberate, defensible choice beyond the defaults). Due at the end of the class period. Late work earns the Implementation point only.
 

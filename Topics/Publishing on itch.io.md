@@ -35,7 +35,7 @@ Students create their page in Ex 08 and upload their first build. From then on, 
 
 ## Where it comes up
 
-- Ex 08 — Save & Build.
+- [Ex 08 — Save & Build](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex08%20-%20Save%20%26%20Build.md).
 - [First Playable](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Assignments/First%20Playable.md) to [Gold](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Assignments/Gold.md).
 - [Store Pages](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Store%20Pages.md) (Week 15).
 

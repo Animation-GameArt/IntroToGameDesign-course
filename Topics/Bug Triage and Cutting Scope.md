@@ -41,7 +41,7 @@ Ex 09's design decision is a triaged bug list with one defended "won't fix." Stu
 
 ## Where it comes up
 
-- Ex 09 — Debug & Profile.
+- [Ex 09 — Debug & Profile](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex09%20-%20Debug%20%26%20Profile.md).
 - [Alpha](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Assignments/Alpha.md): the feature freeze.
 - [Running a Bug Bash](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Running%20a%20Bug%20Bash.md) (Week 14).
 - [Scope](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Scope.md).

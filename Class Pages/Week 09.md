@@ -43,7 +43,7 @@ In your own game: save and load one thing that matters, add a volume setting, th
 
 Open the version for your section:
 
-- Ex 08 — Save & Build — Unity *(tutorial coming)*
+- [Ex 08 — Save & Build — Unity](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex08%20-%20Save%20%26%20Build.md)
 
 Worth 2 points: one for **Implementation** (it runs, and the feature works), one for the **Design decision** (a deliberate, defensible choice beyond the defaults). Due at the end of the class period. Late work earns the Implementation point only.
 

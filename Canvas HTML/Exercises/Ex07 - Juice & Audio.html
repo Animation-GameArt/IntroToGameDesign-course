@@ -1,0 +1,165 @@
+<p><strong>Week 8 · in your own game · submitted at the end of class</strong></p>
+<p>From this week, exercises happen in your own game. In this one you make your game answer the player: sound for the three actions the player does most, background music, a camera shake, and a short freeze on a big hit.</p>
+<blockquote>
+<p><strong>Your course project must be version 0.10.0 or later.</strong> Check <code>Assets/_Course/VERSION.txt</code>. If it's older, import the latest update package from the Releases page first.</p>
+</blockquote>
+<h2>What you'll learn</h2>
+<ul>
+<li>How to bring sounds into your project and credit them</li>
+<li>How a <strong>Sound Effect</strong> asset plays from any event in the Inspector</li>
+<li>How music carries from scene to scene</li>
+<li>How to shake the camera, and how to freeze the game on a hit</li>
+<li>How to choose which moment deserves the biggest reaction</li>
+</ul>
+<h2>Part 1 — Get some sounds</h2>
+<ol>
+<li>Download one or two free sound packs. Kenney's audio packs are CC0, so they're free to use for anything. For example, <strong>Impact Sounds</strong>, <strong>Interface Sounds</strong> or <strong>Digital Audio</strong> from <a href="https://kenney.nl">kenney.nl</a>.</li>
+<li>Find one piece of music that loops, with a license that allows use in a published game. CC0 is simplest.</li>
+<li>In your project, create <code>Assets/_Game/Audio</code>, and drag the sound files and the music in.</li>
+<li>Open <code>Assets/_Game/Credits</code> and add an entry for each pack and for the music: its name, its author, where it came from, and its license.</li>
+</ol>
+<h2>Part 2 — Choose your three actions</h2>
+<p>Write down the three actions the player does most in your game. Use the table to find the event that fires for each.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 2 — Choose your three actions</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Action</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Component</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Event</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Jump, land</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Platformer Controller 2D</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>On Jump</strong>, <strong>On Land</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Collect</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Collectible</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>On Collected</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Get hurt, heal, die</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Health</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>On Damaged</strong>, <strong>On Healed</strong>, <strong>On Died</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Stomp an enemy</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Stompable Enemy 2D</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>On Stomped</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Spring</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Bounce Pad 2D</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>On Bounce</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Reach a checkpoint</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Checkpoint</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>On Activated</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Something spawns</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Spawner</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>On Spawned</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Attack, heal (turn-based)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Turn Actions</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>On Attack</strong>, <strong>On Heal</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Enter an area</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Trigger Zone</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>On Enter</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>Part 3 — Make Sound Effects</h2>
+<p>For each of your three actions:</p>
+<ol>
+<li>In <code>Assets/_Game/Audio</code>, right-click and choose <strong>Create → Collin Game → Audio → Sound Effect</strong>. Name it after the action, such as <code>Jump</code>.</li>
+<li>Select it. Under <strong>Clips</strong>, click <strong>+</strong> and drag in one sound. If you have two or three similar sounds, add them all; a different one plays each time.</li>
+<li>Leave <strong>Pitch Variation</strong> at <code>0.05</code> for now.</li>
+</ol>
+<p><strong>Connect it.</strong> For a prefab, such as a coin, open the prefab (or your variant of it) so the change applies to every copy.</p>
+<ol>
+<li>Select the object that has the event, such as <code>Player</code>.</li>
+<li>Find the event, such as <strong>On Jump</strong>, and click <strong>+</strong>.</li>
+<li>Drag the <strong>Sound Effect asset</strong> from the Project window into the object field.</li>
+<li>Open the function dropdown and choose <strong>SoundEffect → Play</strong>.</li>
+</ol>
+<p>Press <strong>Play</strong> and do each action. Then change <strong>Pitch Variation</strong> on one sound to <code>0</code> and repeat the action ten times. Put it back.</p>
+<h2>Part 4 — Music</h2>
+<ol>
+<li>In each scene that should have music, create an empty GameObject named <code>Music</code>.</li>
+<li>Add the <strong>Music Player</strong> component and drag your music into <strong>Music</strong>.</li>
+<li>Set <strong>Volume</strong> to about <code>0.5</code>. Music should sit under the sound effects, not on top of them.</li>
+</ol>
+<p>If two scenes use the same music, it carries on across the scene change without restarting. Different music fades over the old one.</p>
+<h2>Part 5 — A camera shake</h2>
+<ol>
+<li>Select your <strong>Cinemachine camera</strong>. Click <strong>Add Extension</strong> and choose <strong>Cinemachine Impulse Listener</strong>. Without the listener, nothing shakes.</li>
+<li>Select <code>Player</code>, or whatever gets hurt in your game, and add the <strong>Camera Shake</strong> component. A <strong>Cinemachine Impulse Source</strong> is added with it.</li>
+<li>On its <strong>Health</strong>, find <strong>On Damaged</strong>, click <strong>+</strong>, drag in the same object, and choose <strong>CameraShake → Shake</strong>.</li>
+</ol>
+<p>Press <strong>Play</strong> and take damage. Then try <strong>Strength</strong> at <code>0.3</code> and at <code>3</code>.</p>
+<h2>Part 6 — A hit stop</h2>
+<p>A hit stop freezes the game for a few hundredths of a second, which makes a hit feel heavy.</p>
+<ol>
+<li>Add the <strong>Hit Stop</strong> component to <code>Player</code>. Keep it on an object that stays in the scene.</li>
+<li>Choose one big moment, such as <strong>On Stomped</strong> on an enemy, or <strong>On Damaged</strong> on the player, and add <strong>HitStop → Stop</strong>, with <code>Player</code> as the object.</li>
+</ol>
+<p>Try <strong>Duration</strong> at <code>0.03</code>, <code>0.06</code> and <code>0.15</code>.</p>
+<h2>Part 7 — Your design decision</h2>
+<p>Choose the <strong>one</strong> moment in your game that deserves the biggest reaction: a boss defeated, the level completed, a rare item found. Give it more than anything else: a louder or longer sound, a stronger shake, a longer stop, or all three. Keep everything else smaller, so this moment stands out.</p>
+<p>Be ready to say which moment you chose, and why.</p>
+<h2>Check-off</h2>
+<p>Submit in Canvas, by the end of class: a short screen recording (about 30 seconds) or three screenshots of the Inspector, plus two sentences about your design decision.</p>
+<ul>
+<li>Three common actions each play a sound.</li>
+<li>Music plays, and it's quieter than the effects.</li>
+<li>The camera shakes when the player is hurt (or at another moment you chose).</li>
+<li>One moment has a hit stop.</li>
+<li>Your credits list every sound and the music.</li>
+<li>You can name your biggest moment and how it's different from the rest.</li>
+</ul>
+<h2>If something goes wrong</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something goes wrong</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What you see</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">No sound at all</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check that the <strong>Clips</strong> list isn't empty, and that the Game view's <strong>Mute Audio</strong> button is off</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>SoundEffect → Play</strong> isn't in the dropdown</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">You dragged in an object from the Hierarchy. Drag the asset from the <strong>Project</strong> window</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The camera doesn't shake</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Cinemachine camera needs the <strong>Cinemachine Impulse Listener</strong> extension</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The game stays frozen</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The <strong>Hit Stop</strong> is on an object that was destroyed. Put it on the player</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Music restarts on every scene</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Each scene's Music Player must use the same music file</td>
+</tr>
+</tbody>
+</table>
+<h2>Related topics</h2>
+<ul>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Feedback%20and%20Juice.md">Feedback and Juice</a></li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Sound%20and%20Music.md">Sound and Music</a></li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Camera%20Shake%20and%20Hit%20Pause.md">Camera Shake and Hit Pause</a></li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Credits%20and%20Licenses.md">Credits and Licenses</a></li>
+</ul>

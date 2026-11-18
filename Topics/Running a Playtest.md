@@ -42,7 +42,7 @@ Ex 10 is a structured playtest. Students learn to run a session, record it, and 
 
 ## Where it comes up
 
-- Ex 10 — Playtest.
+- [Ex 10 — Playtest](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex10%20-%20Playtest.md).
 - [Beta](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Assignments/Beta.md): the three changes are checked.
 
 ## Further resources

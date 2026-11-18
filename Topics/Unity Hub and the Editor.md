@@ -54,7 +54,7 @@ Students leave the first class with Unity installed, a practice project open, an
 
 ## Where it comes up
 
-- Ex 00 — Setup (Week 1).
+- [Ex 00 — Setup](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex00%20-%20Setup.md) (Week 1).
 - [Ex 01 — Bootstrap](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex01%20-%20Bootstrap.md): adding the course project in the Hub.
 - [Ex 04 — Level](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex04%20-%20Level.md): the Tile Palette needs a sprite file from the Project window.
 

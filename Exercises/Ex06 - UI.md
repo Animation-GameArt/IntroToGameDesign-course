@@ -3,7 +3,7 @@ title: "Exercise 06 — UI"
 course: GAME 1303
 week: 7
 status: draft
-course_version: 0.8.0
+course_version: 0.10.0
 unity: 6000.3.10f1
 tags:
   - game1303
@@ -65,7 +65,7 @@ The HUD doesn't know about the player, the coins or the spikes. It listens to th
 | `resume-button` | Drag in `Pause Menu`, choose **PauseController → Resume** |
 | `restart-button` | Drag in `Scene Changer`, choose **SceneChanger → ReloadScene** |
 
-Press **Play**, then press **Esc** (or **Start** on a gamepad). The game freezes and the menu appears. **Resume** continues, and **Restart** starts the level again. The Main Menu button comes in Part 5.
+Press **Play**, then press **Esc** (or **Start** on a gamepad). The game freezes and the menu appears. **Resume** continues, and **Restart** starts the level again. The Main Menu button comes in Part 5. The **Settings** button does nothing yet; you connect it in Exercise 08.
 
 While paused, time is stopped and the player's controls are off. The Pause button itself keeps working, so Esc also un-pauses.
 
@@ -122,7 +122,7 @@ Every asset you didn't make yourself must be credited. The credits are plain tex
 |---|---|
 | `back-button` | Drag in `Credits`, choose **UIScreen → Hide** |
 
-6. Select `Main Menu`. In its **UI Button Events**, add a third button:
+6. Select `Main Menu`. In its **UI Button Events**, add a third button (the menu's **Settings** button is connected in Exercise 08):
 
 | Button Name | On Click |
 |---|---|

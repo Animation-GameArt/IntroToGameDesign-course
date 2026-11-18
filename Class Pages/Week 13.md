@@ -44,7 +44,7 @@ Three classmates play your game while you watch and take notes without helping. 
 
 Open the version for your section:
 
-- Ex 10 — Playtest — Unity *(tutorial coming)*
+- [Ex 10 — Playtest — Unity](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex10%20-%20Playtest.md)
 
 Worth 2 points: one for **Implementation** (it runs, and the feature works), one for the **Design decision** (a deliberate, defensible choice beyond the defaults). Due at the end of the class period. Late work earns the Implementation point only.
 

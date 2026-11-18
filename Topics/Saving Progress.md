@@ -29,7 +29,7 @@ Students add saving to their game in Ex 08. Most small games need very little, a
 - **A way to reset.** Testers and players both need a "new game" that clears saved progress.
 
 > [!note] Course scripts
-> A course save system that writes chosen variables to a file is planned for the Week 9 scripts.
+> **Variable Saver** saves and loads chosen variable assets; **High Score** keeps the best score. Both store their data on the player's computer and work in Web builds. See the [Script Reference](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Script%20Reference.md).
 
 ## In class
 
@@ -38,5 +38,5 @@ Students add saving to their game in Ex 08. Most small games need very little, a
 
 ## Where it comes up
 
-- Ex 08 — Save & Build.
+- [Ex 08 — Save & Build](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex08%20-%20Save%20%26%20Build.md).
 - [Settings Players Expect](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Settings%20Players%20Expect.md).
