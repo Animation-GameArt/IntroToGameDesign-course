@@ -125,6 +125,40 @@ Everything here has a number that makes the level easier or harder. Change at le
 
 Decide what you want the player to feel in the finish section: tense, rushed, careful, relieved. Then set the numbers to get it, and test with another student.
 
+## Part 8 — Go further: a physics playground (optional)
+
+Do this if you finish early, or if your game will use physics. Each step uses Unity's own physics components; no course scripts are needed.
+
+**A crate to push**
+
+1. Create a **Square** sprite named `Crate` on the ground, Scale `1, 1, 1`. Add a **Box Collider 2D** and a **Rigidbody 2D**.
+2. Push it with the player. Then set its **Mass** to `5` and push again; then `0.2`.
+
+**Ice and a trampoline**
+
+1. In `Ex05_Data`, choose **Create → 2D → Physics Material 2D**. Name it `Ice` and set **Friction** to `0`.
+2. Make another named `Bouncy`, with **Friction** `0.4` and **Bounciness** `0.9`.
+3. Drag `Ice` into the crate's Box Collider 2D **Material** field and push it. Then try `Bouncy` and drop the crate from high up.
+
+**A seesaw**
+
+1. Create a **Square** named `Plank`, Scale `5, 0.3, 1`, standing above the ground. Add a **Box Collider 2D** and a **Rigidbody 2D**.
+2. Add a **Hinge Joint 2D**. Leave **Connected Rigid Body** empty: the plank now pivots around its center, fixed to the world.
+3. Drop the crate on one end. Jump on the other.
+
+**Something that snaps**
+
+1. Create a **Circle** named `Weight` hanging in the air. Add a **Circle Collider 2D**, a **Rigidbody 2D** and a **Distance Joint 2D**. The weight now hangs from the point it started at.
+2. Set the joint's **Break Action** to **Destroy** and **Break Force** to `30`. Push the weight hard with the player, or drop the crate on it.
+
+**Wind**
+
+1. Create an empty GameObject named `Wind` with a **Box Collider 2D**, Size `4, 6`. Tick **Is Trigger** and **Used By Effector**.
+2. Add an **Area Effector 2D**. Set **Force Angle** to `90` and **Force Magnitude** to `20`.
+3. Walk the player into it, then push the crate into it.
+
+Notice that the player's controller resists some of these, because it sets its own speed each step. Crates and weights, which are left to physics, react fully. That difference is the main idea of [Physics in Unity](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Physics%20in%20Unity.md).
+
 ## Check-off
 
 Show your instructor:
@@ -134,6 +168,7 @@ Show your instructor:
 - [ ] The enemy patrols, turns at ledges, and chases when the player is close.
 - [ ] The spawner drops rocks from a prefab.
 - [ ] You can say which number you changed for difficulty, and what you wanted the player to feel.
+- [ ] Optional: the physics playground from Part 8.
 
 ## If something goes wrong
 
@@ -149,6 +184,7 @@ Show your instructor:
 
 ## Related topics
 
+- [Physics in Unity](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Physics%20in%20Unity.md)
 - [Health and Damage](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Health%20and%20Damage.md)
 - [Spawners and Pooling](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Spawners%20and%20Pooling.md)
 - [State Machines and Enemy AI](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/State%20Machines%20and%20Enemy%20AI.md)

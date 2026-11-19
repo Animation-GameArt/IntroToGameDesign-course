@@ -3,7 +3,7 @@ title: "Script Reference"
 course: GAME 1303
 type: guide
 status: draft
-course_version: 0.10.0
+course_version: 0.11.0
 unity: 6000.3.10f1
 tags:
   - game1303
@@ -13,7 +13,7 @@ tags:
 
 # Script Reference
 
-Every course script in the course project, as of version **0.10.0**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
+Every course script in the course project, as of version **0.11.0**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
 
 ## Finding the scripts
 
@@ -48,6 +48,8 @@ Every script explains its settings: hover over a field in the Inspector to see i
 | `_Course/TwoD/Visuals` | `CollinGame.TwoD` | Simple sprite animation |
 | `_Course/Kits/Platformer/Scripts` | `CollinGame.Kits.Platformer` | Platformer kit scripts |
 | `_Course/Kits/Platformer/UI` | — | Platformer kit screens |
+| `_Course/Kits/PhysicsPuzzle/Scripts` | `CollinGame.Kits.PhysicsPuzzle` | Physics puzzle kit scripts |
+| `_Course/Kits/PhysicsPuzzle/UI` | — | Physics puzzle kit HUD |
 | `_Course/Art/Kenney` | — | Kenney art packs (CC0) |
 | `_Course/Credits` | — | The course's credits text |
 
@@ -716,6 +718,69 @@ Watches **Score** and copies it into **Best** whenever it's higher, saving the b
 
 ---
 
+## Physics puzzle kit
+
+Imported with the Physics Puzzle Kit package. See [Physics Puzzle Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Physics%20Puzzle%20Kit.md) and [Physics in Unity](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Physics%20in%20Unity.md).
+
+### Launcher 2D
+
+`Kits/PhysicsPuzzle/Scripts/Launcher2D.cs` · **Add Component → Collin Game → Physics Puzzle Kit → Launcher 2D**
+
+A slingshot. Mouse or touch: press inside the yellow circle, drag back, release. Keyboard or gamepad: hold Attack, aim with Move, release. After each shot it waits for the projectile to come to rest, then raises Shot Finished.
+
+| Setting | Default | |
+|---|---|---|
+| Input · Grab Radius | `InputReader` · `1.5` | |
+| Projectile Prefab · Launch Point | — · this object | The prefab needs a Rigidbody 2D |
+| Max Pull · Power | `2.5` · `7` | Launch speed = pull × power |
+| Shots Left | — | Optional Int Variable; one used per launch |
+| Rest Time · Max Shot Time · Remove Projectile After Shot | `0.75` · `8` · unticked | |
+| Dot Sprite · Dot Count · Dot Spacing | — · `15` · `0.06` | Aiming dots; no sprite, no dots |
+| Raise On Shot Finished · On Launched · On Shot Finished | — | |
+
+### Breakable 2D
+
+`Kits/PhysicsPuzzle/Scripts/Breakable2D.cs` · **Add Component → Collin Game → Physics Puzzle Kit → Breakable 2D**
+
+Breaks (switches off) when hit faster than **Break Speed** (`6`), or when it falls below **Break Below Y** (`-10`). Hits are ignored for **Settle Time** (`1`) after the scene starts. With a Health component, each hard hit takes 1 health instead. When broken: **Add To** / **Amount** (`100`), **Spawn When Broken**, **Raise On Broken**, **On Broken**. Method: **Break**.
+
+### Puzzle Target 2D
+
+`Kits/PhysicsPuzzle/Scripts/PuzzleTarget2D.cs` · **Add Component → Collin Game → Physics Puzzle Kit → Puzzle Target 2D**
+
+Counts itself into **Targets Left** when the scene starts and out when it's switched off. Use it with a Breakable 2D.
+
+### Puzzle Rules
+
+`Kits/PhysicsPuzzle/Scripts/PuzzleRules.cs` · **Add Component → Collin Game → Physics Puzzle Kit → Puzzle Rules**
+
+Won when no targets are left; lost when the last shot finishes with targets left. Sets Targets Left to 0 and Shots Left to **Starting Shots** (`3`) when the scene starts.
+
+| Setting | |
+|---|---|
+| Targets Left · Shots Left · Starting Shots · Shot Finished | |
+| Win Delay | `1` second |
+| Raise On Won · Raise On Lost · On Won · On Lost | |
+| Score · Points Per Unused Shot | `500` per unused shot, added on a win |
+
+### Rope 2D
+
+`Kits/PhysicsPuzzle/Scripts/Rope2D.cs` · **Add Component → Collin Game → Physics Puzzle Kit → Rope 2D**
+
+Builds a swinging rope of hinged links from this object down to **Hanging Body** when the scene starts. Every link can be cut. Settings: **Link Count** (`10`), **Link Sprite**, **Link Color**, **Thickness** (`0.12`), **Link Mass** (`0.05`).
+
+### Cuttable 2D and Cutter 2D
+
+**Cuttable 2D** switches off its object's joints when cut (and hides it, with **Hide When Cut**). **Cutter 2D**, one per scene, cuts every Cuttable 2D the mouse or a finger swipes across. Optional **Trail** for a visible swipe. Rope links get Cuttable 2D automatically.
+
+### Kit screens
+
+| Screen | Element names |
+|---|---|
+| `PuzzleHUD` | `shots-label`, `targets-label`, `score-label` |
+
+---
+
 ## Editor tools
 
 | Tool | Where | What it does |
@@ -751,6 +816,8 @@ Watches **Score** and copies it into **Best** whenever it's higher, saving the b
 | A settings screen | UI Document (`Settings`) + **UI Screen** + **UI Settings** + **UI Button Events**; the menu's `settings-button` → **UIScreen → Show** |
 | A saved high score | **High Score** (Score, Best) + Best shown with a **UI Variable Binder** |
 | An opening cutscene | A Timeline on a **Playable Director** + **Cutscene Player** |
+| A slingshot level | **Launcher 2D** + blocks with **Breakable 2D** + targets with **Puzzle Target 2D** + **Puzzle Rules** |
+| A rope to cut | **Rope 2D** with a Hanging Body + a **Cutter 2D** in the scene |
 | Starting a new game from the menu | **Variable Resetter** in the menu scene, with every variable that carries between levels |
 
 ## Common Console messages

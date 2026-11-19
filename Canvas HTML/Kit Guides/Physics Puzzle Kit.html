@@ -1,0 +1,184 @@
+<p>The Physics Puzzle Kit is a starting point for games where physics does the work: launching things at structures until they topple (Angry Birds style), or cutting ropes so things fall into place (Cut the Rope style). It adds a launcher, breakable objects, targets, puzzle rules and ropes to the course scripts, and a small sample game with three levels.</p>
+<p>Before you start, read <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Physics%20in%20Unity.md">Physics in Unity</a>. Everything in this kit is built on it.</p>
+<h2>What the kit covers</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">What the kit covers</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The kit does this</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The kit doesn't do this</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A slingshot launcher with aiming dots, by mouse, touch, keyboard or gamepad</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Several kinds of projectile with special powers</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Limited shots per level</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Saving stars per level</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Objects that break when hit hard enough</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Objects that crack into pieces by themselves (you can spawn a prefab of pieces)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Targets to destroy, and a win when they're all gone</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Enemies that move or fight back</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Ropes that swing and can be cut by swiping</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Ropes that can be re-attached</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Score, a HUD, win and lose screens</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Level editors</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Unity's own joints, materials and effectors</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Liquids or soft bodies</td>
+</tr>
+</tbody>
+</table>
+<p>If your pitch needs something in the right-hand column, it has to be one of your agreed custom scripts, or it has to be cut.</p>
+<h2>Install the kit</h2>
+<ol>
+<li>Download the Physics Puzzle Kit package from the course project's <strong>Releases</strong> page.</li>
+<li>With your project open, double-click the package and click <strong>Import</strong>.</li>
+<li>Open <strong>File → Build Profiles → Open Scene List</strong>. From <code>Assets/_Course/Kits/PhysicsPuzzle/Sample/Scenes</code>, add these scenes, next to each other and in this order: <code>Puzzle_Menu</code>, <code>Puzzle_Level1</code>, <code>Puzzle_Level2</code>, <code>Puzzle_Level3</code>, <code>Puzzle_Win</code>.</li>
+<li>Open <code>Puzzle_Menu</code> and press <strong>Play</strong>.</li>
+</ol>
+<p>Play the sample through once before you change anything.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Install the kit</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Action</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Mouse or touch</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Keyboard</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Gamepad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Aim and launch</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Press near the launcher, drag back, release</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Hold <strong>Enter</strong>, aim with <strong>WASD</strong>, release</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Hold the left face button, aim with the left stick, release</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Cut a rope</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Swipe across it</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Pause</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Esc</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Start</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>What's in the sample</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">What's in the sample</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Prefab</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What it is</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Settings worth changing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Launcher</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The slingshot. Takes shots from <code>ShotsLeft</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Max Pull</strong>, <strong>Power</strong>, <strong>Projectile Prefab</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Ball</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The projectile</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Rigidbody 2D <strong>Mass</strong>; its Physics Material</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Glass Block</code>, <code>Wood Block</code>, <code>Stone Block</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Breakable blocks of three strengths</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Break Speed</strong>, Rigidbody <strong>Mass</strong>, <strong>Amount</strong> (points)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Target</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Must be destroyed to win. Breakable, and counted by <code>TargetsLeft</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Break Speed</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Rope Anchor</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Builds a rope down to a hanging object</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Link Count</strong>, <strong>Hanging Body</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Level Systems</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">HUD, pause, win and lose screens, rules, the swipe cutter</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Starting Shots</strong> on Puzzle Rules</td>
+</tr>
+</tbody>
+</table>
+<p>Select the <code>Launcher</code> in the Scene view to see the circle where a press starts aiming. Select a <code>Rope Anchor</code> to see where its rope will hang.</p>
+<h2>How the sample fits together</h2>
+<p><strong>Shots.</strong> Puzzle Rules sets <code>ShotsLeft</code> to <strong>Starting Shots</strong> when the level starts. The Launcher takes one for each launch, and stops at 0. When a projectile comes to rest, the Launcher raises <code>ShotFinished</code>.</p>
+<p><strong>Targets.</strong> Each Target counts itself into <code>TargetsLeft</code> when the level starts, and counts itself out when it breaks or falls off the level.</p>
+<p><strong>Winning and losing.</strong> Puzzle Rules watches both. When <code>TargetsLeft</code> reaches 0, it adds points for unused shots and raises <code>PuzzleWon</code>. When <code>ShotFinished</code> arrives with no shots left and targets remaining, it raises <code>PuzzleLost</code>. The win and lose screens listen for those events, as in Exercise 06.</p>
+<p><strong>Breaking.</strong> A Breakable 2D breaks when something hits it faster than its <strong>Break Speed</strong>. A heavy ball moving fast breaks glass easily and stone rarely. Give a breakable a <strong>Health</strong> component and it takes several hard hits instead of one.</p>
+<h2>Start your own game</h2>
+<ol>
+<li>Create a new 2D scene in <code>Assets/_Game/Scenes</code> for your first level.</li>
+<li>Drag in <code>Level Systems</code> and <code>Launcher</code> from the kit's <code>Sample/Prefabs</code>.</li>
+<li>Add ground: a Tilemap with a solid collider, or a long sprite with a Box Collider 2D.</li>
+<li>Build a structure from the block prefabs, with at least one <code>Target</code>. Leave tiny gaps between blocks, so the stack doesn't push itself apart when the level starts.</li>
+<li>Set <strong>Starting Shots</strong> on <code>Level Systems</code> → <code>Rules</code>.</li>
+<li>Press <strong>Play</strong>, launch, and adjust.</li>
+</ol>
+<p>For a rope-cutting level, skip the launcher: add a <code>Rope Anchor</code>, drag a hanging object into its <strong>Hanging Body</strong>, and put a <code>Target</code> or a goal where the object should land.</p>
+<h3>Changing a prefab</h3>
+<p>Make a <strong>Prefab Variant</strong> (right-click the prefab → <strong>Create → Prefab Variant</strong>), move it to <code>Assets/_Game/Prefabs</code>, and change the variant.</p>
+<h2>Recipes</h2>
+<p><strong>A new material.</strong> Make a variant of <code>Wood Block</code>. Change its sprite, its Rigidbody 2D <strong>Mass</strong>, and its <strong>Break Speed</strong>.</p>
+<p><strong>A block that takes three hits.</strong> Add a <strong>Health</strong> component to a block variant with Max Health <code>3</code> and Invulnerable Time <code>0.2</code>. Breakable 2D then takes 1 health per hard hit.</p>
+<p><strong>A bouncy wall.</strong> Create a <strong>Physics Material 2D</strong> with Bounciness <code>0.9</code> and put it on a wall's collider.</p>
+<p><strong>A seesaw or a swinging plank.</strong> A plank with a Rigidbody 2D and a <strong>Hinge Joint 2D</strong>. See Part 8 of Exercise 05.</p>
+<p><strong>Wind or a conveyor.</strong> A trigger collider with <strong>Used By Effector</strong> ticked and an <strong>Area Effector 2D</strong>.</p>
+<p><strong>A heavier, slower projectile.</strong> Make a <code>Ball</code> variant with higher <strong>Mass</strong> and a larger sprite, and drag it into the Launcher's <strong>Projectile Prefab</strong>. Raise <strong>Power</strong> if it no longer reaches.</p>
+<p><strong>Pieces when something breaks.</strong> Make a small prefab of three or four little sprites with Rigidbody 2D and a <strong>Lifetime</strong> of <code>2</code> seconds, and drag it into a Breakable's <strong>Spawn When Broken</strong>.</p>
+<p><strong>A sound and a shake on breaking.</strong> On a Breakable's <strong>On Broken</strong>, add <strong>SoundEffect → Play</strong> and <strong>CameraShake → Shake</strong>, as in Exercise 07.</p>
+<h2>If something goes wrong</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something goes wrong</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What you see</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Blocks break as soon as the level starts</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Leave small gaps so they don't overlap, and keep <strong>Settle Time</strong> at <code>1</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The level is won straight away</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">No targets were counted. Each target needs a <strong>Puzzle Target 2D</strong> using <code>TargetsLeft</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The launcher won't aim</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Press inside the yellow circle. Check <strong>Shots Left</strong> isn't 0 and <strong>Projectile Prefab</strong> is set</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The ball passes through thin blocks</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Set the Ball's Rigidbody 2D <strong>Collision Detection</strong> to <strong>Continuous</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Swiping doesn't cut the rope</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The level needs a <strong>Cutter 2D</strong>. It's in <code>Level Systems</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The rope stretches or jitters</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Use fewer, heavier links, or a lighter hanging object</td>
+</tr>
+</tbody>
+</table>

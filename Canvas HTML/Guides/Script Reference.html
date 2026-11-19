@@ -1,4 +1,4 @@
-<p>Every course script in the course project, as of version <strong>0.10.0</strong>: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in <code>Assets/_Course/VERSION.txt</code>.</p>
+<p>Every course script in the course project, as of version <strong>0.11.0</strong>: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in <code>Assets/_Course/VERSION.txt</code>.</p>
 <h2>Finding the scripts</h2>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Finding the scripts</caption>
 <thead>
@@ -115,6 +115,16 @@
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/Platformer/UI</code></td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Platformer kit screens</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/PhysicsPuzzle/Scripts</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>CollinGame.Kits.PhysicsPuzzle</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Physics puzzle kit scripts</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/PhysicsPuzzle/UI</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Physics puzzle kit HUD</td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Art/Kenney</code></td>
@@ -1380,6 +1390,113 @@
 <p><code>Core/Saving/HighScore.cs</code> · <strong>Add Component → Collin Game → Saving → High Score</strong></p>
 <p>Watches <strong>Score</strong> and copies it into <strong>Best</strong> whenever it's higher, saving the best. Settings: <strong>Score</strong>, <strong>Best</strong>, <strong>Save Name</strong>, <strong>On New Best</strong>. Method: <strong>ResetBest</strong>.</p>
 <hr/>
+<h2>Physics puzzle kit</h2>
+<p>Imported with the Physics Puzzle Kit package. See <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Physics%20Puzzle%20Kit.md">Physics Puzzle Kit</a> and <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Physics%20in%20Unity.md">Physics in Unity</a>.</p>
+<h3>Launcher 2D</h3>
+<p><code>Kits/PhysicsPuzzle/Scripts/Launcher2D.cs</code> · <strong>Add Component → Collin Game → Physics Puzzle Kit → Launcher 2D</strong></p>
+<p>A slingshot. Mouse or touch: press inside the yellow circle, drag back, release. Keyboard or gamepad: hold Attack, aim with Move, release. After each shot it waits for the projectile to come to rest, then raises Shot Finished.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Launcher 2D</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Setting</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Default</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Input · Grab Radius</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>InputReader</code> · <code>1.5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Projectile Prefab · Launch Point</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">— · this object</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The prefab needs a Rigidbody 2D</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Max Pull · Power</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>2.5</code> · <code>7</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Launch speed = pull × power</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Shots Left</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Optional Int Variable; one used per launch</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Rest Time · Max Shot Time · Remove Projectile After Shot</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.75</code> · <code>8</code> · unticked</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Dot Sprite · Dot Count · Dot Spacing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">— · <code>15</code> · <code>0.06</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Aiming dots; no sprite, no dots</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Raise On Shot Finished · On Launched · On Shot Finished</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+</tbody>
+</table>
+<h3>Breakable 2D</h3>
+<p><code>Kits/PhysicsPuzzle/Scripts/Breakable2D.cs</code> · <strong>Add Component → Collin Game → Physics Puzzle Kit → Breakable 2D</strong></p>
+<p>Breaks (switches off) when hit faster than <strong>Break Speed</strong> (<code>6</code>), or when it falls below <strong>Break Below Y</strong> (<code>-10</code>). Hits are ignored for <strong>Settle Time</strong> (<code>1</code>) after the scene starts. With a Health component, each hard hit takes 1 health instead. When broken: <strong>Add To</strong> / <strong>Amount</strong> (<code>100</code>), <strong>Spawn When Broken</strong>, <strong>Raise On Broken</strong>, <strong>On Broken</strong>. Method: <strong>Break</strong>.</p>
+<h3>Puzzle Target 2D</h3>
+<p><code>Kits/PhysicsPuzzle/Scripts/PuzzleTarget2D.cs</code> · <strong>Add Component → Collin Game → Physics Puzzle Kit → Puzzle Target 2D</strong></p>
+<p>Counts itself into <strong>Targets Left</strong> when the scene starts and out when it's switched off. Use it with a Breakable 2D.</p>
+<h3>Puzzle Rules</h3>
+<p><code>Kits/PhysicsPuzzle/Scripts/PuzzleRules.cs</code> · <strong>Add Component → Collin Game → Physics Puzzle Kit → Puzzle Rules</strong></p>
+<p>Won when no targets are left; lost when the last shot finishes with targets left. Sets Targets Left to 0 and Shots Left to <strong>Starting Shots</strong> (<code>3</code>) when the scene starts.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Puzzle Rules</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Setting</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Targets Left · Shots Left · Starting Shots · Shot Finished</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Win Delay</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code> second</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Raise On Won · Raise On Lost · On Won · On Lost</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Score · Points Per Unused Shot</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>500</code> per unused shot, added on a win</td>
+</tr>
+</tbody>
+</table>
+<h3>Rope 2D</h3>
+<p><code>Kits/PhysicsPuzzle/Scripts/Rope2D.cs</code> · <strong>Add Component → Collin Game → Physics Puzzle Kit → Rope 2D</strong></p>
+<p>Builds a swinging rope of hinged links from this object down to <strong>Hanging Body</strong> when the scene starts. Every link can be cut. Settings: <strong>Link Count</strong> (<code>10</code>), <strong>Link Sprite</strong>, <strong>Link Color</strong>, <strong>Thickness</strong> (<code>0.12</code>), <strong>Link Mass</strong> (<code>0.05</code>).</p>
+<h3>Cuttable 2D and Cutter 2D</h3>
+<p><strong>Cuttable 2D</strong> switches off its object's joints when cut (and hides it, with <strong>Hide When Cut</strong>). <strong>Cutter 2D</strong>, one per scene, cuts every Cuttable 2D the mouse or a finger swipes across. Optional <strong>Trail</strong> for a visible swipe. Rope links get Cuttable 2D automatically.</p>
+<h3>Kit screens</h3>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Kit screens (2)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Screen</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Element names</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>PuzzleHUD</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>shots-label</code>, <code>targets-label</code>, <code>score-label</code></td>
+</tr>
+</tbody>
+</table>
+<hr/>
 <h2>Editor tools</h2>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Editor tools</caption>
 <thead>
@@ -1500,6 +1617,14 @@
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">An opening cutscene</td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A Timeline on a <strong>Playable Director</strong> + <strong>Cutscene Player</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A slingshot level</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Launcher 2D</strong> + blocks with <strong>Breakable 2D</strong> + targets with <strong>Puzzle Target 2D</strong> + <strong>Puzzle Rules</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A rope to cut</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Rope 2D</strong> with a Hanging Body + a <strong>Cutter 2D</strong> in the scene</td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Starting a new game from the menu</td>

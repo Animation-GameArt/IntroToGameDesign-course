@@ -31,11 +31,11 @@ A game has stakes when something can be lost. Today you add health, damage and a
 
 | Section | Topics |
 |---|---|
-| Unity 6.3 | Health, damage and respawning · Pickups, spawners and object pooling · State machines and simple enemy AI · Turn-based systems · Winning and losing |
+| Unity 6.3 | Health, damage and respawning · Pickups, spawners and object pooling · State machines and simple enemy AI · Turn-based systems · Winning and losing · Physics: bodies, forces, materials and joints |
 
 Details: [Lecture] Week 6
 
-Topic notes: [Health and Damage](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Health%20and%20Damage.md) · [Spawners and Pooling](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Spawners%20and%20Pooling.md) · [State Machines and Enemy AI](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/State%20Machines%20and%20Enemy%20AI.md) · [Turn-Based Systems](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Turn-Based%20Systems.md)
+Topic notes: [Health and Damage](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Health%20and%20Damage.md) · [Spawners and Pooling](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Spawners%20and%20Pooling.md) · [State Machines and Enemy AI](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/State%20Machines%20and%20Enemy%20AI.md) · [Turn-Based Systems](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Turn-Based%20Systems.md) · [Physics in Unity](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Physics%20in%20Unity.md)
 
 ## Exercise — Ex 05 — Combat
 

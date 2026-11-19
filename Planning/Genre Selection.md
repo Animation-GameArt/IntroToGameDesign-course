@@ -29,7 +29,7 @@ Tick every genre that students may pitch in the **first semester**. Each ticked 
 - [ ] **Scrolling shooter (shmup)** · small once the shooter kit exists · shares the shooter kit
 - [x] ★ **Endless runner** · medium · auto-run, dodge, distance score
 - [x] ★ **Grid puzzle** (Sokoban-style) · medium · step-by-step moves, undo, level list
-- [ ] **Physics puzzle** · small · mostly Unity physics plus the sandbox scripts
+- [x] **Physics puzzle** · medium · launcher, breakables, targets and ropes, on Unity physics (added 2026-11-18)
 - [ ] **Match-3** · large · board logic, cascades, combos
 - [x] ★ **Tower defense** · medium · paths, towers, waves, currency
 - [x] ★ **Turn-based battle** · small · the turn-based Exercise 05, extended

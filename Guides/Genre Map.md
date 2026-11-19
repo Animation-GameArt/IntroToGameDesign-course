@@ -31,6 +31,7 @@ Most games mix genres a little. Choose the **one** genre that describes what the
 | [Endless runner](#endless-runner) | dodges for as long as possible | Good first game |
 | [Top-down shooter](#top-down-shooter) | aims and shoots at waves of enemies | Moderate |
 | [Grid puzzle](#grid-puzzle) | solves levels one move at a time | Moderate |
+| [Physics puzzle](#physics-puzzle) | launches, topples and cuts things that physics moves | Moderate |
 | [Tower defense](#tower-defense) | places towers to stop waves | Moderate |
 | [Management / strategy](#management--strategy) | spends resources and lives with the results | Moderate |
 | [Visual novel](#visual-novel) | reads, and makes choices that change the story | Moderate |
@@ -129,6 +130,20 @@ Most games mix genres a little. Choose the **one** genre that describes what the
 **Leave out:** many different mechanics. One good rule makes a better puzzle game than five.
 
 **Expect:** most of your time goes into designing and testing levels, not building features.
+
+## Physics puzzle
+
+**Core loop:** study the structure, aim or cut, watch physics play out, try a better shot.
+
+**Examples:** Angry Birds, Cut the Rope, World of Goo.
+
+**The kit gives you:** a slingshot launcher with aiming dots, limited shots, blocks that break when hit hard enough, targets to destroy, ropes that swing and can be cut by swiping, a score, and win and lose screens. Unity's own joints, materials and effectors do the rest.
+
+**A good scope:** ten to twelve levels, three materials, one kind of projectile, and one twist of your own, such as wind or ropes.
+
+**Leave out:** projectiles with special powers, moving enemies, and stars saved per level.
+
+**Expect:** physics can surprise you. Most of your time goes into building and testing levels until they behave the same way every time.
 
 ## Tower defense
 

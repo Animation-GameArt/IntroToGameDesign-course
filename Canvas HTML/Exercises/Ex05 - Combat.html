@@ -131,6 +131,37 @@
 </tbody>
 </table>
 <p>Decide what you want the player to feel in the finish section: tense, rushed, careful, relieved. Then set the numbers to get it, and test with another student.</p>
+<h2>Part 8 — Go further: a physics playground (optional)</h2>
+<p>Do this if you finish early, or if your game will use physics. Each step uses Unity's own physics components; no course scripts are needed.</p>
+<p><strong>A crate to push</strong></p>
+<ol>
+<li>Create a <strong>Square</strong> sprite named <code>Crate</code> on the ground, Scale <code>1, 1, 1</code>. Add a <strong>Box Collider 2D</strong> and a <strong>Rigidbody 2D</strong>.</li>
+<li>Push it with the player. Then set its <strong>Mass</strong> to <code>5</code> and push again; then <code>0.2</code>.</li>
+</ol>
+<p><strong>Ice and a trampoline</strong></p>
+<ol>
+<li>In <code>Ex05_Data</code>, choose <strong>Create → 2D → Physics Material 2D</strong>. Name it <code>Ice</code> and set <strong>Friction</strong> to <code>0</code>.</li>
+<li>Make another named <code>Bouncy</code>, with <strong>Friction</strong> <code>0.4</code> and <strong>Bounciness</strong> <code>0.9</code>.</li>
+<li>Drag <code>Ice</code> into the crate's Box Collider 2D <strong>Material</strong> field and push it. Then try <code>Bouncy</code> and drop the crate from high up.</li>
+</ol>
+<p><strong>A seesaw</strong></p>
+<ol>
+<li>Create a <strong>Square</strong> named <code>Plank</code>, Scale <code>5, 0.3, 1</code>, standing above the ground. Add a <strong>Box Collider 2D</strong> and a <strong>Rigidbody 2D</strong>.</li>
+<li>Add a <strong>Hinge Joint 2D</strong>. Leave <strong>Connected Rigid Body</strong> empty: the plank now pivots around its center, fixed to the world.</li>
+<li>Drop the crate on one end. Jump on the other.</li>
+</ol>
+<p><strong>Something that snaps</strong></p>
+<ol>
+<li>Create a <strong>Circle</strong> named <code>Weight</code> hanging in the air. Add a <strong>Circle Collider 2D</strong>, a <strong>Rigidbody 2D</strong> and a <strong>Distance Joint 2D</strong>. The weight now hangs from the point it started at.</li>
+<li>Set the joint's <strong>Break Action</strong> to <strong>Destroy</strong> and <strong>Break Force</strong> to <code>30</code>. Push the weight hard with the player, or drop the crate on it.</li>
+</ol>
+<p><strong>Wind</strong></p>
+<ol>
+<li>Create an empty GameObject named <code>Wind</code> with a <strong>Box Collider 2D</strong>, Size <code>4, 6</code>. Tick <strong>Is Trigger</strong> and <strong>Used By Effector</strong>.</li>
+<li>Add an <strong>Area Effector 2D</strong>. Set <strong>Force Angle</strong> to <code>90</code> and <strong>Force Magnitude</strong> to <code>20</code>.</li>
+<li>Walk the player into it, then push the crate into it.</li>
+</ol>
+<p>Notice that the player's controller resists some of these, because it sets its own speed each step. Crates and weights, which are left to physics, react fully. That difference is the main idea of <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Physics%20in%20Unity.md">Physics in Unity</a>.</p>
 <h2>Check-off</h2>
 <p>Show your instructor:</p>
 <ul>
@@ -139,6 +170,7 @@
 <li>The enemy patrols, turns at ledges, and chases when the player is close.</li>
 <li>The spawner drops rocks from a prefab.</li>
 <li>You can say which number you changed for difficulty, and what you wanted the player to feel.</li>
+<li>Optional: the physics playground from Part 8.</li>
 </ul>
 <h2>If something goes wrong</h2>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something goes wrong</caption>
@@ -181,6 +213,7 @@
 </table>
 <h2>Related topics</h2>
 <ul>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Physics%20in%20Unity.md">Physics in Unity</a></li>
 <li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Health%20and%20Damage.md">Health and Damage</a></li>
 <li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Spawners%20and%20Pooling.md">Spawners and Pooling</a></li>
 <li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/State%20Machines%20and%20Enemy%20AI.md">State Machines and Enemy AI</a></li>

@@ -230,6 +230,7 @@ Shared gameplay systems live in a **Common Gameplay** layer that sits between Co
 | Endless runner | Chunk spawner/recycler, difficulty curve SO, distance score |
 | Roguelike | Procedural rooms (tilemap generator), loot tables SO, run-vs-meta progression, item modifiers |
 | Puzzle (grid) | Grid model separate from view, undo stack, win-condition checker, level SO list |
+| Physics puzzle | Slingshot launcher with aiming dots, breakable blocks by impact speed, targets, shots and win/lose rules, ropes built from hinge joints, swipe cutting |
 | Match-3 | Board model, match detection, cascade/refill, combo scoring |
 | Tower defense | Path/waypoints, `TowerSO` + targeting modes, wave SO, build placement, currency |
 | Turn-based tactics | Turn manager, grid pathfinding (A*), action points, unit stats SO |

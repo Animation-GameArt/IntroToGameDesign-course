@@ -25,7 +25,7 @@ What is built, what is left, the order to build it in, and the decisions that bl
 | Ex 00 tutorial | Drafted |
 | Script Reference (`Guides/Script Reference.md`) | Written for v0.10.0. Update whenever scripts change |
 | Genre map page for students | Drafted (`Guides/Genre Map.md`) |
-| Genre kits and kit guides | Platformer: scripts and both guides written; sample not built. Other 13 kits not started |
+| Genre kits and kit guides | Platformer and Physics Puzzle: scripts and both guides written; samples not built. Other 13 kits not started |
 | Scripts for weeks 8–10 (v0.10.0) | Audio, music, camera shake, hit stop, cutscenes, saving, high score and settings written, not yet compiled. Dialogue is part of the visual novel kit |
 | Class and Lecture pages, weeks 8–16 | Drafted |
 | Topic pages | All 16 weeks drafted (54 pages) |
@@ -57,10 +57,10 @@ One kit at a time, in priority order. For each kit:
 3. The instructor follows the guide in Unity. That tests the scripts and the guide, and the result becomes the kit's sample.
 4. The kit is exported as its own `.unitypackage`: scripts, sample scene, prefabs and data.
 
-**Build order** (fourteen kits; visual novel and dating sim share one):
+**Build order** (fifteen kits; visual novel and dating sim share one):
 
 1. Small, and they settle the kit format: platformer (scripts and guides written; the sample needs building and testing), top-down adventure, turn-based battle, arcade classic
-2. Medium: top-down shooter, endless runner, grid puzzle, tower defense, management and strategy, visual novel with dating sim
+2. Medium: physics puzzle (scripts and guides written; sample needs building, and Kenney's Physics Assets pack), top-down shooter, endless runner, grid puzzle, tower defense, management and strategy, visual novel with dating sim
 3. The 3D template project and 3D script module, then the 3D platformer kit
 4. Large: card game, farming and life sim, horror and stealth
 
@@ -108,7 +108,7 @@ Kits aren't used until week 8 of the semester, so the later ones can be finished
 
 | # | Decision | Recommendation | Blocks |
 |---|---|---|---|
-| 1 | Which genres are on the map for the first semester | **Decided:** fifteen genres. 2D: arcade classic, platformer, top-down adventure, turn-based battle, endless runner, top-down shooter, grid puzzle, tower defense, management and strategy, card game, farming and life sim. Narrative: visual novel, dating sim (one kit). 3D: 3D platformer, horror and stealth. No VR or AR. Lectures and exercises stay 2D | — |
+| 1 | Which genres are on the map for the first semester | **Decided:** sixteen genres. 2D: arcade classic, platformer, top-down adventure, turn-based battle, endless runner, top-down shooter, grid puzzle, physics puzzle (added later), tower defense, management and strategy, card game, farming and life sim. Narrative: visual novel, dating sim (one kit). 3D: 3D platformer, horror and stealth. No VR or AR. Lectures and exercises stay 2D | — |
 | 2 | Art in kit samples | **Decided:** Kenney's CC0 packs, kept under `Assets/_Course/Art/Kenney/` in a folder named as Kenney's download is named (for example `kenney_pixel-platformer`), with the pack's license file. Each pack gets an entry in `CourseArtImporter`, which sets its import settings. Every pack is listed in `Course Credits`, which the game's Credits screen shows. Plain shapes stay in the exercises | — |
 | 3 | How each kit's sample is built | The instructor builds it by following the kit guide, as with the exercises | Instructor time per kit |
 | 4 | Dialogue tool | **Decided:** Yarn Spinner. To be installed from a package registry and not from a Git URL, so lab computers don't need Git | — |

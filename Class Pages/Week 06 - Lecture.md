@@ -24,6 +24,8 @@ tags:
 
 **Turn-based systems, and winning and losing.** Some games swap reflexes for decisions. A **turn manager** keeps track of whose turn it is and what they're allowed to do, and the same health and damage sit underneath. Students whose game is a puzzle, tactics or strategy game should take the turn-based version of the exercise. Close with win and lose conditions: every game needs both to be stated plainly, and both are events the rest of the game reacts to.
 
+**Physics in Unity.** Students have used physics since Exercise 02 without choosing its settings, because the course scripts chose them. Open the box: dynamic, kinematic and static bodies, mass and gravity, setting speed versus adding force, physics materials for friction and bounce, joints, effectors, and the layer collision matrix. Demonstrate with a seesaw, crates of different mass, a bouncy floor and a breakable hinge. The optional physics part of Exercise 05 lets students try each, and the Physics Puzzle Kit builds a whole genre on it.
+
 ## Topic notes
 
 Each topic has its own page with the lecture's intent, a demo plan, common problems and further resources.
@@ -32,6 +34,7 @@ Each topic has its own page with the lecture's intent, a demo plan, common probl
 - [Spawners and Pooling](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Spawners%20and%20Pooling.md)
 - [State Machines and Enemy AI](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/State%20Machines%20and%20Enemy%20AI.md)
 - [Turn-Based Systems](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Turn-Based%20Systems.md)
+- [Physics in Unity](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Physics%20in%20Unity.md)
 
 ## Connecting it forward
 

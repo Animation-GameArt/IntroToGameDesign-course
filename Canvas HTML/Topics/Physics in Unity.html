@@ -1,0 +1,149 @@
+<p><strong>Week 6 · <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Class%20Pages/Week%2006%20-%20Lecture.md">[Lecture] Week 6</a></strong></p>
+<blockquote>
+<p><strong>In one sentence</strong><br/>Unity's physics simulates bodies, forces, friction, bounce and joints, and a few settings decide whether an object is pushed around, moves on a path, or never moves at all.</p>
+</blockquote>
+<h2>What this topic is for</h2>
+<p>Students have used physics since Exercise 02 without choosing any of its settings, because the course scripts chose them. This topic opens the box: what each kind of body is for, how forces differ from setting speed, and what materials, joints and layers do. The optional physics part of Exercise 05 lets students try each one. It is also the background for the <strong>Physics Puzzle Kit</strong>.</p>
+<h2>Key ideas</h2>
+<ul>
+<li><strong>2D and 3D physics are separate.</strong> A 2D game uses components ending in <strong>2D</strong>: Rigidbody 2D, Box Collider 2D, Hinge Joint 2D. They never interact with the 3D versions.</li>
+<li><strong>Three kinds of body:</strong></li>
+</ul>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Key ideas</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Body Type</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Moves?</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Pushed by collisions?</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Use it for</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">In the course project</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Dynamic</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Yes, by physics</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Yes</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Anything that falls, rolls or gets knocked over</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player, rocks, crates</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Kinematic</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Only when a script moves it</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">No, but it pushes others</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Moving platforms, enemies on a path</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Waypoint Mover 2D</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Static</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Never</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">No</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Ground and walls</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Tilemap ground</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>A collider with no Rigidbody</strong> behaves as static: solid, but never moves.</li>
+<li><strong>Mass, gravity and drag.</strong> <strong>Mass</strong> decides how hard an object is to push and how hard it hits. <strong>Gravity Scale</strong> multiplies gravity for one object. <strong>Linear Damping</strong> (drag) slows movement, like air or water resistance.</li>
+<li><strong>Forces and speed.</strong> A script can <strong>set speed</strong> (precise; the course's controllers do this) or <strong>add a force</strong> (natural; objects respond to their mass). An <strong>impulse</strong> is a force applied all at once, like a kick or an explosion.</li>
+<li><strong>Physics materials.</strong> A <strong>Physics Material 2D</strong> sets <strong>Friction</strong> (how much things slide) and <strong>Bounciness</strong> (how much they bounce). Ice is low friction; a trampoline is high bounciness.</li>
+<li><strong>Joints connect bodies.</strong></li>
+</ul>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Key ideas (2)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Joint</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Behaves like</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Hinge Joint 2D</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A door hinge, a seesaw, a pendulum, a rope link</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Spring Joint 2D</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A spring or an elastic band</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Distance Joint 2D</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A rigid rod, or a rope that can't stretch</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Fixed Joint 2D</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Glue: two bodies move as one until it breaks</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Wheel Joint 2D</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A car wheel on a suspension</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Slider Joint 2D</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A piston or a sliding door</td>
+</tr>
+</tbody>
+</table>
+<p>Every joint has a <strong>Break Force</strong>: pull harder than that and the joint snaps.</p>
+<ul>
+<li><strong>Effectors</strong> change how things behave on or near a collider. <strong>Platform Effector 2D</strong> makes one-way platforms; <strong>Area Effector 2D</strong> pushes everything inside it, like wind or a conveyor; <strong>Point Effector 2D</strong> pulls things toward a point or pushes them away.</li>
+<li><strong>Layers and the collision matrix.</strong> Each object has a <strong>Layer</strong>. <strong>Edit → Project Settings → Physics 2D → Layer Collision Matrix</strong> decides which layers can hit which, for example so enemies pass through each other.</li>
+<li><strong>Rules of thumb.</strong>
+<ul>
+<li>Move dynamic bodies with physics (velocity or forces), never by changing their Transform position, or they pass through walls.</li>
+<li>Fast, small objects need <strong>Collision Detection: Continuous</strong> so they don't skip through thin walls.</li>
+<li>Physics runs on its own clock, in <code>FixedUpdate</code>.</li>
+<li>Bodies that stop moving <strong>sleep</strong> to save time, and wake when touched.</li>
+</ul>
+</li>
+</ul>
+<h2>In class</h2>
+<ol>
+<li>Drop three crates with different <strong>Mass</strong> onto a seesaw made with a Hinge Joint 2D.</li>
+<li>Give one crate a Physics Material 2D with Friction <code>0</code> and push it; then Bounciness <code>0.9</code> and drop it.</li>
+<li>Switch a moving platform from Kinematic to Dynamic and watch it fall.</li>
+<li>Hang a weight from a Hinge Joint 2D, set <strong>Break Force</strong> low, and hit it.</li>
+</ol>
+<h2>Common problems</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Common problems</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What happens</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">An object falls through the floor</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">One of them has no collider, or the object is moved by its Transform</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A fast projectile goes through a wall</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Set its Rigidbody's <strong>Collision Detection</strong> to <strong>Continuous</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A moving platform falls</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Its Rigidbody is Dynamic; make it Kinematic</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A stack wobbles or explodes at the start</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Objects overlap. Leave a tiny gap, and let the stack settle before it can break</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Objects that should pass through each other collide</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Put them on layers that don't collide in the Layer Collision Matrix</td>
+</tr>
+</tbody>
+</table>
+<h2>Where it comes up</h2>
+<ul>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex02%20-%20Events.md">Ex 02</a>: a ball rolling under gravity.</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex05%20-%20Combat.md">Ex 05 — Combat</a>, Part 8: the optional physics playground.</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Physics%20Puzzle%20Kit.md">Physics Puzzle Kit</a>: launching, breaking, ropes.</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Platformer%20Kit.md">Platformer Kit</a>: one-way platforms (Platform Effector 2D) and moving platforms (kinematic).</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/GameObjects%2C%20Components%20and%20Prefabs.md">GameObjects, Components and Prefabs</a>: colliders, triggers and Rigidbodies.</li>
+</ul>
+<h2>Further resources</h2>
+<ul>
+<li>Unity Manual, 2D physics: start from the <strong>Rigidbody 2D</strong>, <strong>Physics Material 2D</strong>, <strong>Joints 2D</strong> and <strong>Effectors 2D</strong> pages in the Unity 6.3 manual.</li>
+</ul>
