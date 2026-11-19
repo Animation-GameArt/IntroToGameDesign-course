@@ -60,7 +60,7 @@ Worth 2 points: one for **Implementation** (it runs, and the feature works), one
 | What | When | Points |
 |---|---|---|
 | Ex 00 — Setup | end of class | 2 pts |
-| Three game ideas | 11:59 PM, Canvas Discussion | TBD |
+| Three game ideas | 11:59 PM, Canvas Discussion | 3 pts |
 
 Run the matching tab of the course checklist before you submit. Every box on it is a graded criterion.
 
@@ -71,6 +71,7 @@ Run the matching tab of the course checklist before you submit. Every box on it 
 ## Links
 
 - [Assignment: Three Game Ideas](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Assignments/Three%20Game%20Ideas.md) (a Canvas Discussion)
+- [Extra Credit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Assignments/Extra%20Credit.md): up to 5 points for program and industry events, all semester
 - [Genre Map](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Genre%20Map.md)
 - [Course schedule](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Schedule/GAME%201303%20Course%20Schedule.md)
 - [Unity Hub download](https://unity.com/download)

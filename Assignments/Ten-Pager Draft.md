@@ -11,7 +11,7 @@ tags:
 
 # Ten-Pager Draft
 
-**GAME 1303 · Week 6 · Canvas, due by 11:59 PM the night before class · Peer review in lab · Points: TBD**
+**GAME 1303 · Week 6 · Canvas, due by 11:59 PM the night before class · Peer review in lab · Points: 3**
 
 A first draft of your ten-pager. It doesn't need to be finished, but every page needs something on it, so a classmate can review the whole design in lab.
 

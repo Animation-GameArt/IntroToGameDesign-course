@@ -53,6 +53,8 @@ Most games mix genres a little. Choose the **one** genre that describes what the
 
 **The kit gives you:** paddles and balls, bricks, wrapping around the screen edges, lives, a score and a saved high score, and speed that increases over time.
 
+**Kit guide:** [Arcade Classic Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Arcade%20Classic%20Kit.md)
+
 **A good scope:** one classic with one twist of your own. For example, Breakout where the bricks fight back.
 
 **Leave out:** several game modes. Polish one.
@@ -65,6 +67,8 @@ Most games mix genres a little. Choose the **one** genre that describes what the
 
 **The kit gives you:** everything from the exercises (the controller, pickups, hazards, checkpoints, a patrolling enemy and a following camera), plus jumping on enemies, moving and one-way platforms, and a sequence of levels.
 
+**Kit guide:** [Platformer Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Platformer%20Kit.md)
+
 **A good scope:** three short levels that each introduce one idea, and one signature ability, such as a dash or a wall jump.
 
 **Leave out:** a large connected world with ability gates (a Metroidvania). It needs far more content than eight weeks allows.
@@ -75,7 +79,9 @@ Most games mix genres a little. Choose the **one** genre that describes what the
 
 **Examples:** The Legend of Zelda (the original and A Link to the Past), Hyper Light Drifter.
 
-**The kit gives you:** the top-down controller, a melee attack with knockback, health as hearts, keys and locked doors, and a camera that moves room by room.
+**The kit gives you:** the top-down controller, a melee attack with knockback, enemies that chase, health as hearts, keys and locked doors, signs and people to talk to, and a camera that moves room by room.
+
+**Kit guide:** [Top-Down Adventure Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Top-Down%20Adventure%20Kit.md)
 
 **A good scope:** one dungeon of five to eight rooms, two enemy types and one boss or final puzzle.
 
@@ -88,6 +94,8 @@ Most games mix genres a little. Choose the **one** genre that describes what the
 **Examples:** the battles in early Final Fantasy and Pokémon.
 
 **The kit gives you:** everything from the turn-based exercise (turn order, attack and heal, a computer opponent, win and lose), plus more actions such as defend and a special move, several opponents, and stats stored as data.
+
+**Kit guide:** [Turn-Based Battle Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Turn-Based%20Battle%20Kit.md)
 
 **A good scope:** three to five battles in a row that get harder, with one or two characters on the player's side.
 
@@ -138,6 +146,8 @@ Most games mix genres a little. Choose the **one** genre that describes what the
 **Examples:** Angry Birds, Cut the Rope, World of Goo.
 
 **The kit gives you:** a slingshot launcher with aiming dots, limited shots, blocks that break when hit hard enough, targets to destroy, ropes that swing and can be cut by swiping, a score, and win and lose screens. Unity's own joints, materials and effectors do the rest.
+
+**Kit guide:** [Physics Puzzle Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Physics%20Puzzle%20Kit.md)
 
 **A good scope:** ten to twelve levels, three materials, one kind of projectile, and one twist of your own, such as wind or ropes.
 

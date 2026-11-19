@@ -52,7 +52,7 @@ Each student demos for two minutes: play the core loop once, name one thing that
 
 | What | When | Points |
 |---|---|---|
-| Sprint review build | 11:59 PM the night before class, Canvas; demo in class | TBD |
+| Sprint review build | 11:59 PM the night before class, Canvas; demo in class | 2 pts |
 
 Run the matching tab of the course checklist before you submit. Every box on it is a graded criterion.
 

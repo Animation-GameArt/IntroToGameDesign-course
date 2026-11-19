@@ -6,14 +6,8 @@
 <li>Pull the template project. It should be version 0.9.0 or later (<code>Assets/_Course/VERSION.txt</code>), with no red errors in the Console.</li>
 <li>In <code>Assets/_Course/Kits/Platformer</code>, create a folder <code>Sample</code>, and inside it the folders <code>Data</code>, <code>Prefabs</code>, <code>Scenes</code> and <code>Tiles</code>.</li>
 </ol>
-<h3>One-time setup: shared Panel Settings</h3>
-<p>All course UI should share one Panel Settings asset, so every screen scales the same way.</p>
-<ol>
-<li>In <code>Assets/_Course/Core/UI</code>, choose <strong>Create → UI Toolkit → Panel Settings Asset</strong>. Name it <code>CoursePanelSettings</code>.</li>
-<li>In the Inspector, set <strong>Scale Mode</strong> to <strong>Scale With Screen Size</strong>, and <strong>Reference Resolution</strong> to <code>1920</code> × <code>1080</code>.</li>
-<li>Check that <strong>Theme Style Sheet</strong> is filled in. If it's empty, create any UI Document once with <strong>GameObject → UI Toolkit → UI Document</strong>. That creates <code>Assets/UI Toolkit/UnityThemes/UnityDefaultRuntimeTheme</code>. Drag it into the field, then delete the UI Document.</li>
-</ol>
-<p>Use <code>CoursePanelSettings</code> as the <strong>Panel Settings</strong> of every UI Document below.</p>
+<h3>Shared Panel Settings</h3>
+<p>All course UI shares one Panel Settings asset, <code>CoursePanelSettings</code> in <code>Assets/_Course/Core/UI</code> (version 0.12.0 and later), so every screen scales the same way. A new UI Document gets it by itself. If one doesn't, choose <strong>Collin Game → UI → Use Course Panel Settings in Open Scenes</strong>. If the asset is missing or its text doesn't show, choose <strong>Collin Game → UI → Repair Course Panel Settings</strong>.</p>
 <h2>Part 1 — Data</h2>
 <p>In <code>Sample/Data</code>, create:</p>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 1 — Data</caption>

@@ -24,15 +24,9 @@ Collider sizes are starting points. Adjust each one until it fits the artwork.
 1. Pull the template project. It should be version 0.9.0 or later (`Assets/_Course/VERSION.txt`), with no red errors in the Console.
 2. In `Assets/_Course/Kits/Platformer`, create a folder `Sample`, and inside it the folders `Data`, `Prefabs`, `Scenes` and `Tiles`.
 
-### One-time setup: shared Panel Settings
+### Shared Panel Settings
 
-All course UI should share one Panel Settings asset, so every screen scales the same way.
-
-1. In `Assets/_Course/Core/UI`, choose **Create → UI Toolkit → Panel Settings Asset**. Name it `CoursePanelSettings`.
-2. In the Inspector, set **Scale Mode** to **Scale With Screen Size**, and **Reference Resolution** to `1920` × `1080`.
-3. Check that **Theme Style Sheet** is filled in. If it's empty, create any UI Document once with **GameObject → UI Toolkit → UI Document**. That creates `Assets/UI Toolkit/UnityThemes/UnityDefaultRuntimeTheme`. Drag it into the field, then delete the UI Document.
-
-Use `CoursePanelSettings` as the **Panel Settings** of every UI Document below.
+All course UI shares one Panel Settings asset, `CoursePanelSettings` in `Assets/_Course/Core/UI` (version 0.12.0 and later), so every screen scales the same way. A new UI Document gets it by itself. If one doesn't, choose **Collin Game → UI → Use Course Panel Settings in Open Scenes**. If the asset is missing or its text doesn't show, choose **Collin Game → UI → Repair Course Panel Settings**.
 
 ## Part 1 — Data
 

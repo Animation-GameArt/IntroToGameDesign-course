@@ -10,7 +10,7 @@ tags:
 
 # Production Backlog
 
-**GAME 1303 · Due by 11:59 PM the night before the Week 8 class · Points: TBD**
+**GAME 1303 · Due by 11:59 PM the night before the Week 8 class · Points: 2**
 
 Turn your ten-pager into a plan you can work from: every feature broken into tasks on a board, each with a week.
 

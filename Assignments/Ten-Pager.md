@@ -11,7 +11,7 @@ tags:
 
 # Ten-Pager
 
-**GAME 1303 · Week 7 · Canvas, due by 11:59 PM the night before class · Points: TBD**
+**GAME 1303 · Week 7 · Canvas, due by 11:59 PM the night before class · Points: 10**
 
 Your game's design document: ten pages that describe the whole game, from its outline to its technical plan. In Week 8 you build from it, starting with a backlog made from its must-have list. The format follows Scott Rogers' ten-pager in *Level Up!*
 

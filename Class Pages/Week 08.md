@@ -62,7 +62,7 @@ Worth 2 points: one for **Implementation** (it runs, and the feature works), one
 | What | When | Points |
 |---|---|---|
 | Ex 07 — Juice & Audio | end of class | 2 pts |
-| Production backlog | 11:59 PM the night before class, Canvas | TBD |
+| Production backlog | 11:59 PM the night before class, Canvas | 2 pts |
 
 Run the matching tab of the course checklist before you submit. Every box on it is a graded criterion.
 

@@ -51,7 +51,7 @@ Each student has five minutes: one minute showing the game, then what went right
 
 | What | When | Points |
 |---|---|---|
-| Post-mortem | 11:59 PM the night before class, Canvas; presented in class | TBD |
+| Post-mortem | 11:59 PM the night before class, Canvas; presented in class | 5 pts |
 
 Run the matching tab of the course checklist before you submit. Every box on it is a graded criterion.
 

@@ -23,13 +23,13 @@ What is built, what is left, the order to build it in, and the decisions that bl
 | Class and Lecture pages, weeks 1–7 | Drafted |
 | Canvas HTML copies, rebuilt automatically | Working |
 | Ex 00 tutorial | Drafted |
-| Script Reference (`Guides/Script Reference.md`) | Written for v0.10.0. Update whenever scripts change |
+| Script Reference (`Guides/Script Reference.md`) | Written for v0.12.0. Update whenever scripts change |
 | Genre map page for students | Drafted (`Guides/Genre Map.md`) |
-| Genre kits and kit guides | Platformer and Physics Puzzle: scripts and both guides written; samples not built. Other 13 kits not started |
+| Genre kits and kit guides | Platformer, Physics Puzzle, Top-Down Adventure, Turn-Based Battle and Arcade Classic: scripts and both guides written (v0.12.0, not yet compiled); samples not built. Other 10 kits not started |
 | Scripts for weeks 8–10 (v0.10.0) | Audio, music, camera shake, hit stop, cutscenes, saving, high score and settings written, not yet compiled. Dialogue is part of the visual novel kit |
 | Class and Lecture pages, weeks 8–16 | Drafted |
 | Topic pages | All 16 weeks drafted (54 pages) |
-| Assignment pages and rubrics | All 14 drafted, weeks 1–16. Points to be assigned |
+| Assignment pages and rubrics | All 14 drafted, plus Extra Credit. Points assigned (100, plus up to 5 extra credit; table in the schedule) |
 | Per-game scripts and guides | After pitch week |
 
 ## Order of work
@@ -59,19 +59,22 @@ One kit at a time, in priority order. For each kit:
 
 **Build order** (fifteen kits; visual novel and dating sim share one):
 
-1. Small, and they settle the kit format: platformer (scripts and guides written; the sample needs building and testing), top-down adventure, turn-based battle, arcade classic
+1. Small, and they settle the kit format: platformer, top-down adventure, turn-based battle, arcade classic (scripts and both guides written for all four; the samples need building and testing)
 2. Medium: physics puzzle (scripts and guides written; sample needs building, and Kenney's Physics Assets pack), top-down shooter, endless runner, grid puzzle, tower defense, management and strategy, visual novel with dating sim
 3. The 3D template project and 3D script module, then the 3D platformer kit
 4. Large: card game, farming and life sim, horror and stealth
 
 Kits aren't used until week 8 of the semester, so the later ones can be finished during weeks 1–7.
 
-**Kenney packs to try first** (to be confirmed as each kit is built):
+**Kenney packs to try first** (to be confirmed as each kit is built). Download links for every pack are in the template's `Assets/_Course/Art/Kenney/README.md`:
 
 | Kit | Pack |
 |---|---|
 | Platformer | Pixel Platformer (in the template) |
 | Top-down adventure | Tiny Dungeon, Tiny Town |
+| Turn-based battle | Tiny Dungeon |
+| Arcade classic | Puzzle Pack (Breakout, Pong), Space Shooter Redux (Asteroids) |
+| Physics puzzle | Physics Assets |
 | Top-down shooter | Pixel Shmup, or Space Shooter Redux |
 | Grid puzzle | Sokoban |
 | Tower defense | Tower Defense (top-down) |
@@ -91,10 +94,10 @@ Kits aren't used until week 8 of the semester, so the later ones can be finished
 
 ### Phase 5 — Release
 
-- [ ] Keep kits, art packs and exercise solutions out of the student project ZIP. They stay in the repository for development; a `.gitattributes` file with `export-ignore` lines leaves them out of GitHub's ZIP downloads, and each kit is exported as its own package.
-- [ ] Update Exercise 06 to use the shared `CoursePanelSettings` asset, once it exists.
+- [x] Keep kits, art packs and exercise solutions out of the student project ZIP. They stay in the repository for development; a `.gitattributes` file with `export-ignore` lines leaves them out of GitHub's ZIP downloads, and each kit is exported as its own package.
+- [x] Shared `CoursePanelSettings` asset (v0.12.0, hand-written; **Collin Game → UI → Repair Course Panel Settings** rebuilds it if Unity rejects it). Exercise 06 and the kit guides use it.
 
-- [ ] Assign points to every exercise and assignment (decision 7).
+- [x] Assign points to every exercise and assignment (decision 7). Points are on each assignment and class page, and in the schedule's Grading table.
 - [ ] Tag v1.0, publish the Release, export the update and kit packages.
 - [ ] Test the whole student path on a lab computer.
 

@@ -3,7 +3,7 @@ title: "Exercise 06 — UI"
 course: GAME 1303
 week: 7
 status: draft
-course_version: 0.10.0
+course_version: 0.12.0
 unity: 6000.3.10f1
 tags:
   - game1303
@@ -37,6 +37,7 @@ In this exercise you finish the sandbox game. You replace the floating score tex
 
 1. Choose **GameObject → UI Toolkit → UI Document**. Name it `HUD`.
 2. In the **UI Document** component, drag `HUD` from `Assets/_Course/Core/UI` into the **Source Asset** field.
+   Check that **Panel Settings** says `CoursePanelSettings`. It's filled in for you, and every screen in this exercise uses it, so they all scale the same way. If it's empty or says something else, drag in `CoursePanelSettings` from `Assets/_Course/Core/UI`.
 3. Add the **UI Variable Binder** component. Under **Bindings**, click **+** twice and fill them in:
 
 | Label Name | Variable | Format |
@@ -193,7 +194,8 @@ The sandbox game is complete. Every script in it is one you can use in your own 
 
 | What you see | What to do |
 |---|---|
-| A screen shows nothing | Check the UI Document's **Source Asset**. Check that **Panel Settings** isn't empty; if it is, drag in the `PanelSettings` asset from `Assets/UI Toolkit`. |
+| A screen shows nothing | Check the UI Document's **Source Asset**. Check that **Panel Settings** is `CoursePanelSettings`; if not, choose **Collin Game → UI → Use Course Panel Settings in Open Scenes**. |
+| Screens are different sizes, or text is tiny | Choose **Collin Game → UI → Use Course Panel Settings in Open Scenes**, then save the scene. |
 | The HUD shows "Score: 0" and never changes | Check the **Label Name** spelling and the **Variable** in the UI Variable Binder. |
 | Buttons don't react to clicks | Check the **Button Name** spelling in UI Button Events, and read the Console for a warning that names the missing button. |
 | The pause menu shows at the start | Tick **Hidden At Start** on its UI Screen. |

@@ -11,7 +11,7 @@ tags:
 
 # Screen Layout
 
-**GAME 1303 · Week 5 · Canvas, due by 11:59 PM the night before class · Points: TBD**
+**GAME 1303 · Week 5 · Canvas, due by 11:59 PM the night before class · Points: 5**
 
 Sketches of your game's main screens, showing what the player sees and where. In Week 7 you'll build screens like these in UI Toolkit, and the HUD sketch goes on page 6 of your ten-pager.
 

@@ -1,0 +1,198 @@
+<p>The Arcade Classic Kit is a starting point for single-screen arcade games: a fixed camera, simple controls, a score, lives, and play that gets faster. Its sample is three tiny games you can take apart: <strong>Breakout</strong>, <strong>Pong</strong> and <strong>Asteroids</strong>. Most arcade-style pitches are a twist on one of the three.</p>
+<h2>What the kit covers</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">What the kit covers</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The kit does this</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The kit doesn't do this</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A paddle moved by keys, stick or mouse, or by the computer</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Two human players on one keyboard (a second Input Reader is a custom script)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A ball that speeds up and bounces at an angle that depends on where it hits</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Several balls at once from a power-up</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Bricks that take one or more hits</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Falling power-ups that change the paddle</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A ship that turns, thrusts and drifts, and wraps around the screen</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Scrolling levels (see the top-down shooter kit)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Shooting, with a limit on shots at once</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Several weapon types</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Asteroids that drift, spin and split</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Enemy ships that hunt the player</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Score, best score, lives, and knowing when everything is cleared</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Online leaderboards</td>
+</tr>
+</tbody>
+</table>
+<p>If your pitch needs something in the right-hand column, it has to be one of your agreed custom scripts, or it has to be cut.</p>
+<h2>Install the kit</h2>
+<ol>
+<li>Download the Arcade Classic Kit package from the course project's <strong>Releases</strong> page.</li>
+<li>With your project open, double-click the package and click <strong>Import</strong>.</li>
+<li>Open <strong>File → Build Profiles → Open Scene List</strong>. From <code>Assets/_Course/Kits/ArcadeClassic/Sample/Scenes</code>, add these scenes: <code>Arcade_Menu</code>, <code>Arcade_Breakout</code>, <code>Arcade_Pong</code>, <code>Arcade_Asteroids</code>.</li>
+<li>Open <code>Arcade_Menu</code> and press <strong>Play</strong>. The menu has a button for each game.</li>
+</ol>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Install the kit</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Game</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Controls</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Breakout</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Move the paddle with <strong>A/D</strong>, the arrow keys, the left stick or the mouse. <strong>Space</strong> serves</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Pong</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Move with <strong>W/S</strong> or the arrow keys or the left stick. Serves by itself. First to 5 wins</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Asteroids</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Turn with <strong>A/D</strong>, thrust with <strong>W</strong>, shoot with <strong>Enter</strong> or the left mouse button</td>
+</tr>
+</tbody>
+</table>
+<h2>What's in the sample</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">What's in the sample</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Prefab</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What it is</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Settings worth changing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Paddle</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Breakout paddle: horizontal, player or mouse</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Speed</strong>, <strong>Min Position</strong>, <strong>Max Position</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Pong Paddle</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Vertical paddle; the right one is controlled by the computer</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Controlled By</strong>, <strong>Computer Speed</strong>, <strong>Computer Dead Zone</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Ball</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Bounces at a steady speed; speeds up on each paddle hit</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Start Speed</strong>, <strong>Speed Up Per Paddle Hit</strong>, <strong>Max Bounce Angle</strong>, <strong>Play Direction</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Brick</code>, <code>Tough Brick</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Break after 1 or 3 hits, for points</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Hits To Break</strong>, <strong>Color By Hits Left</strong>, <strong>Amount</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Ship</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Asteroids ship: turns, thrusts, shoots, wraps</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Turn Speed</strong>, <strong>Thrust</strong>, <strong>Max Speed</strong>, <strong>Drag</strong>; <strong>Shots Per Second</strong>, <strong>Max On Screen</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Bullet</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The ship's shot. Damage On Touch and Lifetime</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Lifetime</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Asteroid Large</code>, <code>Medium</code>, <code>Small</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Drift and spin; each splits into two of the next size</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Min Speed</strong>, <strong>Max Speed</strong>; <strong>Pieces</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Arcade Systems</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">HUD, pause, game over and win screens</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+</tbody>
+</table>
+<p>Select a paddle in the Scene view to see the line it can move along.</p>
+<h2>How the sample fits together</h2>
+<p><strong>The ball.</strong> The Ball 2D keeps its speed the same after every bounce, and never travels so flat that it would bounce between two walls forever. Where it hits a paddle decides the angle it leaves at: the middle sends it straight back, the ends at up to <strong>Max Bounce Angle</strong>. That's what gives the player control.</p>
+<p><strong>Serving.</strong> Before each serve the ball waits on the paddle (Breakout, <strong>Serve From</strong>) or in the middle (Pong). The Jump or Attack button serves it, or <strong>Auto Serve</strong> does after a delay.</p>
+<p><strong>Goals.</strong> A <strong>Ball Goal 2D</strong> is a trigger just past an edge. In Breakout, the one below the paddle takes 1 from <code>Lives</code>. In Pong, the one behind each paddle adds 1 to the other player's score, and serves toward the player who lost the point.</p>
+<p><strong>Counting.</strong> Each brick and asteroid has a <strong>Counted Object</strong> that keeps <code>BricksLeft</code> or <code>AsteroidsLeft</code> up to date, including pieces of split asteroids. An <strong>Int Variable Condition</strong> on each count raises <code>LevelCleared</code> when it reaches 0.</p>
+<p><strong>Losing.</strong> An Int Variable Condition on <code>Lives</code> (At Most 0) raises <code>GameOver</code>.</p>
+<p><strong>Asteroids.</strong> Each asteroid has Health (1, Destroy), Drift 2D, Screen Wrap 2D, Damage On Touch (hurts the player) and Split On Death 2D. The ship's bullets have Damage On Touch (hurts <code>Enemy</code>). When a large asteroid's health runs out, it creates two medium ones, which create two small ones. Each size adds points on its Health's <strong>On Died</strong>.</p>
+<h2>Start your own game</h2>
+<ol>
+<li>Create a new 2D scene in <code>Assets/_Game/Scenes</code>.</li>
+<li>Set the Main Camera's <strong>Size</strong> to <code>5</code> and leave it still: arcade games fit on one screen.</li>
+<li>Drag in <code>Arcade Systems</code> and the prefabs for the game you're closest to.</li>
+<li>Add walls: sprites with a Box Collider 2D just outside the camera's view, on the sides the ball should bounce off.</li>
+<li>Press <strong>Play</strong> and adjust.</li>
+</ol>
+<h3>Changing a prefab</h3>
+<p>Make a <strong>Prefab Variant</strong> (right-click the prefab → <strong>Create → Prefab Variant</strong>), move it to <code>Assets/_Game/Prefabs</code>, and change the variant.</p>
+<h2>Recipes</h2>
+<p><strong>Faster, harder Breakout.</strong> Raise <strong>Speed Up Per Paddle Hit</strong> to <code>0.6</code> and lower <strong>Max Bounce Angle</strong> to <code>50</code>.</p>
+<p><strong>A brick that can't be broken.</strong> A sprite with a Box Collider 2D and no Brick 2D. Don't give it a Counted Object, or the level can never be cleared.</p>
+<p><strong>A brick that leaves something behind.</strong> Drag a prefab into a brick's <strong>Spawn When Broken</strong>, such as a Coin that falls (Rigidbody 2D with gravity) and a Collectible.</p>
+<p><strong>An easier Pong opponent.</strong> Lower <strong>Computer Speed</strong> to <code>0.45</code>, or raise <strong>Computer Dead Zone</strong> to <code>0.8</code>.</p>
+<p><strong>Pong to 5.</strong> An Int Variable Condition on each player's score (At Least <code>5</code>) raises <code>GameOver</code> or <code>LevelCleared</code>.</p>
+<p><strong>Rapid fire.</strong> On the Ship's Shooter 2D, tick <strong>Hold To Fire</strong>, raise <strong>Shots Per Second</strong> to <code>8</code> and <strong>Max On Screen</strong> to <code>0</code>.</p>
+<p><strong>Shoot downward from a turret (Space Invaders style).</strong> A Shooter 2D with Aim <strong>Muzzle Up</strong> on a muzzle child turned 180°.</p>
+<p><strong>Waves of asteroids.</strong> On <code>LevelCleared</code>, call <strong>Spawner → StartSpawning</strong> on a Spawner with the large asteroid and <strong>Total To Spawn</strong> <code>4</code>, instead of showing the win screen.</p>
+<p><strong>A shield after respawning.</strong> Raise the ship's Health <strong>Invulnerable Time</strong> and give it a flashing animation on <strong>On Damaged</strong>. (Being safe right after respawning is a custom script.)</p>
+<p><strong>Sounds.</strong> Ball 2D has <strong>On Paddle Hit</strong> and <strong>On Bounce</strong>; Brick 2D has <strong>On Broken</strong>; Shooter 2D has <strong>On Shoot</strong>. Add <strong>SoundEffect → Play</strong> to each, as in Exercise 07.</p>
+<h2>If something goes wrong</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something goes wrong</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What you see</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The ball slows down or sticks to walls</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Walls must be solid colliders, not triggers. Don't give walls a Physics Material; the ball sets its own</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The ball goes straight up and down forever</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Raise <strong>Min Angle</strong> on the Ball</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The ball passes through the paddle</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The paddle needs a Box Collider 2D. The Ball sets its Collision Detection to Continuous by itself</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The paddle goes off the screen</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Set <strong>Min Position</strong> and <strong>Max Position</strong>; select the paddle to see the line</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The level is cleared straight away</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Each brick or asteroid needs a <strong>Counted Object</strong> using the same variable as the condition. Don't use a Variable Resetter on that variable</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Losing a life serves twice</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Only one Ball Goal 2D should be below the paddle</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Bullets hit the ship</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">They can't, by design; check that the bullet's Damage On Touch <strong>Target Tag</strong> is <code>Enemy</code>, and asteroids are tagged <code>Enemy</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Asteroids bounce off each other</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Tick <strong>Is Trigger</strong> on the asteroids' colliders</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Objects don't wrap at the edge</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The camera must be Orthographic and not move</td>
+</tr>
+</tbody>
+</table>

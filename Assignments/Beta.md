@@ -10,7 +10,7 @@ tags:
 
 # Beta
 
-**GAME 1303 · Due by 11:59 PM the night before the Week 14 class · Points: TBD**
+**GAME 1303 · Due by 11:59 PM the night before the Week 14 class · Points: 3**
 
 All content is in. From here to release, you only fix and polish.
 

@@ -10,7 +10,7 @@ tags:
 
 # First Playable
 
-**GAME 1303 · Due by 11:59 PM the night before the Week 10 class · Points: TBD**
+**GAME 1303 · Due by 11:59 PM the night before the Week 10 class · Points: 5**
 
 Your first milestone build: one complete pass through your core loop, running outside Unity. It can be rough and the art can be placeholder.
 

@@ -21,7 +21,7 @@ Everything goes in `Assets/_Course/Kits/PhysicsPuzzle/Sample/`, with folders `Da
 
 1. Pull the template project. It should be version 0.11.0 or later, with no red errors in the Console.
 2. **Art.** Download Kenney's **Physics Assets** pack (CC0; also mirrored on [OpenGameArt](https://opengameart.org/content/physics-assets)). Unzip it to `Assets/_Course/Art/Kenney/` keeping Kenney's folder name, and remove the non-Unity files as with Pixel Platformer. Push it, and I'll add its import settings to the art importer and its entry to `Course Credits`. Until then, plain sprites work for testing.
-3. Use the shared `CoursePanelSettings` for every UI Document, as in the Platformer Kit sample.
+3. Every UI Document uses the shared `CoursePanelSettings` (filled in automatically; see the Platformer Kit sample).
 
 ## Part 1 — Data
 

@@ -10,7 +10,7 @@ tags:
 
 # Post-Mortem
 
-**GAME 1303 · Due by 11:59 PM the night before the Week 16 class · Points: TBD**
+**GAME 1303 · Due by 11:59 PM the night before the Week 16 class · Points: 5**
 
 A five-minute presentation that looks back honestly at your project: what worked, what didn't, and what you'd change.
 

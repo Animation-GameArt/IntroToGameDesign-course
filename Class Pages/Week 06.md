@@ -62,7 +62,7 @@ Worth 2 points: one for **Implementation** (it runs, and the feature works), one
 | What | When | Points |
 |---|---|---|
 | Ex 05 — Combat | end of class | 2 pts |
-| Ten-pager draft | 11:59 PM the night before class, Canvas; peer review in lab | TBD |
+| Ten-pager draft | 11:59 PM the night before class, Canvas; peer review in lab | 3 pts |
 
 Run the matching tab of the course checklist before you submit. Every box on it is a graded criterion.
 

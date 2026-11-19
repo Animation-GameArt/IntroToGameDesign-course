@@ -27,7 +27,7 @@ Students turn their Week 5 layout sketches into working screens. They should lea
 | UXML | The structure: this button inside this panel | `HUD`, `MainMenu`, `PauseMenu`, `EndScreen`, `GameOver`, `Credits` in `_Course/Core/UI` |
 | USS | The style: colors, sizes, spacing | `CourseTheme.uss`, shared by every screen |
 | UI Document | A component that shows a UXML file in a scene | **GameObject → UI Toolkit → UI Document** |
-| Panel Settings | How screens scale to the window | One shared asset for every screen |
+| Panel Settings | How screens scale to the window | One shared asset for every screen: `CoursePanelSettings` |
 | UI Builder | The visual editor for UXML and USS | Double-click a UXML file |
 
 - **Names connect UI to scripts.** Course components find elements by name, such as `score-label` or `play-button`. Rename an element and the connection breaks.

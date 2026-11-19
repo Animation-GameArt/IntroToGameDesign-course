@@ -60,7 +60,7 @@ Worth 2 points: one for **Implementation** (it runs, and the feature works), one
 | What | When | Points |
 |---|---|---|
 | Ex 06 — UI | end of class | 2 pts |
-| Ten-pager (final) | 11:59 PM the night before class, Canvas | TBD |
+| Ten-pager (final) | 11:59 PM the night before class, Canvas | 10 pts |
 
 Run the matching tab of the course checklist before you submit. Every box on it is a graded criterion.
 

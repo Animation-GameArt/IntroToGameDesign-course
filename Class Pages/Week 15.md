@@ -52,7 +52,7 @@ Each page is opened on the class screen. Another student downloads the game and 
 
 | What | When | Points |
 |---|---|---|
-| Gold | 11:59 PM the night before class, Canvas | TBD |
+| Gold | 11:59 PM the night before class, Canvas | 10 pts |
 
 Run the matching tab of the course checklist before you submit. Every box on it is a graded criterion.
 

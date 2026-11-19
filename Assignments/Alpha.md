@@ -10,7 +10,7 @@ tags:
 
 # Alpha
 
-**GAME 1303 · Due by 11:59 PM the night before the Week 12 class · Points: TBD**
+**GAME 1303 · Due by 11:59 PM the night before the Week 12 class · Points: 3**
 
 Every feature you're going to ship exists and works. Art, sound and balance can still be rough.
 

@@ -60,7 +60,7 @@ Worth 2 points: one for **Implementation** (it runs, and the feature works), one
 | What | When | Points |
 |---|---|---|
 | Ex 01 — Bootstrap | end of class | 2 pts |
-| Project setup check | end of class, in person | TBD |
+| Project setup check | end of class, in person | 2 pts |
 
 Run the matching tab of the course checklist before you submit. Every box on it is a graded criterion.
 

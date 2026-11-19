@@ -60,7 +60,7 @@ Worth 2 points: one for **Implementation** (it runs, and the feature works), one
 | What | When | Points |
 |---|---|---|
 | Ex 04 — Level | end of class | 2 pts |
-| Screen layout | 11:59 PM the night before class, Canvas | TBD |
+| Screen layout | 11:59 PM the night before class, Canvas | 5 pts |
 
 Run the matching tab of the course checklist before you submit. Every box on it is a graded criterion.
 

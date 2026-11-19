@@ -1,0 +1,154 @@
+<p><strong>For the instructor.</strong> These steps build the kit's three sample games once, in the template project. Building them tests every kit script, and the result is what students import. Students read <strong>Arcade Classic Kit</strong>, not this page.</p>
+<p>Everything goes in <code>Assets/_Course/Kits/ArcadeClassic/Sample/</code>, with folders <code>Data</code>, <code>Prefabs</code> and <code>Scenes</code>.</p>
+<h2>Before you start</h2>
+<ol>
+<li>Pull the template project. It should be version 0.12.0 or later, with no red errors in the Console.</li>
+<li><strong>Art.</strong> Download Kenney's <strong>Puzzle Pack</strong> (paddles, balls, bricks) and <strong>Space Shooter Redux</strong> (ship, lasers, meteors); links are in <code>Assets/_Course/Art/Kenney/README.md</code>. Unzip each to <code>Assets/_Course/Art/Kenney/</code> keeping Kenney's folder name, remove the non-Unity files, and choose <strong>Collin Game → Art → Reapply Art Import Settings</strong>. Push them, and I'll add them to <code>Course Credits</code>. Plain sprites from <strong>Create → 2D → Sprites</strong> work for testing.</li>
+<li><strong>Tags.</strong> In <strong>Project Settings → Tags and Layers</strong>, add <code>Enemy</code> if it isn't there.</li>
+<li><strong>Camera.</strong> In every game scene: Main Camera Orthographic, <strong>Size</strong> <code>5</code>, at <code>0, 0, -10</code>, background black. No Cinemachine.</li>
+<li><strong>Panel Settings.</strong> Every UI Document uses <code>CoursePanelSettings</code>.</li>
+</ol>
+<h2>Part 1 — Data</h2>
+<p>In <code>Sample/Data</code>:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 1 — Data</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Asset</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Type</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Initial value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>ArcadeScore</code>, <code>BestBreakout</code>, <code>BestAsteroids</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Int Variable</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Lives</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Int Variable</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>3</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>BricksLeft</code>, <code>AsteroidsLeft</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Int Variable</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>LeftScore</code>, <code>RightScore</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Int Variable</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>LevelCleared</code>, <code>GameOver</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Void Event Channel</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+</tbody>
+</table>
+<h2>Part 2 — Arcade Systems</h2>
+<p>An empty GameObject at <code>0, 0, 0</code>, made into a prefab, with these children:</p>
+<p><strong><code>HUD</code></strong> — UI Document, Source Asset <code>ArcadeHUD</code> (from <code>Kits/ArcadeClassic/UI</code>), with a <strong>UI Variable Binder</strong>: <code>score-label</code> → <code>ArcadeScore</code> → <code>Score: {0}</code>; <code>lives-label</code> → <code>Lives</code> → <code>Lives: {0}</code>; <code>best-label</code> set per scene.</p>
+<p><strong><code>Pause Menu</code></strong> — as in the Platformer Kit sample.</p>
+<p><strong><code>Reset</code></strong> — a <strong>Variable Resetter</strong> with <code>ArcadeScore</code>, <code>Lives</code>, <code>LeftScore</code> and <code>RightScore</code>. Not <code>BricksLeft</code> or <code>AsteroidsLeft</code>: Counted Object sets those.</p>
+<p><strong><code>Lose</code></strong> — an <strong>Int Variable Condition</strong>: Variable <code>Lives</code>, At Most <code>0</code>, Raise Event <code>GameOver</code>.</p>
+<p><strong><code>Scene Changer</code></strong> — Scene Changer, Scene Name empty. <strong><code>To Menu</code></strong> — Scene Changer, Scene Name <code>Arcade_Menu</code>.</p>
+<p><strong><code>Cleared</code></strong> — UI Document <code>EndScreen</code>, Sort Order <code>2</code>, UI Screen hidden, a <strong>Void Event Listener</strong> on <code>LevelCleared</code> → <strong>UIScreen → Show</strong>; buttons → <strong>ReloadScene</strong> and To Menu <strong>Load</strong>.</p>
+<p><strong><code>Game Over</code></strong> — UI Document <code>GameOver</code>, Sort Order <code>3</code>, UI Screen hidden, a <strong>Void Event Listener</strong> on <code>GameOver</code> → <strong>UIScreen → Show</strong>; buttons <code>try-again-button</code> → <strong>ReloadScene</strong>, <code>menu-button</code> → To Menu <strong>Load</strong>.</p>
+<h2>Part 3 — Breakout (<code>Arcade_Breakout</code>)</h2>
+<p><strong>Walls.</strong> Three sprites with Box Collider 2D just outside the view: left at <code>x = -9.4</code>, right at <code>x = 9.4</code>, top at <code>y = 5.4</code>. No bottom wall.</p>
+<p><strong><code>Paddle</code></strong> — a paddle sprite at <code>0, -4.2</code>, about <code>2 × 0.35</code>, with a <strong>Box Collider 2D</strong> and <strong>Paddle 2D</strong>: Moves Along Horizontal, Player, Follow Mouse ticked, Speed <code>14</code>, Min <code>-7.8</code>, Max <code>7.8</code>.</p>
+<p><strong><code>Ball</code></strong> — a ball sprite, Scale about <code>0.35</code>, with a <strong>Circle Collider 2D</strong> and <strong>Ball 2D</strong>: Play Direction Up And Down, Start Speed <code>7</code>, Speed Up <code>0.3</code>, Max Speed <code>14</code>, Max Bounce Angle <code>60</code>, Min Angle <code>20</code>, Serve From <code>Paddle</code>, Serve Offset <code>0, 0.45</code>, Serve Direction <code>0.3, 1</code>, Auto Serve <code>0</code>.</p>
+<p><strong><code>Brick</code></strong> — a brick sprite about <code>1.4 × 0.5</code> with a <strong>Box Collider 2D</strong>, <strong>Brick 2D</strong> (Hits To Break <code>1</code>, Add To <code>ArcadeScore</code>, Amount <code>10</code>) and <strong>Counted Object</strong> (Count <code>BricksLeft</code>). <strong><code>Tough Brick</code></strong> is a variant: Hits To Break <code>3</code>, Amount <code>30</code>, Color By Hits Left: element 0 light red, 1 orange, 2 dark red.</p>
+<p><strong><code>Ball Goal</code></strong> — a Box Collider 2D trigger at <code>0, -5.8</code>, <code>20 × 1</code>, with <strong>Ball Goal 2D</strong>: Change Variable <code>Lives</code>, Amount <code>-1</code>, Reset Ball ticked.</p>
+<p><strong>Layout.</strong> Six rows of ten bricks from <code>y = 3.8</code> down, with a row of Tough Bricks at the top. Add a <strong>High Score</strong> (Score <code>ArcadeScore</code>, Best <code>BestBreakout</code>, Save Name <code>Breakout</code>) and an <strong>Int Variable Condition</strong> (<code>BricksLeft</code>, Equal To <code>0</code>, Raise Event <code>LevelCleared</code>). Bind <code>best-label</code> to <code>BestBreakout</code>.</p>
+<h2>Part 4 — Pong (<code>Arcade_Pong</code>)</h2>
+<p>Replace the HUD's Source Asset with <code>PongHUD</code>, and bind <code>left-score</code> → <code>LeftScore</code> → <code>{0}</code> and <code>right-score</code> → <code>RightScore</code> → <code>{0}</code>. Untick the Lose condition.</p>
+<p><strong>Walls.</strong> Top at <code>y = 5.4</code> and bottom at <code>y = -5.4</code>. A dashed line down the middle, for looks.</p>
+<p><strong><code>Pong Paddle</code></strong> — a paddle sprite turned upright, about <code>0.35 × 2</code>, with a Box Collider 2D and <strong>Paddle 2D</strong>: Moves Along Vertical, Speed <code>10</code>, Min <code>-4</code>, Max <code>4</code>, Follow Mouse unticked. Place it at <code>x = -8</code> (Player) and a second one at <code>x = 8</code> (Controlled By Computer, Computer Speed <code>0.6</code>, Dead Zone <code>0.3</code>).</p>
+<p><strong><code>Pong Ball</code></strong> — a Ball variant: Play Direction <strong>Side To Side</strong>, Start Speed <code>7</code>, Min Angle <code>20</code>, Serve From empty (it waits in the middle), Serve Direction <code>1, 0.4</code>, Random Serve Side ticked, Auto Serve <code>1</code>, Input empty.</p>
+<p><strong>Goals.</strong> A Ball Goal 2D trigger behind each paddle:</p>
+<ul>
+<li>Left goal at <code>x = -9.8</code>: Change Variable <code>RightScore</code>, Amount <code>1</code>, Next Serve Direction <code>-1, 0.4</code>.</li>
+<li>Right goal at <code>x = 9.8</code>: Change Variable <code>LeftScore</code>, Amount <code>1</code>, Next Serve Direction <code>1, 0.4</code>.</li>
+</ul>
+<p><strong>Winning.</strong> Int Variable Condition <code>LeftScore</code> At Least <code>5</code> → <code>LevelCleared</code>; another on <code>RightScore</code> At Least <code>5</code> → <code>GameOver</code>.</p>
+<h2>Part 5 — Asteroids (<code>Arcade_Asteroids</code>)</h2>
+<p><strong><code>Bullet</code></strong> — a laser sprite, Scale <code>0.5</code>, with a <strong>Box Collider 2D</strong> (Is Trigger), a <strong>Rigidbody 2D</strong> (Gravity Scale <code>0</code>), <strong>Damage On Touch</strong> (Target Tag <code>Enemy</code>, Damage <code>1</code>, Remove Self After Hit ticked), <strong>Lifetime</strong> (<code>1</code> second) and <strong>Screen Wrap 2D</strong>.</p>
+<p><strong><code>Ship</code></strong> — a ship sprite pointing up, Scale <code>0.5</code>, tag <code>Player</code>, with a <strong>Polygon Collider 2D</strong>, <strong>Ship Controller 2D</strong> (defaults), a child <code>Muzzle</code> at the nose, a child <code>Flame</code> sprite behind it in <strong>Engine Flame</strong>, <strong>Shooter 2D</strong> (Projectile Prefab <code>Bullet</code>, Muzzle <code>Muzzle</code>, Aim Muzzle Up, Speed <code>14</code>, Shots Per Second <code>5</code>, Max On Screen <code>4</code>), <strong>Screen Wrap 2D</strong>, <strong>Health</strong> (Max Health <code>1</code>, When Health Runs Out <strong>Nothing</strong>, On Died → <code>Lives</code> <strong>Add</strong> <code>-1</code>), and a <strong>Respawner</strong> (On Respawn → <strong>ShipController2D → StopAndFaceUp</strong>).</p>
+<p><strong>Asteroids.</strong> Three prefabs, each a meteor sprite with a <strong>Circle Collider 2D</strong> (Is Trigger), <strong>Rigidbody 2D</strong>, tag <code>Enemy</code>, <strong>Drift 2D</strong>, <strong>Screen Wrap 2D</strong>, <strong>Damage On Touch</strong> (Target Tag <code>Player</code>), <strong>Counted Object</strong> (Count <code>AsteroidsLeft</code>) and <strong>Health</strong> (Max Health <code>1</code>, Invulnerable Time <code>0</code>, When Health Runs Out <strong>Destroy</strong>, On Died → <code>ArcadeScore</code> <strong>Add</strong>):</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 5 — Asteroids (Arcade_Asteroids)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Prefab</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Scale</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Drift speed</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Points</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Split On Death 2D</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Asteroid Large</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.8</code>–<code>1.5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>20</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Piece Prefab <code>Asteroid Medium</code>, Pieces <code>2</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Asteroid Medium</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.6</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1.2</code>–<code>2.2</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>50</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Piece Prefab <code>Asteroid Small</code>, Pieces <code>2</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Asteroid Small</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.35</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1.8</code>–<code>3</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>100</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">none</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Layout.</strong> The Ship in the middle. Four large asteroids near the corners, away from the ship. A <strong>High Score</strong> (<code>ArcadeScore</code>, <code>BestAsteroids</code>, Save Name <code>Asteroids</code>), and an Int Variable Condition (<code>AsteroidsLeft</code>, Equal To <code>0</code>, <code>LevelCleared</code>). Bind <code>best-label</code> to <code>BestAsteroids</code>.</p>
+<h2>Part 6 — Menu</h2>
+<p><code>Arcade_Menu</code>: a copy of the course MainMenu with three buttons, each with a Scene Changer: <code>Arcade_Breakout</code>, <code>Arcade_Pong</code>, <code>Arcade_Asteroids</code>. Show the two best scores with a UI Variable Binder.</p>
+<h2>Part 7 — Scene List</h2>
+<p><code>Arcade_Menu</code>, <code>Arcade_Breakout</code>, <code>Arcade_Pong</code>, <code>Arcade_Asteroids</code>.</p>
+<h2>Part 8 — Test</h2>
+<p><strong>Breakout</strong></p>
+<ul>
+<li>The ball waits on the paddle and Space serves it.</li>
+<li>Hitting with the paddle's ends sends the ball off at a steep angle; the middle sends it straight up.</li>
+<li>The ball never gets stuck going sideways, and never slows down.</li>
+<li>Bricks break and add points; tough bricks change color and take three hits.</li>
+<li>Missing the ball costs a life and the ball returns to the paddle; at 0 lives, Game Over.</li>
+<li>Breaking every brick shows the cleared screen; the best score is kept after restarting the game.</li>
+<li>The mouse moves the paddle; so do the keys after the mouse stops.</li>
+</ul>
+<p><strong>Pong</strong></p>
+<ul>
+<li>The ball serves by itself after a second, randomly left or right.</li>
+<li>The computer paddle follows the ball and can be beaten.</li>
+<li>A missed ball scores for the other side, and the next serve goes toward the player who missed.</li>
+<li>Reaching 5 ends the game.</li>
+</ul>
+<p><strong>Asteroids</strong></p>
+<ul>
+<li>The ship turns, thrusts, drifts and slows gently; the flame shows while thrusting.</li>
+<li>The ship, bullets and asteroids wrap at every edge.</li>
+<li>No more than 4 bullets at once.</li>
+<li>Large asteroids split into two medium, medium into two small; small ones disappear.</li>
+<li>The cleared screen shows only when every piece is gone, not when the last large one splits.</li>
+<li>Touching an asteroid costs a life and the ship respawns in the middle, facing up and still.</li>
+</ul>
+<p><strong>All</strong></p>
+<ul>
+<li>Esc pauses; serving and shooting don't work while paused.</li>
+</ul>
+<p>Note anything that fails, with the Console message.</p>
+<h2>Part 9 — Commit</h2>
+<p>Commit and push the <code>Sample</code> folder with its <code>.meta</code> files, and the two art folders.</p>
+<h2>Later — Exporting the kit</h2>
+<p>Export <code>Assets/_Course/Kits/ArcadeClassic</code> and both art folders with <strong>Assets → Export Package</strong>, unticking Core scripts that Unity adds as dependencies.</p>

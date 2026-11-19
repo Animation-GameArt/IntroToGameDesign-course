@@ -11,7 +11,7 @@ tags:
 
 # One-Sheet
 
-**GAME 1303 · Week 4 · Canvas, due by 11:59 PM the night before class · Points: TBD**
+**GAME 1303 · Week 4 · Canvas, due by 11:59 PM the night before class · Points: 5**
 
 Your approved pitch, rewritten as a single page that someone could read in two minutes and understand your game. The one-sheet is the industry's standard approval document, following Scott Rogers' format in *Level Up!*
 

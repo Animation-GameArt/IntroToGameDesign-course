@@ -11,7 +11,7 @@ tags:
 
 # Project Setup Check
 
-**GAME 1303 · Week 2 · In person, by the end of class · Points: TBD**
+**GAME 1303 · Week 2 · In person, by the end of class · Points: 2**
 
 A quick check that the course project runs on your computer or SSD, and that your work is backed up.
 

@@ -3,7 +3,7 @@ title: "Script Reference"
 course: GAME 1303
 type: guide
 status: draft
-course_version: 0.11.0
+course_version: 0.12.0
 unity: 6000.3.10f1
 tags:
   - game1303
@@ -13,7 +13,7 @@ tags:
 
 # Script Reference
 
-Every course script in the course project, as of version **0.11.0**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
+Every course script in the course project, as of version **0.12.0**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
 
 ## Finding the scripts
 
@@ -38,7 +38,7 @@ Every script explains its settings: hover over a field in the Inspector to see i
 | `_Course/Core/Input` | `CollinGame.Core` | The Input Reader and the project's input actions |
 | `_Course/Core/Gameplay` | `CollinGame.Core` | Health, damage, pickups, checkpoints, zones, spawning |
 | `_Course/Core/TurnBased` | `CollinGame.Core` | Turn order, turn takers and their actions |
-| `_Course/Core/UI` | `CollinGame.Core` | UI Toolkit screens, their style sheet, and the components that run them |
+| `_Course/Core/UI` | `CollinGame.Core` | UI Toolkit screens, their style sheet, the shared `CoursePanelSettings`, and the components that run them |
 | `_Course/Core/Audio` | `CollinGame.Core` | Sound effects, music and volume |
 | `_Course/Core/Effects` | `CollinGame.Core` | Camera shake, hit stop, cutscenes |
 | `_Course/Core/Saving` | `CollinGame.Core` | Saving variables and high scores |
@@ -50,7 +50,13 @@ Every script explains its settings: hover over a field in the Inspector to see i
 | `_Course/Kits/Platformer/UI` | — | Platformer kit screens |
 | `_Course/Kits/PhysicsPuzzle/Scripts` | `CollinGame.Kits.PhysicsPuzzle` | Physics puzzle kit scripts |
 | `_Course/Kits/PhysicsPuzzle/UI` | — | Physics puzzle kit HUD |
-| `_Course/Art/Kenney` | — | Kenney art packs (CC0) |
+| `_Course/Kits/TopDownAdventure/Scripts` | `CollinGame.Kits.TopDownAdventure` | Top-down adventure kit scripts |
+| `_Course/Kits/TopDownAdventure/UI` | — | Top-down adventure kit HUD |
+| `_Course/Kits/TurnBasedBattle/Scripts` | `CollinGame.Kits.TurnBasedBattle` | Turn-based battle kit scripts |
+| `_Course/Kits/TurnBasedBattle/UI` | — | Battle screen |
+| `_Course/Kits/ArcadeClassic/Scripts` | `CollinGame.Kits.ArcadeClassic` | Arcade classic kit scripts |
+| `_Course/Kits/ArcadeClassic/UI` | — | Arcade and Pong HUDs |
+| `_Course/Art/Kenney` | — | Kenney art packs (CC0). Its README links to every pack the kits use |
 | `_Course/Credits` | — | The course's credits text |
 
 Each folder's scripts can use the folders above it in this order: Core, then TwoD, then Kits. Core never depends on a kit, so adding or removing a kit can't break the exercises.
@@ -515,7 +521,7 @@ Attack or heal; each uses up the turn. **Player** control waits for Attack (Ente
 
 ### Screens
 
-UXML files in `Core/UI`, styled by `CourseTheme.uss`. Put one in a scene with **GameObject → UI Toolkit → UI Document**, then set its **Source Asset**. Components find elements by **name**, so copies in `_Game` must keep these names.
+UXML files in `Core/UI`, styled by `CourseTheme.uss`. Put one in a scene with **GameObject → UI Toolkit → UI Document**, then set its **Source Asset**. Its **Panel Settings** should be `CoursePanelSettings` (filled in for you), so every screen scales the same way. Components find elements by **name**, so copies in `_Game` must keep these names.
 
 | Screen | Element names |
 |---|---|
@@ -781,6 +787,194 @@ Builds a swinging rope of hinged links from this object down to **Hanging Body**
 
 ---
 
+## Top-down adventure kit
+
+Imported with the Top-Down Adventure Kit package. See [Top-Down Adventure Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Top-Down%20Adventure%20Kit.md).
+
+### Melee Attack 2D
+
+`Kits/TopDownAdventure/Scripts/MeleeAttack2D.cs` · **Add Component → Collin Game → Top-Down Adventure Kit → Melee Attack 2D**
+
+A sword swing. When Attack is pressed, everything with Health and the **Target Tag** inside a circle in front of the character takes damage, and is pushed back if it has a Knockback 2D. "In front" is the Top Down Controller 2D's facing direction, or left and right from the sprite.
+
+| Setting | Default | |
+|---|---|---|
+| Input | `InputReader` (filled on the player) | Leave empty for a character that attacks from a script |
+| Reach · Radius | `0.8` · `0.6` | Where the hit circle is, and its size. Shown when selected |
+| Target Tag · Damage · Knockback Force · Cooldown | `Enemy` · `1` · `8` · `0.35` | |
+| Swing Visual · Swing Visual Time | — · `0.15` | A child sprite pointing right, shown briefly and turned to face the attack |
+| On Swing · On Hit | — | On Hit runs only when something was hit |
+
+Method: **Attack**.
+
+### Knockback 2D
+
+`Kits/TopDownAdventure/Scripts/Knockback2D.cs` · **Add Component → Collin Game → Top-Down Adventure Kit → Knockback 2D**
+
+Pushes the character back when hit, and switches off its movement scripts for **Stun Time** (`0.2`). A Melee Attack 2D pushes it away from the attacker; other damage, such as Damage On Touch, pushes it away from what it touched last, with **Force When Touched** (`6`). **Stop While Pushed** defaults to the Top Down Controller 2D or Top Down Chaser 2D on the object. Method: **Push**.
+
+### Top Down Chaser 2D
+
+`Kits/TopDownAdventure/Scripts/TopDownChaser2D.cs` · **Add Component → Collin Game → Top-Down Adventure Kit → Top Down Chaser 2D**
+
+A top-down enemy with three states: **Wander** near home, **Chase** the target, **Return** home. Ranges are drawn when selected.
+
+| Setting | Default | |
+|---|---|---|
+| Wander Speed · Wander Radius · Rest Time | `1` · `2` · `1` | Wander Speed `0` stands still until it notices the target |
+| Chase Tag · Notice Range · Give Up Range · Chase Speed | `Player` · `4` · `7` · `2.5` | |
+| Needs Line Of Sight · Sight Blockers | ticked · Everything | Walls (solid, non-moving colliders) block its view |
+| Acceleration | `20` | |
+
+### Key Door 2D
+
+`Kits/TopDownAdventure/Scripts/KeyDoor2D.cs` · **Add Component → Collin Game → Top-Down Adventure Kit → Key Door 2D**
+
+A solid door that opens (switches off) when the player touches it with at least **Keys Needed** (`1`) in **Keys**. **Use Up Keys** (ticked) takes them away. Without enough keys, writes **Locked Message** to **Message Text**. Events **On Opened**, **On Locked**. Method: **Open** opens it without keys, for switches.
+
+### Camera Room 2D
+
+`Kits/TopDownAdventure/Scripts/CameraRoom2D.cs` · **Add Component → Collin Game → Top-Down Adventure Kit → Camera Room 2D**
+
+One room of a level: a trigger Box Collider 2D or Polygon Collider 2D. When the player enters, the scene's **Cinemachine Confiner 2D** keeps the camera inside the room. **Room Contents** (optional) is switched on only while the player is in the room, and with **Reset Contents On Return** (ticked) comes back fresh each visit. Events **On Entered**, **On Left**.
+
+### Interactable 2D
+
+`Kits/TopDownAdventure/Scripts/Interactable2D.cs` · **Add Component → Collin Game → Top-Down Adventure Kit → Interactable 2D**
+
+A sign, person, chest or lever. While the player is in its trigger area, Interact shows the next of its **Lines** in **Message Text**, and runs **On Used** the first time. **Only Once** for chests and levers. **Prompt** is shown while the player is close. **On Finished** runs after the last line. Method: **Use**.
+
+### UI Heart Row and UI Message Box
+
+**UI Heart Row** draws **Max Hearts** (`5`) hearts in the element named `hearts`, filled up to **Health** (an Int Variable). Optional **Full Heart** and **Empty Heart** sprites; without them, the hearts are colored squares.
+
+**UI Message Box** shows **Message** (a String Variable) in `message-label`, inside `message-box`, which is hidden while the text is empty. It clears after **Clear After** (`4`) seconds.
+
+### Kit screens
+
+| Screen | Element names |
+|---|---|
+| `AdventureHUD` | `hearts`, `keys-label`, `coins-label`, `message-box`, `message-label` |
+
+---
+
+## Turn-based battle kit
+
+Imported with the Turn-Based Battle Kit package. Builds on the [Turn Manager](#turn-manager) and [Turn Taker](#turn-taker). See [Turn-Based Battle Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Turn-Based%20Battle%20Kit.md).
+
+### Battle Action
+
+`Kits/TurnBasedBattle/Scripts/BattleAction.cs` · **Create → Collin Game → Turn-Based Battle Kit → Battle Action**
+
+An asset for one action, shared by every fighter that has it.
+
+| Setting | Default | |
+|---|---|---|
+| Display Name · Description | the asset's name · — | Shown in the battle menu |
+| Effect | Damage | **Damage**, **Heal**, **Defend** (half damage until the user's next turn) |
+| Target | One Opponent | **One Opponent**, **All Opponents**, **Self**, **One Ally** |
+| Power · Accuracy | `3` · `95` | Damage = Power + Attack − Defense, at least 1. Accuracy only affects Damage |
+| Uses Per Battle | `0` | `0` is no limit |
+| Sound | — | A Sound Effect played when used |
+
+### Battle Actor
+
+`Kits/TurnBasedBattle/Scripts/BattleActor.cs` · **Add Component → Collin Game → Turn-Based Battle Kit → Battle Actor**
+
+A fighter. Needs a **Turn Taker** and a **Health** with **Invulnerable Time `0`**, and must be in the Turn Manager's Turn Order. Player fighters are chosen for in the UI Battle Menu; computer fighters heal when at or below **Heal Below** (`0.35` of max) and otherwise attack.
+
+| Setting | Default | |
+|---|---|---|
+| Controlled By · Actions | Player · — | Actions in menu order |
+| Attack · Defense | `0` · `0` | |
+| Think Time · Heal Below | `0.8` · `0.35` | Computer only |
+| Lunge Part · Lunge Distance | the sprite · `0.4` | Steps toward the target when acting |
+| On Action · On Defend · On Dodged | — | |
+
+Methods: **Perform** (action, target), **ReceiveDamage**, **CanUse**, **UsesLeft**.
+
+### UI Battle Menu, Battle Log and Health Bar 2D
+
+**UI Battle Menu** shows a button per action when a player fighter's turn starts, then a button per target when there is a choice, with a Back button. Buttons have the class `battle-button`.
+
+**Battle Log** keeps the last **Lines To Keep** (`4`) lines of what happened in **Log Text** (a String Variable). Method **Add** adds your own line.
+
+**Health Bar 2D** shrinks a **Fill** sprite from the right as **Health** goes down. **Hide When Full** hides the bar until the first hit.
+
+### Kit screens
+
+| Screen | Element names |
+|---|---|
+| `BattleUI` | `status-label`, `log-label`, `battle-menu`, `actor-label`, `description-label`, `actions`, `targets` |
+
+---
+
+## Arcade classic kit
+
+Imported with the Arcade Classic Kit package. See [Arcade Classic Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Arcade%20Classic%20Kit.md).
+
+### Paddle 2D
+
+`Kits/ArcadeClassic/Scripts/Paddle2D.cs` · **Add Component → Collin Game → Arcade Classic Kit → Paddle 2D**
+
+A kinematic paddle that slides along one line between **Min Position** and **Max Position** (`-7`, `7`; shown when selected).
+
+| Setting | Default | |
+|---|---|---|
+| Moves Along · Controlled By | Horizontal · Player | **Vertical** for Pong; **Computer** follows the ball |
+| Input · Follow Mouse | `InputReader` · ticked | |
+| Speed | `12` | |
+| Computer Speed · Computer Dead Zone | `0.6` · `0.3` | Lower speed or a bigger dead zone is easier to beat |
+
+### Ball 2D
+
+`Kits/ArcadeClassic/Scripts/Ball2D.cs` · **Add Component → Collin Game → Arcade Classic Kit → Ball 2D**
+
+Bounces at a steady speed. Where it hits a Paddle 2D sets the angle it leaves at. Waits before each serve; Jump or Attack serves.
+
+| Setting | Default | |
+|---|---|---|
+| Play Direction | Up And Down | **Side To Side** for Pong |
+| Start Speed · Speed Up Per Paddle Hit · Max Speed | `8` · `0.3` · `16` | |
+| Max Bounce Angle · Min Angle | `60` · `15` | Min Angle keeps it from going too flat |
+| Serve From · Serve Offset | — · `0, 0.5` | Empty waits at the starting point |
+| Serve Direction · Random Serve Side | `0.3, 1` · ticked | |
+| Input · Auto Serve | `InputReader` · `0` | Auto Serve serves after that many seconds |
+| On Serve · On Paddle Hit · On Bounce | — | |
+
+Methods: **Serve**, **ResetBall**.
+
+### Ball Goal 2D, Brick 2D and Counted Object
+
+**Ball Goal 2D** is a trigger past an edge. When the ball enters, **Change Variable** changes by **Amount** (`-1`), and the ball goes back to be served, toward **Next Serve Direction** if set.
+
+**Brick 2D** breaks after **Hits To Break** (`1`) hits by the ball (or by objects tagged **Also Broken By Tag**), changing color by **Color By Hits Left**. When broken: **Add To** / **Amount** (`10`), **Spawn When Broken**, **On Broken**.
+
+**Counted Object** keeps **Count** (an Int Variable) equal to the number of these objects in the scene, including ones created later. Pair it with an Int Variable Condition (Equal To 0). Don't reset that variable with a Variable Resetter.
+
+### Ship Controller 2D, Shooter 2D and Screen Wrap 2D
+
+**Ship Controller 2D**: left and right turn (**Turn Speed** `220`), up thrusts (**Thrust** `9`) up to **Max Speed** (`8`); **Drag** (`0.4`) slows it. **Engine Flame** shows while thrusting. Method **StopAndFaceUp**, for a Respawner's On Respawn.
+
+**Shooter 2D** fires **Projectile Prefab** from **Muzzle** when Attack is pressed. **Aim**: Muzzle Up, Muzzle Right or Move Direction. **Projectile Speed** (`14`), **Shots Per Second** (`5`), **Hold To Fire**, **Max On Screen** (`4`; `0` is no limit), **Add Shooter Velocity**, **On Shoot**. Shots never hit the shooter. Method: **Shoot**.
+
+**Screen Wrap 2D** brings an object back on the opposite edge when it goes past **Margin** (`0.5`). Needs an orthographic camera that doesn't move.
+
+### Drift 2D and Split On Death 2D
+
+**Drift 2D** sends a Rigidbody 2D drifting in a random direction at **Min Speed**–**Max Speed** (`1`–`2.5`), spinning up to **Max Spin** (`60`).
+
+**Split On Death 2D** creates **Pieces** (`2`) of **Piece Prefab** when its Health runs out, spread by **Spread** (`0.3`).
+
+### Kit screens
+
+| Screen | Element names |
+|---|---|
+| `ArcadeHUD` | `score-label`, `best-label`, `lives-label` |
+| `PongHUD` | `left-score`, `right-score` |
+
+---
+
 ## Editor tools
 
 | Tool | Where | What it does |
@@ -788,6 +982,9 @@ Builds a swinging rope of hinged links from this object down to **Hanging Body**
 | Current Value | Inspector of any variable, during Play | Shows the live value |
 | Raise | Inspector of any Void Event Channel, during Play | Raises the event, for testing |
 | Reapply Art Import Settings | **Collin Game → Art** menu | Gives the course's art packs their pixel-art settings again |
+| Use Course Panel Settings in Open Scenes | **Collin Game → UI** menu | Sets `CoursePanelSettings` on every UI Document in the open scenes |
+| Repair Course Panel Settings | **Collin Game → UI** menu | Creates `CoursePanelSettings` if it's missing, and puts back its settings |
+| Course Panel Settings for new UI Documents | Automatic | A new UI Document with no Panel Settings gets `CoursePanelSettings` |
 
 ---
 
@@ -818,6 +1015,13 @@ Builds a swinging rope of hinged links from this object down to **Hanging Body**
 | An opening cutscene | A Timeline on a **Playable Director** + **Cutscene Player** |
 | A slingshot level | **Launcher 2D** + blocks with **Breakable 2D** + targets with **Puzzle Target 2D** + **Puzzle Rules** |
 | A rope to cut | **Rope 2D** with a Hanging Body + a **Cutter 2D** in the scene |
+| A sword attack | **Melee Attack 2D** on the player; enemies tagged `Enemy` with **Health** and **Knockback 2D** |
+| A locked door | Key: **Collectible** (Add To `Keys`). Door: solid collider + **Key Door 2D** |
+| A camera that moves room by room | A **Camera Room 2D** per room + a **Cinemachine Confiner 2D** on the Cinemachine Camera |
+| A sign or a person to talk to | Trigger collider + **Interactable 2D** + a **UI Message Box** on the HUD |
+| A battle with a menu | **Turn Manager** + fighters with **Battle Actor** + `BattleUI` with **UI Battle Menu** |
+| Breakout | **Paddle 2D** + **Ball 2D** + bricks with **Brick 2D** and **Counted Object** + a **Ball Goal 2D** below |
+| Asteroids | **Ship Controller 2D** + **Shooter 2D** + asteroids with **Drift 2D**, **Split On Death 2D** and **Counted Object**, all with **Screen Wrap 2D** |
 | Starting a new game from the menu | **Variable Resetter** in the menu scene, with every variable that carries between levels |
 
 ## Common Console messages

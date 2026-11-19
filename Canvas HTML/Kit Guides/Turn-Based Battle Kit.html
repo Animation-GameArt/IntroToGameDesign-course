@@ -1,0 +1,160 @@
+<p>The Turn-Based Battle Kit is a starting point for games where fighters take turns choosing actions from a menu, as in classic role-playing games and many roguelike deckbuilders. It adds actions you create as assets, fighters with stats, a battle menu, a battle log and health bars. The sample is a short series of three battles: a party of two against slimes, then a bigger monster.</p>
+<p>It builds on the Turn Manager and Turn Taker you used in the turn-based version of Exercise 05. If you did the real-time version, read that exercise's Part 1 first; it's short.</p>
+<h2>What the kit covers</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">What the kit covers</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The kit does this</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The kit doesn't do this</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A party of one or more fighters against one or more opponents</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Moving on a grid during battle (that's tactics; ask about the grid puzzle kit)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Attacks, heals and defending, with accuracy and limited uses</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Status effects such as poison or sleep</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Attack and Defense stats</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Levels, experience points or equipment</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A menu of actions and targets, for mouse, keyboard or gamepad</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Speed-based turn order (turns go in a fixed order)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Computer fighters that heal when low and attack otherwise</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Clever AI that picks the best move</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A battle log, a round counter, health bars and win and lose screens</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Exploring a map between battles (combine with the Top-Down Adventure Kit)</td>
+</tr>
+</tbody>
+</table>
+<p>If your pitch needs something in the right-hand column, it has to be one of your agreed custom scripts, or it has to be cut.</p>
+<h2>Install the kit</h2>
+<ol>
+<li>Download the Turn-Based Battle Kit package from the course project's <strong>Releases</strong> page.</li>
+<li>With your project open, double-click the package and click <strong>Import</strong>.</li>
+<li>Open <strong>File → Build Profiles → Open Scene List</strong>. From <code>Assets/_Course/Kits/TurnBasedBattle/Sample/Scenes</code>, add these scenes, next to each other and in this order: <code>Battle_Menu</code>, <code>Battle_1</code>, <code>Battle_2</code>, <code>Battle_3</code>, <code>Battle_Win</code>.</li>
+<li>Open <code>Battle_Menu</code> and press <strong>Play</strong>.</li>
+</ol>
+<p>Choose actions with the mouse, or with the arrow keys and <strong>Enter</strong>, or with a gamepad's stick and south button. <strong>Esc</strong> pauses.</p>
+<h2>What's in the sample</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">What's in the sample</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Prefab or asset</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What it is</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Settings worth changing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Hero</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Player fighter with Slash, Power Strike, Defend and Potion</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Actions</strong>, <strong>Attack</strong>, <strong>Defense</strong>, Health <strong>Max Health</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Healer</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Player fighter with Staff, Heal and Defend</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Actions</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Slime</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Computer fighter with Bite</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Attack</strong>, <strong>Heal Below</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Ogre</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A stronger computer fighter with Club and Roar (defend)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Attack</strong>, <strong>Defense</strong>, <strong>Max Health</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Actions in <code>Sample/Actions</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">One asset per action</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Power</strong>, <strong>Accuracy</strong>, <strong>Uses Per Battle</strong>, <strong>Target</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Battle Systems</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Turn Manager, battle screen, log, win and lose screens</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Turn Order</strong> on the Turn Manager</td>
+</tr>
+</tbody>
+</table>
+<h2>How the sample fits together</h2>
+<p><strong>Turns.</strong> The Turn Manager goes through its <strong>Turn Order</strong>, as in Exercise 05. Each fighter's Turn Taker tells its Battle Actor that the turn has started.</p>
+<p><strong>Choosing.</strong> A computer fighter waits a moment, then picks an action and a target by itself. For a player fighter, the <strong>UI Battle Menu</strong> shows one button per action. Actions with limited uses show how many are left, and are greyed out at 0. After an action is picked, the menu shows the possible targets, unless there's only one.</p>
+<p><strong>Actions.</strong> Each action is a <strong>Battle Action</strong> asset. Its <strong>Effect</strong> is Damage, Heal or Defend; its <strong>Target</strong> is one opponent, all opponents, the user, or one ally.</p>
+<ul>
+<li><strong>Damage</strong> = Power + the user's Attack − the target's Defense, at least 1. A defending target takes half.</li>
+<li>A damage action can miss: <strong>Accuracy</strong> is the chance to hit, out of 100.</li>
+<li><strong>Defend</strong> lasts until the defender's next turn.</li>
+</ul>
+<p><strong>The log.</strong> Every action writes a line, such as "Slime uses Bite. Hero takes 2." The <strong>Battle Log</strong> keeps the last four lines in <code>BattleLog</code>, which the battle screen shows.</p>
+<p><strong>Winning and losing.</strong> The Turn Manager raises <code>BattleWon</code> when no opponent can act, and <code>BattleLost</code> when no player fighter can. The win screen's Next button loads the next battle.</p>
+<h2>Start your own game</h2>
+<ol>
+<li>Create a new 2D scene in <code>Assets/_Game/Scenes</code>.</li>
+<li>Drag in <code>Battle Systems</code> and two fighters from the kit's <code>Sample/Prefabs</code>: one <code>Hero</code> and one <code>Slime</code>.</li>
+<li>On <code>Battle Systems</code> → <code>Turn Manager</code>, add both to <strong>Turn Order</strong>.</li>
+<li>Press <strong>Play</strong>.</li>
+</ol>
+<p>Then make your own fighters and actions:</p>
+<ul>
+<li><strong>A new action:</strong> in <code>Assets/_Game</code>, <strong>Create → Collin Game → Turn-Based Battle Kit → Battle Action</strong>. Set its name, description, effect, target and power. Add it to a fighter's <strong>Actions</strong>.</li>
+<li><strong>A new fighter:</strong> a variant of <code>Hero</code> or <code>Slime</code> (right-click → <strong>Create → Prefab Variant</strong>), moved to <code>Assets/_Game/Prefabs</code>, with a new sprite, stats and actions.</li>
+</ul>
+<p>Every fighter's Health needs <strong>Invulnerable Time</strong> at <code>0</code>, or a second hit in the same round is ignored. The Console warns you if this happens.</p>
+<h2>Recipes</h2>
+<p><strong>A fire spell that hits every enemy.</strong> An action with Effect <strong>Damage</strong>, Target <strong>All Opponents</strong>, Power <code>2</code>, Uses Per Battle <code>2</code>.</p>
+<p><strong>A potion with three uses.</strong> Effect <strong>Heal</strong>, Target <strong>Self</strong>, Power <code>5</code>, Uses Per Battle <code>3</code>.</p>
+<p><strong>A heal for the whole party.</strong> Make it Target <strong>One Ally</strong> to choose who, or add two heal actions. (A heal for everyone at once is a custom script.)</p>
+<p><strong>A boss.</strong> An <code>Ogre</code> variant with Max Health <code>30</code>, Defense <code>2</code>, and three actions. Put it in the Turn Order twice to give it two turns per round.</p>
+<p><strong>A fighter that hits hard but misses often.</strong> Give its attack Power <code>6</code> and Accuracy <code>60</code>.</p>
+<p><strong>Sound and shake.</strong> Give each action a <strong>Sound</strong> (a Sound Effect asset from Exercise 07). On each fighter's Health <strong>On Damaged</strong>, add <strong>CameraShake → Shake</strong>.</p>
+<p><strong>Health bars.</strong> The sample fighters have a <strong>Health Bar 2D</strong> over their heads. For a number instead, give the fighter's Health a <strong>Health Variable</strong> and show it with a UI Variable Binder.</p>
+<p><strong>Battles in an adventure.</strong> Make each battle its own scene. In the Top-Down Adventure Kit, an enemy's Damage On Touch can be replaced by a <strong>Trigger Zone</strong> that loads the battle scene. To return to the exact spot afterwards needs a custom script.</p>
+<h2>If something goes wrong</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something goes wrong</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What you see</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Nothing happens when the battle starts</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check the Turn Manager's <strong>Turn Order</strong>, and that <strong>Start Automatically</strong> is ticked</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The menu never appears</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The battle screen needs a <strong>UI Battle Menu</strong>, and the player fighter's <strong>Controlled By</strong> must be <strong>Player</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">"A hit was ignored because Health is still invulnerable"</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Set that fighter's Health <strong>Invulnerable Time</strong> to <code>0</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">An action button is greyed out</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">It has no uses left, or there's no one it can target</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The battle is won straight away</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Each opponent needs a Turn Taker with <strong>Player Side</strong> unticked, in the Turn Order</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Keyboard keys don't move between buttons</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Click the Game view first, so it has keyboard focus</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Every action does 1 damage</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The target's <strong>Defense</strong> is higher than the action's Power plus the user's Attack</td>
+</tr>
+</tbody>
+</table>

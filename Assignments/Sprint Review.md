@@ -10,7 +10,7 @@ tags:
 
 # Sprint Review
 
-**GAME 1303 · Due by 11:59 PM the night before the Week 11 class · Points: TBD**
+**GAME 1303 · Due by 11:59 PM the night before the Week 11 class · Points: 2**
 
 Your core loop, complete and feeling right, shown to the class in a two-minute demo.
 

@@ -1,0 +1,214 @@
+<p>The Top-Down Adventure Kit is a starting point for games seen from above in which the player explores, fights and finds things, in the style of the early Zelda games. It adds a sword attack, enemies that chase, knockback, keys and locked doors, signs and people to talk to, and a camera that moves room by room. The sample is a small dungeon of three rooms.</p>
+<p>It builds on the Top Down Controller 2D from Exercise 03.</p>
+<h2>What the kit covers</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">What the kit covers</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The kit does this</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The kit doesn't do this</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Walking in eight directions, with a sword swing in the direction you face</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Bows, magic, or switching weapons (a Shooter 2D from the Arcade Classic Kit can fire arrows)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Enemies that wander, notice you, chase you and give up</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Bosses with attack patterns</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Knockback when anything is hit</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Enemies that block or dodge</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Hearts, coins, keys and locked doors</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">An inventory screen or shops</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Signs, people and chests that show text when you press Interact</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Branching conversations (the visual novel kit uses Yarn Spinner)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A camera that stays inside each room, and enemies that come back when you return</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A scrolling world map or a minimap</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A HUD with a row of hearts and a message box</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Saving progress between sessions</td>
+</tr>
+</tbody>
+</table>
+<p>If your pitch needs something in the right-hand column, it has to be one of your agreed custom scripts, or it has to be cut.</p>
+<h2>Install the kit</h2>
+<ol>
+<li>Download the Top-Down Adventure Kit package from the course project's <strong>Releases</strong> page.</li>
+<li>With your project open, double-click the package and click <strong>Import</strong>.</li>
+<li>Open <strong>File → Build Profiles → Open Scene List</strong>. From <code>Assets/_Course/Kits/TopDownAdventure/Sample/Scenes</code>, add these scenes, next to each other and in this order: <code>Adventure_Menu</code>, <code>Adventure_Dungeon</code>, <code>Adventure_Win</code>.</li>
+<li>Open <code>Adventure_Menu</code> and press <strong>Play</strong>.</li>
+</ol>
+<p>Play the sample through once before you change anything.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Install the kit</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Action</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Keyboard</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Gamepad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Move</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>WASD</strong> or arrow keys</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Left stick</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Sword</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Enter</strong> or left mouse button</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Left face button</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Read a sign, talk, open a chest</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>E</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Top face button</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Pause</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Esc</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Start</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>What's in the sample</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">What's in the sample</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Prefab</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What it is</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Settings worth changing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Player</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The hero: Top Down Controller 2D, Health, Respawner, Knockback 2D and Melee Attack 2D</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Max Speed</strong>; <strong>Max Health</strong>; <strong>Reach</strong>, <strong>Radius</strong> and <strong>Damage</strong> on Melee Attack 2D</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Slime</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Wanders slowly, chases when it sees you, hurts on touch, takes 2 hits</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Notice Range</strong>, <strong>Chase Speed</strong>, Health <strong>Max Health</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Bat</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Fast and flies over everything: it doesn't need to see you</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Chase Speed</strong>, <strong>Needs Line Of Sight</strong> (off)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Coin</code>, <code>Heart</code>, <code>Key</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Collectibles: add to <code>Coins</code>, heal 1, add to <code>Keys</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Amount</strong>, <strong>Heal</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Locked Door</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Opens when touched with a key, and uses the key up</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Keys Needed</strong>, <strong>Use Up Keys</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Sign</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Shows its lines one at a time when you press Interact</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Lines</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Treasure Chest</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Shows a line, then raises <code>DungeonCleared</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Lines</strong>, <strong>On Used</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Room</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A Camera Room 2D: the camera stays inside it while you're in it</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The size of its Box Collider 2D; <strong>Room Contents</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Level Systems</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">HUD, pause menu, win screen, camera</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+</tbody>
+</table>
+<p>Select the <code>Player</code> in the Scene view to see the circle the sword reaches. Select an enemy to see how far it wanders (blue), when it notices you (yellow) and when it gives up (red).</p>
+<h2>How the sample fits together</h2>
+<p><strong>Fighting.</strong> Pressing Attack swings the sword: everything tagged <code>Enemy</code> with Health inside the red circle takes damage and, if it has a Knockback 2D, is pushed away. Enemies hurt the player with Damage On Touch, and the player's Knockback 2D pushes the player away from whatever touched them. Knockback briefly switches off the movement scripts, so the push isn't cancelled straight away.</p>
+<p><strong>Health and hearts.</strong> The player's Health writes to <code>PlayerHealth</code>. The HUD's <strong>UI Heart Row</strong> draws one heart per point of <strong>Max Hearts</strong>, filled up to <code>PlayerHealth</code>. When health runs out, the Respawner sends the player back to the last Checkpoint with full health.</p>
+<p><strong>Keys and doors.</strong> A Key is a Collectible that adds 1 to <code>Keys</code>. A Locked Door checks <code>Keys</code> when touched. Without enough keys, it writes "Locked." to <code>Message</code>, and the HUD's <strong>UI Message Box</strong> shows it for a few seconds.</p>
+<p><strong>Signs.</strong> An Interactable 2D has a trigger area. While the player stands in it, Interact shows the next line in <code>Message</code>. After the last line, the box closes.</p>
+<p><strong>Rooms.</strong> Each <code>Room</code> covers one screen-sized area with a trigger. When the player walks in, its Camera Room 2D tells the Cinemachine Confiner 2D to keep the camera inside that room. Each room's enemies are under one object, dragged into <strong>Room Contents</strong>: they're switched off while you're elsewhere, and come back when you return.</p>
+<p><strong>Winning.</strong> The Treasure Chest raises <code>DungeonCleared</code>, which shows the win screen.</p>
+<h2>Start your own game</h2>
+<ol>
+<li>Create a new 2D scene in <code>Assets/_Game/Scenes</code>.</li>
+<li>Drag in <code>Level Systems</code> and <code>Player</code> from the kit's <code>Sample/Prefabs</code>.</li>
+<li>Paint the floor and walls with a Tilemap, as in Exercise 04: walls on their own Tilemap with a <strong>Tilemap Collider 2D</strong> and <strong>Composite Collider 2D</strong>.</li>
+<li>Add a <code>Room</code> for each screen of your level, sized to cover it exactly. Rooms may touch; they shouldn't overlap.</li>
+<li>Add enemies, keys, doors and signs from the prefabs.</li>
+<li>Press <strong>Play</strong> and adjust.</li>
+</ol>
+<p>For a game that's one big area instead of rooms, use a single <code>Room</code> covering the whole level, or remove the Confiner 2D so the camera follows freely.</p>
+<h3>Changing a prefab</h3>
+<p>Make a <strong>Prefab Variant</strong> (right-click the prefab → <strong>Create → Prefab Variant</strong>), move it to <code>Assets/_Game/Prefabs</code>, and change the variant.</p>
+<h2>Recipes</h2>
+<p><strong>A tougher enemy.</strong> A <code>Slime</code> variant with Max Health <code>4</code>, a different sprite, and <strong>Damage</strong> <code>2</code> on its Damage On Touch.</p>
+<p><strong>An enemy that guards one spot.</strong> Set <strong>Wander Speed</strong> to <code>0</code>. It stands still until it notices you, and returns there afterwards.</p>
+<p><strong>A key that appears when the enemies are beaten.</strong> Place a <code>Key</code> in the room and untick it in the Inspector, so it starts hidden. On the last enemy's Health <strong>On Died</strong>, drag in the Key and choose <strong>GameObject → SetActive</strong>, ticked. Keep the Key outside <strong>Room Contents</strong>.</p>
+<p><strong>A person to talk to.</strong> A <code>Sign</code> variant with a character sprite and several <strong>Lines</strong>.</p>
+<p><strong>A lever that opens a door.</strong> An <code>Interactable 2D</code> with <strong>Only Once</strong> ticked. In <strong>On Used</strong>, drag in the door and choose <strong>KeyDoor2D → Open</strong>. Set the door's <strong>Keys Needed</strong> to <code>0</code> only if touching it should also open it.</p>
+<p><strong>Music for each room.</strong> On a Room's <strong>On Entered</strong>, add <strong>MusicPlayer → Play</strong> with that room's music, as in Exercise 07.</p>
+<p><strong>A sword sound and a shake.</strong> On the player's Melee Attack 2D, add a <strong>SoundEffect → Play</strong> to <strong>On Swing</strong>, and <strong>CameraShake → Shake</strong> and <strong>HitStop → Stop</strong> to <strong>On Hit</strong>.</p>
+<p><strong>A whole dungeon.</strong> Copy the sample scene's layout: one <code>Room</code> per screen, a <code>Checkpoint</code> at each door, and a Locked Door between the areas you want the player to reach in order.</p>
+<h2>If something goes wrong</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something goes wrong</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What you see</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The sword doesn't hurt enemies</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The enemy needs the tag <code>Enemy</code>, a Health component and a collider. Check the red circle reaches it</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Enemies don't chase</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check <strong>Chase Tag</strong> is <code>Player</code> and the player has that tag. With <strong>Needs Line Of Sight</strong> on, walls must not be between you</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Enemies can see through walls</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Walls need a solid collider (not a trigger) on a layer in <strong>Sight Blockers</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player slides away after being hit</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Lower <strong>Force When Touched</strong>, or <strong>Stun Time</strong>, on the player's Knockback 2D</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The camera doesn't stay in the room</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Cinemachine Camera needs a <strong>Cinemachine Confiner 2D</strong>, and each Room's collider must have <strong>Is Trigger</strong> ticked</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The camera jumps at the start</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player must start inside a Room</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Keys come back when you return to a room</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Keep keys outside <strong>Room Contents</strong>; only enemies should be inside</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">No hearts in the HUD</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The HUD needs <strong>UI Heart Row</strong> with <strong>Health</strong> set to <code>PlayerHealth</code>, and the player's Health needs <code>PlayerHealth</code> in <strong>Health Variable</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Pressing E does nothing at a sign</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Stand inside its trigger area. Check its <strong>Input</strong> field and the <code>Player</code> tag</td>
+</tr>
+</tbody>
+</table>

@@ -21,7 +21,8 @@
 <h2>Part 2 — The HUD</h2>
 <ol>
 <li>Choose <strong>GameObject → UI Toolkit → UI Document</strong>. Name it <code>HUD</code>.</li>
-<li>In the <strong>UI Document</strong> component, drag <code>HUD</code> from <code>Assets/_Course/Core/UI</code> into the <strong>Source Asset</strong> field.</li>
+<li>In the <strong>UI Document</strong> component, drag <code>HUD</code> from <code>Assets/_Course/Core/UI</code> into the <strong>Source Asset</strong> field.
+Check that <strong>Panel Settings</strong> says <code>CoursePanelSettings</code>. It's filled in for you, and every screen in this exercise uses it, so they all scale the same way. If it's empty or says something else, drag in <code>CoursePanelSettings</code> from <code>Assets/_Course/Core/UI</code>.</li>
 <li>Add the <strong>UI Variable Binder</strong> component. Under <strong>Bindings</strong>, click <strong>+</strong> twice and fill them in:</li>
 </ol>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 2 — The HUD</caption>
@@ -266,7 +267,11 @@
 <tbody>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A screen shows nothing</td>
-<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check the UI Document's <strong>Source Asset</strong>. Check that <strong>Panel Settings</strong> isn't empty; if it is, drag in the <code>PanelSettings</code> asset from <code>Assets/UI Toolkit</code>.</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check the UI Document's <strong>Source Asset</strong>. Check that <strong>Panel Settings</strong> is <code>CoursePanelSettings</code>; if not, choose <strong>Collin Game → UI → Use Course Panel Settings in Open Scenes</strong>.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Screens are different sizes, or text is tiny</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Choose <strong>Collin Game → UI → Use Course Panel Settings in Open Scenes</strong>, then save the scene.</td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The HUD shows "Score: 0" and never changes</td>

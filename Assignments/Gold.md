@@ -10,7 +10,7 @@ tags:
 
 # Gold
 
-**GAME 1303 · Due by 11:59 PM the night before the Week 15 class · Points: TBD**
+**GAME 1303 · Due by 11:59 PM the night before the Week 15 class · Points: 10**
 
 Your finished game, released on a public itch.io page.
 

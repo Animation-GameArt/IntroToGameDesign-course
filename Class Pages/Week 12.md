@@ -52,7 +52,7 @@ During studio time the instructor plays each game for a few minutes against the 
 
 | What | When | Points |
 |---|---|---|
-| Alpha | 11:59 PM the night before class, Canvas | TBD |
+| Alpha | 11:59 PM the night before class, Canvas | 3 pts |
 
 Run the matching tab of the course checklist before you submit. Every box on it is a graded criterion.
 

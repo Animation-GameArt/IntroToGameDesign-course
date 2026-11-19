@@ -1,0 +1,169 @@
+<p><strong>For the instructor.</strong> These steps build the kit's sample game once, in the template project. Building it tests every kit script, and the result is what students import. Students read <strong>Top-Down Adventure Kit</strong>, not this page.</p>
+<p>Everything goes in <code>Assets/_Course/Kits/TopDownAdventure/Sample/</code>, with folders <code>Data</code>, <code>Prefabs</code>, <code>Scenes</code> and <code>Tiles</code>.</p>
+<h2>Before you start</h2>
+<ol>
+<li>Pull the template project. It should be version 0.12.0 or later, with no red errors in the Console.</li>
+<li><strong>Art.</strong> Download Kenney's <strong>Tiny Dungeon</strong> pack (link in <code>Assets/_Course/Art/Kenney/README.md</code>). Unzip it to <code>Assets/_Course/Art/Kenney/kenney_tiny-dungeon</code>, remove the non-Unity files, and choose <strong>Collin Game → Art → Reapply Art Import Settings</strong>. Its tiles are 16 pixels, so one tile is one unit. Push it, and I'll add it to <code>Course Credits</code>.</li>
+<li><strong>Tags.</strong> In <strong>Project Settings → Tags and Layers</strong>, add the tag <code>Enemy</code> if it isn't there.</li>
+<li><strong>Panel Settings.</strong> Every UI Document uses <code>CoursePanelSettings</code>. New UI Documents get it by themselves; <strong>Collin Game → UI → Use Course Panel Settings in Open Scenes</strong> fixes any that don't.</li>
+</ol>
+<h2>Part 1 — Data</h2>
+<p>In <code>Sample/Data</code>:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 1 — Data</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Asset</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Type</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Initial value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>PlayerHealth</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Int Variable</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>5</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Keys</code>, <code>Coins</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Int Variable</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Message</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">String Variable</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">empty</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>DungeonCleared</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Void Event Channel</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+</tbody>
+</table>
+<h2>Part 2 — Prefabs</h2>
+<p>Build each in a new scene <code>Sample/Scenes/Adventure_Dungeon</code>, drag it into <code>Sample/Prefabs</code>, then delete it from the scene unless a step says to keep it.</p>
+<h3>Player</h3>
+<ol>
+<li>Create a sprite from a Tiny Dungeon hero tile. Name it <code>Player</code>, tag it <code>Player</code>, and set its <strong>Order in Layer</strong> to <code>10</code>.</li>
+<li>Add a <strong>Circle Collider 2D</strong>, Radius <code>0.35</code>, Offset <code>0, -0.1</code> (the feet).</li>
+<li>Add <strong>Top Down Controller 2D</strong> (Max Speed <code>5</code>, Facing <strong>Flip Sprite</strong>). It adds the Rigidbody 2D.</li>
+<li>Add <strong>Health</strong>: Max Health <code>5</code>, Invulnerable Time <code>1</code>, Health Variable <code>PlayerHealth</code>.</li>
+<li>Add <strong>Respawner</strong> and <strong>Knockback 2D</strong> (defaults).</li>
+<li>Add a child sprite <code>Swing</code> using a sword tile, pointing right, Order in Layer <code>11</code>.</li>
+<li>Add <strong>Melee Attack 2D</strong>: Reach <code>0.8</code>, Radius <code>0.55</code>, Target Tag <code>Enemy</code>, Damage <code>1</code>, Knockback Force <code>8</code>, Swing Visual <code>Swing</code>.</li>
+</ol>
+<h3>Slime</h3>
+<ol>
+<li>A sprite from a Tiny Dungeon slime tile, tag <code>Enemy</code>, Order in Layer <code>5</code>.</li>
+<li><strong>Circle Collider 2D</strong>, Radius <code>0.4</code>.</li>
+<li><strong>Top Down Chaser 2D</strong>: Wander Speed <code>0.8</code>, Wander Radius <code>1.5</code>, Notice Range <code>4</code>, Give Up Range <code>7</code>, Chase Speed <code>2</code>, Needs Line Of Sight ticked.</li>
+<li><strong>Health</strong>: Max Health <code>2</code>, Invulnerable Time <code>0.3</code>, When Health Runs Out <strong>Destroy</strong>.</li>
+<li><strong>Knockback 2D</strong>, <strong>Damage On Touch</strong> (Target Tag <code>Player</code>, Damage <code>1</code>).</li>
+</ol>
+<h3>Bat</h3>
+<p>A <strong>Slime</strong> variant: a bat sprite, Chase Speed <code>3.5</code>, Wander Speed <code>2</code>, Needs Line Of Sight unticked, Max Health <code>1</code>.</p>
+<h3>Pickups</h3>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Pickups</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Prefab</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Sprite</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Components</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Coin</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Coin tile</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Circle Collider 2D (trigger), <strong>Collectible</strong> (Add To <code>Coins</code>, Amount <code>1</code>)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Heart</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Heart tile</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Circle Collider 2D (trigger), <strong>Collectible</strong> (Heal <code>1</code>)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Key</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Key tile</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Circle Collider 2D (trigger), <strong>Collectible</strong> (Add To <code>Keys</code>, Amount <code>1</code>)</td>
+</tr>
+</tbody>
+</table>
+<h3>Locked Door</h3>
+<p>A door tile with a <strong>Box Collider 2D</strong> (not a trigger) covering the doorway, and <strong>Key Door 2D</strong>: Keys <code>Keys</code>, Keys Needed <code>1</code>, Use Up Keys ticked, Message Text <code>Message</code>.</p>
+<h3>Sign and Treasure Chest</h3>
+<p><strong>Sign:</strong> a sign tile with a solid <strong>Box Collider 2D</strong> on a child <code>Solid</code>, and on the root a <strong>Box Collider 2D</strong> trigger about twice the tile's size. Add <strong>Interactable 2D</strong>: Message Text <code>Message</code>, Lines <code>Swing your sword with Enter.</code> and <code>Find the key to open the door.</code></p>
+<p><strong>Treasure Chest:</strong> the same layout with a chest tile. <strong>Interactable 2D</strong>: Lines <code>You found the treasure!</code>, Only Once ticked; On Used → <code>DungeonCleared</code> <strong>Raise</strong>.</p>
+<h3>Room</h3>
+<p>An empty GameObject <code>Room</code> with a <strong>Box Collider 2D</strong>, Is Trigger ticked, Size <code>16 × 9</code> (one screen), and <strong>Camera Room 2D</strong>.</p>
+<h3>Level Systems</h3>
+<p>An empty GameObject at <code>0, 0, 0</code> with these children:</p>
+<p>Keep the cameras out of the prefab, in the level scene: the Main Camera with a <strong>Cinemachine Brain</strong>, and a <strong>Cinemachine Camera</strong> (Orthographic Size <code>4.5</code>, Tracking Target <code>Player</code>) with a <strong>Position Composer</strong> and a <strong>Cinemachine Confiner 2D</strong>. Leave the Confiner's Bounding Shape 2D empty; the Rooms fill it in.</p>
+<p><strong><code>HUD</code></strong> — UI Document, Source Asset <code>AdventureHUD</code> (from <code>Kits/TopDownAdventure/UI</code>), with:</p>
+<ul>
+<li><strong>UI Heart Row</strong>: Health <code>PlayerHealth</code>, Max Hearts <code>5</code>.</li>
+<li><strong>UI Variable Binder</strong>: <code>keys-label</code> → <code>Keys</code> → <code>Keys: {0}</code>; <code>coins-label</code> → <code>Coins</code> → <code>Coins: {0}</code>.</li>
+<li><strong>UI Message Box</strong>: Message <code>Message</code>, Clear After <code>4</code>.</li>
+</ul>
+<p><strong><code>Pause Menu</code></strong> — as in the Platformer Kit sample (<code>PauseMenu</code>, UI Screen hidden, Pause Controller, UI Button Events for resume, restart and menu).</p>
+<p><strong><code>Win</code></strong> — a <strong>Void Event Listener</strong> on <code>DungeonCleared</code> → a <strong>Scene Changer</strong> with Scene Name <code>Adventure_Win</code> → <strong>Load</strong>.</p>
+<p><strong><code>Reset Data</code></strong> — a <strong>Variable Resetter</strong> with <code>Keys</code>, <code>Coins</code> and <code>Message</code>.</p>
+<h2>Part 3 — The dungeon</h2>
+<p>Three rooms side by side, each 16 × 9 tiles:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 3 — The dungeon</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Room</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Contents</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Teaches</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">1 — Entrance</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Player, a Sign, two Coins, a Checkpoint</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Moving, reading signs</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">2 — Slime room</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Two Slimes under a <code>Room Contents</code> object, a Key, a Heart, a Checkpoint at the door</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Fighting, knockback, keys</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">3 — Treasure room</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A Locked Door at its entrance, a Bat under <code>Room Contents</code>, the Treasure Chest</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Locked doors, a faster enemy, winning</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Paint floors on one Tilemap and walls on another. Give the walls Tilemap a <strong>Tilemap Collider 2D</strong> with Composite Operation <strong>Merge</strong>, a <strong>Composite Collider 2D</strong>, and set its Rigidbody 2D to <strong>Static</strong>.</li>
+<li>Leave a gap in the wall between rooms for the doorway.</li>
+<li>Place one <code>Room</code> over each room, edges touching. In rooms 2 and 3, drag <code>Room Contents</code> into the Room's <strong>Room Contents</strong>.</li>
+<li>Put the Player in room 1.</li>
+</ol>
+<h2>Part 4 — Menu and win scenes</h2>
+<p>Build <code>Adventure_Menu</code> and <code>Adventure_Win</code> as in the Platformer Kit sample. The win screen shows <code>Coins: {0}</code>.</p>
+<h2>Part 5 — Scene List</h2>
+<p><code>Adventure_Menu</code>, <code>Adventure_Dungeon</code>, <code>Adventure_Win</code>, in that order.</p>
+<h2>Part 6 — Test</h2>
+<ul>
+<li>The hero moves in eight directions and faces the way they walk.</li>
+<li>The sword shows briefly in the direction faced, and hits slimes in front.</li>
+<li>A hit slime is pushed back; after 2 hits it disappears.</li>
+<li>A slime touching the hero costs a heart and pushes the hero back.</li>
+<li>Hearts in the HUD empty and refill with the Heart pickup.</li>
+<li>Losing every heart sends the hero to the last checkpoint with full hearts.</li>
+<li>Slimes don't notice the hero through walls; the bat does.</li>
+<li>Reading the sign shows each line, then closes.</li>
+<li>The locked door shows "Locked" without a key, and opens with one.</li>
+<li>The camera stays inside each room and moves when the hero walks through a doorway.</li>
+<li>Leaving room 2 and coming back brings the slimes back, but not the key.</li>
+<li>Opening the chest shows the win scene.</li>
+<li>Esc pauses; the sword and signs don't respond while paused.</li>
+</ul>
+<p>Note anything that fails, with the Console message.</p>
+<h2>Part 7 — Commit</h2>
+<p>Commit and push the <code>Sample</code> folder with its <code>.meta</code> files, and the Tiny Dungeon art folder.</p>
+<h2>Later — Exporting the kit</h2>
+<p>Export <code>Assets/_Course/Kits/TopDownAdventure</code> and the Tiny Dungeon art folder with <strong>Assets → Export Package</strong>, unticking Core and 2D scripts that Unity adds as dependencies.</p>

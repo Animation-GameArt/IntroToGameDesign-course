@@ -1,4 +1,4 @@
-<p>Every course script in the course project, as of version <strong>0.11.0</strong>: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in <code>Assets/_Course/VERSION.txt</code>.</p>
+<p>Every course script in the course project, as of version <strong>0.12.0</strong>: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in <code>Assets/_Course/VERSION.txt</code>.</p>
 <h2>Finding the scripts</h2>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Finding the scripts</caption>
 <thead>
@@ -69,7 +69,7 @@
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Core/UI</code></td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>CollinGame.Core</code></td>
-<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Toolkit screens, their style sheet, and the components that run them</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Toolkit screens, their style sheet, the shared <code>CoursePanelSettings</code>, and the components that run them</td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Core/Audio</code></td>
@@ -127,9 +127,39 @@
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Physics puzzle kit HUD</td>
 </tr>
 <tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/TopDownAdventure/Scripts</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>CollinGame.Kits.TopDownAdventure</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Top-down adventure kit scripts</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/TopDownAdventure/UI</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Top-down adventure kit HUD</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/TurnBasedBattle/Scripts</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>CollinGame.Kits.TurnBasedBattle</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Turn-based battle kit scripts</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/TurnBasedBattle/UI</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Battle screen</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/ArcadeClassic/Scripts</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>CollinGame.Kits.ArcadeClassic</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Arcade classic kit scripts</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/ArcadeClassic/UI</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Arcade and Pong HUDs</td>
+</tr>
+<tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Art/Kenney</code></td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
-<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Kenney art packs (CC0)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Kenney art packs (CC0). Its README links to every pack the kits use</td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Credits</code></td>
@@ -1085,7 +1115,7 @@
 <hr/>
 <h2>UI</h2>
 <h3>Screens</h3>
-<p>UXML files in <code>Core/UI</code>, styled by <code>CourseTheme.uss</code>. Put one in a scene with <strong>GameObject → UI Toolkit → UI Document</strong>, then set its <strong>Source Asset</strong>. Components find elements by <strong>name</strong>, so copies in <code>_Game</code> must keep these names.</p>
+<p>UXML files in <code>Core/UI</code>, styled by <code>CourseTheme.uss</code>. Put one in a scene with <strong>GameObject → UI Toolkit → UI Document</strong>, then set its <strong>Source Asset</strong>. Its <strong>Panel Settings</strong> should be <code>CoursePanelSettings</code> (filled in for you), so every screen scales the same way. Components find elements by <strong>name</strong>, so copies in <code>_Game</code> must keep these names.</p>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Screens</caption>
 <thead>
 <tr>
@@ -1497,6 +1527,336 @@
 </tbody>
 </table>
 <hr/>
+<h2>Top-down adventure kit</h2>
+<p>Imported with the Top-Down Adventure Kit package. See <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Top-Down%20Adventure%20Kit.md">Top-Down Adventure Kit</a>.</p>
+<h3>Melee Attack 2D</h3>
+<p><code>Kits/TopDownAdventure/Scripts/MeleeAttack2D.cs</code> · <strong>Add Component → Collin Game → Top-Down Adventure Kit → Melee Attack 2D</strong></p>
+<p>A sword swing. When Attack is pressed, everything with Health and the <strong>Target Tag</strong> inside a circle in front of the character takes damage, and is pushed back if it has a Knockback 2D. "In front" is the Top Down Controller 2D's facing direction, or left and right from the sprite.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Melee Attack 2D</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Setting</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Default</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Input</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>InputReader</code> (filled on the player)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Leave empty for a character that attacks from a script</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Reach · Radius</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.8</code> · <code>0.6</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Where the hit circle is, and its size. Shown when selected</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Target Tag · Damage · Knockback Force · Cooldown</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Enemy</code> · <code>1</code> · <code>8</code> · <code>0.35</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Swing Visual · Swing Visual Time</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">— · <code>0.15</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A child sprite pointing right, shown briefly and turned to face the attack</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">On Swing · On Hit</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">On Hit runs only when something was hit</td>
+</tr>
+</tbody>
+</table>
+<p>Method: <strong>Attack</strong>.</p>
+<h3>Knockback 2D</h3>
+<p><code>Kits/TopDownAdventure/Scripts/Knockback2D.cs</code> · <strong>Add Component → Collin Game → Top-Down Adventure Kit → Knockback 2D</strong></p>
+<p>Pushes the character back when hit, and switches off its movement scripts for <strong>Stun Time</strong> (<code>0.2</code>). A Melee Attack 2D pushes it away from the attacker; other damage, such as Damage On Touch, pushes it away from what it touched last, with <strong>Force When Touched</strong> (<code>6</code>). <strong>Stop While Pushed</strong> defaults to the Top Down Controller 2D or Top Down Chaser 2D on the object. Method: <strong>Push</strong>.</p>
+<h3>Top Down Chaser 2D</h3>
+<p><code>Kits/TopDownAdventure/Scripts/TopDownChaser2D.cs</code> · <strong>Add Component → Collin Game → Top-Down Adventure Kit → Top Down Chaser 2D</strong></p>
+<p>A top-down enemy with three states: <strong>Wander</strong> near home, <strong>Chase</strong> the target, <strong>Return</strong> home. Ranges are drawn when selected.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Top Down Chaser 2D</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Setting</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Default</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Wander Speed · Wander Radius · Rest Time</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code> · <code>2</code> · <code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Wander Speed <code>0</code> stands still until it notices the target</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Chase Tag · Notice Range · Give Up Range · Chase Speed</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Player</code> · <code>4</code> · <code>7</code> · <code>2.5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Needs Line Of Sight · Sight Blockers</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">ticked · Everything</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Walls (solid, non-moving colliders) block its view</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Acceleration</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>20</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+</tbody>
+</table>
+<h3>Key Door 2D</h3>
+<p><code>Kits/TopDownAdventure/Scripts/KeyDoor2D.cs</code> · <strong>Add Component → Collin Game → Top-Down Adventure Kit → Key Door 2D</strong></p>
+<p>A solid door that opens (switches off) when the player touches it with at least <strong>Keys Needed</strong> (<code>1</code>) in <strong>Keys</strong>. <strong>Use Up Keys</strong> (ticked) takes them away. Without enough keys, writes <strong>Locked Message</strong> to <strong>Message Text</strong>. Events <strong>On Opened</strong>, <strong>On Locked</strong>. Method: <strong>Open</strong> opens it without keys, for switches.</p>
+<h3>Camera Room 2D</h3>
+<p><code>Kits/TopDownAdventure/Scripts/CameraRoom2D.cs</code> · <strong>Add Component → Collin Game → Top-Down Adventure Kit → Camera Room 2D</strong></p>
+<p>One room of a level: a trigger Box Collider 2D or Polygon Collider 2D. When the player enters, the scene's <strong>Cinemachine Confiner 2D</strong> keeps the camera inside the room. <strong>Room Contents</strong> (optional) is switched on only while the player is in the room, and with <strong>Reset Contents On Return</strong> (ticked) comes back fresh each visit. Events <strong>On Entered</strong>, <strong>On Left</strong>.</p>
+<h3>Interactable 2D</h3>
+<p><code>Kits/TopDownAdventure/Scripts/Interactable2D.cs</code> · <strong>Add Component → Collin Game → Top-Down Adventure Kit → Interactable 2D</strong></p>
+<p>A sign, person, chest or lever. While the player is in its trigger area, Interact shows the next of its <strong>Lines</strong> in <strong>Message Text</strong>, and runs <strong>On Used</strong> the first time. <strong>Only Once</strong> for chests and levers. <strong>Prompt</strong> is shown while the player is close. <strong>On Finished</strong> runs after the last line. Method: <strong>Use</strong>.</p>
+<h3>UI Heart Row and UI Message Box</h3>
+<p><strong>UI Heart Row</strong> draws <strong>Max Hearts</strong> (<code>5</code>) hearts in the element named <code>hearts</code>, filled up to <strong>Health</strong> (an Int Variable). Optional <strong>Full Heart</strong> and <strong>Empty Heart</strong> sprites; without them, the hearts are colored squares.</p>
+<p><strong>UI Message Box</strong> shows <strong>Message</strong> (a String Variable) in <code>message-label</code>, inside <code>message-box</code>, which is hidden while the text is empty. It clears after <strong>Clear After</strong> (<code>4</code>) seconds.</p>
+<h3>Kit screens</h3>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Kit screens (3)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Screen</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Element names</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>AdventureHUD</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>hearts</code>, <code>keys-label</code>, <code>coins-label</code>, <code>message-box</code>, <code>message-label</code></td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2>Turn-based battle kit</h2>
+<p>Imported with the Turn-Based Battle Kit package. Builds on the <a href="#turn-manager">Turn Manager</a> and <a href="#turn-taker">Turn Taker</a>. See <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Turn-Based%20Battle%20Kit.md">Turn-Based Battle Kit</a>.</p>
+<h3>Battle Action</h3>
+<p><code>Kits/TurnBasedBattle/Scripts/BattleAction.cs</code> · <strong>Create → Collin Game → Turn-Based Battle Kit → Battle Action</strong></p>
+<p>An asset for one action, shared by every fighter that has it.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Battle Action</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Setting</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Default</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Display Name · Description</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">the asset's name · —</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Shown in the battle menu</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Effect</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Damage</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Damage</strong>, <strong>Heal</strong>, <strong>Defend</strong> (half damage until the user's next turn)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Target</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">One Opponent</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>One Opponent</strong>, <strong>All Opponents</strong>, <strong>Self</strong>, <strong>One Ally</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Power · Accuracy</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>3</code> · <code>95</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Damage = Power + Attack − Defense, at least 1. Accuracy only affects Damage</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Uses Per Battle</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code> is no limit</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Sound</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A Sound Effect played when used</td>
+</tr>
+</tbody>
+</table>
+<h3>Battle Actor</h3>
+<p><code>Kits/TurnBasedBattle/Scripts/BattleActor.cs</code> · <strong>Add Component → Collin Game → Turn-Based Battle Kit → Battle Actor</strong></p>
+<p>A fighter. Needs a <strong>Turn Taker</strong> and a <strong>Health</strong> with <strong>Invulnerable Time <code>0</code></strong>, and must be in the Turn Manager's Turn Order. Player fighters are chosen for in the UI Battle Menu; computer fighters heal when at or below <strong>Heal Below</strong> (<code>0.35</code> of max) and otherwise attack.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Battle Actor</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Setting</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Default</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Controlled By · Actions</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Player · —</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Actions in menu order</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Attack · Defense</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code> · <code>0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Think Time · Heal Below</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.8</code> · <code>0.35</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Computer only</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Lunge Part · Lunge Distance</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">the sprite · <code>0.4</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Steps toward the target when acting</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">On Action · On Defend · On Dodged</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+</tbody>
+</table>
+<p>Methods: <strong>Perform</strong> (action, target), <strong>ReceiveDamage</strong>, <strong>CanUse</strong>, <strong>UsesLeft</strong>.</p>
+<h3>UI Battle Menu, Battle Log and Health Bar 2D</h3>
+<p><strong>UI Battle Menu</strong> shows a button per action when a player fighter's turn starts, then a button per target when there is a choice, with a Back button. Buttons have the class <code>battle-button</code>.</p>
+<p><strong>Battle Log</strong> keeps the last <strong>Lines To Keep</strong> (<code>4</code>) lines of what happened in <strong>Log Text</strong> (a String Variable). Method <strong>Add</strong> adds your own line.</p>
+<p><strong>Health Bar 2D</strong> shrinks a <strong>Fill</strong> sprite from the right as <strong>Health</strong> goes down. <strong>Hide When Full</strong> hides the bar until the first hit.</p>
+<h3>Kit screens</h3>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Kit screens (4)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Screen</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Element names</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>BattleUI</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>status-label</code>, <code>log-label</code>, <code>battle-menu</code>, <code>actor-label</code>, <code>description-label</code>, <code>actions</code>, <code>targets</code></td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2>Arcade classic kit</h2>
+<p>Imported with the Arcade Classic Kit package. See <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Arcade%20Classic%20Kit.md">Arcade Classic Kit</a>.</p>
+<h3>Paddle 2D</h3>
+<p><code>Kits/ArcadeClassic/Scripts/Paddle2D.cs</code> · <strong>Add Component → Collin Game → Arcade Classic Kit → Paddle 2D</strong></p>
+<p>A kinematic paddle that slides along one line between <strong>Min Position</strong> and <strong>Max Position</strong> (<code>-7</code>, <code>7</code>; shown when selected).</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Paddle 2D</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Setting</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Default</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Moves Along · Controlled By</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Horizontal · Player</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Vertical</strong> for Pong; <strong>Computer</strong> follows the ball</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Input · Follow Mouse</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>InputReader</code> · ticked</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Speed</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>12</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Computer Speed · Computer Dead Zone</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.6</code> · <code>0.3</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Lower speed or a bigger dead zone is easier to beat</td>
+</tr>
+</tbody>
+</table>
+<h3>Ball 2D</h3>
+<p><code>Kits/ArcadeClassic/Scripts/Ball2D.cs</code> · <strong>Add Component → Collin Game → Arcade Classic Kit → Ball 2D</strong></p>
+<p>Bounces at a steady speed. Where it hits a Paddle 2D sets the angle it leaves at. Waits before each serve; Jump or Attack serves.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Ball 2D</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Setting</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Default</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Play Direction</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Up And Down</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Side To Side</strong> for Pong</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Start Speed · Speed Up Per Paddle Hit · Max Speed</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>8</code> · <code>0.3</code> · <code>16</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Max Bounce Angle · Min Angle</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>60</code> · <code>15</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Min Angle keeps it from going too flat</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Serve From · Serve Offset</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">— · <code>0, 0.5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Empty waits at the starting point</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Serve Direction · Random Serve Side</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.3, 1</code> · ticked</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Input · Auto Serve</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>InputReader</code> · <code>0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Auto Serve serves after that many seconds</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">On Serve · On Paddle Hit · On Bounce</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+</tbody>
+</table>
+<p>Methods: <strong>Serve</strong>, <strong>ResetBall</strong>.</p>
+<h3>Ball Goal 2D, Brick 2D and Counted Object</h3>
+<p><strong>Ball Goal 2D</strong> is a trigger past an edge. When the ball enters, <strong>Change Variable</strong> changes by <strong>Amount</strong> (<code>-1</code>), and the ball goes back to be served, toward <strong>Next Serve Direction</strong> if set.</p>
+<p><strong>Brick 2D</strong> breaks after <strong>Hits To Break</strong> (<code>1</code>) hits by the ball (or by objects tagged <strong>Also Broken By Tag</strong>), changing color by <strong>Color By Hits Left</strong>. When broken: <strong>Add To</strong> / <strong>Amount</strong> (<code>10</code>), <strong>Spawn When Broken</strong>, <strong>On Broken</strong>.</p>
+<p><strong>Counted Object</strong> keeps <strong>Count</strong> (an Int Variable) equal to the number of these objects in the scene, including ones created later. Pair it with an Int Variable Condition (Equal To 0). Don't reset that variable with a Variable Resetter.</p>
+<h3>Ship Controller 2D, Shooter 2D and Screen Wrap 2D</h3>
+<p><strong>Ship Controller 2D</strong>: left and right turn (<strong>Turn Speed</strong> <code>220</code>), up thrusts (<strong>Thrust</strong> <code>9</code>) up to <strong>Max Speed</strong> (<code>8</code>); <strong>Drag</strong> (<code>0.4</code>) slows it. <strong>Engine Flame</strong> shows while thrusting. Method <strong>StopAndFaceUp</strong>, for a Respawner's On Respawn.</p>
+<p><strong>Shooter 2D</strong> fires <strong>Projectile Prefab</strong> from <strong>Muzzle</strong> when Attack is pressed. <strong>Aim</strong>: Muzzle Up, Muzzle Right or Move Direction. <strong>Projectile Speed</strong> (<code>14</code>), <strong>Shots Per Second</strong> (<code>5</code>), <strong>Hold To Fire</strong>, <strong>Max On Screen</strong> (<code>4</code>; <code>0</code> is no limit), <strong>Add Shooter Velocity</strong>, <strong>On Shoot</strong>. Shots never hit the shooter. Method: <strong>Shoot</strong>.</p>
+<p><strong>Screen Wrap 2D</strong> brings an object back on the opposite edge when it goes past <strong>Margin</strong> (<code>0.5</code>). Needs an orthographic camera that doesn't move.</p>
+<h3>Drift 2D and Split On Death 2D</h3>
+<p><strong>Drift 2D</strong> sends a Rigidbody 2D drifting in a random direction at <strong>Min Speed</strong>–<strong>Max Speed</strong> (<code>1</code>–<code>2.5</code>), spinning up to <strong>Max Spin</strong> (<code>60</code>).</p>
+<p><strong>Split On Death 2D</strong> creates <strong>Pieces</strong> (<code>2</code>) of <strong>Piece Prefab</strong> when its Health runs out, spread by <strong>Spread</strong> (<code>0.3</code>).</p>
+<h3>Kit screens</h3>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Kit screens (5)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Screen</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Element names</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>ArcadeHUD</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>score-label</code>, <code>best-label</code>, <code>lives-label</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>PongHUD</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>left-score</code>, <code>right-score</code></td>
+</tr>
+</tbody>
+</table>
+<hr/>
 <h2>Editor tools</h2>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Editor tools</caption>
 <thead>
@@ -1521,6 +1881,21 @@
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Reapply Art Import Settings</td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Collin Game → Art</strong> menu</td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Gives the course's art packs their pixel-art settings again</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Use Course Panel Settings in Open Scenes</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Collin Game → UI</strong> menu</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Sets <code>CoursePanelSettings</code> on every UI Document in the open scenes</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Repair Course Panel Settings</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Collin Game → UI</strong> menu</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Creates <code>CoursePanelSettings</code> if it's missing, and puts back its settings</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Course Panel Settings for new UI Documents</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Automatic</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A new UI Document with no Panel Settings gets <code>CoursePanelSettings</code></td>
 </tr>
 </tbody>
 </table>
@@ -1625,6 +2000,34 @@
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A rope to cut</td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Rope 2D</strong> with a Hanging Body + a <strong>Cutter 2D</strong> in the scene</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A sword attack</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Melee Attack 2D</strong> on the player; enemies tagged <code>Enemy</code> with <strong>Health</strong> and <strong>Knockback 2D</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A locked door</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Key: <strong>Collectible</strong> (Add To <code>Keys</code>). Door: solid collider + <strong>Key Door 2D</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A camera that moves room by room</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A <strong>Camera Room 2D</strong> per room + a <strong>Cinemachine Confiner 2D</strong> on the Cinemachine Camera</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A sign or a person to talk to</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Trigger collider + <strong>Interactable 2D</strong> + a <strong>UI Message Box</strong> on the HUD</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A battle with a menu</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Turn Manager</strong> + fighters with <strong>Battle Actor</strong> + <code>BattleUI</code> with <strong>UI Battle Menu</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Breakout</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Paddle 2D</strong> + <strong>Ball 2D</strong> + bricks with <strong>Brick 2D</strong> and <strong>Counted Object</strong> + a <strong>Ball Goal 2D</strong> below</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Asteroids</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Ship Controller 2D</strong> + <strong>Shooter 2D</strong> + asteroids with <strong>Drift 2D</strong>, <strong>Split On Death 2D</strong> and <strong>Counted Object</strong>, all with <strong>Screen Wrap 2D</strong></td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Starting a new game from the menu</td>

@@ -11,7 +11,7 @@ tags:
 
 # Three Game Ideas
 
-**GAME 1303 · Week 1 · Canvas Discussion · Due by 11:59 PM on the day of the first class · Points: TBD**
+**GAME 1303 · Week 1 · Canvas Discussion · Due by 11:59 PM on the day of the first class · Points: 3**
 
 Three one-line ideas for the game you might make this semester. One of them becomes your pitch in Week 3.
 

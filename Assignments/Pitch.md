@@ -11,7 +11,7 @@ tags:
 
 # Pitch
 
-**GAME 1303 · Week 3 · Canvas Discussion, due by 11:59 PM the night before class · Presented live in class · Points: TBD**
+**GAME 1303 · Week 3 · Canvas Discussion, due by 11:59 PM the night before class · Presented live in class · Points: 5**
 
 A written pitch for the one game you want to make, posted before class and presented live from your post. Pitch Day ends with a decision: approved, approved with conditions, or revise.
 

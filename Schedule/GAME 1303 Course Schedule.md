@@ -113,6 +113,31 @@ Each studio class opens with a stand-up and a short topic. The rest is time to b
 
 ---
 
+## Grading
+
+| Item | Points |
+|---|---|
+| Exercises 00–10 (11 × 2: Implementation and Design decision) | 22 |
+| Attendance (1 point per class, with one free absence) | 15 |
+| Three Game Ideas | 3 |
+| Project Setup Check | 2 |
+| Pitch | 5 |
+| One-Sheet | 5 |
+| Screen Layout | 5 |
+| Ten-Pager Draft | 3 |
+| Ten-Pager | 10 |
+| Production Backlog | 2 |
+| First Playable | 5 |
+| Sprint Review | 2 |
+| Alpha | 3 |
+| Beta | 3 |
+| Gold | 10 |
+| Post-Mortem | 5 |
+| **Total** | **100** |
+| [Extra Credit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Assignments/Extra%20Credit.md): program and industry events | up to 5 |
+
+---
+
 ## Milestone definitions
 
 | Milestone | Definition |

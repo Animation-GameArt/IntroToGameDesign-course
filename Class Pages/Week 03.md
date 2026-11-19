@@ -59,7 +59,7 @@ Worth 2 points: one for **Implementation** (it runs, and the feature works), one
 
 | What | When | Points |
 |---|---|---|
-| Pitch | 11:59 PM the night before class, Canvas Discussion; presented in class | TBD |
+| Pitch | 11:59 PM the night before class, Canvas Discussion; presented in class | 5 pts |
 | Ex 02 — Events | end of class | 2 pts |
 
 Run the matching tab of the course checklist before you submit. Every box on it is a graded criterion.
