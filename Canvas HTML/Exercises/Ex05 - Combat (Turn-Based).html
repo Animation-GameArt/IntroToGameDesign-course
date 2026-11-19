@@ -12,11 +12,29 @@
 <li>How a few numbers turn a fight into an interesting decision</li>
 </ul>
 <h2>Part 1 — Start the scene</h2>
+<p>Choose where to start. Either way, the battle is built on a <strong>Stage</strong>: an empty object that everything in the fight sits inside. The positions in this tutorial are measured from the Stage, so they work wherever it is.</p>
+<h3>Option A — Continue from Exercise 04</h3>
+<p>Keep your level as the backdrop, and stage the battle in an arena.</p>
+<ol>
+<li>Open <code>Ex04_Level</code> and choose <strong>File → Save As…</strong>. Save it as <code>Ex05_TurnBased</code>.</li>
+<li>Delete <code>Scene Changer</code> and <code>Goal</code>. They belong to the platformer level.</li>
+<li>Select <code>Player</code> and untick the checkbox at the top of the Inspector to hide it. The battle has its own hero.</li>
+<li><strong>Make an arena.</strong> Find a flat stretch of ground at least 12 tiles wide, or paint one with the Tile Palette past the end of your level. Move any coins, spikes or other objects out of it.</li>
+<li>Create an empty GameObject named <code>Stage</code>. Place it in the middle of the arena, with its <strong>Y</strong> half a unit above the top of the ground.</li>
+<li>Select the Cinemachine camera and drag <code>Stage</code> into <strong>Tracking Target</strong>. If the camera doesn't center on it, make <code>Camera Bounds</code> bigger.</li>
+</ol>
+<h3>Option B — Start fresh from Exercise 01</h3>
+<p>An empty stage, with nothing else in the way.</p>
 <ol>
 <li>Open <code>Ex01_Bootstrap</code> and choose <strong>File → Save As…</strong>. Save it as <code>Ex05_TurnBased</code>.</li>
 <li>Delete the <code>Scene Changer</code>.</li>
-<li>In <code>Assets/Scenes/Exercises</code>, create a folder named <code>Ex05_Data</code>.</li>
+<li>Create an empty GameObject named <code>Stage</code> at Position <code>0, 0, 0</code>.</li>
 </ol>
+<h3>Both options</h3>
+<p>In <code>Assets/Scenes/Exercises</code>, create a folder named <code>Ex05_Data</code>.</p>
+<blockquote>
+<p><strong>Create everything for the battle inside <code>Stage</code>:</strong> right-click <code>Stage</code> in the Hierarchy and create the object from that menu. The positions below are then measured from the Stage.</p>
+</blockquote>
 <h2>Part 2 — Create the data</h2>
 <p>In <code>Ex05_Data</code>, create these assets with <strong>Create → Collin Game → Variables</strong>:</p>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 2 — Create the data</caption>
@@ -48,7 +66,7 @@
 <h2>Part 3 — The hero and the slime</h2>
 <p><strong>The hero</strong></p>
 <ol>
-<li>Create a <strong>Square</strong> sprite named <code>Hero</code>. Position <code>-4, 0, 0</code>. Give it a color.</li>
+<li>Right-click <code>Stage</code> and choose <strong>2D Object → Sprites → Square</strong>. Name it <code>Hero</code>, set its Position to <code>-4, 0, 0</code>, and give it a color.</li>
 <li>Add the <strong>Health</strong> component:
 <ul>
 <li><strong>Max Health:</strong> <code>10</code></li>
@@ -60,7 +78,7 @@
 </ol>
 <p><strong>The slime</strong></p>
 <ol>
-<li>Create a <strong>Circle</strong> sprite named <code>Slime</code>. Position <code>4, 0, 0</code>. Give it a color.</li>
+<li>Right-click <code>Stage</code> and choose <strong>2D Object → Sprites → Circle</strong>. Name it <code>Slime</code>, set its Position to <code>4, 0, 0</code>, and give it a color.</li>
 <li>Add the <strong>Health</strong> component:
 <ul>
 <li><strong>Max Health:</strong> <code>8</code></li>
@@ -101,12 +119,12 @@
 </ol>
 <h2>Part 5 — The Turn Manager</h2>
 <ol>
-<li>Create an empty GameObject named <code>Battle</code> and add the <strong>Turn Manager</strong> component.</li>
+<li>Right-click <code>Stage</code>, choose <strong>Create Empty</strong>, name it <code>Battle</code>, and add the <strong>Turn Manager</strong> component.</li>
 <li>Under <strong>Turn Order</strong>, click <strong>+</strong> twice. Drag in <code>Hero</code> first, then <code>Slime</code>.</li>
 <li>Set <strong>Status Text</strong> to <code>TurnStatus</code>.</li>
 </ol>
 <h2>Part 6 — Show what's happening</h2>
-<p>Create four texts with <strong>GameObject → 3D Object → Text - TextMeshPro</strong>. For each one, set <strong>Font Size</strong> to <code>6</code>, set the <strong>Alignment</strong> to center and middle, and add a <strong>Variable Label</strong>.</p>
+<p>Create four texts inside <code>Stage</code>: right-click <code>Stage</code> and choose <strong>3D Object → Text - TextMeshPro</strong>. For each one, set <strong>Font Size</strong> to <code>6</code>, set the <strong>Alignment</strong> to center and middle, and add a <strong>Variable Label</strong>.</p>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 6 — Show what's happening</caption>
 <thead>
 <tr>
@@ -143,7 +161,7 @@
 </tr>
 </tbody>
 </table>
-<p>Add one more text named <code>Help Text</code> at Position <code>0, -3.5, 0</code>, with no Variable Label. Type this as its text: <code>Attack: Enter     Heal: E</code></p>
+<p>Add one more text inside <code>Stage</code>, named <code>Help Text</code>, at Position <code>0, -3.5, 0</code>, with no Variable Label. Type this as its text: <code>Attack: Enter     Heal: E</code></p>
 <p>Press <strong>Play</strong> and click once in the Game view.</p>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 6 — Show what's happening (2)</caption>
 <thead>
@@ -183,7 +201,7 @@
 <h2>Part 8 — Win and lose</h2>
 <p>The Turn Manager knows when the battle is over. Make the scene react.</p>
 <ol>
-<li>Create a text named <code>Win Text</code> at Position <code>0, 0, 0</code> with the text <code>Victory!</code> and a <strong>Font Size</strong> of <code>12</code>. Untick the checkbox at the top of the Inspector to hide it.</li>
+<li>Create a text inside <code>Stage</code> named <code>Win Text</code>, at Position <code>0, 2, 0</code>, with the text <code>Victory!</code> and a <strong>Font Size</strong> of <code>12</code>. Untick the checkbox at the top of the Inspector to hide it.</li>
 <li>Duplicate it, name the copy <code>Lose Text</code>, and change its text to <code>Defeated</code>.</li>
 <li>Select <code>Battle</code>. Under <strong>On Player Won</strong>, click <strong>+</strong>, drag in <code>Win Text</code>, and choose <strong>GameObject → SetActive (bool)</strong>. <strong>Tick</strong> the checkbox.</li>
 <li>Under <strong>On Player Lost</strong>, do the same with <code>Lose Text</code>.</li>
@@ -267,6 +285,14 @@
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The battle never ends</td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check that <strong>Player Side</strong> is ticked on the hero and unticked on the slime.</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The texts or fighters are far from where you expect</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">They were created outside <code>Stage</code>. Drag them onto <code>Stage</code> in the Hierarchy and type their positions again</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The camera doesn't show the battle (Option A)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Set the Cinemachine camera's <strong>Tracking Target</strong> to <code>Stage</code>, and make <code>Camera Bounds</code> cover the arena</td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A text shows nothing</td>

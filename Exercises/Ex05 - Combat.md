@@ -28,10 +28,24 @@ In this exercise the player gets health. Spikes stop being instant and start cos
 
 ## Part 1 — Start the scene
 
+This version continues from your Exercise 04 level, because it uses the player, the checkpoint and the camera you built there.
+
 1. Open `Ex04_Level` and choose **File → Save As…**. Save it as `Ex05_Combat`.
 2. Select `Scene Changer` and change its **Scene Name** to `Ex05_Combat`.
 3. Add `Ex05_Combat` to the Scene List.
 4. In `Assets/Scenes/Exercises`, create a folder named `Ex05_Data`.
+
+**Make an arena**
+
+A fight needs open, flat ground with nothing in the way. Make one before you add anything that hurts.
+
+1. Select `Goal` and move it about 14 units further right.
+2. Open the Tile Palette, choose `Ground Tiles`, and paint a flat stretch of ground, about 14 tiles wide, between the end of the spike run and the goal.
+3. Move any coins out of that stretch, or delete them.
+4. Select `Camera Bounds` and make its **Size** and **Position** cover the new ground, so the camera can follow you into the arena.
+5. Put a `Checkpoint` just before the arena, so losing a fight sends you back to its start.
+
+From here on, **the arena** means this stretch of ground.
 
 ## Part 2 — Give the player health
 
@@ -64,7 +78,7 @@ The pit still has a **Kill Zone**, so falling in takes all your health at once.
 ## Part 4 — An enemy
 
 1. Create a **Square** sprite named `Enemy`. Give it a color that stands out.
-2. Place it on the ground in the landing section, after the big gap.
+2. Place it on the ground in the arena.
 3. Add a **Box Collider 2D**.
 4. Add the **Patrol Enemy 2D** component. A **Rigidbody 2D** is added with it.
 5. Add the **Damage On Touch** component.
@@ -91,15 +105,15 @@ The enemy now has two states. In **Patrol** it walks its route. When the player 
 
 **Make the spawner**
 
-1. Create an empty GameObject named `Rock Spawner`. Place it high above the finish section, at about `y = 7`.
+1. Create an empty GameObject named `Rock Spawner`. Place it high above the arena, at about `y = 7`.
 2. Add the **Spawner** component:
    - **Prefab:** drag in `Rock` from `Ex05_Data`
    - **Interval:** `1.5`
    - **Max At Once:** `4`
-3. Right-click `Rock Spawner` and choose **Create Empty** three times. Spread the three children out sideways above the finish section.
+3. Right-click `Rock Spawner` and choose **Create Empty** three times. Spread the three children out sideways above the arena.
 4. Select `Rock Spawner`. Drag the three children into its **Spawn Points** list.
 
-Press **Play** and run through the finish section. Rocks fall from a random point every 1.5 seconds. A rock that hits you costs health and disappears. A rock that misses disappears after 4 seconds.
+Press **Play** and run through the arena. Rocks fall from a random point every 1.5 seconds. A rock that hits you costs health and disappears. A rock that misses disappears after 4 seconds.
 
 The Spawner never has more than 4 rocks in the scene. When a rock disappears it's only switched off, and the Spawner switches it back on for the next drop. Reusing objects like this is called **pooling**.
 
@@ -123,7 +137,7 @@ Everything here has a number that makes the level easier or harder. Change at le
 | Spawner | **Interval**, **Max At Once** | Is there a safe rhythm to learn? |
 | Level | Where the checkpoint and the heart are | How much does one death cost? |
 
-Decide what you want the player to feel in the finish section: tense, rushed, careful, relieved. Then set the numbers to get it, and test with another student.
+Decide what you want the player to feel in the arena: tense, rushed, careful, relieved. Then set the numbers to get it, and test with another student.
 
 ## Part 8 — Go further: a physics playground (optional)
 

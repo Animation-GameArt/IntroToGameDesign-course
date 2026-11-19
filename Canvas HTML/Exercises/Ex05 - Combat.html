@@ -12,12 +12,23 @@
 <li>How to turn all of this into a difficulty choice</li>
 </ul>
 <h2>Part 1 — Start the scene</h2>
+<p>This version continues from your Exercise 04 level, because it uses the player, the checkpoint and the camera you built there.</p>
 <ol>
 <li>Open <code>Ex04_Level</code> and choose <strong>File → Save As…</strong>. Save it as <code>Ex05_Combat</code>.</li>
 <li>Select <code>Scene Changer</code> and change its <strong>Scene Name</strong> to <code>Ex05_Combat</code>.</li>
 <li>Add <code>Ex05_Combat</code> to the Scene List.</li>
 <li>In <code>Assets/Scenes/Exercises</code>, create a folder named <code>Ex05_Data</code>.</li>
 </ol>
+<p><strong>Make an arena</strong></p>
+<p>A fight needs open, flat ground with nothing in the way. Make one before you add anything that hurts.</p>
+<ol>
+<li>Select <code>Goal</code> and move it about 14 units further right.</li>
+<li>Open the Tile Palette, choose <code>Ground Tiles</code>, and paint a flat stretch of ground, about 14 tiles wide, between the end of the spike run and the goal.</li>
+<li>Move any coins out of that stretch, or delete them.</li>
+<li>Select <code>Camera Bounds</code> and make its <strong>Size</strong> and <strong>Position</strong> cover the new ground, so the camera can follow you into the arena.</li>
+<li>Put a <code>Checkpoint</code> just before the arena, so losing a fight sends you back to its start.</li>
+</ol>
+<p>From here on, <strong>the arena</strong> means this stretch of ground.</p>
 <h2>Part 2 — Give the player health</h2>
 <ol>
 <li>In <code>Ex05_Data</code>, choose <strong>Create → Collin Game → Variables → Int Variable</strong>. Name it <code>PlayerHealth</code>.</li>
@@ -48,7 +59,7 @@
 <h2>Part 4 — An enemy</h2>
 <ol>
 <li>Create a <strong>Square</strong> sprite named <code>Enemy</code>. Give it a color that stands out.</li>
-<li>Place it on the ground in the landing section, after the big gap.</li>
+<li>Place it on the ground in the arena.</li>
 <li>Add a <strong>Box Collider 2D</strong>.</li>
 <li>Add the <strong>Patrol Enemy 2D</strong> component. A <strong>Rigidbody 2D</strong> is added with it.</li>
 <li>Add the <strong>Damage On Touch</strong> component.</li>
@@ -72,7 +83,7 @@
 </ol>
 <p><strong>Make the spawner</strong></p>
 <ol>
-<li>Create an empty GameObject named <code>Rock Spawner</code>. Place it high above the finish section, at about <code>y = 7</code>.</li>
+<li>Create an empty GameObject named <code>Rock Spawner</code>. Place it high above the arena, at about <code>y = 7</code>.</li>
 <li>Add the <strong>Spawner</strong> component:
 <ul>
 <li><strong>Prefab:</strong> drag in <code>Rock</code> from <code>Ex05_Data</code></li>
@@ -80,10 +91,10 @@
 <li><strong>Max At Once:</strong> <code>4</code></li>
 </ul>
 </li>
-<li>Right-click <code>Rock Spawner</code> and choose <strong>Create Empty</strong> three times. Spread the three children out sideways above the finish section.</li>
+<li>Right-click <code>Rock Spawner</code> and choose <strong>Create Empty</strong> three times. Spread the three children out sideways above the arena.</li>
 <li>Select <code>Rock Spawner</code>. Drag the three children into its <strong>Spawn Points</strong> list.</li>
 </ol>
-<p>Press <strong>Play</strong> and run through the finish section. Rocks fall from a random point every 1.5 seconds. A rock that hits you costs health and disappears. A rock that misses disappears after 4 seconds.</p>
+<p>Press <strong>Play</strong> and run through the arena. Rocks fall from a random point every 1.5 seconds. A rock that hits you costs health and disappears. A rock that misses disappears after 4 seconds.</p>
 <p>The Spawner never has more than 4 rocks in the scene. When a rock disappears it's only switched off, and the Spawner switches it back on for the next drop. Reusing objects like this is called <strong>pooling</strong>.</p>
 <h2>Part 6 — A way to heal</h2>
 <ol>
@@ -130,7 +141,7 @@
 </tr>
 </tbody>
 </table>
-<p>Decide what you want the player to feel in the finish section: tense, rushed, careful, relieved. Then set the numbers to get it, and test with another student.</p>
+<p>Decide what you want the player to feel in the arena: tense, rushed, careful, relieved. Then set the numbers to get it, and test with another student.</p>
 <h2>Part 8 — Go further: a physics playground (optional)</h2>
 <p>Do this if you finish early, or if your game will use physics. Each step uses Unity's own physics components; no course scripts are needed.</p>
 <p><strong>A crate to push</strong></p>

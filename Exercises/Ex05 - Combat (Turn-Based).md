@@ -28,9 +28,32 @@ In this exercise a hero and a slime take turns. On your turn you choose: attack,
 
 ## Part 1 — Start the scene
 
+Choose where to start. Either way, the battle is built on a **Stage**: an empty object that everything in the fight sits inside. The positions in this tutorial are measured from the Stage, so they work wherever it is.
+
+### Option A — Continue from Exercise 04
+
+Keep your level as the backdrop, and stage the battle in an arena.
+
+1. Open `Ex04_Level` and choose **File → Save As…**. Save it as `Ex05_TurnBased`.
+2. Delete `Scene Changer` and `Goal`. They belong to the platformer level.
+3. Select `Player` and untick the checkbox at the top of the Inspector to hide it. The battle has its own hero.
+4. **Make an arena.** Find a flat stretch of ground at least 12 tiles wide, or paint one with the Tile Palette past the end of your level. Move any coins, spikes or other objects out of it.
+5. Create an empty GameObject named `Stage`. Place it in the middle of the arena, with its **Y** half a unit above the top of the ground.
+6. Select the Cinemachine camera and drag `Stage` into **Tracking Target**. If the camera doesn't center on it, make `Camera Bounds` bigger.
+
+### Option B — Start fresh from Exercise 01
+
+An empty stage, with nothing else in the way.
+
 1. Open `Ex01_Bootstrap` and choose **File → Save As…**. Save it as `Ex05_TurnBased`.
 2. Delete the `Scene Changer`.
-3. In `Assets/Scenes/Exercises`, create a folder named `Ex05_Data`.
+3. Create an empty GameObject named `Stage` at Position `0, 0, 0`.
+
+### Both options
+
+In `Assets/Scenes/Exercises`, create a folder named `Ex05_Data`.
+
+> **Create everything for the battle inside `Stage`:** right-click `Stage` in the Hierarchy and create the object from that menu. The positions below are then measured from the Stage.
 
 ## Part 2 — Create the data
 
@@ -47,7 +70,7 @@ In `Ex05_Data`, create these assets with **Create → Collin Game → Variables*
 
 **The hero**
 
-1. Create a **Square** sprite named `Hero`. Position `-4, 0, 0`. Give it a color.
+1. Right-click `Stage` and choose **2D Object → Sprites → Square**. Name it `Hero`, set its Position to `-4, 0, 0`, and give it a color.
 2. Add the **Health** component:
    - **Max Health:** `10`
    - **Invulnerable Time:** `0`
@@ -56,7 +79,7 @@ In `Ex05_Data`, create these assets with **Create → Collin Game → Variables*
 
 **The slime**
 
-1. Create a **Circle** sprite named `Slime`. Position `4, 0, 0`. Give it a color.
+1. Right-click `Stage` and choose **2D Object → Sprites → Circle**. Name it `Slime`, set its Position to `4, 0, 0`, and give it a color.
 2. Add the **Health** component:
    - **Max Health:** `8`
    - **Invulnerable Time:** `0`
@@ -89,13 +112,13 @@ In `Ex05_Data`, create these assets with **Create → Collin Game → Variables*
 
 ## Part 5 — The Turn Manager
 
-1. Create an empty GameObject named `Battle` and add the **Turn Manager** component.
+1. Right-click `Stage`, choose **Create Empty**, name it `Battle`, and add the **Turn Manager** component.
 2. Under **Turn Order**, click **+** twice. Drag in `Hero` first, then `Slime`.
 3. Set **Status Text** to `TurnStatus`.
 
 ## Part 6 — Show what's happening
 
-Create four texts with **GameObject → 3D Object → Text - TextMeshPro**. For each one, set **Font Size** to `6`, set the **Alignment** to center and middle, and add a **Variable Label**.
+Create four texts inside `Stage`: right-click `Stage` and choose **3D Object → Text - TextMeshPro**. For each one, set **Font Size** to `6`, set the **Alignment** to center and middle, and add a **Variable Label**.
 
 | Name | Position | Variable | Format |
 |---|---|---|---|
@@ -104,7 +127,7 @@ Create four texts with **GameObject → 3D Object → Text - TextMeshPro**. For 
 | `Hero Health Text` | `-4, 1.5, 0` | `HeroHealth` | `Hero: {0}` |
 | `Slime Health Text` | `4, 1.5, 0` | `SlimeHealth` | `Slime: {0}` |
 
-Add one more text named `Help Text` at Position `0, -3.5, 0`, with no Variable Label. Type this as its text: `Attack: Enter     Heal: E`
+Add one more text inside `Stage`, named `Help Text`, at Position `0, -3.5, 0`, with no Variable Label. Type this as its text: `Attack: Enter     Heal: E`
 
 Press **Play** and click once in the Game view.
 
@@ -130,7 +153,7 @@ Press **Play**. After a battle, press **Space** to play again.
 
 The Turn Manager knows when the battle is over. Make the scene react.
 
-1. Create a text named `Win Text` at Position `0, 0, 0` with the text `Victory!` and a **Font Size** of `12`. Untick the checkbox at the top of the Inspector to hide it.
+1. Create a text inside `Stage` named `Win Text`, at Position `0, 2, 0`, with the text `Victory!` and a **Font Size** of `12`. Untick the checkbox at the top of the Inspector to hide it.
 2. Duplicate it, name the copy `Lose Text`, and change its text to `Defeated`.
 3. Select `Battle`. Under **On Player Won**, click **+**, drag in `Win Text`, and choose **GameObject → SetActive (bool)**. **Tick** the checkbox.
 4. Under **On Player Lost**, do the same with `Lose Text`.
@@ -174,6 +197,8 @@ Show your instructor:
 | An attack does no damage | Check **Attack Target**, and check that **Invulnerable Time** is `0` on both Health components. |
 | The slime never takes its turn | Check that the slime's **Controlled By** is **Computer** and that it's in the **Turn Order**. |
 | The battle never ends | Check that **Player Side** is ticked on the hero and unticked on the slime. |
+| The texts or fighters are far from where you expect | They were created outside `Stage`. Drag them onto `Stage` in the Hierarchy and type their positions again |
+| The camera doesn't show the battle (Option A) | Set the Cinemachine camera's **Tracking Target** to `Stage`, and make `Camera Bounds` cover the arena |
 | A text shows nothing | Check the label's **Variable**, and that the same asset is set on the Health, Turn Manager or Turn Actions component. |
 
 ## Related topics

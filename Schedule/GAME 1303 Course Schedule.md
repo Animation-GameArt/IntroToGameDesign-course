@@ -50,7 +50,7 @@ Week 1 uses a practice project. From week 2 on, you work in the **course project
 | 02 | `Ex02_Events.unity` | Ex01 |
 | 03 | `Ex03_Player.unity`, then `Ex03_TopDown.unity` | Ex02 |
 | 04 | `Ex04_Level.unity` | Ex03 |
-| 05 | `Ex05_Combat.unity` (real-time), or `Ex05_TurnBased.unity` (turn-based) | Ex04, or Ex01 for turn-based |
+| 05 | `Ex05_Combat.unity` (real-time), or `Ex05_TurnBased.unity` (turn-based) | Ex04; turn-based can start from Ex04 or Ex01 |
 | 06 | `Ex06_UI.unity` and `Ex06_MainMenu.unity` | Ex05 — **sandbox complete** |
 
 > [!note] Your own game starts in week 8
