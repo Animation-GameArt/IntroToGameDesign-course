@@ -54,7 +54,7 @@ Tick every genre that students may pitch in the **first semester**. Each ticked 
 - [ ] **Branching cutscene game** · medium · the visual novel kit plus Timeline
 - [ ] **Dialogue-driven RPG** · large · dialogue plus exploration, stats and combat
 
-## 3D — needs a 3D template project and a 3D script module first
+## 3D — needs the 3D script module first (in the same course project)
 
 - [ ] **First-person exploration / walking sim** · medium after the 3D module
 - [ ] **FPS** · large
@@ -68,7 +68,7 @@ Tick every genre that students may pitch in the **first semester**. Each ticked 
 - [ ] **Physics sandbox** · small after the 3D module
 - [ ] **Sports** · large
 
-## 2.5D — needs the 3D template first
+## 2.5D — needs the 3D script module first
 
 - [ ] **Side-scroller with 3D art** · medium after the 3D module
 - [ ] **Isometric action RPG** (3D) · large
@@ -76,7 +76,7 @@ Tick every genre that students may pitch in the **first semester**. Each ticked 
 - [ ] **Sprites in a 3D world** ("HD-2D") · medium after the 3D module
 - [ ] **Fixed-camera adventure** · medium after the 3D module
 
-## VR — needs the 3D template, an XR module and headsets
+## VR — needs the 3D script module, an XR module and headsets
 
 - [ ] **Interaction sandbox**
 - [ ] **Escape room / puzzle**
@@ -85,7 +85,7 @@ Tick every genre that students may pitch in the **first semester**. Each ticked 
 - [ ] **Exploration / locomotion**
 - [ ] **Simulation / training**
 
-## AR — needs the 3D template, an XR module and AR-capable devices
+## AR — needs the 3D script module, an XR module and AR-capable devices
 
 - [ ] **Object placement / viewer**
 - [ ] **Tabletop game on a detected surface**
@@ -100,5 +100,5 @@ Tick every genre that students may pitch in the **first semester**. Each ticked 
 ## Notes
 
 - The ★ set is ten kits: nine in 2D and the visual novel. Three of them (platformer, top-down adventure, turn-based battle) are small because the sandbox already contains most of their scripts.
-- 3D, 2.5D, VR and AR all wait on a 3D template project. Ticking any genre in those groups puts the 3D template ahead of some of the 2D kits.
+- 3D, 2.5D, VR and AR all wait on the 3D script module, which lives in the same course project as the 2D scripts. Ticking any genre in those groups puts the 3D module ahead of some of the 2D kits.
 - A genre left off the map can still be allowed case by case, with instructor approval and no kit.

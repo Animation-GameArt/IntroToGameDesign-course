@@ -269,7 +269,7 @@ Most games mix genres a little. Choose the **one** genre that describes what the
 
 The lectures and the exercises in Weeks 1–7 are in 2D, and everyone does them. Nearly everything they teach carries over to 3D: events, variables, health, checkpoints, UI and the Input Reader are the same.
 
-If your approved pitch is a 3D game, you start your own game in Week 8 from a 3D version of the course project. Plan for the differences:
+If your approved pitch is a 3D game, you build it in the same course project you've used since Week 2. It holds the 2D and 3D scripts and kits, and the same UI, data and Core scripts work in both. Your game's scenes are 3D scenes. Plan for the differences:
 
 - **Art takes longer.** A 3D game needs models, materials and lighting. Plan to use free asset packs, and credit them.
 - **The camera is harder.** A 3D camera can be blocked by walls and has to be controlled by the player.

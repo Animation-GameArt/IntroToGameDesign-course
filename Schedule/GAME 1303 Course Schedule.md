@@ -31,8 +31,7 @@ Your own game fits one of the genres on the **Genre Map**. In week 8 you import 
 
 | Your game is… | You start it from… |
 |---|---|
-| 2D, or a visual novel | The course project you've used since week 2 |
-| 3D | A 3D version of the course project, starting in week 8 |
+| 2D, 3D, or a visual novel | The course project you've used since week 2. It holds the 2D and 3D scripts and kits |
 
 > [!note] VR and AR
 > VR and AR games aren't part of this course. They have their own projects in other courses.
