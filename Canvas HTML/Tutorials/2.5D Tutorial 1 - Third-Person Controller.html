@@ -1,0 +1,264 @@
+<p>In this tutorial you build a player in a 3D world, seen by a camera that follows from behind. The controls are relative to the player, often called <strong>tank controls</strong>:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">2.5D Tutorial 1 — Third-Person Controller</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Input</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Keyboard</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Gamepad</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Left and right</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>A</strong> / <strong>D</strong>, or ← →</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Left stick, sideways</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Turn the player</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Forward and back</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>W</strong> / <strong>S</strong>, or ↑ ↓</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Left stick, up and down</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Move the way the player faces, or back up</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Jump</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Space</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">South button</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Jump</td>
+</tr>
+</tbody>
+</table>
+<p>Because the camera stays behind the player, "forward" on the stick is always "into the screen". Classic examples are the early Resident Evil and Tomb Raider games, and many kart and boat games.</p>
+<p><strong>2.5D</strong> usually means a game with 3D art whose movement is limited in some way. This tutorial gives you full 3D movement. <strong>Tutorial 2</strong> limits it to a rail, which is where the 2.5D feel comes from.</p>
+<p><strong>Time:</strong> about one lab session.</p>
+<h2>Before you start</h2>
+<ul>
+<li>You're working in the <strong>3D course project</strong>, not the 2D one. Your 2D exercises taught everything this tutorial builds on: the Input Reader, events, variables, Health and Checkpoints all work the same way in 3D.</li>
+<li>The Console has no red errors.</li>
+</ul>
+<h2>Part 1 — A 3D scene</h2>
+<ol>
+<li><strong>File → New Scene</strong>, choose <strong>Standard (URP)</strong>, and click <strong>Create</strong>. It comes with a camera, a Directional Light and a Global Volume.</li>
+<li><strong>File → Save As…</strong> and save it as <code>Assets/_Game/Scenes/Tutorial25D_Behind.unity</code>.</li>
+</ol>
+<p><strong>The ground.</strong></p>
+<ol start="3">
+<li><strong>GameObject → 3D Object → Plane</strong>. Name it <code>Ground</code>, Position <code>0, 0, 0</code>, Scale <code>5, 1, 5</code>. A plane is 10 units across, so this is 50 × 50.</li>
+<li>In <code>Assets/_Game</code>, create a folder <code>Materials</code>. In it, <strong>Create → Material</strong> twice: <code>Ground</code> (a dull green or grey) and <code>Blocks</code> (a bright color). Set each one's <strong>Base Map</strong> color. Drag <code>Ground</code> onto the plane.</li>
+</ol>
+<p><strong>Something to move around.</strong></p>
+<ol start="5">
+<li>Add four or five cubes (<strong>GameObject → 3D Object → Cube</strong>) with the <code>Blocks</code> material: a wall to walk around, a low box to jump onto (Scale <code>2, 1, 2</code>), and a taller one (Scale <code>2, 2.5, 2</code>) you can't jump onto.</li>
+<li>Add a ramp: a cube with Scale <code>2, 0.2, 6</code>, Rotation <code>-15, 0, 0</code>, one end resting on the ground.</li>
+</ol>
+<blockquote>
+<p><strong>Grey boxes first</strong><br/>Level designers call this <strong>greyboxing</strong>: shapes and distances first, art later. It's the 3D version of the blocky levels you built in Exercise 04.</p>
+</blockquote>
+<h2>Part 2 — The player</h2>
+<p>The player is an empty parent with the controller, and children for the look. The parent's pivot is at the feet.</p>
+<ol>
+<li><strong>GameObject → Create Empty</strong>. Name it <code>Player</code>, Position <code>0, 0, 0</code>, and set its <strong>Tag</strong> to <code>Player</code>.</li>
+<li>Right-click <code>Player</code> → <strong>3D Object → Capsule</strong>. Name it <code>Body</code>, Position <code>0, 1, 0</code>. In its Inspector, <strong>remove the Capsule Collider</strong> (⋮ → <strong>Remove Component</strong>): the parent's controller is the collider.</li>
+<li>Right-click <code>Player</code> → <strong>3D Object → Cube</strong>. Name it <code>Nose</code>, Position <code>0, 1.5, 0.45</code>, Scale <code>0.3, 0.2, 0.4</code>. Remove its Box Collider too. The nose shows which way the player faces.</li>
+<li>Select <code>Player</code> and <strong>Add Component → Collin Game → 3D → Tank Controller 3D</strong>. It adds a <strong>Character Controller</strong>, sized to fit the capsule (Height <code>2</code>, Radius <code>0.4</code>, Center <code>0, 1, 0</code>), and fills in the <strong>Input</strong> field.</li>
+<li>Press <strong>Play</strong>. Turn with A and D, move with W and S, jump with Space. Walk up the ramp and jump onto the low box.</li>
+</ol>
+<blockquote>
+<p><strong>Why a Character Controller?</strong><br/>In 2D you used a Rigidbody 2D. A Character Controller is a collider made for players: it walks up slopes and small steps, slides along walls, and isn't pushed around by physics. The Tank Controller 3D moves it every frame and handles gravity itself.</p>
+</blockquote>
+<ol start="6">
+<li>Drag <code>Player</code> into <code>Assets/_Game/Prefabs</code> to make it a prefab. Tutorial 2 uses it.</li>
+</ol>
+<h2>Part 3 — A camera that follows from behind</h2>
+<ol>
+<li><strong>GameObject → Cinemachine → Cinemachine Camera</strong>. Name it <code>Follow Camera</code>. The Main Camera gets a <strong>Cinemachine Brain</strong> for you.</li>
+<li>On <code>Follow Camera</code>, set <strong>Tracking Target</strong> to <code>Player</code>.</li>
+<li>Set <strong>Position Control</strong> to <strong>Follow</strong>. In the <strong>Cinemachine Follow</strong> component that appears:</li>
+</ol>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 3 — A camera that follows from behind</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Setting</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Value</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Binding Mode</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Lock To Target With World Up</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The camera turns with the player, so it's always behind them, but never tilts</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Follow Offset</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0, 3, -6</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">3 units up, 6 behind</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Position Damping</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.5, 0.5, 0.5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Lags a little behind movement, so it feels smooth</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Rotation Damping (Y)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1.5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Swings round a little after the player turns</td>
+</tr>
+</tbody>
+</table>
+<ol start="4">
+<li>Set <strong>Rotation Control</strong> to <strong>Rotation Composer</strong>. Set its <strong>Target Offset</strong> to <code>0, 1.5, 0</code>, so the camera looks at the player's chest, not their feet.</li>
+<li>Press <strong>Play</strong>. Turn on the spot: the camera swings round to stay behind you.</li>
+</ol>
+<p>Try each change, then put it back:</p>
+<ul>
+<li><strong>Follow Offset</strong> <code>0, 6, -4</code>: a high, steep view.</li>
+<li><strong>Rotation Damping (Y)</strong> <code>0</code>: the camera is locked behind the player. Turning feels stiff and can make people feel sick.</li>
+<li><strong>Binding Mode: Lazy Follow</strong>: the camera follows but doesn't turn with the player. Turn on the spot to see the difference.</li>
+</ul>
+<blockquote>
+<p><strong>Walls between the camera and the player</strong><br/>Walk behind the tall box with your back to it: the box hides the player. On <code>Follow Camera</code>, <strong>Add Extension → Cinemachine Deoccluder</strong> moves the camera in front of anything blocking the view.</p>
+</blockquote>
+<h2>Part 4 — Tune the feel</h2>
+<p>Select <code>Player</code> and try these in Play mode. Changes made in Play mode are lost when you stop, so write down the values you like.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 4 — Tune the feel</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Setting</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Try</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">You'll notice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Turn Speed</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>90</code>, then <code>300</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Slow turning feels heavy, like a tank; fast turning feels twitchy</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Forward Speed</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>4</code>, then <code>10</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Backward Speed</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">equal to Forward Speed</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Backing up feels too easy; most games make it slower</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Acceleration · Deceleration</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>5</code> · <code>5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player feels like they're on ice</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Air Control</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">You can't change speed mid-jump</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Jump Height</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code>, then <code>4</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Short Hop Speed Kept</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Every jump is full height, however briefly you press</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Fall Gravity Multiplier</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code>, then <code>2.5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Floaty jumps, then snappy ones</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Coyote Time</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Walk off the low box and press Jump just too late</td>
+</tr>
+</tbody>
+</table>
+<p>These are the same ideas you tuned in Exercise 03, now in 3D.</p>
+<h2>Part 5 — Coins, a hazard and a checkpoint</h2>
+<p>The course's Core scripts work in 3D with 3D colliders.</p>
+<p><strong>Data.</strong> In <code>Assets/_Game/Data</code>, create an <strong>Int Variable</strong> <code>Coins</code>.</p>
+<p><strong>A coin.</strong></p>
+<ol>
+<li><strong>GameObject → 3D Object → Cylinder</strong>. Name it <code>Coin</code>, Scale <code>0.6, 0.05, 0.6</code>, Rotation <code>90, 0, 0</code>, Position about <code>0, 1, 0</code> somewhere in the level.</li>
+<li>Give it a yellow material.</li>
+<li>On its <strong>Capsule Collider</strong>, tick <strong>Is Trigger</strong>.</li>
+<li><strong>Add Component → Collin Game → Core → Collectible</strong>: Add To <code>Coins</code>, Amount <code>1</code>.</li>
+<li>Make it a prefab and place several.</li>
+</ol>
+<p><strong>Health and falling off.</strong></p>
+<ol start="6">
+<li>On <code>Player</code>, add <strong>Health</strong> (Max Health <code>3</code>) and <strong>Respawner</strong>.</li>
+<li>Create an empty <code>Fall Zone</code> at <code>0, -10, 0</code> with a <strong>Box Collider</strong>, Is Trigger ticked, Size <code>200, 1, 200</code>, and <strong>Kill Zone</strong>. Falling off the ground now sends the player back to the start.</li>
+<li>Place a <strong>Checkpoint</strong> (an empty with a Box Collider trigger, Size <code>3, 3, 3</code>, and <strong>Checkpoint</strong>) halfway through your level.</li>
+</ol>
+<p><strong>Show the coins.</strong> Drag in the course <code>HUD</code> as you did in Exercise 06, with a UI Variable Binder showing <code>Coins</code>.</p>
+<p>Press <strong>Play</strong>: collect coins, fall off the edge, and come back at the checkpoint.</p>
+<h2>Check your work</h2>
+<ul>
+<li>Left and right turn the player; forward and back move the way the nose points.</li>
+<li>Backing up is slower than going forward.</li>
+<li>The player walks up the ramp, slides along walls, and jumps onto the low box.</li>
+<li>A quick tap of Jump gives a short hop; holding it gives a full jump.</li>
+<li>The camera stays behind the player and swings round smoothly after a turn.</li>
+<li>Coins disappear and the count goes up.</li>
+<li>Falling off the ground returns the player to the start, or to the checkpoint once it's been touched.</li>
+<li><strong>Esc</strong> pauses the game, and the player doesn't move while paused.</li>
+</ul>
+<h2>If something goes wrong</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something goes wrong</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What you see</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Everything is black or grey, with no shading</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The scene needs a light. Use <strong>File → New Scene → Standard (URP)</strong>, or add <strong>GameObject → Light → Directional Light</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player falls through the ground</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The ground needs a collider. A Plane has a Mesh Collider; don't remove it</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player floats, or sinks into the ground</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Character Controller's <strong>Center</strong> should be half its <strong>Height</strong> (<code>0, 1, 0</code> for Height <code>2</code>), and the <code>Body</code> capsule at <code>0, 1, 0</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player is stuck or jitters on the spot</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The <code>Body</code> or <code>Nose</code> still has a collider. Remove them; only the Character Controller should collide</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player can't climb the ramp</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Make the ramp less steep, or raise the Character Controller's <strong>Slope Limit</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Coins don't collect</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The coin's collider needs <strong>Is Trigger</strong>, and <code>Player</code> needs the tag <code>Player</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The camera is in front of the player</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Follow Offset</strong> Z must be negative, such as <code>-6</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The camera spins when the player turns</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Raise <strong>Rotation Damping (Y)</strong>, or use <strong>Lazy Follow</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">"Input is empty" in the Console</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Drag <code>InputReader</code> from <code>Assets/_Course/Core/Input</code> into the controller's <strong>Input</strong> field</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">After respawning, the player is somewhere odd</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Respawner sends the player to where they started the scene, or to the last Checkpoint. Start the player on solid ground</td>
+</tr>
+</tbody>
+</table>
+<h2>Next</h2>
+<p><strong><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Tutorials/2.5D%20Tutorial%202%20-%20Rail%20Runner.md">2.5D Tutorial 2 — Rail Runner</a></strong> puts this player on a winding path they can't fall off.</p>

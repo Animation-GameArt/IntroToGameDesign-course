@@ -61,7 +61,7 @@ One kit at a time, in priority order. For each kit:
 
 1. Small, and they settle the kit format: platformer, top-down adventure, turn-based battle, arcade classic (scripts and both guides written for all four; the samples need building and testing)
 2. Medium: physics puzzle (scripts and guides written; sample needs building, and Kenney's Physics Assets pack), top-down shooter, endless runner, grid puzzle, tower defense, management and strategy, visual novel with dating sim
-3. The 3D template project and 3D script module, then the 3D platformer kit
+3. The 3D template project (a separate Unity project; **decided** 2026-11-20) and 3D script module, then the 3D platformer kit. The module's first two scripts, Tank Controller 3D and Rail Runner 3D, are written (master copy in the 2D template's `_Course/ThreeD`, left out of its ZIP), with two tutorials in `Tutorials/`. Waiting on the 3D project
 4. Large: card game, farming and life sim, horror and stealth
 
 Kits aren't used until week 8 of the semester, so the later ones can be finished during weeks 1–7.
@@ -126,4 +126,4 @@ Kits aren't used until week 8 of the semester, so the later ones can be finished
 - **Untested code is stacked up.** Ex 03–06 depend on each other. A problem in Ex 03 may change the later ones.
 - **Each kit costs instructor testing time.** The kit count in decision 1 should match the time available before the semester.
 - **The Unity Version Control allowance for students** is still unconfirmed.
-- **The 3D template and the Unreal section** are both deferred until the 2D Unity course is complete.
+- **The 3D template** is a separate Unity project (decided 2026-11-20). **The Unreal section** is deferred until the 2D Unity course is complete.

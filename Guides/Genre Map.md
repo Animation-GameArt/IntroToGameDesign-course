@@ -275,6 +275,8 @@ If your approved pitch is a 3D game, you start your own game in Week 8 from a 3D
 - **The camera is harder.** A 3D camera can be blocked by walls and has to be controlled by the player.
 - **Enemies need navigation.** In 3D, enemies find their way with a navigation mesh, which you set up for each level.
 
+Two tutorials get a 3D game moving: **[2.5D Tutorial 1 — Third-Person Controller](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Tutorials/2.5D%20Tutorial%201%20-%20Third-Person%20Controller.md)** (a player turned and moved relative to themselves, with a camera behind) and **[2.5D Tutorial 2 — Rail Runner](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Tutorials/2.5D%20Tutorial%202%20-%20Rail%20Runner.md)** (a winding path the player can't fall off, seen from behind or from the side).
+
 A 3D game is a fine choice if you already have some 3D experience or a clear, small idea. If you're unsure, a 2D version of the same idea is almost always the faster route to a finished game.
 
 ## Not on the map

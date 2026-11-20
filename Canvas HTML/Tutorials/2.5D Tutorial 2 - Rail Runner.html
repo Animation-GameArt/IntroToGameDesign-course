@@ -1,0 +1,168 @@
+<p>In this tutorial the player from Tutorial 1 runs along a <strong>rail</strong>: a winding, climbing path drawn with a spline. The player can step a little to either side and jump, but can't fall off, because they always follow the rail.</p>
+<p>Limiting movement to a path is what makes a 3D game <strong>2.5D</strong>. The world and art are 3D, but the player moves along a line. With the camera behind, it plays like a narrow mountain path or an endless runner. With the camera at the side, it plays like a 2D platformer whose path curves through a 3D world, as in Klonoa, Pandemonium! or Kirby and the Forgotten Land's side sections.</p>
+<p><strong>Time:</strong> about one lab session.</p>
+<h2>Before you start</h2>
+<ul>
+<li>You've finished <strong><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Tutorials/2.5D%20Tutorial%201%20-%20Third-Person%20Controller.md">2.5D Tutorial 1 — Third-Person Controller</a></strong>, and have the <code>Player</code> prefab and <code>Follow Camera</code> set up.</li>
+<li>You're working in the 3D course project. It includes the <strong>Splines</strong> package.</li>
+</ul>
+<h2>Part 1 — A new scene</h2>
+<ol>
+<li>Open <code>Tutorial25D_Behind</code> and <strong>File → Save As…</strong> <code>Assets/_Game/Scenes/Tutorial25D_Rail.unity</code>.</li>
+<li>Delete the blocks, ramp, coins and checkpoint. Keep the <code>Ground</code>, <code>Player</code>, <code>Follow Camera</code>, <code>Fall Zone</code> and HUD.</li>
+<li>Move <code>Ground</code> down to <code>0, -2, 0</code>, so the rail can float above it in places.</li>
+</ol>
+<h2>Part 2 — Draw the rail</h2>
+<p>A <strong>spline</strong> is a smooth curve through points called <strong>knots</strong>. You place the knots; Unity draws the curve through them.</p>
+<ol>
+<li><strong>GameObject → Spline → Draw Splines Tool</strong>. Name the new object <code>Rail</code>.</li>
+<li>In the Scene view, look down from above (click the <strong>Y</strong> arrow of the view gizmo, top right). Click to place a knot, then keep clicking to lay out a winding path about 60 units long, with 8 to 10 knots. <strong>Click and drag</strong> while placing a knot to make the curve around it smooth.</li>
+<li>Press <strong>Enter</strong> to finish.</li>
+<li>To change a knot afterwards, select <code>Rail</code>, choose the <strong>Spline</strong> tool context in the Scene view's tool overlay, click a knot, and move it with the Move tool.</li>
+<li>Make it climb: select two or three knots in the middle and raise them <strong>2–4 units</strong> on Y. Keep slopes gentle; a steep climb looks odd when the player stays upright on it.</li>
+</ol>
+<p><strong>Make the path visible.</strong></p>
+<ol start="6">
+<li>Select <code>Rail</code> and <strong>Add Component → Spline Extrude</strong>. It builds a mesh along the spline.</li>
+<li>Set <strong>Shape</strong> to <strong>Road</strong> (if your version doesn't list Road, use <strong>Square</strong>). Set <strong>Radius</strong> to <code>0.75</code> and <strong>Segments Per Unit</strong> to <code>4</code>. Give it the <code>Blocks</code> material.</li>
+</ol>
+<p>The extruded mesh is centered on the spline. The player will stand on the spline line, so you'll set their height above it in Part 3.</p>
+<h2>Part 3 — Put the player on the rail</h2>
+<ol>
+<li>Select <code>Player</code>. Remove the <strong>Tank Controller 3D</strong> (⋮ → <strong>Remove Component</strong>).</li>
+<li><strong>Add Component → Collin Game → 3D → Rail Runner 3D</strong>. It fills in <strong>Input</strong>, and <strong>Rail</strong> with the <code>Rail</code> in the scene.</li>
+<li>Set:</li>
+</ol>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 3 — Put the player on the rail</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Setting</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Value</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Controls</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Forward And Back</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Forward and back run along the rail; left and right step sideways</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Run Speed · Backward Speed</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>7</code> · <code>4</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Rail Width</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">How far the player can step sideways. <code>0</code> keeps them exactly on the line</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Height Above Rail</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.05</code> for Road, <code>0.75</code> for Square</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Raise it until the feet sit on the path</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Face Run Direction</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">unticked</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player keeps facing forward and backs up, like Tutorial 1</td>
+</tr>
+</tbody>
+</table>
+<ol start="4">
+<li>Select <code>Player</code> in the Scene view: yellow lines show the edges of the rail.</li>
+<li>Press <strong>Play</strong>. The player jumps to the nearest point on the rail. Run forward and back, step side to side, and jump. Try to run off the edge: you can't.</li>
+</ol>
+<p>The <code>Follow Camera</code> from Tutorial 1 still works: <strong>Lock To Target With World Up</strong> keeps it behind the player as the rail turns.</p>
+<blockquote>
+<p><strong>How it works</strong><br/>The Rail Runner 3D doesn't use physics to move. Each frame it works out how far along the rail the player is (0 at the start, 1 at the end), moves that number forward or back, and places the player at that point, plus the sideways step and the jump height. That's why the player can't fall off.</p>
+</blockquote>
+<h2>Part 4 — Three ways to play it</h2>
+<p>Try each one. Keep the one that suits your game.</p>
+<h3>Behind the player (Forward And Back)</h3>
+<p>What you have now. Good for paths, chases and obstacle courses where the player looks ahead.</p>
+<h3>Side view: a 2.5D platformer (Left And Right)</h3>
+<ol>
+<li>On <code>Player</code>, right-click → <strong>Create Empty</strong>. Name it <code>Rail Facing</code>. Leave it at <code>0, 0, 0</code>.</li>
+<li>On the Rail Runner 3D: Controls <strong>Left And Right</strong>, tick <strong>Face Run Direction</strong>, Rail Facing Target <code>Rail Facing</code>, Rail Width <code>0</code>.</li>
+<li>On <code>Follow Camera</code>: Tracking Target <code>Rail Facing</code>. Follow Offset <code>7, 2, 0</code> (7 units to the side). Rotation Damping (Y) <code>0.5</code>.</li>
+<li>Press <strong>Play</strong>. Left and right run along the path, and the camera stays at the side as it winds. If right runs the wrong way, tick <strong>Swap Left And Right</strong>.</li>
+</ol>
+<p>The <code>Rail Facing</code> child always faces along the rail, even when the player turns round, so the camera doesn't swing to the other side.</p>
+<h3>Endless runner (Auto Run)</h3>
+<ol>
+<li>Controls <strong>Auto Run</strong>, Run Speed <code>9</code>, Rail Width <code>3</code>.</li>
+<li>Put the camera back behind the player (Tracking Target <code>Player</code>, Follow Offset <code>0, 3, -6</code>).</li>
+<li>Select <code>Rail</code> and tick <strong>Closed</strong> on its Spline Container, so the rail loops back to its start.</li>
+<li>Press <strong>Play</strong>. The player runs by themselves; left and right dodge.</li>
+</ol>
+<h2>Part 5 — Obstacles and a finish line</h2>
+<p>The Rail Runner 3D ignores solid colliders, because it doesn't use physics to move. Anything the player should touch needs a <strong>trigger</strong> collider.</p>
+<p><strong>Something to jump over.</strong></p>
+<ol>
+<li>A cube across the path, Scale <code>1.5, 0.5, 0.5</code>, with its Box Collider set to <strong>Is Trigger</strong>, and <strong>Damage On Touch</strong> (Target Tag <code>Player</code>, Damage <code>1</code>).</li>
+<li>The player needs <strong>Health</strong> and a <strong>Respawner</strong> (from Tutorial 1). Getting hit three times sends them back. After a respawn the Rail Runner snaps back onto the rail by itself.</li>
+<li>Add <strong>Checkpoints</strong> along the rail (trigger boxes with <strong>Checkpoint</strong>), so the player isn't sent all the way back.</li>
+</ol>
+<p><strong>Coins.</strong> Place <code>Coin</code> prefabs along the path, some at jump height.</p>
+<p><strong>A finish line.</strong> With the rail open (Closed unticked), the Rail Runner 3D's <strong>On Reached End</strong> runs when the player gets to the end. Add a <strong>Scene Changer → Load</strong>, or raise a <strong>Void Event Channel</strong> that shows a win screen, as in Exercise 06.</p>
+<h2>Check your work</h2>
+<ul>
+<li>The player starts on the rail, even if placed beside it in the scene.</li>
+<li>Forward and back run along the curves and up and down the hills; the player stays upright.</li>
+<li>Left and right step sideways, but never past the yellow edges.</li>
+<li>Jumping works, with short hops on a quick tap.</li>
+<li>The camera follows behind as the rail turns.</li>
+<li>In the side view, the camera stays on one side, even when the player runs back.</li>
+<li>Touching an obstacle costs health; running out sends the player to the checkpoint, back on the rail.</li>
+<li>Reaching the end of an open rail runs <strong>On Reached End</strong>.</li>
+</ul>
+<h2>If something goes wrong</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something goes wrong</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What you see</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">"Rail is empty" in the Console</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Drag <code>Rail</code> into the Rail Runner 3D's <strong>Rail</strong> field</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player sinks into the path, or floats above it</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Change <strong>Height Above Rail</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player runs backward when pressing forward</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">You drew the rail from the other end. Run the other way, or select the Spline and use <strong>Reverse Spline Flow</strong> from its context menu</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player speeds up and slows down along the rail</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Usually knots very close together. Spread them out, or delete extras</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The camera flips to the other side in side view</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Use the <code>Rail Facing</code> child as the Tracking Target, and set <strong>Rail Facing Target</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Obstacles don't hurt the player</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Their collider must be a <strong>trigger</strong>, and the player needs Health and the <code>Player</code> tag</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The extruded path is lumpy at sharp corners</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Smooth the knots (click and drag their tangents), or raise <strong>Segments Per Unit</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player walks through walls next to the rail</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">That's expected: the rail decides where the player can go. Keep scenery outside the rail's width</td>
+</tr>
+</tbody>
+</table>
+<h2>Ideas for your game</h2>
+<ul>
+<li><strong>Branching paths:</strong> two rails, and a trigger at the fork that sets the Rail Runner's rail. (This needs a small custom script.)</li>
+<li><strong>A rail grind:</strong> a Tank Controller 3D for walking around, switching to a Rail Runner 3D when the player lands on a rail. (Also a custom script.)</li>
+<li><strong>A race:</strong> a closed loop, Auto Run, and a timer.</li>
+</ul>

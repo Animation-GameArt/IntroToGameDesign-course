@@ -13,6 +13,7 @@ on:
       - "Kit Guides/**.md"
       - "Schedule/**.md"
       - "Topics/**.md"
+      - "Tutorials/**.md"
       - "tools/build_canvas_html.py"
   workflow_dispatch:
 
