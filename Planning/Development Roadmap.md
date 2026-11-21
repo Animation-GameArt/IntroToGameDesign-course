@@ -78,6 +78,8 @@ Every test, with each guide's checks in order, is in the **[Testing Checklist](h
 - [x] Platformer Kit — Build Your Game: the student guide from ten-pager decisions to a finished game, with milestone checks (2026-11-21). Ten-Pager, Production Backlog, First Playable, Alpha and Beta point to it. Why, and the week-by-week flow: [Kits in the Student Project](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Planning/Kits%20in%20the%20Student%20Project.md).
 - [x] **Build Your Game** guides for all fifteen kits (2026-11-21). They follow the reviewed Platformer pattern; each kit's guide links to its own from **Start your own game**.
 - [x] AI Navigation 2.0.16 installed in the course project and pushed (2026-11-21), for the Stealth kit.
+- [x] Packages and project setup written down: [Unity Packages and Project Setup](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Planning/Unity%20Packages%20and%20Project%20Setup.md) (2026-11-21). Course `.unitypackage` files (Core, one per kit, one per Kenney pack) are made by **Collin Game → Packages → Export Course Packages…** or `tools/make_unitypackages.py` (v0.23.0).
+- [ ] Attach the course packages to a GitHub Release of the template repository, where the kit guides say to download them.
 - [ ] Match the Week 5–7 lecture pages to the real script names.
 - [ ] Move the instructor's tested exercise scenes to `Assets/_Course/Exercises/Solutions/` (once Marshall says they're final).
 - [ ] Fix whatever the compile check and tests turn up. This always comes first when reports arrive.
