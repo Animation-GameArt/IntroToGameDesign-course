@@ -18,19 +18,54 @@ What is built, what is left, the order to build it in, and the decisions that bl
 | Piece | State |
 |---|---|
 | Schedule, teaching philosophy, design-doc templates | Written |
-| Template project with Core, 2D and Platformer kit scripts (v0.9.0) | Written; everything compiles. Ex 01–03 tested; Ex 04 in progress; Ex 05–06 not yet tested |
-| Exercise tutorials Ex 01–06 (two versions of Ex 05) | Drafted. Ex 01–03 tested |
+| Template project (v0.13.0): Core, 2D, 3D, and five kits | Compiled up to v0.11.0. The v0.12.0 kits, Panel Settings and v0.13.0 3D scripts haven't been compiled yet |
+| Exercise tutorials Ex 00–10 (two versions of Ex 05) | Drafted. Ex 01–04 tested |
 | Class and Lecture pages, weeks 1–7 | Drafted |
 | Canvas HTML copies, rebuilt automatically | Working |
 | Ex 00 tutorial | Drafted |
 | Script Reference (`Guides/Script Reference.md`) | Written for v0.12.0. Update whenever scripts change |
 | Genre map page for students | Drafted (`Guides/Genre Map.md`) |
 | Genre kits and kit guides | Platformer, Physics Puzzle, Top-Down Adventure, Turn-Based Battle and Arcade Classic: scripts and both guides written (v0.12.0, not yet compiled); samples not built. Other 10 kits not started |
-| Scripts for weeks 8–10 (v0.10.0) | Audio, music, camera shake, hit stop, cutscenes, saving, high score and settings written, not yet compiled. Dialogue is part of the visual novel kit |
+| Scripts for weeks 8–10 (v0.10.0) | Audio, music, camera shake, hit stop, cutscenes, saving, high score and settings. Compiled; not yet tested in Ex 07–10. Dialogue is part of the visual novel kit |
+| 3D module and 2.5D tutorials | Tank Controller 3D, Rail Runner 3D, two tutorials. Universal Renderer added. Not yet compiled or tested |
 | Class and Lecture pages, weeks 8–16 | Drafted |
 | Topic pages | All 16 weeks drafted (54 pages) |
 | Assignment pages and rubrics | All 14 drafted, plus Extra Credit. Points assigned (100, plus up to 5 extra credit; table in the schedule) |
 | Per-game scripts and guides | After pitch week |
+
+## Next steps: who does what
+
+### Marshall (needs Unity, the lab, or an account)
+
+**First — unblocks everything else (about 15 minutes):**
+
+- [ ] **Compile check.** Pull the template (v0.13.0), open it, and send Claude every red error in the Console. Any compile error, even in a kit, stops Play mode for the whole project, so nothing else can be tested until the Console is clean.
+
+**Then, in any order:**
+
+- [ ] **Test the exercises** not yet tested: Ex 00, Ex 05 (both versions), Ex 06, Ex 07–10. Report what breaks.
+- [ ] **Test the 2.5D tutorials** 1 and 2.
+- [ ] **Download the Kenney packs** into `Assets/_Course/Art/Kenney/`, following its README: Tiny Dungeon, Tiny Town, Puzzle Pack, Space Shooter Redux, Physics Assets, UI Pack, and the sound packs. The workspace Claude works in can't reach kenney.nl.
+- [ ] **Build the kit samples** by following each kit's "Building the Sample" guide: Platformer, Physics Puzzle, Top-Down Adventure, Turn-Based Battle, Arcade Classic. (See decision 3: Claude could write menu commands that build them instead.)
+- [ ] **Decisions 3 and 8** below.
+
+**Before the semester:**
+
+- [ ] Spring software request: Unity 6000.3.10f1 and Unity Hub (see Teaching Philosophy, section 7).
+- [ ] Confirm what a student's Unity Version Control account gets, and that it works on lab computers.
+- [ ] Test the whole student path on a lab computer: download the Release ZIP, unzip, open, import an update.
+- [ ] Tag v1.0, publish the Release, and export the update and kit packages.
+- [ ] Copy the Canvas HTML into Canvas, and set up the Three Game Ideas and Pitch Discussions.
+- [ ] Publish the Obsidian notes to the course website.
+
+### Claude (can start now)
+
+- [ ] Script Reference: add the 3D module.
+- [ ] Remaining kits, each with scripts, a student guide and a "Building the Sample" guide: top-down shooter, endless runner, grid puzzle, tower defense, management and strategy, visual novel with dating sim (Yarn Spinner), card game, farming and life sim.
+- [ ] 3D kits: 3D platformer, then horror and stealth, with the 3D module scripts they need (camera helpers, enemies that use a navigation mesh).
+- [ ] Match the Week 5–7 lecture pages to the real script names.
+- [ ] Move the instructor's tested exercise scenes to `Assets/_Course/Exercises/Solutions/` (once Marshall says they're final).
+- [ ] Fix whatever the compile check and tests turn up. This always comes first when reports arrive.
 
 ## Order of work
 
@@ -113,17 +148,17 @@ Kits aren't used until week 8 of the semester, so the later ones can be finished
 |---|---|---|---|
 | 1 | Which genres are on the map for the first semester | **Decided:** sixteen genres. 2D: arcade classic, platformer, top-down adventure, turn-based battle, endless runner, top-down shooter, grid puzzle, physics puzzle (added later), tower defense, management and strategy, card game, farming and life sim. Narrative: visual novel, dating sim (one kit). 3D: 3D platformer, horror and stealth. No VR or AR. Lectures and exercises stay 2D | — |
 | 2 | Art in kit samples | **Decided:** Kenney's CC0 packs, kept under `Assets/_Course/Art/Kenney/` in a folder named as Kenney's download is named (for example `kenney_pixel-platformer`), with the pack's license file. Each pack gets an entry in `CourseArtImporter`, which sets its import settings. Every pack is listed in `Course Credits`, which the game's Credits screen shows. Plain shapes stay in the exercises | — |
-| 3 | How each kit's sample is built | The instructor builds it by following the kit guide, as with the exercises | Instructor time per kit |
+| 3 | How each kit's sample is built | Either the instructor follows each "Building the Sample" guide (tests the guide too, but takes an hour or more per kit), or Claude writes a menu command per kit that builds the sample scene, prefabs and data, and the instructor only plays and checks it | Instructor time per kit |
 | 4 | Dialogue tool | **Decided:** Yarn Spinner. To be installed from a package registry and not from a Git URL, so lab computers don't need Git | — |
-| 5 | Are there graded exercises in weeks 8–10? | Yes: three short exercises done inside the student's own game (feedback and audio; saving and a build; a bug list and profiling) | Weeks 8–10 pages, point totals |
+| 5 | Are there graded exercises in weeks 8–10? | **Decided:** yes. Ex 07–10, 2 points each, done inside the student's own game | — |
 | 6 | What a Topic page is | **Decided:** one page per lecture topic in `Topics/`, with the lecture's intent, key ideas, an in-class plan, common problems, where the topic comes up, and further resources. Linked from the Lecture page, the Class page and the exercises | — |
-| 7 | Point scale, and the current checklist and grade sheet | Needs the current documents | Assignment pages, rubrics |
+| 7 | Point scale | **Decided:** 100 points, plus up to 5 extra credit. Table in the schedule | — |
 | 8 | Limit on per-game custom scripts | A fixed number per student, such as two or three small scripts, agreed at pitch approval | Scope of Phase 6 |
 | 9 | Does Game & Simulation Group Project start from the same template project? | **Decided:** yes. It uses the same template scripts, with kits imported as needed | — |
 
 ## Open risks
 
-- **Untested code is stacked up.** Ex 03–06 depend on each other. A problem in Ex 03 may change the later ones.
+- **Untested code is stacked up.** Five kits and the 3D module haven't been compiled, and Ex 05–10 haven't been tested. Each new kit adds to the pile, so test reports take priority over new kits.
 - **Each kit costs instructor testing time.** The kit count in decision 1 should match the time available before the semester.
 - **The Unity Version Control allowance for students** is still unconfirmed.
 - **3D lives in the same course project** as 2D (decided 2026-11-20): one project, one repository, one set of Core, UI and data. 3D scenes use a second URP renderer. **The Unreal section** is deferred until the 2D Unity course is complete.
