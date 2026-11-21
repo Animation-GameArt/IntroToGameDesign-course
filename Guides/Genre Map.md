@@ -137,6 +137,8 @@ Most games mix genres a little. Choose the **one** genre that describes what the
 
 **The kit gives you:** movement locked to a grid, blocks that can be pushed, a check for when the level is solved, undo and restart, and a list of levels.
 
+**Kit guide:** [Grid Puzzle Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Grid%20Puzzle%20Kit.md)
+
 **A good scope:** ten to fifteen levels built around one rule of your own, ordered so each teaches something.
 
 **Leave out:** many different mechanics. One good rule makes a better puzzle game than five.

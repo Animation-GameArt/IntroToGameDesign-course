@@ -1,0 +1,214 @@
+<p><strong>For the instructor.</strong> These steps build the kit's sample game once, in the template project. Building it tests every kit script, and the result is what students import. Students read <strong>Grid Puzzle Kit</strong>, not this page.</p>
+<p>Everything goes in <code>Assets/_Course/Kits/GridPuzzle/Sample/</code>, with folders <code>Data</code>, <code>Prefabs</code>, <code>Scenes</code> and <code>Tiles</code>.</p>
+<h2>Before you start</h2>
+<ol>
+<li>Pull the template project. It should be version 0.16.0 or later, with no red errors in the Console.</li>
+<li><strong>Art.</strong> Download Kenney's <strong>Sokoban</strong> pack (link in <code>Assets/_Course/Art/Kenney/README.md</code>). Unzip it to <code>Assets/_Course/Art/Kenney/kenney_sokoban</code>, remove the non-Unity files, and choose <strong>Collin Game → Art → Reapply Art Import Settings</strong>. Its tiles are 64 pixels, so one tile is one unit. Push it, and I'll add it to <code>Course Credits</code>.</li>
+<li>Every UI Document uses <code>CoursePanelSettings</code>.</li>
+</ol>
+<h2>Part 1 — Data</h2>
+<p>In <code>Sample/Data</code>:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 1 — Data</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Asset</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Moves</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Int Variable</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>LevelTitle</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">String Variable</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>LevelSolved</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Void Event Channel</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Puzzle Levels</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Level List (<strong>Create → Collin Game → Grid Puzzle Kit → Level List</strong>): Save Name <code>SampleSokoban</code>; Levels <code>Puzzle_01</code> … <code>Puzzle_08</code>; Titles as in Part 5</td>
+</tr>
+</tbody>
+</table>
+<h2>Part 2 — Prefabs</h2>
+<p>Every piece is a sprite from the Sokoban pack with <strong>Grid Piece</strong>; no collider. Order in Layer: floor <code>-10</code>, goals <code>-5</code>, pieces <code>0</code>, player <code>5</code>.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 2 — Prefabs</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Prefab</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Sprite</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Grid Piece</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Player</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">a player sprite</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Role <strong>Player</strong>, Move Time <code>0.1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Box</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">a brown crate</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Role <strong>Pushable</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Red Box</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">a red crate</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Role <strong>Pushable</strong>, Kind <code>red</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Rock</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">a grey block</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Role <strong>Solid</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Gem</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">any small item sprite</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Role <strong>Item</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+</tbody>
+</table>
+<p>Goals are sprites with <strong>Grid Goal</strong> (Indicator: its own Sprite Renderer, Filled Color green):</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 2 — Prefabs (2)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Prefab</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Sprite</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Grid Goal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Target</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">an empty target marker</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Filled By <strong>Pushable</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Red Target</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">a red target marker</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Filled By <strong>Pushable</strong>, Kind <code>red</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Exit</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">a door or flag</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Filled By <strong>Player</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>Part 3 — Puzzle Systems</h2>
+<p>An empty <code>Puzzle Systems</code>, made into a prefab, with these children:</p>
+<p><strong><code>Board</code></strong> — <strong>Grid Board</strong>: Walls (set in each scene, see Part 4), Max Pushed In A Row <code>1</code>, Moves <code>Moves</code>, Level List <code>Puzzle Levels</code>, Level Title <code>LevelTitle</code>, Raise When Solved <code>LevelSolved</code>. And <strong>Grid Player Input</strong>.</p>
+<p><strong><code>HUD</code></strong> — UI Document <code>PuzzleHUD</code> (from <code>Kits/GridPuzzle/UI</code>), with a <strong>UI Variable Binder</strong>: <code>level-label</code> → <code>LevelTitle</code> → <code>{0}</code>; <code>moves-label</code> → <code>Moves</code> → <code>Moves: {0}</code>.</p>
+<p><strong><code>Pause Menu</code></strong> — as in the Platformer Kit sample, with its menu button loading <code>Puzzle_Select</code>.</p>
+<p><strong><code>Loader</code></strong> — <strong>Puzzle Level Loader</strong>: Level List <code>Puzzle Levels</code>, After Last Level <code>Puzzle_Select</code>. And a <strong>Scene Changer</strong> with Scene Name <code>Puzzle_Select</code>.</p>
+<p><strong><code>Solved</code></strong> — UI Document <code>PuzzleSolved</code>, Sort Order <code>2</code>, <strong>UI Screen</strong> (Hidden At Start, Select When Shown <code>next-button</code>), a <strong>Void Event Listener</strong> on <code>LevelSolved</code> → <strong>UIScreen → Show</strong>, a <strong>UI Variable Binder</strong> (<code>moves-label</code> → <code>Moves</code> → <code>Solved in {0} moves</code>), and <strong>UI Button Events</strong>: <code>next-button</code> → <code>Loader</code>, <strong>PuzzleLevelLoader → LoadNextLevel</strong>; <code>select-button</code> → <code>Loader</code>, <strong>SceneChanger → Load</strong>.</p>
+<p>Because the Board's Walls differ in each level, set it after placing the prefab in each scene.</p>
+<h2>Part 4 — The level template (<code>Puzzle_01</code>)</h2>
+<ol>
+<li>A new 2D scene. Main Camera: Orthographic, Size <code>5</code>, dark background.</li>
+<li><strong>GameObject → 2D Object → Tilemap → Rectangular</strong>, named <code>Floor</code> (Order in Layer <code>-10</code>), then a second Tilemap named <code>Walls</code> (Order <code>-1</code>).</li>
+<li>Create Tile assets in <code>Sample/Tiles</code> from a floor sprite and a wall sprite (drag the sprites into a Tile Palette).</li>
+<li><code>Puzzle Systems</code>; set Board → <strong>Walls</strong> to the <code>Walls</code> Tilemap.</li>
+<li>Paint the level below. Place pieces and goals on cell centres (snapping is automatic when the level starts, but neat placement helps).</li>
+</ol>
+<h2>Part 5 — Eight levels</h2>
+<p>Each level is a <strong>Save As</strong> of the last, redesigned. Small rooms, one idea each. In the maps, <code>#</code> wall, <code>.</code> floor, <code>P</code> player, <code>B</code> box, <code>T</code> target, <code>*</code> box already on a target, <code>R</code> red box, <code>r</code> red target, <code>O</code> rock, <code>G</code> gem, <code>E</code> exit.</p>
+<p><strong><code>Puzzle_01</code> — "First Push"</strong> (one box, straight push)</p>
+<pre><code>#######
+#.....#
+#.PB.T#
+#.....#
+#######
+</code></pre>
+<p><strong><code>Puzzle_02</code> — "Around the Corner"</strong> (push from the other side)</p>
+<pre><code>#######
+#..T..#
+#..#..#
+#.PB..#
+#.....#
+#######
+</code></pre>
+<p><strong><code>Puzzle_03</code> — "Two Boxes"</strong></p>
+<pre><code>########
+#......#
+#.B..T.#
+#.P##..#
+#.B..T.#
+#......#
+########
+</code></pre>
+<p><strong><code>Puzzle_04</code> — "Corners Are Traps"</strong> (a box in a corner can't be moved; undo teaches itself)</p>
+<pre><code>#######
+#T...##
+#.#B..#
+#..P..#
+##.B.T#
+#######
+</code></pre>
+<p><strong><code>Puzzle_05</code> — "Rocks"</strong></p>
+<pre><code>########
+#..O..T#
+#.B.O..#
+#.P..B.#
+#O...O.#
+#T.....#
+########
+</code></pre>
+<p><strong><code>Puzzle_06</code> — "Red Box"</strong> (colours must match)</p>
+<pre><code>########
+#r....T#
+#..R.B.#
+#.P....#
+########
+</code></pre>
+<p><strong><code>Puzzle_07</code> — "Collect the Gems"</strong> (Need All Items ticked; reach the Exit; no box targets)</p>
+<pre><code>########
+#G..B.E#
+#.##.#.#
+#P.B..G#
+########
+</code></pre>
+<p><strong><code>Puzzle_08</code> — "Tight Room"</strong></p>
+<pre><code>#######
+##..T##
+#.B.B.#
+#T.P.T#
+#.B...#
+##....#
+#######
+</code></pre>
+<p>Each layout has been checked with a solver. The fewest moves: 2, 8, 13, 11, 23, 12, 11, 17. Solve each one yourself before moving on.</p>
+<h2>Part 6 — Menu and level select</h2>
+<p><strong><code>Puzzle_Menu</code></strong>: like the Platformer sample's menu. Play → a <strong>Puzzle Level Loader</strong> (<code>Puzzle Levels</code>) → <strong>LoadFirstUnsolved</strong>. Add a <strong>Levels</strong> button → a Scene Changer to <code>Puzzle_Select</code>.</p>
+<p><strong><code>Puzzle_Select</code></strong>: UI Document <code>LevelSelect</code>, with <strong>Puzzle Level Loader</strong> (<code>Puzzle Levels</code>), <strong>UI Level Select</strong>, and <strong>UI Button Events</strong>: <code>back-button</code> → a Scene Changer to <code>Puzzle_Menu</code>.</p>
+<h2>Part 7 — Scene List</h2>
+<p><code>Puzzle_Menu</code>, <code>Puzzle_Select</code>, <code>Puzzle_01</code> … <code>Puzzle_08</code>.</p>
+<h2>Part 8 — Test</h2>
+<ul>
+<li>The player moves one cell per press; holding repeats after a short pause.</li>
+<li>Walls block; boxes push; two boxes in a row don't; rocks never move.</li>
+<li>Undo takes back one move at a time, including pushes and gem pickups; the move counter goes down.</li>
+<li>Restart puts everything back; it can't be undone.</li>
+<li>Targets turn green when filled, and back when emptied.</li>
+<li>The red target only takes the red box.</li>
+<li>Level 7 needs every gem and the exit.</li>
+<li>Solving shows the solved screen with the moves; Next loads the next level; after level 8, the level select.</li>
+<li>The level select greys out locked levels and colours solved ones; progress survives restarting Unity.</li>
+<li>With <strong>Unlock All</strong> ticked on the list, every level can be chosen.</li>
+<li>Esc pauses; no moves while paused.</li>
+</ul>
+<p>Note anything that fails, with the Console message.</p>
+<h2>Part 9 — Commit</h2>
+<p>Commit and push the <code>Sample</code> folder with its <code>.meta</code> files, and the Sokoban art folder.</p>
+<h2>Later — Exporting the kit</h2>
+<p>Export <code>Assets/_Course/Kits/GridPuzzle</code> and the Sokoban art folder with <strong>Assets → Export Package</strong>, unticking Core scripts that Unity adds as dependencies.</p>

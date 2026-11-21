@@ -1,4 +1,4 @@
-<p>Every course script in the course project, as of version <strong>0.15.0</strong>: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in <code>Assets/_Course/VERSION.txt</code>.</p>
+<p>Every course script in the course project, as of version <strong>0.16.0</strong>: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in <code>Assets/_Course/VERSION.txt</code>.</p>
 <h2>Finding the scripts</h2>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Finding the scripts</caption>
 <thead>
@@ -180,6 +180,16 @@
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/EndlessRunner/UI</code></td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Runner HUD</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/GridPuzzle/Scripts</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>CollinGame.Kits.GridPuzzle</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Grid puzzle kit scripts</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/GridPuzzle/UI</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Puzzle HUD, level select and solved screens</td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Art/Kenney</code></td>
@@ -2159,6 +2169,81 @@
 </tbody>
 </table>
 <hr/>
+<h2>Grid puzzle kit</h2>
+<p>Imported with the Grid Puzzle Kit package. See <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Grid%20Puzzle%20Kit.md">Grid Puzzle Kit</a>.</p>
+<h3>Grid Board</h3>
+<p><code>Kits/GridPuzzle/Scripts/GridBoard.cs</code> · <strong>Add Component → Collin Game → Grid Puzzle Kit → Grid Board</strong></p>
+<p>The rules of one level: where everything is, which moves are allowed, undo, and solving. One per level scene. No physics is used.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Grid Board</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Setting</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Default</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Walls</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Tilemap of walls: any cell with a tile blocks</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Max Pushed In A Row</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code> is classic Sokoban</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Need All Items</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">unticked</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Ticked: every Item must be collected too</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Moves · Level List · Level Title</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">An Int Variable, a Level List asset, a String Variable</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Raise When Solved · On Solved · On Blocked · On Undo</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+</tbody>
+</table>
+<p>Methods: <strong>TryMovePlayers</strong> (direction), <strong>Undo</strong>, <strong>Restart</strong>. Read by other scripts: <strong>Solved</strong>, <strong>Moves</strong>, <strong>IsBusy</strong>.</p>
+<h3>Grid Piece and Grid Goal</h3>
+<p><strong>Grid Piece</strong>: anything on the grid. <strong>Role</strong>: <strong>Player</strong> (moved by input; <strong>Can Push</strong>), <strong>Pushable</strong>, <strong>Solid</strong> (never moves), <strong>Item</strong> (collected by walking onto it). <strong>Kind</strong> is a word goals can ask for. <strong>Move Time</strong> (<code>0.1</code>) is the slide. Events <strong>On Moved</strong>, <strong>On Collected</strong>.</p>
+<p><strong>Grid Goal</strong>: a target cell, filled by a piece of role <strong>Filled By</strong> (Pushable, or Player for an exit) and, if set, <strong>Kind</strong>. <strong>Indicator</strong> turns <strong>Filled Color</strong> while filled. Events <strong>On Filled</strong>, <strong>On Emptied</strong>. The level is solved when every goal is filled.</p>
+<h3>Grid Player Input</h3>
+<p>Moves the players one cell per press of Move, repeating after <strong>Repeat Delay</strong> (<code>0.3</code>) every <strong>Repeat Every</strong> (<code>0.12</code>). Undo: <strong>Z</strong>, <strong>Backspace</strong> or the gamepad's west button. Restart: <strong>R</strong> or the north button.</p>
+<h3>Level List, Puzzle Level Loader and UI Level Select</h3>
+<p><strong>Level List</strong> (<strong>Create → Collin Game → Grid Puzzle Kit → Level List</strong>): the level scene names in order, optional <strong>Titles</strong>, a <strong>Save Name</strong> for progress, and <strong>Unlock All</strong> for testing. Solving a level unlocks the next; progress is saved.</p>
+<p><strong>Puzzle Level Loader</strong>: <strong>LoadNextLevel</strong> (then <strong>After Last Level</strong>), <strong>LoadFirstUnsolved</strong>, <strong>LoadLevel</strong> (index).</p>
+<p><strong>UI Level Select</strong>: fills the element named <code>levels</code> with a button per level; locked levels are disabled, solved ones get the class <code>level-button--solved</code>.</p>
+<h3>Kit screens</h3>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Kit screens (8)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Screen</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Element names</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>PuzzleHUD</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>level-label</code>, <code>moves-label</code>, <code>help-label</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>LevelSelect</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>levels</code>, <code>back-button</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>PuzzleSolved</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>moves-label</code>, <code>next-button</code>, <code>select-button</code></td>
+</tr>
+</tbody>
+</table>
+<hr/>
 <h2>Editor tools</h2>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Editor tools</caption>
 <thead>
@@ -2363,6 +2448,14 @@
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Background that scrolls slower than the world</td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Parallax 2D</strong> on each layer</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A Sokoban-style puzzle</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Grid Board</strong> (with a walls Tilemap) + <strong>Grid Player Input</strong> + <strong>Grid Piece</strong>s + <strong>Grid Goal</strong>s</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Levels that unlock in order</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A <strong>Level List</strong> + <strong>Puzzle Level Loader</strong> + <strong>UI Level Select</strong></td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Starting a new game from the menu</td>

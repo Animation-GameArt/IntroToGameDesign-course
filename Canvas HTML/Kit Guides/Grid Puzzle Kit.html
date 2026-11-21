@@ -1,0 +1,212 @@
+<p>The Grid Puzzle Kit is a starting point for puzzles played on a grid, one step at a time. Its sample is a Sokoban game: push every box onto a target. Every move can be undone, and the level can be restarted at any time.</p>
+<p>The real work in a puzzle game is designing levels, not writing code. The kit handles the rules, undo, restart and the list of levels, so your time goes into one rule of your own and ten to fifteen levels that teach it.</p>
+<h2>What the kit covers</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">What the kit covers</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The kit does this</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The kit doesn't do this</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Movement locked to a grid, one cell per press</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Free movement or physics</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Pushable boxes, solid rocks, items to collect</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Pulling, sliding on ice, or falling (a custom rule)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Goals for boxes, coloured goals for coloured boxes, exits for the player</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Switches and doors that open (a custom rule)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Several player pieces moved at once</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Turn-based enemies</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Undo every move, restart, move counter</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A solver or hints</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A list of levels that unlock in order, saved between sessions</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Level editors for players</td>
+</tr>
+</tbody>
+</table>
+<p>If your one rule is in the right-hand column, it's your agreed custom script.</p>
+<h2>Install the kit</h2>
+<ol>
+<li>Download the Grid Puzzle Kit package from the course project's <strong>Releases</strong> page.</li>
+<li>With your project open, double-click the package and click <strong>Import</strong>.</li>
+<li>Open <strong>File → Build Profiles → Open Scene List</strong>. From <code>Assets/_Course/Kits/GridPuzzle/Sample/Scenes</code>, add <code>Puzzle_Menu</code>, <code>Puzzle_Select</code>, then <code>Puzzle_01</code> to <code>Puzzle_08</code>, in that order.</li>
+<li>Open <code>Puzzle_Menu</code> and press <strong>Play</strong>.</li>
+</ol>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Install the kit</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Action</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Keyboard</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Gamepad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Move one cell (hold to repeat)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>WASD</strong> or arrow keys</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Left stick or D-pad</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Undo</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Z</strong> or <strong>Backspace</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">West button</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Restart the level</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>R</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">North button</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Pause</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Esc</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Start</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>What's in the sample</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">What's in the sample</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Prefab or asset</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What it is</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Settings worth changing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Player</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Grid Piece, role Player</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Move Time</strong> (how fast it slides)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Box</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Grid Piece, role Pushable</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Kind</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Red Box</code>, <code>Red Target</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A box and a target with Kind <code>red</code>: only the red box fills it</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Kind</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Rock</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Grid Piece, role Solid: never moves</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Gem</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Grid Piece, role Item: picked up by walking onto it</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Target</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Grid Goal, filled by any Pushable</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Filled Color</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Exit</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Grid Goal, filled by the Player</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Puzzle Systems</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Board, input, HUD, solved screen, pause</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Max Pushed In A Row</strong>, <strong>Need All Items</strong> on the Grid Board</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Puzzle Levels</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Level List: the eight level scenes, in order</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Unlock All</strong> for testing</td>
+</tr>
+</tbody>
+</table>
+<h2>How the sample fits together</h2>
+<p><strong>The board.</strong> Each level has one <strong>Grid Board</strong>. Walls are painted on a Tilemap; any cell with a tile is a wall. Pieces and goals snap to the middle of their cell when the level starts. Nothing uses physics: the board works out every move.</p>
+<p><strong>Moving and pushing.</strong> <strong>Grid Player Input</strong> turns each press into a step. The board checks the next cell: a wall stops the move; a Pushable piece moves along if the cell behind it is free; a Solid piece stops it. With <strong>Max Pushed In A Row</strong> at 1, as in Sokoban, two boxes in a row can't be pushed.</p>
+<p><strong>Undo and restart.</strong> Before every move the board remembers where every piece was. Undo puts them back, one move at a time; Restart puts everything back to the start.</p>
+<p><strong>Solving.</strong> After each move, every <strong>Grid Goal</strong> checks whether a matching piece is on it, and changes colour. When all goals are filled (and every gem is collected, if <strong>Need All Items</strong> is ticked), the level is solved: the board marks it solved in the Level List, and the solved screen appears.</p>
+<p><strong>Levels.</strong> The <strong>Level List</strong> asset holds the level scenes in order. Solving a level unlocks the next. The level select screen shows every level, greys out locked ones, and colours solved ones. Progress is saved between sessions.</p>
+<h2>Start your own game</h2>
+<ol>
+<li><strong>Make a Level List:</strong> in <code>Assets/_Game</code>, <strong>Create → Collin Game → Grid Puzzle Kit → Level List</strong>. Give it a Save Name.</li>
+<li><strong>Make your first level:</strong> open <code>Puzzle_01</code>, <strong>File → Save As…</strong> <code>Assets/_Game/Scenes/Level_01</code>.</li>
+<li>On <code>Puzzle Systems</code> → <code>Board</code>, set <strong>Level List</strong> to your list.</li>
+<li>Repaint the walls and move the pieces and goals. Press <strong>Play</strong> and solve it.</li>
+<li>Add the scene's name to your Level List and to the Scene List.</li>
+<li>For the next level, Save As again, and redesign.</li>
+<li>Copy the sample's menu and level select scenes, and set their Puzzle Level Loader's <strong>Level List</strong> to yours.</li>
+</ol>
+<h3>Designing levels</h3>
+<ul>
+<li><strong>One idea per level.</strong> Each level should teach or test one thing. Write it down before you build: "boxes in corners can't be moved".</li>
+<li><strong>Order teaches.</strong> Early levels show the rule safely; later ones combine it with others.</li>
+<li><strong>Small is hard.</strong> A 6 × 6 room with three boxes can be harder than a big one.</li>
+<li><strong>Playtest early.</strong> Watch someone else play without helping. Where they get stuck is where the level is teaching, or confusing.</li>
+<li><strong>Count the moves.</strong> Solve each level yourself and note the moves. If it's under 10, it may be too easy; over 100, too fiddly.</li>
+</ul>
+<h2>Recipes</h2>
+<p><strong>Push chains.</strong> Set the board's <strong>Max Pushed In A Row</strong> to <code>3</code>: the player can push up to three boxes in a line.</p>
+<p><strong>Coloured boxes.</strong> Give a box and a target the same <strong>Kind</strong>, such as <code>blue</code>. Only that box fills that target.</p>
+<p><strong>Reach the exit.</strong> A Grid Goal with <strong>Filled By: Player</strong>, and no box targets: the level is solved when the player stands on it.</p>
+<p><strong>Collect everything.</strong> Gems are Items. Tick <strong>Need All Items</strong> on the board: the level is solved when every gem is collected (and any goals filled).</p>
+<p><strong>Two players at once.</strong> Put two <code>Player</code> pieces in a level. Both move together, which makes a different kind of puzzle.</p>
+<p><strong>A helper that can't push.</strong> Untick <strong>Can Push</strong> on a second Player piece: it moves with the first player but is blocked by boxes.</p>
+<p><strong>Sounds.</strong> Each Grid Piece has <strong>On Moved</strong>; the board has <strong>On Blocked</strong> (a bump) and <strong>On Undo</strong>; each Goal has <strong>On Filled</strong>.</p>
+<h2>If something goes wrong</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something goes wrong</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What you see</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player doesn't move</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The scene needs a <strong>Grid Board</strong> and <strong>Grid Player Input</strong>, and the player's <strong>Role</strong> must be Player</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player walks through walls</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Grid Board's <strong>Walls</strong> must be the Tilemap the walls are painted on</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Pieces sit between cells</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">They snap when the level starts. Check they're placed inside the right cell, not on a line</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A box won't move</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The cell behind it is a wall, a rock or another box (with Max Pushed In A Row at 1)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The level is never solved</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Every Grid Goal must be filled. Select each target in Play mode: filled ones change colour. Check Kinds match</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The level is solved straight away</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A box already sits on a target. Move it off</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The level select is empty</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Puzzle Level Loader needs a <strong>Level List</strong> with scene names</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The next level doesn't load</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The scene must be in the Level List and in the Scene List, spelled the same</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A solved level is locked again</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Progress is saved by the Level List's <strong>Save Name</strong>: keep it the same</td>
+</tr>
+</tbody>
+</table>

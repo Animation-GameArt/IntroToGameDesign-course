@@ -3,7 +3,7 @@ title: "Script Reference"
 course: GAME 1303
 type: guide
 status: draft
-course_version: 0.15.0
+course_version: 0.16.0
 unity: 6000.3.10f1
 tags:
   - game1303
@@ -13,7 +13,7 @@ tags:
 
 # Script Reference
 
-Every course script in the course project, as of version **0.15.0**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
+Every course script in the course project, as of version **0.16.0**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
 
 ## Finding the scripts
 
@@ -61,6 +61,8 @@ Every script explains its settings: hover over a field in the Inspector to see i
 | `_Course/Kits/TopDownShooter/UI` | — | Shooter HUD |
 | `_Course/Kits/EndlessRunner/Scripts` | `CollinGame.Kits.EndlessRunner` | Endless runner kit scripts |
 | `_Course/Kits/EndlessRunner/UI` | — | Runner HUD |
+| `_Course/Kits/GridPuzzle/Scripts` | `CollinGame.Kits.GridPuzzle` | Grid puzzle kit scripts |
+| `_Course/Kits/GridPuzzle/UI` | — | Puzzle HUD, level select and solved screens |
 | `_Course/Art/Kenney` | — | Kenney art packs (CC0). Its README links to every pack the kits use |
 | `_Course/Credits` | — | The course's credits text |
 
@@ -1148,6 +1150,54 @@ A background layer that moves at a share of the camera's speed: **Distance** `0`
 
 ---
 
+## Grid puzzle kit
+
+Imported with the Grid Puzzle Kit package. See [Grid Puzzle Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Grid%20Puzzle%20Kit.md).
+
+### Grid Board
+
+`Kits/GridPuzzle/Scripts/GridBoard.cs` · **Add Component → Collin Game → Grid Puzzle Kit → Grid Board**
+
+The rules of one level: where everything is, which moves are allowed, undo, and solving. One per level scene. No physics is used.
+
+| Setting | Default | |
+|---|---|---|
+| Walls | — | The Tilemap of walls: any cell with a tile blocks |
+| Max Pushed In A Row | `1` | `1` is classic Sokoban |
+| Need All Items | unticked | Ticked: every Item must be collected too |
+| Moves · Level List · Level Title | — | An Int Variable, a Level List asset, a String Variable |
+| Raise When Solved · On Solved · On Blocked · On Undo | — | |
+
+Methods: **TryMovePlayers** (direction), **Undo**, **Restart**. Read by other scripts: **Solved**, **Moves**, **IsBusy**.
+
+### Grid Piece and Grid Goal
+
+**Grid Piece**: anything on the grid. **Role**: **Player** (moved by input; **Can Push**), **Pushable**, **Solid** (never moves), **Item** (collected by walking onto it). **Kind** is a word goals can ask for. **Move Time** (`0.1`) is the slide. Events **On Moved**, **On Collected**.
+
+**Grid Goal**: a target cell, filled by a piece of role **Filled By** (Pushable, or Player for an exit) and, if set, **Kind**. **Indicator** turns **Filled Color** while filled. Events **On Filled**, **On Emptied**. The level is solved when every goal is filled.
+
+### Grid Player Input
+
+Moves the players one cell per press of Move, repeating after **Repeat Delay** (`0.3`) every **Repeat Every** (`0.12`). Undo: **Z**, **Backspace** or the gamepad's west button. Restart: **R** or the north button.
+
+### Level List, Puzzle Level Loader and UI Level Select
+
+**Level List** (**Create → Collin Game → Grid Puzzle Kit → Level List**): the level scene names in order, optional **Titles**, a **Save Name** for progress, and **Unlock All** for testing. Solving a level unlocks the next; progress is saved.
+
+**Puzzle Level Loader**: **LoadNextLevel** (then **After Last Level**), **LoadFirstUnsolved**, **LoadLevel** (index).
+
+**UI Level Select**: fills the element named `levels` with a button per level; locked levels are disabled, solved ones get the class `level-button--solved`.
+
+### Kit screens
+
+| Screen | Element names |
+|---|---|
+| `PuzzleHUD` | `level-label`, `moves-label`, `help-label` |
+| `LevelSelect` | `levels`, `back-button` |
+| `PuzzleSolved` | `moves-label`, `next-button`, `select-button` |
+
+---
+
 ## Editor tools
 
 | Tool | Where | What it does |
@@ -1203,6 +1253,8 @@ A background layer that moves at a share of the camera's speed: **Distance** `0`
 | A scrolling shooter | **Scroll Camera 2D** on the Main Camera, **Keep On Screen 2D** on the player, **Wake On Screen 2D** on each enemy |
 | An endless runner | **Runner Controller 2D** + a **Track Spawner 2D** with **Track Chunk** prefabs + a long **Kill Zone** below |
 | Background that scrolls slower than the world | **Parallax 2D** on each layer |
+| A Sokoban-style puzzle | **Grid Board** (with a walls Tilemap) + **Grid Player Input** + **Grid Piece**s + **Grid Goal**s |
+| Levels that unlock in order | A **Level List** + **Puzzle Level Loader** + **UI Level Select** |
 | Starting a new game from the menu | **Variable Resetter** in the menu scene, with every variable that carries between levels |
 
 ## Common Console messages
