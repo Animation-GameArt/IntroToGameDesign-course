@@ -1,0 +1,224 @@
+<p>The Top-Down Shooter Kit is a starting point for shooters seen from above. It covers two styles:</p>
+<ul>
+<li><strong>Arena shooters</strong>, also called twin-stick shooters: move with one stick, aim with the other or with the mouse, and survive waves of enemies. Examples: Geometry Wars, Enter the Gungeon's fights, Nuclear Throne.</li>
+<li><strong>Scrolling shooters</strong>: the screen moves steadily up a level, and enemies fly in to meet you. Examples: 1942, Raiden, Galaga's descendants.</li>
+</ul>
+<p>It adds weapons stored as assets, aiming, projectiles that are reused rather than created for every shot, enemy movement patterns, waves, power-ups and drops, and a scrolling camera. The sample has one of each: an arena with four waves and a boss, and a short scrolling level.</p>
+<h2>What the kit covers</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">What the kit covers</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The kit does this</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The kit doesn't do this</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Aiming with the mouse or the right stick, separately from moving</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Lock-on, homing or charge shots</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Weapons as assets: fire rate, spread, accuracy, damage, projectile</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Ammo and reloading</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Hundreds of bullets at once, running smoothly</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Bullets that bounce or pierce</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Enemies that chase, fly straight, weave, circle or keep their distance</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Enemies that find their way around walls</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Waves that start when the last one is cleared, and endless waves</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Randomly generated rooms</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Power-ups that swap the weapon for a time, and random drops</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Upgrade trees and shops</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A scrolling camera, enemies that wake as they scroll into view</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Scrolling backgrounds with several layers</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A boss: an enemy with lots of health and several weapons</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Boss attack phases (a custom script)</td>
+</tr>
+</tbody>
+</table>
+<p>If your pitch needs something in the right-hand column, it has to be one of your agreed custom scripts, or it has to be cut.</p>
+<h2>Install the kit</h2>
+<ol>
+<li>Download the Top-Down Shooter Kit package from the course project's <strong>Releases</strong> page.</li>
+<li>With your project open, double-click the package and click <strong>Import</strong>.</li>
+<li>Open <strong>File → Build Profiles → Open Scene List</strong>. From <code>Assets/_Course/Kits/TopDownShooter/Sample/Scenes</code>, add these scenes, next to each other and in this order: <code>Shooter_Menu</code>, <code>Shooter_Arena</code>, <code>Shooter_Scrolling</code>, <code>Shooter_Win</code>.</li>
+<li>Open <code>Shooter_Menu</code> and press <strong>Play</strong>.</li>
+</ol>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Install the kit</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Action</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Keyboard and mouse</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Gamepad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Move</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>WASD</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Left stick</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Aim</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Mouse</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Right stick</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Fire</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Left mouse button or <strong>Enter</strong> (hold)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Left face button (hold)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Pause</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Esc</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Start</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>What's in the sample</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">What's in the sample</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Prefab or asset</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What it is</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Settings worth changing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Player Ship</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Top Down Controller 2D, Aim 2D, Weapon Shooter 2D, Health, Keep On Screen 2D</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Max Speed; Health <strong>Max Health</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Blaster</code>, <code>Spread Shot</code>, <code>Rapid Fire</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player's weapons (Weapon assets)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Shots Per Second</strong>, <strong>Projectiles Per Shot</strong>, <strong>Spread Angle</strong>, <strong>Damage</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Enemy Shot</code>, <code>Boss Spread</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The enemies' weapons</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Player Bullet</code>, <code>Enemy Bullet</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Projectiles: one hurts <code>Enemy</code>, the other <code>Player</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Target Tag</strong>, <strong>Lifetime</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Drone</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Chases the player; hurts on touch</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Enemy Mover 2D <strong>Speed</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Gunship</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Circles the player at a distance and fires at them</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Preferred Distance</strong>, <strong>Auto Fire Interval</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Weaver</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Flies down the screen, weaving; for the scrolling level</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Wave Width</strong>, <strong>Waves Per Second</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Boss</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Lots of health; keeps its distance and fires a spread</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Health <strong>Max Health</strong>, its weapon</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Spread Power-Up</code>, <code>Rapid Power-Up</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Give the player a weapon for 10 seconds</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Weapon</strong>, <strong>Duration</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Arena Systems</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">HUD, pause, win and game over screens, and the wave spawner</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The waves on <strong>Wave Spawner 2D</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>How the sample fits together</h2>
+<p><strong>Aiming and firing.</strong> The player's <strong>Aim 2D</strong> works out where they're aiming: at the mouse pointer, or the way the right stick points. Their <strong>Weapon Shooter 2D</strong> fires the current weapon that way while the fire button is held. The <strong>Weapon</strong> asset says how fast, how many bullets, how spread out and how much damage.</p>
+<p><strong>Bullets.</strong> Each bullet is a <strong>Projectile 2D</strong>. It flies straight, damages the first thing it hits that has Health and the right tag, and is then put away to be reused. Player bullets hurt <code>Enemy</code>; enemy bullets hurt <code>Player</code>. Neither ever hits whoever fired it.</p>
+<p><strong>Enemies.</strong> An <strong>Enemy Mover 2D</strong> gives each enemy a pattern. Gunships and the Boss also have a Weapon Shooter 2D set to <strong>Automatic</strong> and <strong>At Target</strong>, so they fire at the player on a timer. When an enemy's health runs out, its Health's <strong>On Died</strong> adds to <code>Score</code>, and its <strong>Drop On Death 2D</strong> sometimes leaves a power-up or a heart.</p>
+<p><strong>Waves.</strong> The arena's <strong>Wave Spawner 2D</strong> lists four waves. Each wave's enemies appear at random spawn points just off screen; the next wave starts once every enemy of the current one is gone. After the last wave it raises <code>ArenaCleared</code>, which shows the win screen. The HUD shows the wave number and the current weapon.</p>
+<p><strong>Scrolling.</strong> In the scrolling level, the Main Camera has a <strong>Scroll Camera 2D</strong> that moves it up the level. The player's <strong>Keep On Screen 2D</strong> carries them along. Enemies are placed along the level ahead of time; each one's <strong>Wake On Screen 2D</strong> keeps it still until it comes into view, and removes it once it leaves. When the camera reaches the end, it raises <code>ReachedBoss</code>, which wakes the boss.</p>
+<h2>Start your own game</h2>
+<p><strong>An arena shooter:</strong></p>
+<ol>
+<li>Create a new 2D scene in <code>Assets/_Game/Scenes</code>.</li>
+<li>Drag in <code>Arena Systems</code> and <code>Player Ship</code> from the kit's <code>Sample/Prefabs</code>.</li>
+<li>Set the Main Camera's <strong>Size</strong> so the arena fits, and surround the arena with walls (sprites with Box Collider 2D).</li>
+<li>On <code>Arena Systems</code> → <code>Waves</code>, move the spawn points to just outside your walls or the screen's edge, and set up your waves.</li>
+<li>Press <strong>Play</strong>.</li>
+</ol>
+<p><strong>A scrolling shooter:</strong> start from a copy of <code>Shooter_Scrolling</code> (<strong>File → Save As…</strong> into <code>Assets/_Game/Scenes</code>), and place your own enemies along the level.</p>
+<h3>Changing a prefab or a weapon</h3>
+<p>Make a <strong>Prefab Variant</strong> (right-click the prefab → <strong>Create → Prefab Variant</strong>), or <strong>duplicate</strong> a Weapon asset (<strong>Ctrl+D</strong> / <strong>Cmd+D</strong>), move it to <code>Assets/_Game</code>, and change the copy.</p>
+<h2>Recipes</h2>
+<p><strong>A new weapon.</strong> In <code>Assets/_Game</code>, <strong>Create → Collin Game → Top-Down Shooter Kit → Weapon</strong>. Set its Projectile Prefab to <code>Player Bullet</code>, then try Shots Per Second <code>12</code>, Inaccuracy <code>8</code> for a machine gun, or Projectiles Per Shot <code>5</code>, Spread Angle <code>60</code>, Shots Per Second <code>2</code> for a shotgun.</p>
+<p><strong>A power-up that lasts for good.</strong> On a Power Up 2D, set <strong>Duration</strong> to <code>0</code>.</p>
+<p><strong>An enemy that fires straight down.</strong> A Weapon Shooter 2D with Fire When <strong>Automatic</strong>, Direction <strong>Forward</strong>, and the enemy rotated <code>180</code> on Z (its up arrow pointing down).</p>
+<p><strong>A tougher wave.</strong> Add a wave with two groups, such as 8 Drones and 3 Gunships, and lower <strong>Seconds Between Enemies</strong>.</p>
+<p><strong>Endless mode.</strong> Tick <strong>Loop</strong> on the Wave Spawner 2D. Show the score with a <strong>High Score</strong> component, as in Exercise 08.</p>
+<p><strong>A boss with two weapons.</strong> Give the boss a child object with a second Weapon Shooter 2D (and its own weapon and interval).</p>
+<p><strong>Screen shake on every hit.</strong> On the Player Ship's Health <strong>On Damaged</strong>, add <strong>CameraShake → Shake</strong>. (A scrolling level's camera moves by itself, so use <strong>Hit Stop</strong> there instead.)</p>
+<p><strong>Sounds.</strong> Each Weapon asset has a <strong>Sound</strong>. Enemies' Health <strong>On Died</strong> can play an explosion.</p>
+<h2>If something goes wrong</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something goes wrong</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What you see</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Nothing fires</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Weapon Shooter 2D needs a <strong>Weapon</strong>, and the weapon needs a <strong>Projectile Prefab</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Bullets go through enemies</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The enemy needs Health, a collider, and the tag in the bullet's <strong>Target Tag</strong> (<code>Enemy</code>)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Bullets hit walls they shouldn't</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Untick <strong>Stopped By Walls</strong> on the projectile, or make the wall's collider a trigger</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The aim is stuck</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The mouse takes over when it moves. On a gamepad, push the right stick past <strong>Stick Dead Zone</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The ship flips the wrong way</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">On the Top Down Controller 2D, set <strong>Facing</strong> to <strong>None</strong>; Aim 2D flips the sprite instead</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A wave never ends</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">An enemy is stuck somewhere off screen. Move the spawn points closer, or check its Enemy Mover 2D</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Enemies in the scrolling level never move</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Their Wake On Screen 2D wakes them when the camera reaches them; check the camera is scrolling</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The ship is pushed off the bottom</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Keep On Screen 2D needs the main camera to be <strong>Orthographic</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The game slows down with many bullets</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Lower the projectile's <strong>Lifetime</strong>, so bullets are put away sooner</td>
+</tr>
+</tbody>
+</table>

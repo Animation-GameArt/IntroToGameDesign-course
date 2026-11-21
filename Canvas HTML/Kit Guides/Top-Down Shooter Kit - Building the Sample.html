@@ -1,0 +1,294 @@
+<p><strong>For the instructor.</strong> These steps build the kit's sample game once, in the template project. Building it tests every kit script, and the result is what students import. Students read <strong>Top-Down Shooter Kit</strong>, not this page.</p>
+<p>Everything goes in <code>Assets/_Course/Kits/TopDownShooter/Sample/</code>, with folders <code>Data</code>, <code>Prefabs</code>, <code>Scenes</code> and <code>Weapons</code>.</p>
+<h2>Before you start</h2>
+<ol>
+<li>Pull the template project. It should be version 0.14.0 or later, with no red errors in the Console.</li>
+<li><strong>Art.</strong> Download Kenney's <strong>Pixel Shmup</strong> pack (link in <code>Assets/_Course/Art/Kenney/README.md</code>). Unzip it to <code>Assets/_Course/Art/Kenney/kenney_pixel-shmup</code>, remove the non-Unity files, and choose <strong>Collin Game → Art → Reapply Art Import Settings</strong>. Push it, and I'll add it to <code>Course Credits</code>. Its sprites are 16 pixels, so one tile is one unit.</li>
+<li><strong>Tags.</strong> In <strong>Project Settings → Tags and Layers</strong>, add <code>Enemy</code> if it isn't there.</li>
+<li><strong>Panel Settings.</strong> Every UI Document uses <code>CoursePanelSettings</code>.</li>
+</ol>
+<h2>Part 1 — Data</h2>
+<p>In <code>Sample/Data</code>:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 1 — Data</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Asset</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Type</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Initial value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Score</code>, <code>Wave</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Int Variable</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>PlayerHealth</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Int Variable</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>5</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>WeaponName</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">String Variable</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">empty</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>ArenaCleared</code>, <code>PlayerDied</code>, <code>ReachedBoss</code>, <code>BossDefeated</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Void Event Channel</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+</tbody>
+</table>
+<h2>Part 2 — Projectiles and weapons</h2>
+<p><strong>Projectiles</strong>, built in a scratch scene and saved to <code>Sample/Prefabs</code>:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 2 — Projectiles and weapons</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Prefab</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Sprite</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Collider</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Projectile 2D</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Player Bullet</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">a small yellow shot, pointing up, Order in Layer <code>8</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Circle Collider 2D, <strong>Is Trigger</strong>, Radius <code>0.15</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Target Tag <code>Enemy</code>, Lifetime <code>1.5</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Enemy Bullet</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">a small red or pink shot, Order in Layer <code>8</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Circle Collider 2D, <strong>Is Trigger</strong>, Radius <code>0.15</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Target Tag <code>Player</code>, Lifetime <code>3</code></td>
+</tr>
+</tbody>
+</table>
+<p>Each gets a Rigidbody 2D from the Projectile 2D.</p>
+<p><strong>Weapons</strong>, in <code>Sample/Weapons</code> (<strong>Create → Collin Game → Top-Down Shooter Kit → Weapon</strong>):</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 2 — Projectiles and weapons (2)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Asset</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Projectile</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Speed</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Damage</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Shots per second</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Per shot</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Spread</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Inaccuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Blaster</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Player Bullet</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>14</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>6</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Spread Shot</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Player Bullet</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>13</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>4</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>50</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Rapid Fire</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Player Bullet</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>16</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>14</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>6</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Enemy Shot</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Enemy Bullet</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>6</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>3</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Boss Spread</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Enemy Bullet</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>7</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>90</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+</tr>
+</tbody>
+</table>
+<p>All player weapons have Hold To Fire ticked.</p>
+<h2>Part 3 — The player</h2>
+<p><strong><code>Player Ship</code></strong> (arena version):</p>
+<ol>
+<li>An empty <code>Player Ship</code>, tag <code>Player</code>.</li>
+<li>A child <code>Turret</code> at <code>0, 0, 0</code>, and under it a child sprite <code>Hull</code> using a ship sprite, Order in Layer <code>10</code>. The ship sprite points up, so set the Hull's Rotation Z to <code>-90</code>: Aim 2D turns <code>Turret</code> to the aim, and expects it to point right.</li>
+<li>On <code>Player Ship</code>: a <strong>Circle Collider 2D</strong> (Radius <code>0.4</code>), <strong>Top Down Controller 2D</strong> (Max Speed <code>6</code>, <strong>Facing None</strong>), <strong>Aim 2D</strong> (Aim With <strong>Mouse Or Stick</strong>, Turn To Aim <code>Turret</code>), <strong>Weapon Shooter 2D</strong> (Weapon <code>Blaster</code>, Fire When <strong>Attack Button</strong>, Direction <strong>Aim</strong>, Weapon Name <code>WeaponName</code>), <strong>Health</strong> (Max Health <code>5</code>, Invulnerable Time <code>1</code>, Health Variable <code>PlayerHealth</code>, Raise On Died <code>PlayerDied</code>, When Health Runs Out <strong>Deactivate</strong>) and <strong>Keep On Screen 2D</strong> (Margin <code>0.5</code>).</li>
+</ol>
+<p><strong><code>Player Ship (Scrolling)</code></strong>: a Prefab Variant of <code>Player Ship</code>. Aim 2D: Aim With <strong>Fixed Direction</strong>, Fixed Direction <code>0, 1</code>, Turn To Aim empty. Set <code>Turret</code> rotation to <code>0, 0, 90</code> so the ship points up.</p>
+<h2>Part 4 — Enemies</h2>
+<p>Every enemy: a sprite, Order in Layer <code>5</code>, tag <code>Enemy</code>, a <strong>Circle Collider 2D</strong>, <strong>Enemy Mover 2D</strong> (adds the Rigidbody 2D), <strong>Health</strong> (When Health Runs Out <strong>Destroy</strong>, Invulnerable Time <code>0</code>, On Died → <code>Score</code> <strong>Add</strong>), and <strong>Damage On Touch</strong> (Target Tag <code>Player</code>).</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 4 — Enemies</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Prefab</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Enemy Mover 2D</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Health</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Score</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Also</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Drone</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Chase, Speed <code>2.5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>10</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Drop On Death 2D</strong>: Chance <code>0.1</code>, Drops <code>Heart</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Gunship</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Circle, Speed <code>2</code>, Preferred Distance <code>4</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>3</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>30</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Weapon Shooter 2D</strong>: Weapon <code>Enemy Shot</code>, <strong>Automatic</strong>, <strong>At Target</strong>, Auto Fire Interval <code>1.5</code>, First Shot Delay <code>1</code>. <strong>Drop On Death 2D</strong>: Chance <code>0.3</code>, Drops <code>Spread Power-Up</code>, <code>Rapid Power-Up</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Weaver</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Wave, Speed <code>2</code>, Fly Direction <code>0, -1</code>, Wave Width <code>1.5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>2</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>20</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Weapon Shooter 2D</strong>: <code>Enemy Shot</code>, Automatic, At Target, interval <code>2</code>. <strong>Wake On Screen 2D</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Boss</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Keep Away, Speed <code>1.5</code>, Preferred Distance <code>5</code>. Scale <code>3</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>40</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>500</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Weapon Shooter 2D</strong>: <code>Boss Spread</code>, Automatic, At Target, interval <code>1.2</code>. Health <strong>Raise On Died</strong> <code>BossDefeated</code></td>
+</tr>
+</tbody>
+</table>
+<h2>Part 5 — Pickups</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 5 — Pickups</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Prefab</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Components</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Heart</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Circle Collider 2D (trigger), <strong>Collectible</strong>: Heal <code>1</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Spread Power-Up</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Circle Collider 2D (trigger), <strong>Power Up 2D</strong>: Weapon <code>Spread Shot</code>, Duration <code>10</code>, Disappear After <code>8</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Rapid Power-Up</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The same with <code>Rapid Fire</code></td>
+</tr>
+</tbody>
+</table>
+<h2>Part 6 — Arena Systems</h2>
+<p>An empty <code>Arena Systems</code> at <code>0, 0, 0</code>, made into a prefab, with these children:</p>
+<p><strong><code>HUD</code></strong> — UI Document <code>ShooterHUD</code> (from <code>Kits/TopDownShooter/UI</code>), with a <strong>UI Variable Binder</strong>: <code>health-label</code> → <code>PlayerHealth</code> → <code>Health: {0}</code>; <code>score-label</code> → <code>Score</code> → <code>Score: {0}</code>; <code>wave-label</code> → <code>Wave</code> → <code>Wave {0}</code>; <code>weapon-label</code> → <code>WeaponName</code> → <code>{0}</code>.</p>
+<p><strong><code>Pause Menu</code></strong>, <strong><code>Scene Changer</code></strong>, <strong><code>To Menu</code></strong> — as in the Platformer Kit sample.</p>
+<p><strong><code>Game Over</code></strong> — UI Document <code>GameOver</code>, hidden, shown by a <strong>Void Event Listener</strong> on <code>PlayerDied</code>; <code>score-label</code> bound to <code>Score</code>; Try Again → <strong>ReloadScene</strong>.</p>
+<p><strong><code>Cleared</code></strong> — UI Document <code>LevelComplete</code> (from <code>Kits/Platformer/UI</code>), hidden, shown on <code>ArenaCleared</code>; Next → <strong>LoadNextScene</strong>.</p>
+<p><strong><code>Reset</code></strong> — a <strong>Variable Resetter</strong> with <code>Score</code>, <code>Wave</code> and <code>WeaponName</code>.</p>
+<p><strong><code>Waves</code></strong> — a <strong>Wave Spawner 2D</strong> with eight children as spawn points, two just outside each edge of the screen. Waves:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 6 — Arena Systems</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Wave</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Groups</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Seconds between enemies</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">1</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">6 Drones</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.6</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">2</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">8 Drones, 2 Gunships</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.5</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">3</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">10 Drones, 4 Gunships</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.4</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">4</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">1 Boss, 6 Drones</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.8</code></td>
+</tr>
+</tbody>
+</table>
+<p>Wave Number <code>Wave</code>; Raise When Cleared <code>ArenaCleared</code>.</p>
+<h2>Part 7 — The arena (<code>Shooter_Arena</code>)</h2>
+<ol>
+<li>Main Camera: Orthographic, Size <code>7</code>, dark background. No Cinemachine.</li>
+<li>A floor: a large sprite or a Tilemap from Pixel Shmup's ground tiles.</li>
+<li>Four walls just inside the camera's edges: sprites with Box Collider 2D, Order in Layer <code>1</code>.</li>
+<li><code>Player Ship</code> in the middle, and <code>Arena Systems</code>.</li>
+</ol>
+<h2>Part 8 — The scrolling level (<code>Shooter_Scrolling</code>)</h2>
+<ol>
+<li>Main Camera: Orthographic, Size <code>7</code>, with <strong>Scroll Camera 2D</strong> (Direction <code>0, 1</code>, Speed <code>2</code>, Stop After <code>80</code>, Raise At End <code>ReachedBoss</code>).</li>
+<li>A long floor or background, 18 wide and 100 tall, starting below the camera.</li>
+<li><code>Player Ship (Scrolling)</code> near the bottom of the view.</li>
+<li><code>Arena Systems</code>, with the <code>Waves</code> child switched off (this level places its enemies by hand).</li>
+<li>Place about 20 <code>Weaver</code>s and a few <code>Gunship</code>s (each with a <strong>Wake On Screen 2D</strong> added) along the level, in small groups.</li>
+<li>A <code>Boss</code> at the top of the level, with <strong>Wake On Screen 2D</strong>, so it wakes when the camera stops.</li>
+<li>On <code>Arena Systems</code> → <code>Cleared</code>, change its listener from <code>ArenaCleared</code> to <code>BossDefeated</code>.</li>
+</ol>
+<h2>Part 9 — Menu and win scenes</h2>
+<p>Build <code>Shooter_Menu</code> (Play loads <code>Shooter_Arena</code>) and <code>Shooter_Win</code> as in the Platformer Kit sample, showing <code>Score</code>.</p>
+<h2>Part 10 — Scene List</h2>
+<p><code>Shooter_Menu</code>, <code>Shooter_Arena</code>, <code>Shooter_Scrolling</code>, <code>Shooter_Win</code>, in that order.</p>
+<h2>Part 11 — Test</h2>
+<ul>
+<li>The ship moves with WASD and aims at the mouse; on a gamepad it aims with the right stick.</li>
+<li>Holding fire shoots steadily; bullets disappear at walls and after a while.</li>
+<li>Drones chase; Gunships circle and fire at the ship; enemy bullets cost health.</li>
+<li>The HUD shows health, score, wave and weapon.</li>
+<li>Each wave starts after the last is cleared; the boss arrives in wave 4.</li>
+<li>Power-ups change the weapon for 10 seconds, then the Blaster comes back; the HUD shows the weapon's name.</li>
+<li>Hearts heal.</li>
+<li>Losing all health shows Game Over; Try Again restarts the arena with score 0.</li>
+<li>Clearing wave 4 shows the cleared screen; Next loads the scrolling level.</li>
+<li>The camera scrolls up; the ship is carried along and can't leave the screen.</li>
+<li>Weavers stay still until they scroll into view, then weave and fire; they disappear after leaving the screen.</li>
+<li>The camera stops at the boss; defeating it shows the cleared screen; Next loads the win scene.</li>
+<li>With 200 or more bullets on screen, the game still runs smoothly (check the Stats panel in the Game view).</li>
+<li>Esc pauses; nothing fires while paused.</li>
+</ul>
+<p>Note anything that fails, with the Console message.</p>
+<h2>Part 12 — Commit</h2>
+<p>Commit and push the <code>Sample</code> folder with its <code>.meta</code> files, and the Pixel Shmup art folder.</p>
+<h2>Later — Exporting the kit</h2>
+<p>Export <code>Assets/_Course/Kits/TopDownShooter</code> and the Pixel Shmup art folder with <strong>Assets → Export Package</strong>, unticking Core and 2D scripts that Unity adds as dependencies. The Cleared screen uses <code>LevelComplete</code> from the Platformer Kit: tick it in the export, or copy it into this kit's <code>UI</code> folder first.</p>

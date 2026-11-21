@@ -3,7 +3,7 @@ title: "Script Reference"
 course: GAME 1303
 type: guide
 status: draft
-course_version: 0.13.0
+course_version: 0.14.0
 unity: 6000.3.10f1
 tags:
   - game1303
@@ -13,7 +13,7 @@ tags:
 
 # Script Reference
 
-Every course script in the course project, as of version **0.13.0**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
+Every course script in the course project, as of version **0.14.0**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
 
 ## Finding the scripts
 
@@ -57,6 +57,8 @@ Every script explains its settings: hover over a field in the Inspector to see i
 | `_Course/Kits/TurnBasedBattle/UI` | — | Battle screen |
 | `_Course/Kits/ArcadeClassic/Scripts` | `CollinGame.Kits.ArcadeClassic` | Arcade classic kit scripts |
 | `_Course/Kits/ArcadeClassic/UI` | — | Arcade and Pong HUDs |
+| `_Course/Kits/TopDownShooter/Scripts` | `CollinGame.Kits.TopDownShooter` | Top-down shooter kit scripts |
+| `_Course/Kits/TopDownShooter/UI` | — | Shooter HUD |
 | `_Course/Art/Kenney` | — | Kenney art packs (CC0). Its README links to every pack the kits use |
 | `_Course/Credits` | — | The course's credits text |
 
@@ -1029,6 +1031,77 @@ Methods: **Serve**, **ResetBall**.
 
 ---
 
+## Top-down shooter kit
+
+Imported with the Top-Down Shooter Kit package. See [Top-Down Shooter Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Top-Down%20Shooter%20Kit.md).
+
+### Weapon
+
+`Kits/TopDownShooter/Scripts/WeaponData.cs` · **Create → Collin Game → Top-Down Shooter Kit → Weapon**
+
+A weapon as an asset, shared by the player, enemies and power-ups.
+
+| Setting | Default | |
+|---|---|---|
+| Display Name | the asset's name | Shown in the HUD |
+| Projectile Prefab · Projectile Speed · Damage | — · `14` · `1` | The prefab needs a Projectile 2D |
+| Shots Per Second | `6` | |
+| Projectiles Per Shot · Spread Angle · Inaccuracy | `1` · `30` · `0` | More than one projectile makes a spread |
+| Hold To Fire | ticked | Unticked: one shot per press |
+| Sound | — | Played on each shot |
+
+### Weapon Shooter 2D
+
+`Kits/TopDownShooter/Scripts/WeaponShooter2D.cs` · **Add Component → Collin Game → Top-Down Shooter Kit → Weapon Shooter 2D**
+
+Fires a Weapon. **Fire When**: **Attack Button** (the player) or **Automatic** (enemies, every **Auto Fire Interval** seconds after **First Shot Delay**, within **Range**). **Direction**: **Aim** (an Aim 2D on the object), **At Target** (the object tagged **Target Tag**) or **Forward** (the object's up). **Muzzle** is where shots start. **Weapon Name** (a String Variable) shows the weapon in the HUD. Methods: **SetWeapon** (for good, or for some seconds before the starting weapon returns), **TryFire**. Event **On Shoot**.
+
+### Projectile 2D
+
+`Kits/TopDownShooter/Scripts/Projectile2D.cs` · **Add Component → Collin Game → Top-Down Shooter Kit → Projectile 2D**
+
+A bullet: flies straight, damages the first object with Health and the **Target Tag** (`Enemy`), and disappears after **Lifetime** (`2`) or on hitting a wall (**Stopped By Walls**). Never hits its shooter. Projectiles are reused rather than destroyed. Optional **Hit Effect**. Needs a trigger collider; the sprite should point up.
+
+### Aim 2D
+
+`Kits/TopDownShooter/Scripts/Aim2D.cs` · **Add Component → Collin Game → Top-Down Shooter Kit → Aim 2D**
+
+Twin-stick aiming. **Aim With**: **Mouse Or Stick** (the pointer once the mouse moves, the right stick when pushed past **Stick Dead Zone**), **Move Direction**, or **Fixed Direction** (for a scrolling shooter's ship). **Turn To Aim** turns a child that points right; **Sprite To Flip** flips to face the aim (set the Top Down Controller 2D's **Facing** to **None**). Read by other scripts: **Direction**.
+
+### Enemy Mover 2D
+
+`Kits/TopDownShooter/Scripts/EnemyMover2D.cs` · **Add Component → Collin Game → Top-Down Shooter Kit → Enemy Mover 2D**
+
+**Pattern**: **Chase**, **Straight** (along **Fly Direction**), **Wave** (along Fly Direction, weaving **Wave Width** at **Waves Per Second**), **Circle** (around the target at **Preferred Distance**), **Keep Away** (holds Preferred Distance). **Speed** (`2.5`), **Target Tag** (`Player`), **Face Movement** (sprite pointing up).
+
+### Wave Spawner 2D
+
+`Kits/TopDownShooter/Scripts/WaveSpawner2D.cs` · **Add Component → Collin Game → Top-Down Shooter Kit → Wave Spawner 2D**
+
+**Waves**, each a list of groups (enemy prefab and count) with **Seconds Between Enemies**. Enemies appear at random **Spawn Points**. The next wave starts **Pause Between Waves** (`2`) after every enemy of the last is gone. **Start Automatically** or call **Begin**; **Loop** for endless waves. **Wave Number** and **Enemies Left** (Int Variables), **Raise When Cleared**, **On Wave Started**, **On Cleared**.
+
+### Power Up 2D and Drop On Death 2D
+
+**Power Up 2D** gives the collector's Weapon Shooter 2D a **Weapon** for **Duration** (`10`; `0` is for good). **Disappear After** removes it if not picked up.
+
+**Drop On Death 2D** leaves one of its **Drops**, chosen at random, with probability **Chance** (`0.25`) when its Health runs out.
+
+### Keep On Screen 2D, Scroll Camera 2D and Wake On Screen 2D
+
+**Keep On Screen 2D** keeps an object inside the main camera's view, **Margin** (`0.5`) from the edge.
+
+**Scroll Camera 2D**, on the Main Camera, moves it along **Direction** at **Speed** (`2`) after **Start Delay**, stopping after **Stop After** (`100`) units and raising **Raise At End**. Methods **PauseScrolling**, **ResumeScrolling**.
+
+**Wake On Screen 2D** keeps an enemy's Enemy Mover 2D and Weapon Shooter 2D off until it comes within **Wake Margin** of the screen, and removes it once it's **Remove Margin** outside again.
+
+### Kit screens
+
+| Screen | Element names |
+|---|---|
+| `ShooterHUD` | `health-label`, `score-label`, `wave-label`, `weapon-label` |
+
+---
+
 ## Editor tools
 
 | Tool | Where | What it does |
@@ -1079,6 +1152,9 @@ Methods: **Serve**, **ResetBall**.
 | Asteroids | **Ship Controller 2D** + **Shooter 2D** + asteroids with **Drift 2D**, **Split On Death 2D** and **Counted Object**, all with **Screen Wrap 2D** |
 | A 3D player with a camera behind | **Tank Controller 3D** + a Cinemachine Camera (Follow, Lock To Target With World Up; Rotation Composer) |
 | A path the player can't fall off | A Spline Container + **Rail Runner 3D** |
+| Twin-stick shooting | **Aim 2D** + **Weapon Shooter 2D** (Attack Button, Aim) + a Weapon asset with a Projectile 2D prefab |
+| Waves of enemies | **Wave Spawner 2D** with spawn points just off screen |
+| A scrolling shooter | **Scroll Camera 2D** on the Main Camera, **Keep On Screen 2D** on the player, **Wake On Screen 2D** on each enemy |
 | Starting a new game from the menu | **Variable Resetter** in the menu scene, with every variable that carries between levels |
 
 ## Common Console messages

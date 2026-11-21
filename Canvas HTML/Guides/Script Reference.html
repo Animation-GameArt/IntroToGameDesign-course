@@ -1,4 +1,4 @@
-<p>Every course script in the course project, as of version <strong>0.13.0</strong>: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in <code>Assets/_Course/VERSION.txt</code>.</p>
+<p>Every course script in the course project, as of version <strong>0.14.0</strong>: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in <code>Assets/_Course/VERSION.txt</code>.</p>
 <h2>Finding the scripts</h2>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Finding the scripts</caption>
 <thead>
@@ -160,6 +160,16 @@
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/ArcadeClassic/UI</code></td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Arcade and Pong HUDs</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/TopDownShooter/Scripts</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>CollinGame.Kits.TopDownShooter</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Top-down shooter kit scripts</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/TopDownShooter/UI</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Shooter HUD</td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Art/Kenney</code></td>
@@ -2002,6 +2012,90 @@
 </tbody>
 </table>
 <hr/>
+<h2>Top-down shooter kit</h2>
+<p>Imported with the Top-Down Shooter Kit package. See <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Top-Down%20Shooter%20Kit.md">Top-Down Shooter Kit</a>.</p>
+<h3>Weapon</h3>
+<p><code>Kits/TopDownShooter/Scripts/WeaponData.cs</code> · <strong>Create → Collin Game → Top-Down Shooter Kit → Weapon</strong></p>
+<p>A weapon as an asset, shared by the player, enemies and power-ups.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Weapon</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Setting</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Default</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Display Name</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">the asset's name</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Shown in the HUD</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Projectile Prefab · Projectile Speed · Damage</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">— · <code>14</code> · <code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The prefab needs a Projectile 2D</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Shots Per Second</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>6</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Projectiles Per Shot · Spread Angle · Inaccuracy</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code> · <code>30</code> · <code>0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">More than one projectile makes a spread</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Hold To Fire</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">ticked</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Unticked: one shot per press</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Sound</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Played on each shot</td>
+</tr>
+</tbody>
+</table>
+<h3>Weapon Shooter 2D</h3>
+<p><code>Kits/TopDownShooter/Scripts/WeaponShooter2D.cs</code> · <strong>Add Component → Collin Game → Top-Down Shooter Kit → Weapon Shooter 2D</strong></p>
+<p>Fires a Weapon. <strong>Fire When</strong>: <strong>Attack Button</strong> (the player) or <strong>Automatic</strong> (enemies, every <strong>Auto Fire Interval</strong> seconds after <strong>First Shot Delay</strong>, within <strong>Range</strong>). <strong>Direction</strong>: <strong>Aim</strong> (an Aim 2D on the object), <strong>At Target</strong> (the object tagged <strong>Target Tag</strong>) or <strong>Forward</strong> (the object's up). <strong>Muzzle</strong> is where shots start. <strong>Weapon Name</strong> (a String Variable) shows the weapon in the HUD. Methods: <strong>SetWeapon</strong> (for good, or for some seconds before the starting weapon returns), <strong>TryFire</strong>. Event <strong>On Shoot</strong>.</p>
+<h3>Projectile 2D</h3>
+<p><code>Kits/TopDownShooter/Scripts/Projectile2D.cs</code> · <strong>Add Component → Collin Game → Top-Down Shooter Kit → Projectile 2D</strong></p>
+<p>A bullet: flies straight, damages the first object with Health and the <strong>Target Tag</strong> (<code>Enemy</code>), and disappears after <strong>Lifetime</strong> (<code>2</code>) or on hitting a wall (<strong>Stopped By Walls</strong>). Never hits its shooter. Projectiles are reused rather than destroyed. Optional <strong>Hit Effect</strong>. Needs a trigger collider; the sprite should point up.</p>
+<h3>Aim 2D</h3>
+<p><code>Kits/TopDownShooter/Scripts/Aim2D.cs</code> · <strong>Add Component → Collin Game → Top-Down Shooter Kit → Aim 2D</strong></p>
+<p>Twin-stick aiming. <strong>Aim With</strong>: <strong>Mouse Or Stick</strong> (the pointer once the mouse moves, the right stick when pushed past <strong>Stick Dead Zone</strong>), <strong>Move Direction</strong>, or <strong>Fixed Direction</strong> (for a scrolling shooter's ship). <strong>Turn To Aim</strong> turns a child that points right; <strong>Sprite To Flip</strong> flips to face the aim (set the Top Down Controller 2D's <strong>Facing</strong> to <strong>None</strong>). Read by other scripts: <strong>Direction</strong>.</p>
+<h3>Enemy Mover 2D</h3>
+<p><code>Kits/TopDownShooter/Scripts/EnemyMover2D.cs</code> · <strong>Add Component → Collin Game → Top-Down Shooter Kit → Enemy Mover 2D</strong></p>
+<p><strong>Pattern</strong>: <strong>Chase</strong>, <strong>Straight</strong> (along <strong>Fly Direction</strong>), <strong>Wave</strong> (along Fly Direction, weaving <strong>Wave Width</strong> at <strong>Waves Per Second</strong>), <strong>Circle</strong> (around the target at <strong>Preferred Distance</strong>), <strong>Keep Away</strong> (holds Preferred Distance). <strong>Speed</strong> (<code>2.5</code>), <strong>Target Tag</strong> (<code>Player</code>), <strong>Face Movement</strong> (sprite pointing up).</p>
+<h3>Wave Spawner 2D</h3>
+<p><code>Kits/TopDownShooter/Scripts/WaveSpawner2D.cs</code> · <strong>Add Component → Collin Game → Top-Down Shooter Kit → Wave Spawner 2D</strong></p>
+<p><strong>Waves</strong>, each a list of groups (enemy prefab and count) with <strong>Seconds Between Enemies</strong>. Enemies appear at random <strong>Spawn Points</strong>. The next wave starts <strong>Pause Between Waves</strong> (<code>2</code>) after every enemy of the last is gone. <strong>Start Automatically</strong> or call <strong>Begin</strong>; <strong>Loop</strong> for endless waves. <strong>Wave Number</strong> and <strong>Enemies Left</strong> (Int Variables), <strong>Raise When Cleared</strong>, <strong>On Wave Started</strong>, <strong>On Cleared</strong>.</p>
+<h3>Power Up 2D and Drop On Death 2D</h3>
+<p><strong>Power Up 2D</strong> gives the collector's Weapon Shooter 2D a <strong>Weapon</strong> for <strong>Duration</strong> (<code>10</code>; <code>0</code> is for good). <strong>Disappear After</strong> removes it if not picked up.</p>
+<p><strong>Drop On Death 2D</strong> leaves one of its <strong>Drops</strong>, chosen at random, with probability <strong>Chance</strong> (<code>0.25</code>) when its Health runs out.</p>
+<h3>Keep On Screen 2D, Scroll Camera 2D and Wake On Screen 2D</h3>
+<p><strong>Keep On Screen 2D</strong> keeps an object inside the main camera's view, <strong>Margin</strong> (<code>0.5</code>) from the edge.</p>
+<p><strong>Scroll Camera 2D</strong>, on the Main Camera, moves it along <strong>Direction</strong> at <strong>Speed</strong> (<code>2</code>) after <strong>Start Delay</strong>, stopping after <strong>Stop After</strong> (<code>100</code>) units and raising <strong>Raise At End</strong>. Methods <strong>PauseScrolling</strong>, <strong>ResumeScrolling</strong>.</p>
+<p><strong>Wake On Screen 2D</strong> keeps an enemy's Enemy Mover 2D and Weapon Shooter 2D off until it comes within <strong>Wake Margin</strong> of the screen, and removes it once it's <strong>Remove Margin</strong> outside again.</p>
+<h3>Kit screens</h3>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Kit screens (6)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Screen</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Element names</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>ShooterHUD</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>health-label</code>, <code>score-label</code>, <code>wave-label</code>, <code>weapon-label</code></td>
+</tr>
+</tbody>
+</table>
+<hr/>
 <h2>Editor tools</h2>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Editor tools</caption>
 <thead>
@@ -2186,6 +2280,18 @@
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A path the player can't fall off</td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A Spline Container + <strong>Rail Runner 3D</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Twin-stick shooting</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Aim 2D</strong> + <strong>Weapon Shooter 2D</strong> (Attack Button, Aim) + a Weapon asset with a Projectile 2D prefab</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Waves of enemies</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Wave Spawner 2D</strong> with spawn points just off screen</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A scrolling shooter</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Scroll Camera 2D</strong> on the Main Camera, <strong>Keep On Screen 2D</strong> on the player, <strong>Wake On Screen 2D</strong> on each enemy</td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Starting a new game from the menu</td>

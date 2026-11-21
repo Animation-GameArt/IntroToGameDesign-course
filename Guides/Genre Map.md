@@ -121,6 +121,8 @@ Most games mix genres a little. Choose the **one** genre that describes what the
 
 **The kit gives you:** aiming with the mouse or the right stick, weapons stored as data (fire rate, spread, projectile), reused projectiles, enemy movement patterns, waves, and power-ups. A scrolling version is included.
 
+**Kit guide:** [Top-Down Shooter Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Top-Down%20Shooter%20Kit.md)
+
 **A good scope:** one arena or one scrolling level, three enemy types, two weapons and a boss.
 
 **Leave out:** procedurally generated rooms and long upgrade trees.
