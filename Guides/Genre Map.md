@@ -185,6 +185,8 @@ Most games mix genres a little. Choose the **one** genre that describes what the
 
 **The kit gives you:** turns or timed ticks, resources, choices and buildings stored as data, random events, an end-of-turn report, and UI screens where things can be dragged and dropped.
 
+**Kit guide:** [Management Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Management%20Kit.md)
+
 **A good scope:** three resources, about ten turns to a win or a loss, and five or six events. Or one small map with five building types.
 
 **Leave out:** armies, opponents controlled by the computer, research trees and a large map (a Civilization-style game).

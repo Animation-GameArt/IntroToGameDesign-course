@@ -3,7 +3,7 @@ title: "Script Reference"
 course: GAME 1303
 type: guide
 status: draft
-course_version: 0.17.0
+course_version: 0.18.0
 unity: 6000.3.10f1
 tags:
   - game1303
@@ -13,7 +13,7 @@ tags:
 
 # Script Reference
 
-Every course script in the course project, as of version **0.17.0**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
+Every course script in the course project, as of version **0.18.0**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
 
 ## Finding the scripts
 
@@ -65,6 +65,8 @@ Every script explains its settings: hover over a field in the Inspector to see i
 | `_Course/Kits/GridPuzzle/UI` | — | Puzzle HUD, level select and solved screens |
 | `_Course/Kits/TowerDefense/Scripts` | `CollinGame.Kits.TowerDefense` | Tower defense kit scripts |
 | `_Course/Kits/TowerDefense/UI` | — | Tower HUD and build menu |
+| `_Course/Kits/Management/Scripts` | `CollinGame.Kits.Management` | Management kit scripts |
+| `_Course/Kits/Management/UI` | — | Management game screen |
 | `_Course/Art/Kenney` | — | Kenney art packs (CC0). Its README links to every pack the kits use |
 | `_Course/Credits` | — | The course's credits text |
 
@@ -1252,6 +1254,42 @@ Opens when a Build Spot is clicked or tapped: a button per entry in **Towers** w
 
 ---
 
+## Management kit
+
+Imported with the Management Kit package. See [Management Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Management%20Kit.md).
+
+### Effect
+
+A change to one resource, used in Turn Rules, Buildings and Events: **Resource** changes by **Amount** × **Times Each** (a resource, optional) ÷ **Divide By**, plus a random number up to **Random Extra** either way, but only when **If Resource** is at least or at most **If Value** (**Only When**).
+
+### Turn Rule, Event and Building
+
+**Turn Rule** (**Create → Collin Game → Management Kit → Turn Rule**): a list of **Effects** applied every turn.
+
+**Event** (**Create → … → Event**): **Title**, **Text**, **Weight**, **Earliest Turn**, **Only Once**, a **Condition**, **Effects** that happen at once, and optional **Choices** (each a **Label**, **Effects** and **Result** text).
+
+**Building** (**Create → … → Building**): **Display Name**, **Icon**, **Description**, **Cost** (effects paid once), **Every Turn** (effects per building), and **Count** (an Int Variable counting how many are built).
+
+### Turn Cycle
+
+`Kits/Management/Scripts/TurnCycle.cs` · **Add Component → Collin Game → Management Kit → Turn Cycle**
+
+Ends the turn on **EndTurn** (or every **Seconds Per Turn**): applies **Rules** in order, then every building's effects, then perhaps an **Event** (**Event Chance**), waiting for a **Choose** if it has choices; keeps **Resources** from going below 0 (**No Negative Resources**); writes **Report**; and wins after **Turns To Win** (`10`; `0` never). **Turn Number**, **Raise On Win**, **On Turn Ended**, **On Won**. Methods: **EndTurn**, **Choose** (index), **AddBuilding**, **RemoveBuilding**, **StopGame**.
+
+### UI Management Screen and UI Build Grid
+
+**UI Management Screen** wires `end-turn-button` to the Turn Cycle, shows the report in `report-label`, and shows events with choices in `event-panel` (`event-title`, `event-text`, a button per choice in `event-choices`).
+
+**UI Build Grid** fills `build-grid` with **Plots** plots (**Plots Per Row**) and `building-palette` with a card per **Buildings** entry. Drag a card onto an empty plot to build (if affordable); drag a building between plots to move it, or onto the cards to remove it. **Starting Buildings** are free. **Watch Resources** updates the cards when resources change. Mouse and touch.
+
+### Kit screens
+
+| Screen | Element names |
+|---|---|
+| `ManagementHUD` | `turn-label`, `resource-1-label` to `resource-4-label`, `build-grid`, `building-palette`, `report-label`, `end-turn-button`, `event-panel`, `event-title`, `event-text`, `event-choices` |
+
+---
+
 ## Editor tools
 
 | Tool | Where | What it does |
@@ -1310,6 +1348,8 @@ Opens when a Build Spot is clicked or tapped: a button per entry in **Towers** w
 | A Sokoban-style puzzle | **Grid Board** (with a walls Tilemap) + **Grid Player Input** + **Grid Piece**s + **Grid Goal**s |
 | Levels that unlock in order | A **Level List** + **Puzzle Level Loader** + **UI Level Select** |
 | Tower defense | An **Enemy Path 2D**, a **Tower Wave Spawner**, **Build Spot 2D**s, Tower assets, and the **UI Build Menu** on `TowerHUD` |
+| A turn-based management game | Int Variables as resources + **Turn Rule**s, **Event**s and **Building**s + a **Turn Cycle** + `ManagementHUD` with **UI Management Screen** and **UI Build Grid** |
+| Dragging UI cards onto slots | **UI Build Grid** (see its code for the pattern) |
 | Starting a new game from the menu | **Variable Resetter** in the menu scene, with every variable that carries between levels |
 
 ## Common Console messages

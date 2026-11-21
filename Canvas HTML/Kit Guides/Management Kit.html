@@ -1,0 +1,211 @@
+<p>The Management Kit is a starting point for management and strategy games played in turns: look at your resources, make a few decisions, end the turn, see what happened, plan the next one. Examples: Hammurabi, Reigns, the smallest town builders.</p>
+<p>The sample is a small take on Hammurabi. You run a village for ten years. People eat food every year; taxes bring in gold; buildings you drag onto plots produce food, wood, people and gold; and random events (rats, storms, a travelling merchant) force choices. Let the people starve and the game is lost.</p>
+<p>Almost all of a management game is <strong>numbers and screens</strong>. The kit keeps the numbers in assets you edit in the Inspector, and the screen in one UXML file, so your design work goes into the rules, the events and the layout you drew for your screen layout assignment.</p>
+<h2>What the kit covers</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">What the kit covers</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The kit does this</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The kit doesn't do this</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Any number of resources (each an Int Variable)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Resources with decimals</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Rules that run every turn, as lists of simple effects</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Rules that need real formulas (a custom script)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Random events, some with two or three choices</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Chains of events that remember each other's answers</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Buildings dragged onto plots, with costs and every-turn effects</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A scrolling map, roads or placement rules</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Turns ended with a button, or by a timer</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Armies, opponents or research trees</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">An end-of-turn report of what changed</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Saving a game in progress</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Winning by lasting a number of turns; losing by a resource running out</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+</tbody>
+</table>
+<p>If your pitch needs something in the right-hand column, it has to be one of your agreed custom scripts, or it has to be cut.</p>
+<h2>Install the kit</h2>
+<ol>
+<li>Download the Management Kit package from the course project's <strong>Releases</strong> page.</li>
+<li>With your project open, double-click the package and click <strong>Import</strong>.</li>
+<li>Open <strong>File → Build Profiles → Open Scene List</strong>. From <code>Assets/_Course/Kits/Management/Sample/Scenes</code>, add <code>Village_Menu</code> and <code>Village_Game</code>, next to each other, in that order.</li>
+<li>Open <code>Village_Menu</code> and press <strong>Play</strong>.</li>
+</ol>
+<p>Drag a building card onto a plot to build it. Drag a built building back onto the cards to remove it. Click <strong>End Turn</strong> to end the year. The game is played with the mouse or a touch screen; <strong>Esc</strong> pauses.</p>
+<h2>How it works</h2>
+<p>Everything is built from one idea: an <strong>Effect</strong>, a change to one resource. For example:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">How it works</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Effect</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Amount</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Times Each</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Divide By</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Only When</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Food −1 per person</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Food, <code>-1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">People</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Always</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Gold +1 per 3 people</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Gold, <code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">People</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>3</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Always</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">People −3 (give or take 1) if out of food</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">People, <code>-3</code>, Random Extra <code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Food at most <code>0</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">People +1 if food is plentiful</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">People, <code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Food at least <code>30</code></td>
+</tr>
+</tbody>
+</table>
+<p>Effects appear in three places:</p>
+<ul>
+<li><strong>Turn Rules</strong> (assets) happen every turn, in order. The sample has <em>Eating</em>, <em>Hunger</em>, <em>Taxes</em> and <em>Growth</em>, in that order. Order matters: <em>Hunger</em> checks food after <em>Eating</em> has taken it.</li>
+<li><strong>Buildings</strong> (assets) have a <strong>Cost</strong> (paid once, when built) and <strong>Every Turn</strong> effects (per building built). A Farm costs Gold 20 and gives Food +6 each turn.</li>
+<li><strong>Events</strong> (assets) can happen at the end of a turn. Some just happen (<em>Rats in the Granary</em>: Food −10). Others ask a question, with a button per <strong>Choice</strong>, each with its own effects (<em>A Merchant Arrives</em>: buy grain, sell wood, or send him away).</li>
+</ul>
+<p>The <strong>Turn Cycle</strong> runs it all. When the turn ends, it applies the rules, then the buildings, then perhaps an event (waiting for the player's choice), then writes the report and counts the turn. After <strong>Turns To Win</strong> turns, the player wins. Losing is an <strong>Int Variable Condition</strong> from the Core scripts: People at most 0.</p>
+<h2>What's in the sample</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">What's in the sample</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Asset</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What it is</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Worth changing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>People</code>, <code>Food</code>, <code>Gold</code>, <code>Wood</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The resources (Int Variables)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Initial Value</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Eating</code>, <code>Hunger</code>, <code>Taxes</code>, <code>Growth</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Turn Rules</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The effects' numbers</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Farm</code>, <code>Lumber Camp</code>, <code>House</code>, <code>Market</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Buildings</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Cost</strong>, <strong>Every Turn</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Rats</code>, <code>Good Harvest</code>, <code>Storm</code>, <code>Plague</code>, <code>Merchant</code>, <code>Festival</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Events; the last two have choices</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Weight</strong>, <strong>Earliest Turn</strong>, choices</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Village Systems</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Turn Cycle, the screen, win and lose</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Turns To Win</strong>, <strong>Event Chance</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The sample's numbers were checked with a quick simulation: building farms early and then houses and markets wins every time; building nothing loses almost every time, around year 6.</p>
+<h2>Start your own game</h2>
+<ol>
+<li>Decide your resources (three or four is plenty). Create an <strong>Int Variable</strong> for each in <code>Assets/_Game/Data</code>, with a starting value.</li>
+<li>Write your rules on paper first: what happens every turn? Then create a <strong>Turn Rule</strong> for each (<strong>Create → Collin Game → Management Kit → Turn Rule</strong>).</li>
+<li>Create your <strong>Buildings</strong> and <strong>Events</strong> the same way.</li>
+<li>Open <code>Village_Game</code>, <strong>File → Save As…</strong> into <code>Assets/_Game/Scenes</code>, and on <code>Village Systems</code>:
+<ul>
+<li><strong>Turn Cycle</strong>: your rules (in order), your resources, your events.</li>
+<li><strong>UI Build Grid</strong>: your buildings, and your resources in <strong>Watch Resources</strong>.</li>
+<li><strong>UI Variable Binder</strong> on the screen: point the <code>resource-1-label</code> … <code>resource-4-label</code> at your resources.</li>
+</ul>
+</li>
+<li>Press <strong>Play</strong> and play ten turns. Then change one number and play again.</li>
+</ol>
+<h3>Designing the numbers</h3>
+<ul>
+<li><strong>Play on paper first.</strong> A spreadsheet with a row per turn shows quickly whether a strategy works.</li>
+<li><strong>Every choice should cost something.</strong> A building that is always worth it isn't a decision.</li>
+<li><strong>Pressure should grow.</strong> In the sample, more people eat more food, so the farms you built early stop being enough.</li>
+<li><strong>Tell the player why.</strong> The report shows every resource's change; make sure an event's text explains surprises.</li>
+</ul>
+<h2>Recipes</h2>
+<p><strong>A Reigns-style game.</strong> No buildings: hide the build area in the UXML, set <strong>Event Chance</strong> to <code>1</code>, and make every event a choice. Four resources that must stay between limits (lose if any reaches 0, or 100).</p>
+<p><strong>A game that runs by itself.</strong> Set <strong>Seconds Per Turn</strong> on the Turn Cycle, such as <code>5</code>, for a small real-time town. Events still pause it.</p>
+<p><strong>An event only once.</strong> Tick <strong>Only Once</strong> on the event.</p>
+<p><strong>An event that needs a condition.</strong> Set the event's <strong>Condition</strong>, such as Gold at least 100 for <em>Bandits</em>.</p>
+<p><strong>A building that needs people.</strong> Give a House the every-turn effect People +1, and a Mine the cost People −2.</p>
+<p><strong>Winning by reaching a goal.</strong> Set <strong>Turns To Win</strong> to <code>0</code>, and add an <strong>Int Variable Condition</strong>: Gold at least 500 → raise the win event.</p>
+<p><strong>Sounds.</strong> Play a sound on the Turn Cycle's <strong>On Turn Ended</strong>.</p>
+<h2>If something goes wrong</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something goes wrong</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What you see</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">End Turn does nothing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The screen needs <strong>UI Management Screen</strong>, and the scene a <strong>Turn Cycle</strong>. If an event is showing, answer it first</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A resource never changes</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check the rule's effect has the <strong>Resource</strong> set, and its <strong>Only When</strong> condition can be met</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Resources go negative</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Tick <strong>No Negative Resources</strong>, and list the resource in <strong>Resources</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A card can't be dragged</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">It's greyed out: you can't afford it</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A card stays grey after earning money</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Add that resource to <strong>Watch Resources</strong> on the UI Build Grid</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Buildings do nothing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Their effects are in <strong>Every Turn</strong>, not <strong>Cost</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The report is empty</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">List your resources in the Turn Cycle's <strong>Resources</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The game ends at once</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A lose condition is already true: check starting values</td>
+</tr>
+</tbody>
+</table>

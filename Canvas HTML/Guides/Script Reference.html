@@ -1,4 +1,4 @@
-<p>Every course script in the course project, as of version <strong>0.17.0</strong>: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in <code>Assets/_Course/VERSION.txt</code>.</p>
+<p>Every course script in the course project, as of version <strong>0.18.0</strong>: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in <code>Assets/_Course/VERSION.txt</code>.</p>
 <h2>Finding the scripts</h2>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Finding the scripts</caption>
 <thead>
@@ -200,6 +200,16 @@
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/TowerDefense/UI</code></td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Tower HUD and build menu</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/Management/Scripts</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>CollinGame.Kits.Management</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Management kit scripts</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/Management/UI</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Management game screen</td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Art/Kenney</code></td>
@@ -2333,6 +2343,36 @@
 </tbody>
 </table>
 <hr/>
+<h2>Management kit</h2>
+<p>Imported with the Management Kit package. See <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Management%20Kit.md">Management Kit</a>.</p>
+<h3>Effect</h3>
+<p>A change to one resource, used in Turn Rules, Buildings and Events: <strong>Resource</strong> changes by <strong>Amount</strong> × <strong>Times Each</strong> (a resource, optional) ÷ <strong>Divide By</strong>, plus a random number up to <strong>Random Extra</strong> either way, but only when <strong>If Resource</strong> is at least or at most <strong>If Value</strong> (<strong>Only When</strong>).</p>
+<h3>Turn Rule, Event and Building</h3>
+<p><strong>Turn Rule</strong> (<strong>Create → Collin Game → Management Kit → Turn Rule</strong>): a list of <strong>Effects</strong> applied every turn.</p>
+<p><strong>Event</strong> (<strong>Create → … → Event</strong>): <strong>Title</strong>, <strong>Text</strong>, <strong>Weight</strong>, <strong>Earliest Turn</strong>, <strong>Only Once</strong>, a <strong>Condition</strong>, <strong>Effects</strong> that happen at once, and optional <strong>Choices</strong> (each a <strong>Label</strong>, <strong>Effects</strong> and <strong>Result</strong> text).</p>
+<p><strong>Building</strong> (<strong>Create → … → Building</strong>): <strong>Display Name</strong>, <strong>Icon</strong>, <strong>Description</strong>, <strong>Cost</strong> (effects paid once), <strong>Every Turn</strong> (effects per building), and <strong>Count</strong> (an Int Variable counting how many are built).</p>
+<h3>Turn Cycle</h3>
+<p><code>Kits/Management/Scripts/TurnCycle.cs</code> · <strong>Add Component → Collin Game → Management Kit → Turn Cycle</strong></p>
+<p>Ends the turn on <strong>EndTurn</strong> (or every <strong>Seconds Per Turn</strong>): applies <strong>Rules</strong> in order, then every building's effects, then perhaps an <strong>Event</strong> (<strong>Event Chance</strong>), waiting for a <strong>Choose</strong> if it has choices; keeps <strong>Resources</strong> from going below 0 (<strong>No Negative Resources</strong>); writes <strong>Report</strong>; and wins after <strong>Turns To Win</strong> (<code>10</code>; <code>0</code> never). <strong>Turn Number</strong>, <strong>Raise On Win</strong>, <strong>On Turn Ended</strong>, <strong>On Won</strong>. Methods: <strong>EndTurn</strong>, <strong>Choose</strong> (index), <strong>AddBuilding</strong>, <strong>RemoveBuilding</strong>, <strong>StopGame</strong>.</p>
+<h3>UI Management Screen and UI Build Grid</h3>
+<p><strong>UI Management Screen</strong> wires <code>end-turn-button</code> to the Turn Cycle, shows the report in <code>report-label</code>, and shows events with choices in <code>event-panel</code> (<code>event-title</code>, <code>event-text</code>, a button per choice in <code>event-choices</code>).</p>
+<p><strong>UI Build Grid</strong> fills <code>build-grid</code> with <strong>Plots</strong> plots (<strong>Plots Per Row</strong>) and <code>building-palette</code> with a card per <strong>Buildings</strong> entry. Drag a card onto an empty plot to build (if affordable); drag a building between plots to move it, or onto the cards to remove it. <strong>Starting Buildings</strong> are free. <strong>Watch Resources</strong> updates the cards when resources change. Mouse and touch.</p>
+<h3>Kit screens</h3>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Kit screens (10)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Screen</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Element names</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>ManagementHUD</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>turn-label</code>, <code>resource-1-label</code> to <code>resource-4-label</code>, <code>build-grid</code>, <code>building-palette</code>, <code>report-label</code>, <code>end-turn-button</code>, <code>event-panel</code>, <code>event-title</code>, <code>event-text</code>, <code>event-choices</code></td>
+</tr>
+</tbody>
+</table>
+<hr/>
 <h2>Editor tools</h2>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Editor tools</caption>
 <thead>
@@ -2549,6 +2589,14 @@
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Tower defense</td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">An <strong>Enemy Path 2D</strong>, a <strong>Tower Wave Spawner</strong>, <strong>Build Spot 2D</strong>s, Tower assets, and the <strong>UI Build Menu</strong> on <code>TowerHUD</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A turn-based management game</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Int Variables as resources + <strong>Turn Rule</strong>s, <strong>Event</strong>s and <strong>Building</strong>s + a <strong>Turn Cycle</strong> + <code>ManagementHUD</code> with <strong>UI Management Screen</strong> and <strong>UI Build Grid</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Dragging UI cards onto slots</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>UI Build Grid</strong> (see its code for the pattern)</td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Starting a new game from the menu</td>
