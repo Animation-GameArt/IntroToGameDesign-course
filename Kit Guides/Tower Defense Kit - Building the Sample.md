@@ -20,7 +20,7 @@ Everything goes in `Assets/_Course/Kits/TowerDefense/Sample/`, with folders `Dat
 ## Before you start
 
 1. Pull the template project. It should be version 0.17.0 or later, with no red errors in the Console.
-2. **Art.** Download Kenney's **Tower Defense (top-down)** pack (link in `Assets/_Course/Art/Kenney/README.md`). Unzip it to `Assets/_Course/Art/Kenney/kenney_tower-defense-top-down`, remove the `.url` files and any `Vector` folder, and choose **Collin Game → Art → Reapply Art Import Settings**. Its tiles are 64 pixels, so one tile is one unit. If the folder name differs, tell me and I'll match the import settings.
+2. **Art.** Kenney's **Tower Defense (top-down)** pack is already in `Assets/_Course/Art/Kenney/kenney_tower-defense-top-down` (use `PNG/Default size`). Its tiles are 64 pixels, so one tile is one unit.
 3. Every UI Document uses `CoursePanelSettings`.
 
 ## Part 1 — Data
