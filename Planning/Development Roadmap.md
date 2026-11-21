@@ -18,7 +18,7 @@ What is built, what is left, the order to build it in, and the decisions that bl
 | Piece | State |
 |---|---|
 | Schedule, teaching philosophy, design-doc templates | Written |
-| Template project (v0.13.0): Core, 2D, 3D, and five kits | Compiled up to v0.11.0. The v0.12.0 kits, Panel Settings and v0.13.0 3D scripts haven't been compiled yet |
+| Template project (v0.13.0): Core, 2D, 3D, and five kits | Everything compiles with no errors or warnings (2026-11-20). Kits and 3D scripts not yet tested in Play mode |
 | Exercise tutorials Ex 00–10 (two versions of Ex 05) | Drafted. Ex 01–04 tested |
 | Class and Lecture pages, weeks 1–7 | Drafted |
 | Canvas HTML copies, rebuilt automatically | Working |
@@ -27,7 +27,7 @@ What is built, what is left, the order to build it in, and the decisions that bl
 | Genre map page for students | Drafted (`Guides/Genre Map.md`) |
 | Genre kits and kit guides | Platformer, Physics Puzzle, Top-Down Adventure, Turn-Based Battle and Arcade Classic: scripts and both guides written (v0.12.0, not yet compiled); samples not built. Other 10 kits not started |
 | Scripts for weeks 8–10 (v0.10.0) | Audio, music, camera shake, hit stop, cutscenes, saving, high score and settings. Compiled; not yet tested in Ex 07–10. Dialogue is part of the visual novel kit |
-| 3D module and 2.5D tutorials | Tank Controller 3D, Rail Runner 3D, two tutorials. Universal Renderer added. Not yet compiled or tested |
+| 3D module and 2.5D tutorials | Tank Controller 3D, Rail Runner 3D, two tutorials. Universal Renderer added. Compiles; not yet tested |
 | Class and Lecture pages, weeks 8–16 | Drafted |
 | Topic pages | All 16 weeks drafted (54 pages) |
 | Assignment pages and rubrics | All 14 drafted, plus Extra Credit. Points assigned (100, plus up to 5 extra credit; table in the schedule) |
@@ -39,7 +39,7 @@ What is built, what is left, the order to build it in, and the decisions that bl
 
 **First — unblocks everything else (about 15 minutes):**
 
-- [ ] **Compile check.** Pull the template (v0.13.0), open it, and send Claude every red error in the Console. Any compile error, even in a kit, stops Play mode for the whole project, so nothing else can be tested until the Console is clean.
+- [x] **Compile check.** Done 2026-11-20: no errors; two warnings, fixed. Pull the template (v0.13.0), open it, and send Claude every red error in the Console. Any compile error, even in a kit, stops Play mode for the whole project, so nothing else can be tested until the Console is clean.
 
 **Then, in any order:**
 
@@ -158,7 +158,7 @@ Kits aren't used until week 8 of the semester, so the later ones can be finished
 
 ## Open risks
 
-- **Untested code is stacked up.** Five kits and the 3D module haven't been compiled, and Ex 05–10 haven't been tested. Each new kit adds to the pile, so test reports take priority over new kits.
+- **Untested code is stacked up.** Five kits and the 3D module compile but haven't been played, and Ex 05–10 haven't been tested. Each new kit adds to the pile, so test reports take priority over new kits.
 - **Each kit costs instructor testing time.** The kit count in decision 1 should match the time available before the semester.
 - **The Unity Version Control allowance for students** is still unconfirmed.
 - **3D lives in the same course project** as 2D (decided 2026-11-20): one project, one repository, one set of Core, UI and data. 3D scenes use a second URP renderer. **The Unreal section** is deferred until the 2D Unity course is complete.

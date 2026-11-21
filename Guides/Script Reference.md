@@ -3,7 +3,7 @@ title: "Script Reference"
 course: GAME 1303
 type: guide
 status: draft
-course_version: 0.12.0
+course_version: 0.13.0
 unity: 6000.3.10f1
 tags:
   - game1303
@@ -13,7 +13,7 @@ tags:
 
 # Script Reference
 
-Every course script in the course project, as of version **0.12.0**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
+Every course script in the course project, as of version **0.13.0**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
 
 ## Finding the scripts
 
@@ -46,6 +46,7 @@ Every script explains its settings: hover over a field in the Inspector to see i
 | `_Course/TwoD/Movement` | `CollinGame.TwoD` | 2D character controllers and moving objects |
 | `_Course/TwoD/AI` | `CollinGame.TwoD` | 2D enemies |
 | `_Course/TwoD/Visuals` | `CollinGame.TwoD` | Simple sprite animation |
+| `_Course/ThreeD/Movement` | `CollinGame.ThreeD` | 3D and 2.5D player controllers |
 | `_Course/Kits/Platformer/Scripts` | `CollinGame.Kits.Platformer` | Platformer kit scripts |
 | `_Course/Kits/Platformer/UI` | — | Platformer kit screens |
 | `_Course/Kits/PhysicsPuzzle/Scripts` | `CollinGame.Kits.PhysicsPuzzle` | Physics puzzle kit scripts |
@@ -317,6 +318,59 @@ Moves an object along a path, over and over: moving platforms, flying enemies, s
 Selecting the object draws its path. A character with the Platformer Controller 2D is carried along when standing on it.
 
 **Used in:** [Platformer Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Platformer%20Kit.md) (Moving Platform, Flyer).
+
+---
+
+## 3D movement
+
+3D scripts sit beside the 2D ones and use the same Core scripts, so Health, Respawner, Checkpoint, Collectible, Kill Zone and the UI all work with 3D colliders. A 3D scene's Main Camera uses the **Universal Renderer** (**Rendering → Renderer**); 2D scenes keep the 2D Renderer.
+
+### Tank Controller 3D
+
+`ThreeD/Movement/TankController3D.cs` · **Add Component → Collin Game → 3D → Tank Controller 3D**
+
+A player controlled relative to themselves: left and right turn, forward and back move the way the player faces, Jump jumps. Uses a **Character Controller**, added and sized for you (Height `2`, Radius `0.4`, Center `0, 1, 0`). Put it on the root of the player, with the pivot at the feet. Pair it with a Cinemachine Camera that follows from behind.
+
+| Setting | Default | |
+|---|---|---|
+| Input | `InputReader` (filled in for you) | |
+| Turn Speed · Air Turning | `180` · `0.75` | Degrees per second; share of turning kept in the air |
+| Forward Speed · Backward Speed | `6` · `3` | Units per second |
+| Acceleration · Deceleration · Air Control | `30` · `40` · `0.5` | |
+| Jump Height · Extra Air Jumps | `2` · `0` | `1` gives a double jump |
+| Short Hop Speed Kept | `0.5` | Letting go of Jump early cuts the jump |
+| Coyote Time · Jump Buffer Time | `0.1` · `0.1` | |
+| Gravity · Fall Gravity Multiplier · Max Fall Speed | `25` · `1.5` · `30` | |
+| On Jump · On Landed | — | |
+
+Read by other scripts: **IsGrounded**, **ForwardSpeed**, **Velocity**, **MoveInput**. Method: **Bounce** (height), for bounce pads. A Respawner can move the player; the controller notices and keeps up.
+
+**Used in:** [2.5D Tutorial 1 — Third-Person Controller](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Tutorials/2.5D%20Tutorial%201%20-%20Third-Person%20Controller.md).
+
+### Rail Runner 3D
+
+`ThreeD/Movement/RailRunner3D.cs` · **Add Component → Collin Game → 3D → Rail Runner 3D**
+
+Keeps the player on a **Spline Container** (the rail): they run along it, step sideways within its width, and jump, but can't fall off. At the start, and after a Respawner moves them, the player snaps to the nearest point on the rail. Select the player to see the rail's edges. Uses a Character Controller so trigger colliders (pickups, hazards, checkpoints) still work; solid colliders are ignored.
+
+| Setting | Default | |
+|---|---|---|
+| Input · Rail | `InputReader` · the scene's first Spline Container | Both filled in for you |
+| Controls | Forward And Back | **Forward And Back** (camera behind), **Left And Right** (camera at the side, a 2.5D side-scroller), **Auto Run** (endless runner) |
+| Swap Left And Right | unticked | Left And Right only, for a camera on the other side |
+| Run Speed · Backward Speed | `7` · `4` | |
+| Acceleration · Deceleration | `30` · `40` | |
+| Rail Width · Side Speed | `1` · `4` | Width `0` keeps the player on the line |
+| Height Above Rail | `0` | Raise it if the player sinks into the path's mesh |
+| Face Run Direction · Turn Speed | unticked · `720` | Tick it to turn around when running back |
+| Rail Facing Target | — | A child kept facing along the rail. Use it as the camera's Tracking Target for a side view |
+| Jump Height · Extra Air Jumps · Short Hop Speed Kept · Jump Buffer Time | `2` · `0` · `0.5` · `0.1` | |
+| Gravity · Fall Gravity Multiplier | `25` · `1.5` | |
+| On Jump · On Landed · On Reached End · On Reached Start | — | The end events only run on a rail that doesn't loop |
+
+Read by other scripts: **Progress** (0 to 1 along the rail), **RunSpeed**, **SideOffset**, **IsGrounded**, **Rail**. Methods: **SnapToNearest**, **Bounce**.
+
+**Used in:** [2.5D Tutorial 2 — Rail Runner](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Tutorials/2.5D%20Tutorial%202%20-%20Rail%20Runner.md).
 
 ---
 
@@ -1022,6 +1076,8 @@ Methods: **Serve**, **ResetBall**.
 | A battle with a menu | **Turn Manager** + fighters with **Battle Actor** + `BattleUI` with **UI Battle Menu** |
 | Breakout | **Paddle 2D** + **Ball 2D** + bricks with **Brick 2D** and **Counted Object** + a **Ball Goal 2D** below |
 | Asteroids | **Ship Controller 2D** + **Shooter 2D** + asteroids with **Drift 2D**, **Split On Death 2D** and **Counted Object**, all with **Screen Wrap 2D** |
+| A 3D player with a camera behind | **Tank Controller 3D** + a Cinemachine Camera (Follow, Lock To Target With World Up; Rotation Composer) |
+| A path the player can't fall off | A Spline Container + **Rail Runner 3D** |
 | Starting a new game from the menu | **Variable Resetter** in the menu scene, with every variable that carries between levels |
 
 ## Common Console messages

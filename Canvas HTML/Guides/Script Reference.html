@@ -1,4 +1,4 @@
-<p>Every course script in the course project, as of version <strong>0.12.0</strong>: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in <code>Assets/_Course/VERSION.txt</code>.</p>
+<p>Every course script in the course project, as of version <strong>0.13.0</strong>: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in <code>Assets/_Course/VERSION.txt</code>.</p>
 <h2>Finding the scripts</h2>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Finding the scripts</caption>
 <thead>
@@ -105,6 +105,11 @@
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/TwoD/Visuals</code></td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>CollinGame.TwoD</code></td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Simple sprite animation</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/ThreeD/Movement</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>CollinGame.ThreeD</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">3D and 2.5D player controllers</td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/Platformer/Scripts</code></td>
@@ -698,6 +703,146 @@
 </table>
 <p>Selecting the object draws its path. A character with the Platformer Controller 2D is carried along when standing on it.</p>
 <p><strong>Used in:</strong> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Platformer%20Kit.md">Platformer Kit</a> (Moving Platform, Flyer).</p>
+<hr/>
+<h2>3D movement</h2>
+<p>3D scripts sit beside the 2D ones and use the same Core scripts, so Health, Respawner, Checkpoint, Collectible, Kill Zone and the UI all work with 3D colliders. A 3D scene's Main Camera uses the <strong>Universal Renderer</strong> (<strong>Rendering → Renderer</strong>); 2D scenes keep the 2D Renderer.</p>
+<h3>Tank Controller 3D</h3>
+<p><code>ThreeD/Movement/TankController3D.cs</code> · <strong>Add Component → Collin Game → 3D → Tank Controller 3D</strong></p>
+<p>A player controlled relative to themselves: left and right turn, forward and back move the way the player faces, Jump jumps. Uses a <strong>Character Controller</strong>, added and sized for you (Height <code>2</code>, Radius <code>0.4</code>, Center <code>0, 1, 0</code>). Put it on the root of the player, with the pivot at the feet. Pair it with a Cinemachine Camera that follows from behind.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Tank Controller 3D</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Setting</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Default</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Input</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>InputReader</code> (filled in for you)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Turn Speed · Air Turning</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>180</code> · <code>0.75</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Degrees per second; share of turning kept in the air</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Forward Speed · Backward Speed</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>6</code> · <code>3</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Units per second</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Acceleration · Deceleration · Air Control</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>30</code> · <code>40</code> · <code>0.5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Jump Height · Extra Air Jumps</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>2</code> · <code>0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code> gives a double jump</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Short Hop Speed Kept</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Letting go of Jump early cuts the jump</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Coyote Time · Jump Buffer Time</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.1</code> · <code>0.1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Gravity · Fall Gravity Multiplier · Max Fall Speed</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>25</code> · <code>1.5</code> · <code>30</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">On Jump · On Landed</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+</tbody>
+</table>
+<p>Read by other scripts: <strong>IsGrounded</strong>, <strong>ForwardSpeed</strong>, <strong>Velocity</strong>, <strong>MoveInput</strong>. Method: <strong>Bounce</strong> (height), for bounce pads. A Respawner can move the player; the controller notices and keeps up.</p>
+<p><strong>Used in:</strong> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Tutorials/2.5D%20Tutorial%201%20-%20Third-Person%20Controller.md">2.5D Tutorial 1 — Third-Person Controller</a>.</p>
+<h3>Rail Runner 3D</h3>
+<p><code>ThreeD/Movement/RailRunner3D.cs</code> · <strong>Add Component → Collin Game → 3D → Rail Runner 3D</strong></p>
+<p>Keeps the player on a <strong>Spline Container</strong> (the rail): they run along it, step sideways within its width, and jump, but can't fall off. At the start, and after a Respawner moves them, the player snaps to the nearest point on the rail. Select the player to see the rail's edges. Uses a Character Controller so trigger colliders (pickups, hazards, checkpoints) still work; solid colliders are ignored.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Rail Runner 3D</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Setting</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Default</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Input · Rail</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>InputReader</code> · the scene's first Spline Container</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Both filled in for you</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Controls</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Forward And Back</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Forward And Back</strong> (camera behind), <strong>Left And Right</strong> (camera at the side, a 2.5D side-scroller), <strong>Auto Run</strong> (endless runner)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Swap Left And Right</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">unticked</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Left And Right only, for a camera on the other side</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Run Speed · Backward Speed</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>7</code> · <code>4</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Acceleration · Deceleration</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>30</code> · <code>40</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Rail Width · Side Speed</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code> · <code>4</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Width <code>0</code> keeps the player on the line</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Height Above Rail</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Raise it if the player sinks into the path's mesh</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Face Run Direction · Turn Speed</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">unticked · <code>720</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Tick it to turn around when running back</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Rail Facing Target</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A child kept facing along the rail. Use it as the camera's Tracking Target for a side view</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Jump Height · Extra Air Jumps · Short Hop Speed Kept · Jump Buffer Time</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>2</code> · <code>0</code> · <code>0.5</code> · <code>0.1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Gravity · Fall Gravity Multiplier</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>25</code> · <code>1.5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">On Jump · On Landed · On Reached End · On Reached Start</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The end events only run on a rail that doesn't loop</td>
+</tr>
+</tbody>
+</table>
+<p>Read by other scripts: <strong>Progress</strong> (0 to 1 along the rail), <strong>RunSpeed</strong>, <strong>SideOffset</strong>, <strong>IsGrounded</strong>, <strong>Rail</strong>. Methods: <strong>SnapToNearest</strong>, <strong>Bounce</strong>.</p>
+<p><strong>Used in:</strong> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Tutorials/2.5D%20Tutorial%202%20-%20Rail%20Runner.md">2.5D Tutorial 2 — Rail Runner</a>.</p>
 <hr/>
 <h2>2D enemies and visuals</h2>
 <h3>Patrol Enemy 2D</h3>
@@ -2028,6 +2173,14 @@
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Asteroids</td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Ship Controller 2D</strong> + <strong>Shooter 2D</strong> + asteroids with <strong>Drift 2D</strong>, <strong>Split On Death 2D</strong> and <strong>Counted Object</strong>, all with <strong>Screen Wrap 2D</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A 3D player with a camera behind</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Tank Controller 3D</strong> + a Cinemachine Camera (Follow, Lock To Target With World Up; Rotation Composer)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A path the player can't fall off</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A Spline Container + <strong>Rail Runner 3D</strong></td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Starting a new game from the menu</td>
