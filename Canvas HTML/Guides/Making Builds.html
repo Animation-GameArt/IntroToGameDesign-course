@@ -1,0 +1,201 @@
+<p>How to turn your project into a game people can play without Unity: a <strong>Web</strong> build that runs in a browser, and <strong>Windows</strong> and <strong>macOS</strong> builds they download. Come back to this page at every milestone.</p>
+<p>You make your first build in <strong>Exercise 08</strong>. Every milestone from First Playable on is a link to your itch.io page with a build on it.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Making Builds</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Build</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Who can play it</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Best for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Web</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Anyone with a browser, straight from your itch.io page</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Every milestone. It's the easiest for classmates and playtesters</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Windows</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">People on Windows who download it</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Games that run slowly in a browser, or need full-screen performance</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>macOS</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">People on Macs who download it</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The same, for Mac players</td>
+</tr>
+</tbody>
+</table>
+<p>Make a Web build for every milestone. Add a Windows or macOS build if your game needs it, or for Gold.</p>
+<h2>Before any build</h2>
+<ol>
+<li><strong>No red errors in the Console.</strong> A project with errors can't be built.</li>
+<li>Open <strong>File → Build Profiles → Open Scene List</strong>. Every scene in your game is there, <strong>your menu scene is first</strong>, and the rest are in play order. Untick or remove exercise and kit sample scenes.</li>
+<li>Click <strong>Player Settings</strong> (bottom of the Build Profiles window). Set <strong>Company Name</strong> to your name and <strong>Product Name</strong> to your game's title. Set a <strong>Default Icon</strong> if you have one.</li>
+<li>Play the game once in the Editor from the menu scene, start to finish.</li>
+</ol>
+<h2>Build, or Build And Run?</h2>
+<p>The Build Profiles window has two buttons:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Build, or Build And Run?</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Button</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What it does</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Use it when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Build</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Makes the build in a folder you choose, and stops</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">You'll upload it, or zip it to send</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Build And Run</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Makes the build, then starts it so you can play it at once</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">You want to check the build right away. Use it most of the time</td>
+</tr>
+</tbody>
+</table>
+<p>For a <strong>Web</strong> build, use <strong>Build And Run</strong> to test it. A Web build can't be opened by double-clicking its <code>index.html</code>: browsers block it. Build And Run starts a small local web server so it plays properly. On itch.io it works either way.</p>
+<p><strong>Where to save builds.</strong> Make a <code>Builds</code> folder next to your <code>Assets</code> folder, <strong>not inside it</strong>, with a folder per platform: <code>Builds/Web</code>, <code>Builds/Windows</code>, <code>Builds/macOS</code>. Choose the right one each time. Unity replaces what's in the folder, so a new build overwrites the old one. The course project's <code>.gitignore</code> already leaves <code>Builds</code> out of Git.</p>
+<h2>Web build</h2>
+<ol>
+<li><strong>File → Build Profiles</strong>. Under <strong>Platforms</strong>, select <strong>Web</strong>.
+<ul>
+<li>If it says the module isn't installed: in <strong>Unity Hub → Installs</strong>, click the ⚙ next to Unity 6000.3.10f1 → <strong>Add modules</strong> → <strong>Web Build Support</strong>. Restart Unity.</li>
+</ul>
+</li>
+<li>Click <strong>Switch Platform</strong> and wait. The first switch takes a few minutes.</li>
+<li><strong>Player Settings → Publishing Settings</strong>: tick <strong>Decompression Fallback</strong>. (Without it, itch.io can show a blank page.)</li>
+<li>Click <strong>Build And Run</strong>, and choose <code>Builds/Web</code>. When it finishes, the game opens in your browser. Play it start to finish.</li>
+</ol>
+<h3>Upload a Web build to itch.io</h3>
+<ol>
+<li>Open <code>Builds/Web</code>, select <strong>everything inside it</strong> (<code>index.html</code> and the folders next to it), and compress it into a ZIP. <code>index.html</code> must be at the top of the ZIP, not inside another folder.</li>
+<li>On your itch.io page (<strong>Edit game</strong>):
+<ul>
+<li><strong>Kind of project:</strong> HTML.</li>
+<li><strong>Uploads:</strong> upload the ZIP, and tick <strong>This file will be played in the browser</strong>. Delete the previous build's upload, so only the newest is played.</li>
+<li><strong>Embed options:</strong> viewport <code>960</code> × <code>540</code>; tick <strong>Fullscreen button</strong>.</li>
+</ul>
+</li>
+<li><strong>Save</strong>, then <strong>View page</strong>, and play it there.</li>
+</ol>
+<h3>Things that work differently in a browser</h3>
+<ul>
+<li><strong>Quit does nothing.</strong> A browser tab can't close itself. The course's Settings screen hides Full Screen in Web builds; hide your Quit button too, or leave it, knowing it won't do anything.</li>
+<li><strong>The mouse pointer can only be locked after a click.</strong> In a 3D game with <strong>Cursor Lock 3D</strong>, the player clicks the game once to start mouse look.</li>
+<li><strong>Saving</strong> uses the browser's storage. It's kept per browser, and lost if the player clears their browsing data.</li>
+<li><strong>Performance.</strong> Web builds are slower than desktop builds. If your game stutters in the browser but not in the Editor, see <strong>The Profiler</strong> topic, or add a Windows build.</li>
+</ul>
+<h2>Windows build</h2>
+<p>You can make a Windows build from a Windows computer without installing anything extra. From a Mac, add <strong>Windows Build Support (Mono)</strong> in <strong>Unity Hub → Installs → Add modules</strong>.</p>
+<ol>
+<li><strong>File → Build Profiles</strong>. Under <strong>Platforms</strong>, select <strong>Windows</strong>. Click <strong>Switch Platform</strong>.</li>
+<li>Leave <strong>Architecture</strong> on <strong>Intel 64-bit</strong>.</li>
+<li><strong>Player Settings → Resolution and Presentation</strong>: <strong>Fullscreen Mode</strong> <strong>Fullscreen Window</strong> is a good default (the Settings screen lets players change it). Tick <strong>Resizable Window</strong>.</li>
+<li>Click <strong>Build And Run</strong>, and choose <code>Builds/Windows</code>. The game starts when it's built.</li>
+</ol>
+<p>The build is a folder of files: <code>YourGame.exe</code>, a <code>YourGame_Data</code> folder, <code>UnityPlayer.dll</code> and a few more. <strong>All of them are needed.</strong> Sending only the <code>.exe</code> doesn't work.</p>
+<h3>Upload a Windows build to itch.io</h3>
+<ol>
+<li>Compress the <strong>whole contents</strong> of <code>Builds/Windows</code> into a ZIP named like <code>YourGame-Windows.zip</code>.</li>
+<li>On your itch.io page (<strong>Edit game</strong>) → <strong>Uploads</strong>: upload the ZIP, and tick <strong>Windows</strong> under the platforms. Don't tick "played in the browser".</li>
+<li>If the page also has a Web build, keep <strong>Kind of project</strong> on <strong>HTML</strong>: players can play in the browser or download.</li>
+<li>Download it from the page and run it, to check.</li>
+</ol>
+<p>Windows may show <strong>"Windows protected your PC"</strong> the first time, because the game isn't signed. Click <strong>More info → Run anyway</strong>. Tell your playtesters to expect it.</p>
+<h2>macOS build</h2>
+<p>You can make a macOS build from a Mac without installing anything extra. From Windows, add <strong>Mac Build Support (Mono)</strong> in <strong>Unity Hub → Installs → Add modules</strong>.</p>
+<ol>
+<li><strong>File → Build Profiles</strong>. Under <strong>Platforms</strong>, select <strong>macOS</strong>. Click <strong>Switch Platform</strong>.</li>
+<li><strong>Architecture:</strong> <strong>Intel 64-bit + Apple silicon</strong>, so it runs on every Mac.</li>
+<li>The same <strong>Resolution and Presentation</strong> settings as Windows.</li>
+<li>Click <strong>Build And Run</strong>, and choose <code>Builds/macOS</code>. The build is one <code>YourGame.app</code>.</li>
+</ol>
+<h3>Upload a macOS build to itch.io</h3>
+<ol>
+<li>Right-click <code>YourGame.app</code> → <strong>Compress</strong> to make a ZIP. (Built on Windows? Zip the <code>.app</code> folder the same way.)</li>
+<li>On itch.io → <strong>Uploads</strong>: upload the ZIP and tick <strong>macOS</strong>.</li>
+</ol>
+<p>macOS blocks games from unknown developers the first time. The player double-clicks it, clicks <strong>Done</strong> on the warning, then opens <strong>System Settings → Privacy &amp; Security</strong>, scrolls down, and clicks <strong>Open Anyway</strong> next to the game's name. Tell your playtesters to expect it. A Mac build made on Windows may not open at all; build on a Mac if you can, or offer the Web build.</p>
+<h2>Development builds</h2>
+<p><strong>Development Build</strong> (in Build Profiles) makes a build that shows errors on screen and can be connected to the Profiler. It's useful for chasing a bug that only happens in the build. <strong>Untick it for every milestone build</strong>: it's slower and shows a "Development Build" label.</p>
+<h2>Before you submit a milestone</h2>
+<ul>
+<li>The build starts at your menu.</li>
+<li>You played it start to finish <strong>in the build</strong>, not the Editor.</li>
+<li>On itch.io, the newest build is the one that plays (old uploads deleted).</li>
+<li>You opened the page while logged out, or in a private window, to see it as a player would. For a private draft, use the page's <strong>secret URL</strong> (Edit game → <strong>Visibility &amp; access</strong>).</li>
+</ul>
+<h2>If something goes wrong</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something goes wrong</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What you see</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Build fails</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Read the <strong>first</strong> red error in the Console, fix it, and build again. A project with errors can't be built</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">"Module not installed"</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Add the platform's Build Support in <strong>Unity Hub → Installs → Add modules</strong>, and restart Unity</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Starts on the wrong scene</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Drag your menu scene to the top of the Scene List</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A level is missing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Add its scene to the Scene List</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Next Level goes to the wrong scene</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Scene List's order is the level order</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Text is tiny or cut off</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Check the UI at the build's size in the Game view (the resolution menu at its top); every UI Document uses <code>CoursePanelSettings</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Web: blank page on itch.io</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Tick <strong>Decompression Fallback</strong>, build again, and upload again</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Web: "can't find index.html"</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The ZIP has an extra folder level. Zip the files inside <code>Builds/Web</code>, not the folder</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Web: double-clicking <code>index.html</code> shows an error</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Expected. Use <strong>Build And Run</strong>, or upload it</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Windows: "missing UnityPlayer.dll"</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The whole build folder wasn't shared. Zip everything in <code>Builds/Windows</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Windows: "Windows protected your PC"</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>More info → Run anyway</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">macOS: "can't be opened"</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>System Settings → Privacy &amp; Security → Open Anyway</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Something works in the Editor but not the build</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Note exactly what. Make a <strong>Development Build</strong> to see its errors on screen</td>
+</tr>
+</tbody>
+</table>
+<h2>Related</h2>
+<ul>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex08%20-%20Save%20%26%20Build.md">Ex 08 — Save &amp; Build</a>: your first Web build and itch.io page</li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Making%20a%20Build.md">Making a Build</a> and <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Publishing%20on%20itch.io.md">Publishing on itch.io</a></li>
+<li><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Topics/Final%20Build%20Checks.md">Final Build Checks</a>: before Gold</li>
+<li>Unity Manual: <a href="https://docs.unity3d.com/Manual/create-build-profile.html">Create and manage build profiles</a>, <a href="https://docs.unity3d.com/Manual/webgl.html">Web</a></li>
+</ul>

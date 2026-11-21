@@ -84,6 +84,9 @@ For games with levels, collections or unlocks.
 
 When the build finishes, it opens in your browser. Play it start to finish.
 
+> [!tip] For every build after this one
+> **[Making Builds](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Making%20Builds.md)** has these steps, plus Windows and macOS builds, and what to do when a build goes wrong.
+
 > **Write down anything that's different from the Editor.** Missing scenes, text that doesn't fit, sounds that don't play. Fixing them is today's lab.
 
 ## Part 4 — Publish privately on itch.io

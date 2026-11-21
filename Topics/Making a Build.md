@@ -45,6 +45,8 @@ Every milestone from Week 10 is a build. Students make their first one in Ex 08 
 
 ## Where it comes up
 
+- [Making Builds](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Making%20Builds.md): the students' step-by-step guide to Web, Windows and macOS builds, Build versus Build And Run, uploading each to itch.io, and fixes.
+
 - [Ex 08 — Save & Build](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Exercises/Ex08%20-%20Save%20%26%20Build.md).
 - [First Playable](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Assignments/First%20Playable.md) and every milestone after it.
 
