@@ -34,7 +34,7 @@ If your pitch needs something in the right-hand column, it has to be one of your
 
 ## Install the kit
 
-The kit's guards walk on a **NavMesh**, which needs Unity's **AI Navigation** package. Install it once per project: **Window → Package Manager → Unity Registry → AI Navigation → Install**.
+The kit's guards walk on a **NavMesh**, made with Unity's **AI Navigation** package. It's already in the course project (version 2.0.16), so there's nothing to install. (If a project doesn't have it: **Window → Package Manager → Unity Registry → AI Navigation → Install**.)
 
 1. Download the Stealth Kit package from the course project's **Releases** page.
 2. With your project open, double-click the package and click **Import**.
@@ -106,7 +106,7 @@ The kit's guards walk on a **NavMesh**, which needs Unity's **AI Navigation** pa
 
 | What you see | What to do |
 |---|---|
-| "Guard … is not close enough to the NavMesh" or guards don't move | Install AI Navigation, add a **NavMesh Surface** to the level, and **Bake**. The guard must start on the blue area |
+| "Guard … is not close enough to the NavMesh" or guards don't move | Add a **NavMesh Surface** to the level, and **Bake**. The guard must start on the blue area |
 | Guards walk through walls | Bake the NavMesh again after moving walls |
 | Guards see through walls | The walls need colliders, and must be on a layer in **Blocks View** |
 | Guards never notice you | The player needs **Stealth Target 3D** and the **Player** tag; check **View Distance** and **View Angle** |

@@ -21,7 +21,7 @@ Everything goes in `Assets/_Course/Kits/Stealth/Sample/`, with folders `Data`, `
 ## Before you start
 
 1. Pull the template project. It should be version 0.22.0 or later, with no red errors in the Console.
-2. Install **AI Navigation**: **Window → Package Manager → Unity Registry → AI Navigation → Install**. Commit `Packages/manifest.json` and `packages-lock.json` afterward, so every copy of the course project has it.
+2. Check **AI Navigation** is in **Window → Package Manager → In Project** (version 2.0.16; it's in the course project's manifest).
 3. The 3D Platformer sample's orbit camera (Part 4 of its guide) is reused here; build that first, or follow its Part 4 again.
 4. Every UI Document uses `CoursePanelSettings`.
 
@@ -113,7 +113,7 @@ Note anything that fails, with the Console message.
 
 ## Part 9 — Commit
 
-Commit and push the `Sample` folder with its `.meta` files, and the package manifest if AI Navigation was just installed.
+Commit and push the `Sample` folder with its `.meta` files.
 
 ## Later — Exporting the kit
 

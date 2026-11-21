@@ -1467,7 +1467,7 @@ Imported with the 3D Platformer Kit package; uses the 3D movement scripts above.
 
 ## Stealth kit
 
-Imported with the Stealth Kit package; uses Player Controller 3D. Guards need the **AI Navigation** package and a baked NavMesh. See [Stealth Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Stealth%20Kit.md).
+Imported with the Stealth Kit package; uses Player Controller 3D. Guards need a baked NavMesh, from the **AI Navigation** package (in the course project). See [Stealth Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Stealth%20Kit.md).
 
 ### Guard 3D
 

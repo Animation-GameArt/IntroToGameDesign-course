@@ -20,7 +20,7 @@ Each stage ends with checks for a milestone: **First Playable** (Week 10), **Alp
 
 ## Before you start
 
-- [ ] The kit is installed, with the **AI Navigation** package, and you've played the sample from its menu to the end.
+- [ ] The kit is installed (AI Navigation, which it needs, is already in the course project), and you've played the sample from its menu to the end.
 - [ ] You've opened `NightShift_Level` and clicked through its Hierarchy.
 - [ ] Your decisions table (below) is filled in on page 10 of your ten-pager.
 

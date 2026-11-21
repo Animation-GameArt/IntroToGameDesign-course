@@ -42,7 +42,7 @@
 </table>
 <p>If your pitch needs something in the right-hand column, it has to be one of your agreed custom scripts, or it has to be cut. The Genre Map's advice stands: one building, one enemy (two at most), three objectives and an exit.</p>
 <h2>Install the kit</h2>
-<p>The kit's guards walk on a <strong>NavMesh</strong>, which needs Unity's <strong>AI Navigation</strong> package. Install it once per project: <strong>Window → Package Manager → Unity Registry → AI Navigation → Install</strong>.</p>
+<p>The kit's guards walk on a <strong>NavMesh</strong>, made with Unity's <strong>AI Navigation</strong> package. It's already in the course project (version 2.0.16), so there's nothing to install. (If a project doesn't have it: <strong>Window → Package Manager → Unity Registry → AI Navigation → Install</strong>.)</p>
 <ol>
 <li>Download the Stealth Kit package from the course project's <strong>Releases</strong> page.</li>
 <li>With your project open, double-click the package and click <strong>Import</strong>.</li>
@@ -176,7 +176,7 @@
 <tbody>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">"Guard … is not close enough to the NavMesh" or guards don't move</td>
-<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Install AI Navigation, add a <strong>NavMesh Surface</strong> to the level, and <strong>Bake</strong>. The guard must start on the blue area</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Add a <strong>NavMesh Surface</strong> to the level, and <strong>Bake</strong>. The guard must start on the blue area</td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Guards walk through walls</td>

@@ -74,10 +74,10 @@ Every test, with each guide's checks in order, is in the **[Testing Checklist](h
 - [x] Visual novel kit, with dating sim: scripts, sample story and both guides (v0.20.0), on Yarn Spinner 3.3.2.
 - [x] Card game kit: scripts and both guides (v0.21.0). The sample's balance was checked with a simulation.
 - [x] 3D scripts for the 3D kits: Player Controller 3D, Moving Platform 3D, Bounce Pad 3D, Spin 3D, Cursor Lock 3D (v0.22.0).
-- [x] 3D platformer kit and stealth kit: scripts and both guides each (v0.22.0). The stealth sample needs the AI Navigation package.
+- [x] 3D platformer kit and stealth kit: scripts and both guides each (v0.22.0). AI Navigation 2.0.16 is in the course project (2026-11-21).
 - [x] Platformer Kit — Build Your Game: the student guide from ten-pager decisions to a finished game, with milestone checks (2026-11-21). Ten-Pager, Production Backlog, First Playable, Alpha and Beta point to it. Why, and the week-by-week flow: [Kits in the Student Project](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Planning/Kits%20in%20the%20Student%20Project.md).
 - [x] **Build Your Game** guides for all fifteen kits (2026-11-21). They follow the reviewed Platformer pattern; each kit's guide links to its own from **Start your own game**.
-- [ ] Install the **AI Navigation** package (Package Manager → Unity Registry) and push the manifest, for the Stealth kit.
+- [x] AI Navigation 2.0.16 installed in the course project and pushed (2026-11-21), for the Stealth kit.
 - [ ] Match the Week 5–7 lecture pages to the real script names.
 - [ ] Move the instructor's tested exercise scenes to `Assets/_Course/Exercises/Solutions/` (once Marshall says they're final).
 - [ ] Fix whatever the compile check and tests turn up. This always comes first when reports arrive.
