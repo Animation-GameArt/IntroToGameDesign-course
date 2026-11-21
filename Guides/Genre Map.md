@@ -241,6 +241,8 @@ Most games mix genres a little. Choose the **one** genre that describes what the
 
 **The kit gives you:** a day cycle, soil tiles that can be tilled, planted and watered, crops stored as data with growth stages, an inventory and a shop.
 
+**Kit guide:** [Farming Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Farming%20Kit.md)
+
 **A good scope:** one field, three crops, one shop and a goal to reach by a set day.
 
 **Leave out:** villagers, relationships, animals, mining, fishing and seasons. The games above took years.

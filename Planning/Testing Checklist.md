@@ -401,6 +401,30 @@ Guide: [Management Kit - Building the Sample](https://github.com/Animation-GameA
 
 - [ ] Management Kit: sample committed and pushed with its .meta files
 
+### Farming Kit
+
+Guide: [Farming Kit - Building the Sample](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Farming%20Kit%20-%20Building%20the%20Sample.md) — section *Part 8 — Test*
+
+- [ ] The HUD shows Day 1 of 14, 6:00 AM, $60 / $800, Energy: 30; the hotbar shows the hoe, watering can, shovel and 5 spores, with the hoe chosen.
+- [ ] 1–8, the mouse wheel and clicking a slot choose an item; its name shows above the hotbar.
+- [ ] The cursor shows on the cell in front of the player, or under the mouse within reach, and only over the field.
+- [ ] The hoe tills grass in the field and nothing outside it; each use costs 1 energy.
+- [ ] Spores plant only on tilled soil and go down by one; the watering can darkens the soil.
+- [ ] At 0 energy, a message says to go to bed, and tools do nothing.
+- [ ] E at the bed (or clicking the prompt) ends the day: the morning report shows, the player is by the bed, energy is 30 again, the day is 2.
+- [ ] Watered crops grow one stage per Days Per Stage nights; unwatered ones don't; the soil is dry again each morning.
+- [ ] Clicking a ripe crop with anything chosen harvests it into the bag; a full bag says so.
+- [ ] Berry bushes go back to a sprout after harvesting, and are ripe again after 2 watered nights.
+- [ ] Goldleaf left dry for 2 nights dies, and the report says so. Sometimes it rains, and the report says so.
+- [ ] The shop opens with E; the player can't move and the clock stops; seeds you can't afford are grey; buying and selling change money and the bag; Leave closes it.
+- [ ] The clock runs from 6:00 AM, and at 2 AM the day ends by itself.
+- [ ] Reaching $800 shows the won screen; finishing day 14 without it shows the lost screen.
+- [ ] On a touch screen (or the Device Simulator), tapping a cell next to the player uses the item, tapping a slot chooses it, and tapping the prompt sleeps or shops.
+- [ ] Esc pauses, and the clock stops.
+- [ ] Farming Kit: anything that failed is reported to Claude, with the Console message
+
+- [ ] Farming Kit: sample committed and pushed with its .meta files
+
 ## 5. Before the semester
 
 - [ ] The whole student path on a lab computer: download the Release ZIP, unzip, open, import a kit package

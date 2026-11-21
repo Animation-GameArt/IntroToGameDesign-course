@@ -3,7 +3,7 @@ title: "Script Reference"
 course: GAME 1303
 type: guide
 status: draft
-course_version: 0.18.0
+course_version: 0.19.0
 unity: 6000.3.10f1
 tags:
   - game1303
@@ -13,7 +13,7 @@ tags:
 
 # Script Reference
 
-Every course script in the course project, as of version **0.18.0**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
+Every course script in the course project, as of version **0.19.0**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
 
 ## Finding the scripts
 
@@ -67,6 +67,8 @@ Every script explains its settings: hover over a field in the Inspector to see i
 | `_Course/Kits/TowerDefense/UI` | — | Tower HUD and build menu |
 | `_Course/Kits/Management/Scripts` | `CollinGame.Kits.Management` | Management kit scripts |
 | `_Course/Kits/Management/UI` | — | Management game screen |
+| `_Course/Kits/Farming/Scripts` | `CollinGame.Kits.Farming` | Farming kit scripts |
+| `_Course/Kits/Farming/UI` | — | Farm HUD, hotbar, shop and morning report |
 | `_Course/Art/Kenney` | — | Kenney art packs (CC0). Its README links to every pack the kits use |
 | `_Course/Credits` | — | The course's credits text |
 
@@ -1290,6 +1292,60 @@ Ends the turn on **EndTurn** (or every **Seconds Per Turn**): applies **Rules** 
 
 ---
 
+## Farming kit
+
+Imported with the Farming Kit package. See [Farming Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Farming%20Kit.md).
+
+### Item and Crop
+
+**Item** (**Create → Collin Game → Farming Kit → Item**): **Display Name**, **Icon**, **Description**; **Use** (Nothing, Till, Water, Plant, Clear); **Crop** (for seeds); **Used Up** (one is used each time); **Buy Price** and **Sell Price** (`0`: not sold or not bought).
+
+**Crop** (**Create → … → Crop**): **Display Name**; a sprite per stage (**Stages**, the last is ripe); **Days Per Stage** (watered nights); **Produce** and **Amount**; **Regrow Days** (`0`: gone after harvesting); **Dies After Dry Days** (`0`: never).
+
+### Inventory
+
+`Kits/Farming/Scripts/Inventory.cs` · **Add Component → Collin Game → Farming Kit → Inventory**
+
+The player's bag: **Size** slots (up to 10) of up to **Max Stack** each, filled from **Starting Items**. One slot is selected. Methods: **Add**, **Remove**, **CountOf**, **HasRoomFor**, **Select**, **SelectNext**. Raises **Changed**.
+
+### Farm Field
+
+`Kits/Farming/Scripts/FarmField.cs` · **Add Component → Collin Game → Farming Kit → Farm Field**
+
+On the Grid. Cells painted on **Farmland** can be tilled; tilled and watered soil are drawn on **Soil** with **Tilled Tile** and **Watered Tile**. Crops are sprites at **Crop Sorting Layer** / **Crop Order**, moved by **Crop Offset**. Each night (from the **Day Cycle**), watered crops grow a day, the soil dries, empty soil grows over after **Empty Soil Lasts** nights, and it may rain (**Rain Chance**). Methods: **Till**, **Water**, **Plant**, **Harvest**, **Clear**, **IsRipe**.
+
+### Farmer Tools 2D
+
+`Kits/Farming/Scripts/FarmerTools2D.cs` · **Add Component → Collin Game → Farming Kit → Farmer Tools 2D**
+
+On the player, with a Top Down Controller 2D and an Inventory. Attack uses the selected item on the cell in front of the player, or the cell clicked or tapped within **Reach**; a ripe crop is harvested whatever is selected. 1–9, the mouse wheel and Previous/Next choose the slot. **Feet Offset**, **Cursor**, **Use Cooldown**; optional **Energy** (costs **Energy Per Use**). Events: **On Till**, **On Water**, **On Plant**, **On Harvest**, **On Clear**, **On Nothing**.
+
+### Day Cycle
+
+`Kits/Farming/Scripts/DayCycle.cs` · **Add Component → Collin Game → Farming Kit → Day Cycle**
+
+Ends the day on **Sleep**, or after **Seconds Per Day** (`0`: only by sleeping). The clock runs from **Start Hour** to **End Hour** into **Clock** ("6:40 PM"), and stops while paused or while player input is off (a shop, the report). Each night: the field grows, **Reset Each Morning** variables (energy) reset, **Player** moves to **Wake Up Point**, and the report is shown. After **Last Day** (`0`: never), raises **Raise When Time Up**. Optional **Overlay** sprite tinted by **Overlay Color** through the day. **On Day Ended**, **On Time Up**; methods **Sleep**, **Continue**, **StopGame**, **AddNote**.
+
+### Interact Zone 2D
+
+`Kits/Farming/Scripts/InteractZone2D.cs` · **Add Component → Collin Game → Farming Kit → Interact Zone 2D**
+
+A trigger area. While the player (**User Tag**) is inside, the **Prompt** shows on the screen; Interact, or clicking the prompt, runs **On Used**. For beds and shop counters.
+
+### UI Farm Screen and UI Shop
+
+**UI Farm Screen** fills `hotbar` from the **Inventory** (click or tap a slot to select it), shows the selected item in `selected-label`, the prompt in `prompt-button`, messages in `message-label`, and the morning report in `report-panel` (`report-label`, `report-continue-button`).
+
+**UI Shop** shows `shop-panel`: **For Sale** items in `buy-list`, greyed out when **Money** is short, and the bag's sellable items in `sell-list` with Sell 1 and All. **Open** and **Close**; the player can't move while it's open.
+
+### Kit screens
+
+| Screen | Element names |
+|---|---|
+| `FarmHUD` | `day-label`, `clock-label`, `money-label`, `energy-label`, `message-label`, `prompt-button`, `selected-label`, `hotbar`, `shop-panel`, `shop-title`, `buy-list`, `sell-list`, `shop-close-button`, `report-panel`, `report-label`, `report-continue-button` |
+
+---
+
 ## Editor tools
 
 | Tool | Where | What it does |
@@ -1350,6 +1406,9 @@ Ends the turn on **EndTurn** (or every **Seconds Per Turn**): applies **Rules** 
 | Tower defense | An **Enemy Path 2D**, a **Tower Wave Spawner**, **Build Spot 2D**s, Tower assets, and the **UI Build Menu** on `TowerHUD` |
 | A turn-based management game | Int Variables as resources + **Turn Rule**s, **Event**s and **Building**s + a **Turn Cycle** + `ManagementHUD` with **UI Management Screen** and **UI Build Grid** |
 | Dragging UI cards onto slots | **UI Build Grid** (see its code for the pattern) |
+| A farming game | A **Farm Field** on a tilemap + **Item**s and **Crop**s + a player with **Inventory** and **Farmer Tools 2D** + a **Day Cycle** + `FarmHUD` with **UI Farm Screen** and **UI Shop** |
+| A bed, counter or door to use with E | **Interact Zone 2D** (Farming kit), or **Interactable 2D** (Top-Down Adventure kit) |
+| A clock and days | **Day Cycle** (Farming kit) |
 | Starting a new game from the menu | **Variable Resetter** in the menu scene, with every variable that carries between levels |
 
 ## Common Console messages

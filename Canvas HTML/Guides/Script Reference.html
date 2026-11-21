@@ -1,4 +1,4 @@
-<p>Every course script in the course project, as of version <strong>0.18.0</strong>: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in <code>Assets/_Course/VERSION.txt</code>.</p>
+<p>Every course script in the course project, as of version <strong>0.19.0</strong>: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in <code>Assets/_Course/VERSION.txt</code>.</p>
 <h2>Finding the scripts</h2>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Finding the scripts</caption>
 <thead>
@@ -210,6 +210,16 @@
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/Management/UI</code></td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Management game screen</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/Farming/Scripts</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>CollinGame.Kits.Farming</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Farming kit scripts</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/Farming/UI</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Farm HUD, hotbar, shop and morning report</td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Art/Kenney</code></td>
@@ -2373,6 +2383,45 @@
 </tbody>
 </table>
 <hr/>
+<h2>Farming kit</h2>
+<p>Imported with the Farming Kit package. See <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Farming%20Kit.md">Farming Kit</a>.</p>
+<h3>Item and Crop</h3>
+<p><strong>Item</strong> (<strong>Create → Collin Game → Farming Kit → Item</strong>): <strong>Display Name</strong>, <strong>Icon</strong>, <strong>Description</strong>; <strong>Use</strong> (Nothing, Till, Water, Plant, Clear); <strong>Crop</strong> (for seeds); <strong>Used Up</strong> (one is used each time); <strong>Buy Price</strong> and <strong>Sell Price</strong> (<code>0</code>: not sold or not bought).</p>
+<p><strong>Crop</strong> (<strong>Create → … → Crop</strong>): <strong>Display Name</strong>; a sprite per stage (<strong>Stages</strong>, the last is ripe); <strong>Days Per Stage</strong> (watered nights); <strong>Produce</strong> and <strong>Amount</strong>; <strong>Regrow Days</strong> (<code>0</code>: gone after harvesting); <strong>Dies After Dry Days</strong> (<code>0</code>: never).</p>
+<h3>Inventory</h3>
+<p><code>Kits/Farming/Scripts/Inventory.cs</code> · <strong>Add Component → Collin Game → Farming Kit → Inventory</strong></p>
+<p>The player's bag: <strong>Size</strong> slots (up to 10) of up to <strong>Max Stack</strong> each, filled from <strong>Starting Items</strong>. One slot is selected. Methods: <strong>Add</strong>, <strong>Remove</strong>, <strong>CountOf</strong>, <strong>HasRoomFor</strong>, <strong>Select</strong>, <strong>SelectNext</strong>. Raises <strong>Changed</strong>.</p>
+<h3>Farm Field</h3>
+<p><code>Kits/Farming/Scripts/FarmField.cs</code> · <strong>Add Component → Collin Game → Farming Kit → Farm Field</strong></p>
+<p>On the Grid. Cells painted on <strong>Farmland</strong> can be tilled; tilled and watered soil are drawn on <strong>Soil</strong> with <strong>Tilled Tile</strong> and <strong>Watered Tile</strong>. Crops are sprites at <strong>Crop Sorting Layer</strong> / <strong>Crop Order</strong>, moved by <strong>Crop Offset</strong>. Each night (from the <strong>Day Cycle</strong>), watered crops grow a day, the soil dries, empty soil grows over after <strong>Empty Soil Lasts</strong> nights, and it may rain (<strong>Rain Chance</strong>). Methods: <strong>Till</strong>, <strong>Water</strong>, <strong>Plant</strong>, <strong>Harvest</strong>, <strong>Clear</strong>, <strong>IsRipe</strong>.</p>
+<h3>Farmer Tools 2D</h3>
+<p><code>Kits/Farming/Scripts/FarmerTools2D.cs</code> · <strong>Add Component → Collin Game → Farming Kit → Farmer Tools 2D</strong></p>
+<p>On the player, with a Top Down Controller 2D and an Inventory. Attack uses the selected item on the cell in front of the player, or the cell clicked or tapped within <strong>Reach</strong>; a ripe crop is harvested whatever is selected. 1–9, the mouse wheel and Previous/Next choose the slot. <strong>Feet Offset</strong>, <strong>Cursor</strong>, <strong>Use Cooldown</strong>; optional <strong>Energy</strong> (costs <strong>Energy Per Use</strong>). Events: <strong>On Till</strong>, <strong>On Water</strong>, <strong>On Plant</strong>, <strong>On Harvest</strong>, <strong>On Clear</strong>, <strong>On Nothing</strong>.</p>
+<h3>Day Cycle</h3>
+<p><code>Kits/Farming/Scripts/DayCycle.cs</code> · <strong>Add Component → Collin Game → Farming Kit → Day Cycle</strong></p>
+<p>Ends the day on <strong>Sleep</strong>, or after <strong>Seconds Per Day</strong> (<code>0</code>: only by sleeping). The clock runs from <strong>Start Hour</strong> to <strong>End Hour</strong> into <strong>Clock</strong> ("6:40 PM"), and stops while paused or while player input is off (a shop, the report). Each night: the field grows, <strong>Reset Each Morning</strong> variables (energy) reset, <strong>Player</strong> moves to <strong>Wake Up Point</strong>, and the report is shown. After <strong>Last Day</strong> (<code>0</code>: never), raises <strong>Raise When Time Up</strong>. Optional <strong>Overlay</strong> sprite tinted by <strong>Overlay Color</strong> through the day. <strong>On Day Ended</strong>, <strong>On Time Up</strong>; methods <strong>Sleep</strong>, <strong>Continue</strong>, <strong>StopGame</strong>, <strong>AddNote</strong>.</p>
+<h3>Interact Zone 2D</h3>
+<p><code>Kits/Farming/Scripts/InteractZone2D.cs</code> · <strong>Add Component → Collin Game → Farming Kit → Interact Zone 2D</strong></p>
+<p>A trigger area. While the player (<strong>User Tag</strong>) is inside, the <strong>Prompt</strong> shows on the screen; Interact, or clicking the prompt, runs <strong>On Used</strong>. For beds and shop counters.</p>
+<h3>UI Farm Screen and UI Shop</h3>
+<p><strong>UI Farm Screen</strong> fills <code>hotbar</code> from the <strong>Inventory</strong> (click or tap a slot to select it), shows the selected item in <code>selected-label</code>, the prompt in <code>prompt-button</code>, messages in <code>message-label</code>, and the morning report in <code>report-panel</code> (<code>report-label</code>, <code>report-continue-button</code>).</p>
+<p><strong>UI Shop</strong> shows <code>shop-panel</code>: <strong>For Sale</strong> items in <code>buy-list</code>, greyed out when <strong>Money</strong> is short, and the bag's sellable items in <code>sell-list</code> with Sell 1 and All. <strong>Open</strong> and <strong>Close</strong>; the player can't move while it's open.</p>
+<h3>Kit screens</h3>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Kit screens (11)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Screen</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Element names</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>FarmHUD</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>day-label</code>, <code>clock-label</code>, <code>money-label</code>, <code>energy-label</code>, <code>message-label</code>, <code>prompt-button</code>, <code>selected-label</code>, <code>hotbar</code>, <code>shop-panel</code>, <code>shop-title</code>, <code>buy-list</code>, <code>sell-list</code>, <code>shop-close-button</code>, <code>report-panel</code>, <code>report-label</code>, <code>report-continue-button</code></td>
+</tr>
+</tbody>
+</table>
+<hr/>
 <h2>Editor tools</h2>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Editor tools</caption>
 <thead>
@@ -2597,6 +2646,18 @@
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Dragging UI cards onto slots</td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>UI Build Grid</strong> (see its code for the pattern)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A farming game</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A <strong>Farm Field</strong> on a tilemap + <strong>Item</strong>s and <strong>Crop</strong>s + a player with <strong>Inventory</strong> and <strong>Farmer Tools 2D</strong> + a <strong>Day Cycle</strong> + <code>FarmHUD</code> with <strong>UI Farm Screen</strong> and <strong>UI Shop</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A bed, counter or door to use with E</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Interact Zone 2D</strong> (Farming kit), or <strong>Interactable 2D</strong> (Top-Down Adventure kit)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A clock and days</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Day Cycle</strong> (Farming kit)</td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Starting a new game from the menu</td>

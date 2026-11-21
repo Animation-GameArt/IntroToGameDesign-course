@@ -1,0 +1,335 @@
+<p><strong>For the instructor.</strong> These steps build the kit's sample farm once, in the template project. Building it tests every kit script, and the result is what students import. Students read <strong>Farming Kit</strong>, not this page.</p>
+<p>Everything goes in <code>Assets/_Course/Kits/Farming/Sample/</code>, with folders <code>Data</code>, <code>Items</code>, <code>Crops</code>, <code>Tiles</code>, <code>Prefabs</code> and <code>Scenes</code>.</p>
+<h2>Before you start</h2>
+<ol>
+<li>Pull the template project. It should be version 0.19.0 or later, with no red errors in the Console.</li>
+<li><strong>Art.</strong> Kenney's <strong>Tiny Town</strong> (<code>kenney_tiny-town/Tiles</code>) for the world, crops and tools, and <strong>Tiny Dungeon</strong> (<code>kenney_tiny-dungeon/Tiles</code>) for the farmer. Both are 16 pixels, so one tile is one unit.</li>
+<li>Every UI Document uses <code>CoursePanelSettings</code>.</li>
+</ol>
+<p>The Tiny Town tiles this page uses:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Before you start</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Tile</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0000</code>, <code>tile_0001</code>, <code>tile_0002</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Grass</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0025</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Plain soil</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0040</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Dirt path</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0017</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Sprout</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0029</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Mushrooms</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0005</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Bush</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0016</code>, <code>tile_0015</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Small green tree, small golden tree</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0044</code>–<code>tile_0047</code>, <code>tile_0056</code>–<code>tile_0059</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Fences</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0083</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Sign</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0104</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Bed</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0127</code>, <code>tile_0128</code>, <code>tile_0131</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Hoe, shovel, bucket of water</td>
+</tr>
+</tbody>
+</table>
+<h2>Part 1 — Data</h2>
+<p>In <code>Sample/Data</code>:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 1 — Data</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Asset</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Type</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Initial value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Money</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Int Variable</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>60</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Day</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Int Variable</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Energy</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Int Variable</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>30</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Clock</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">String Variable</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>6:00 AM</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>FarmWon</code>, <code>FarmLost</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Void Event Channel</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+</tbody>
+</table>
+<h2>Part 2 — Soil tiles</h2>
+<p>In <code>Sample/Tiles</code>, two <strong>Tile</strong> assets (<strong>Create → 2D → Tiles → Tile</strong>):</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 2 — Soil tiles</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Tile</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Sprite</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Tilled Soil</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0025</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">White</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Watered Soil</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0025</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>A68070</code> (a darker brown)</td>
+</tr>
+</tbody>
+</table>
+<h2>Part 3 — Items and crops</h2>
+<p>Create the items first, then the crops, then go back and set each seed's <strong>Crop</strong>.</p>
+<p><strong>Items</strong> in <code>Sample/Items</code> (<strong>Create → Collin Game → Farming Kit → Item</strong>):</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 3 — Items and crops</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Item</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Icon</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Use</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Crop</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Used Up</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Buy</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Sell</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Hoe</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0127</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Till</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">No</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Watering Can</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0131</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Water</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">No</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Shovel</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0128</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Clear</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">No</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Mushroom Spores</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0017</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Plant</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Mushrooms</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Yes</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>10</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Berry Seeds</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0017</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Plant</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Berry Bush</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Yes</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>20</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Goldleaf Seeds</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0017</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Plant</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Goldleaf</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Yes</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>60</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Mushroom</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0029</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Nothing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">No</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>20</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Berries</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0005</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Nothing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">No</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>15</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Goldleaf</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0015</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Nothing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">No</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>150</code></td>
+</tr>
+</tbody>
+</table>
+<p>Give each a one-line <strong>Description</strong>, such as <em>Quick and safe. Ready in 2 days.</em></p>
+<p><strong>Crops</strong> in <code>Sample/Crops</code> (<strong>Create → Collin Game → Farming Kit → Crop</strong>):</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 3 — Items and crops (2)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Crop</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Stages</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Days Per Stage</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Produce</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Amount</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Regrow Days</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Dies After Dry Days</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Mushrooms</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0017</code>, <code>tile_0029</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>2</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Mushroom</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Berry Bush</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0017</code>, <code>tile_0005</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>4</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Berries</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>2</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Goldleaf</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0017</code>, <code>tile_0016</code>, <code>tile_0015</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>3</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Goldleaf</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>2</code></td>
+</tr>
+</tbody>
+</table>
+<h2>Part 4 — The player</h2>
+<p><code>Player</code> prefab, in <code>Sample/Prefabs</code>, tagged <strong>Player</strong>:</p>
+<ol>
+<li><strong>Sprite Renderer</strong>: Tiny Dungeon <code>tile_0098</code>, Order in Layer <code>20</code>.</li>
+<li><strong>Rigidbody 2D</strong>: Gravity Scale <code>0</code>, Freeze Rotation Z.</li>
+<li><strong>Capsule Collider 2D</strong>: Size <code>0.6, 0.5</code>, Offset <code>0, -0.2</code> (just the feet).</li>
+<li><strong>Top Down Controller 2D</strong>: Move Speed <code>4</code>, Facing <strong>Flip Sprite</strong>.</li>
+<li><strong>Inventory</strong>: Size <code>8</code>; Starting Items: Hoe <code>1</code>, Watering Can <code>1</code>, Shovel <code>1</code>, Mushroom Spores <code>5</code>.</li>
+<li><strong>Farmer Tools 2D</strong>: Reach <code>1.6</code>, Feet Offset <code>0, -0.3</code>, Energy <code>Energy</code>, Energy Per Use <code>1</code>.</li>
+</ol>
+<h2>Part 5 — Farm Systems</h2>
+<p>An empty <code>Farm Systems</code>, made into a prefab, with these children:</p>
+<p><strong><code>Day Cycle</code></strong> — <strong>Day Cycle</strong>: Day <code>Day</code>, Last Day <code>14</code>, Seconds Per Day <code>240</code>, Start Hour <code>6</code>, End Hour <code>26</code>, Clock <code>Clock</code>; Player (set in the scene), Wake Up Point (set in the scene); Reset Each Morning <code>Energy</code>; Raise When Time Up <code>FarmLost</code>.</p>
+<p><strong><code>Win</code></strong> — <strong>Int Variable Condition</strong>: Variable <code>Money</code>, At Least <code>800</code>, Raise Event <code>FarmWon</code>. And a <strong>Void Event Listener</strong> on <code>FarmWon</code> → <code>Day Cycle</code>, <strong>DayCycle → StopGame</strong>.</p>
+<p><strong><code>Screen</code></strong> — UI Document <code>FarmHUD</code> (from <code>Kits/Farming/UI</code>), with:</p>
+<ul>
+<li><strong>UI Farm Screen</strong>: Inventory (set in the scene), Day Cycle <code>Day Cycle</code>.</li>
+<li><strong>UI Shop</strong>: Shop Name <code>General Store</code>; For Sale <code>Mushroom Spores</code>, <code>Berry Seeds</code>, <code>Goldleaf Seeds</code>; Money <code>Money</code>; Inventory (set in the scene).</li>
+<li><strong>UI Variable Binder</strong>: <code>day-label</code> → <code>Day</code> → <code>Day {0} of 14</code>; <code>clock-label</code> → <code>Clock</code> → <code>{0}</code>; <code>money-label</code> → <code>Money</code> → <code>${0} / $800</code>; <code>energy-label</code> → <code>Energy</code> → <code>Energy: {0}</code>.</li>
+</ul>
+<p><strong><code>Reset</code></strong> — a <strong>Variable Resetter</strong> with <code>Money</code>, <code>Day</code>, <code>Energy</code> and <code>Clock</code>.</p>
+<p><strong><code>Pause Menu</code></strong>, <strong><code>Scene Changer</code></strong>, <strong><code>To Menu</code></strong> — as in the Platformer Kit sample.</p>
+<p><strong><code>Won</code></strong> — UI Document <code>EndScreen</code>, hidden, shown on <code>FarmWon</code>; <code>score-label</code> → <code>Day</code> → <code>You made it on day {0}!</code>.</p>
+<p><strong><code>Lost</code></strong> — UI Document <code>GameOver</code>, hidden, shown on <code>FarmLost</code>; Try Again → <strong>ReloadScene</strong>.</p>
+<h2>Part 6 — The farm (<code>Farm_Game</code>)</h2>
+<ol>
+<li>Main Camera: Orthographic, Size <code>5</code>. Add <strong>Cinemachine Camera</strong> following <code>Player</code>, with a <strong>Cinemachine Confiner 2D</strong> if the map is bigger than the view.</li>
+<li>A <strong>Grid</strong> with three Tilemaps:
+<ul>
+<li><code>Ground</code> (Order in Layer <code>0</code>): grass everywhere, with a dirt path from the house to the field and to the shop.</li>
+<li><code>Farmland</code> (Order in Layer <code>1</code>): grass (<code>tile_0000</code>) on a <strong>4 × 4</strong> block, the field. Add <strong>Farm Field</strong> to the Grid: Farmland <code>Farmland</code>, Soil <code>Soil</code>, Tilled Tile <code>Tilled Soil</code>, Watered Tile <code>Watered Soil</code>, Crop Order <code>5</code>, Crop Offset <code>0, 0</code>, Empty Soil Lasts <code>3</code>, Rain Chance <code>0.15</code>.</li>
+<li><code>Soil</code> (Order in Layer <code>2</code>): empty.</li>
+</ul>
+</li>
+<li><code>Walls</code>: a fourth Tilemap with fences around the field (leaving a gap) and around the edge of the map, with a <strong>Tilemap Collider 2D</strong>.</li>
+<li><code>Bed</code>: <code>tile_0104</code>, Order <code>3</code>, with a child <code>Wake Up Point</code> just below it. Add a <strong>Box Collider 2D</strong> (Is Trigger, Size <code>1.6, 1.6</code>) and <strong>Interact Zone 2D</strong>: Prompt <code>E: Sleep</code>, On Used → <code>Day Cycle</code>, <strong>DayCycle → Sleep</strong>.</li>
+<li><code>Shop</code>: a sign (<code>tile_0083</code>) and a counter or small house from the Tiny Town tiles, with a trigger area in front and <strong>Interact Zone 2D</strong>: Prompt <code>E: Shop</code>, On Used → <code>Screen</code>, <strong>UIShop → Open</strong>.</li>
+<li><code>Player</code>, by the bed. And <code>Cursor</code>, at the top level of the scene (not a child of the player): Unity's <strong>Square</strong> sprite (<strong>Create → 2D → Sprites → Square</strong>), Scale <code>1</code>, Color white at 35% alpha, Order in Layer <code>15</code>. Drag it into the Player's Farmer Tools 2D → <strong>Cursor</strong>.</li>
+<li><code>Farm Systems</code>, with Day Cycle → <strong>Player</strong> <code>Player</code> and <strong>Wake Up Point</strong> <code>Wake Up Point</code>, and <code>Screen</code>'s <strong>Inventory</strong> fields set to the Player.</li>
+<li>Optional: <code>Night</code>, a Square sprite as a child of the Main Camera, Scale <code>40, 25</code>, Order in Layer <code>100</code>, dragged into the Day Cycle's <strong>Overlay</strong>.</li>
+</ol>
+<h2>Part 7 — Menu</h2>
+<p><code>Farm_Menu</code>, like the Platformer sample's menu, with Play loading <code>Farm_Game</code>.</p>
+<p>Scene List: <code>Farm_Menu</code>, <code>Farm_Game</code>.</p>
+<h2>Part 8 — Test</h2>
+<ul>
+<li>The HUD shows Day 1 of 14, 6:00 AM, $60 / $800, Energy: 30; the hotbar shows the hoe, watering can, shovel and 5 spores, with the hoe chosen.</li>
+<li>1–8, the mouse wheel and clicking a slot choose an item; its name shows above the hotbar.</li>
+<li>The cursor shows on the cell in front of the player, or under the mouse within reach, and only over the field.</li>
+<li>The hoe tills grass in the field and nothing outside it; each use costs 1 energy.</li>
+<li>Spores plant only on tilled soil and go down by one; the watering can darkens the soil.</li>
+<li>At 0 energy, a message says to go to bed, and tools do nothing.</li>
+<li>E at the bed (or clicking the prompt) ends the day: the morning report shows, the player is by the bed, energy is 30 again, the day is 2.</li>
+<li>Watered crops grow one stage per Days Per Stage nights; unwatered ones don't; the soil is dry again each morning.</li>
+<li>Clicking a ripe crop with anything chosen harvests it into the bag; a full bag says so.</li>
+<li>Berry bushes go back to a sprout after harvesting, and are ripe again after 2 watered nights.</li>
+<li>Goldleaf left dry for 2 nights dies, and the report says so. Sometimes it rains, and the report says so.</li>
+<li>The shop opens with E; the player can't move and the clock stops; seeds you can't afford are grey; buying and selling change money and the bag; Leave closes it.</li>
+<li>The clock runs from 6:00 AM, and at 2 AM the day ends by itself.</li>
+<li>Reaching $800 shows the won screen; finishing day 14 without it shows the lost screen.</li>
+<li>On a touch screen (or the Device Simulator), tapping a cell next to the player uses the item, tapping a slot chooses it, and tapping the prompt sleeps or shops.</li>
+<li>Esc pauses, and the clock stops.</li>
+</ul>
+<p>Note anything that fails, with the Console message.</p>
+<h2>Part 9 — Commit</h2>
+<p>Commit and push the <code>Sample</code> folder with its <code>.meta</code> files.</p>
+<h2>Later — Exporting the kit</h2>
+<p>Export <code>Assets/_Course/Kits/Farming</code> and the Tiny Town and Tiny Dungeon art folders with <strong>Assets → Export Package</strong>, unticking Core and 2D scripts that Unity adds as dependencies.</p>
