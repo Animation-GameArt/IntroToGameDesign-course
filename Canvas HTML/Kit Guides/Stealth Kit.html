@@ -1,0 +1,209 @@
+<p>The Stealth Kit is a starting point for 3D stealth and horror games: move carefully, watch what's hunting you, hide or slip past, reach the objective. Examples: Amnesia, Alien: Isolation, Untitled Goose Game, the stealth sections of many games.</p>
+<p>The sample, <em>Night Shift</em>, is a small office building after hours. Two guards walk their rounds. Find three keys, open the exit, and get out without being caught. You can crouch to move quietly, hide in lockers and under desks, and use a flashlight whose battery runs down.</p>
+<p>Read <strong>About 3D games</strong> on the Genre Map first. Fear and tension come from sound, light and pacing as much as from scripts, so leave time for all three.</p>
+<h2>What the kit covers</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">What the kit covers</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The kit does this</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The kit doesn't do this</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Guards or monsters that patrol, see, hear, search and chase</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Guards that talk to each other or call for help</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A view cone, blocked by walls; seeing farther when your flashlight is on</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Seeing in the dark versus the light (lighting levels)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Hearing: sprinting is loud, walking less so, crouching nearly silent</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Sounds from thrown objects</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Hiding spots: lockers, under desks</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Hiding bodies, disguises</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">An alert meter and a "Spotted!" warning</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Combat, or knocking guards out</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A flashlight with a battery, and battery pickups</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Doors that open and close for guards (a custom script)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Third person (with view cones shown) or first person (a horror game)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Several floors with stairs for guards (it works, with care)</td>
+</tr>
+</tbody>
+</table>
+<p>If your pitch needs something in the right-hand column, it has to be one of your agreed custom scripts, or it has to be cut. The Genre Map's advice stands: one building, one enemy (two at most), three objectives and an exit.</p>
+<h2>Install the kit</h2>
+<p>The kit's guards walk on a <strong>NavMesh</strong>, which needs Unity's <strong>AI Navigation</strong> package. Install it once per project: <strong>Window → Package Manager → Unity Registry → AI Navigation → Install</strong>.</p>
+<ol>
+<li>Download the Stealth Kit package from the course project's <strong>Releases</strong> page.</li>
+<li>With your project open, double-click the package and click <strong>Import</strong>.</li>
+<li>Open <strong>File → Build Profiles → Open Scene List</strong>. From <code>Assets/_Course/Kits/Stealth/Sample/Scenes</code>, add <code>NightShift_Menu</code> and <code>NightShift_Level</code>, next to each other, in that order.</li>
+<li>Open <code>NightShift_Menu</code> and press <strong>Play</strong>.</li>
+</ol>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Install the kit</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Action</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Keyboard and mouse</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Gamepad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Move</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">WASD</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Left stick</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Look around</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Mouse</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Right stick</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Crouch (hold)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">C</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Right face button</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Sprint (loud!)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Left Shift</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Left stick press</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Flashlight</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Left click</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Left face button</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Pause</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Esc</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Start</td>
+</tr>
+</tbody>
+</table>
+<h2>How it works</h2>
+<ul>
+<li><strong>Guard 3D</strong> walks between its patrol points on the NavMesh. It <strong>sees</strong> the player inside its view cone if no wall is in the way, and fills its <strong>alert meter</strong>: fast up close, slowly at the edge of its view. At a third full it comes to investigate; full, it chases. It <strong>hears</strong> the player within its hearing range times how loud they are. Out of sight for long enough, it searches where it last saw them, then goes back to its rounds. Getting close enough while chasing catches the player.</li>
+<li><strong>Stealth Target 3D</strong>, on the player, tells guards how loud the player is, whether they're hidden, and whether their flashlight is on.</li>
+<li><strong>Player Controller 3D</strong> (from the course's 3D scripts) gives the player crouching, which is slow but nearly silent.</li>
+<li><strong>Hiding Spot 3D</strong> is a trigger area. Inside it (crouching, for some), guards can't see or catch the player, though they may still come looking.</li>
+<li><strong>Flashlight 3D</strong> is a spot light the player switches on and off. It runs down its battery; battery pickups refill it. While it's on, guards see the player from farther away.</li>
+<li><strong>Vision Cone 3D</strong> draws a guard's view on the floor, colored by its alert. <strong>Alert Audio</strong> fades in a heartbeat as guards grow alert. The <strong>UI Stealth HUD</strong> shows the alert meter and <em>Unseen</em>, <em>Hidden</em>, <em>Suspicious</em> or <em>Spotted!</em></li>
+<li>The keys are Core <strong>Collectibles</strong>. An <strong>Int Variable Condition</strong> opens the exit when all three are found.</li>
+</ul>
+<h2>What's in the sample</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">What's in the sample</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Object</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What it is</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Worth changing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Player</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Player Controller 3D (crouch on, jump off), Stealth Target 3D, a Flashlight 3D</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Walk Speed</strong>, <strong>Crouch Speed</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Guard A</code>, <code>Guard B</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Guard 3D with a NavMesh Agent and a Vision Cone 3D</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>View Distance</strong>, <strong>View Angle</strong>, <strong>Hearing Range</strong>, <strong>Time To Spot</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Lockers</code>, <code>Desks</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Hiding Spot 3D (desks need crouching)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Key 1</code>–<code>Key 3</code>, <code>Battery</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Collectibles</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Exit</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A door that opens at three keys, and the escape trigger</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Stealth Systems</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">HUD, alert audio, pause, caught and escaped screens</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+</tbody>
+</table>
+<h2>Start your own game</h2>
+<ol>
+<li>Draw your building from above on paper: rooms, doors, each guard's route, where the keys are, and where to hide. Make sure every key can be reached by waiting for the right moment, not only by luck.</li>
+<li>Open <code>NightShift_Level</code>, <strong>File → Save As…</strong> into <code>Assets/_Game/Scenes</code>, and rebuild the rooms with Cubes.</li>
+<li>After changing walls or floors, select <code>Level</code> and click <strong>Bake</strong> on its <strong>NavMesh Surface</strong>. Guards can only walk where the NavMesh (the blue overlay) is.</li>
+<li>Move the guards' patrol points to your routes.</li>
+<li>Press <strong>Play</strong> and sneak through. Then try to get caught on purpose, to see how the guards react.</li>
+</ol>
+<h3>Designing stealth</h3>
+<ul>
+<li><strong>Readable guards.</strong> The player should always be able to tell where a guard is looking. View cones, a flashlight beam, footstep sounds, or a sound when they turn.</li>
+<li><strong>Safe spots between dangers.</strong> A hiding place before each tricky stretch lets players watch and plan.</li>
+<li><strong>Make getting spotted a second chance, not a loss.</strong> The sample's guards fill their meter over a second, so a player who's seen can still duck away.</li>
+<li><strong>For horror, take information away.</strong> Hide the view cones and the alert meter; let sound and the flashlight carry the fear.</li>
+</ul>
+<h2>Recipes</h2>
+<p><strong>A first-person horror game.</strong> On the player, set <strong>Facing</strong> to <strong>Face Camera</strong> and hide the body. Replace the orbit camera with a Cinemachine Camera at the player's head: Position Control <strong>Hard Lock To Target</strong> (target: a <code>Head</code> child at <code>0, 1.6, 0</code>), Rotation Control <strong>Pan Tilt</strong>, and an Input Axis Controller using <code>Player/Look</code>. Make the Flashlight a child of the camera. Untick the Vision Cone 3D renderers, and remove the alert meter from the HUD.</p>
+<p><strong>One monster instead of guards.</strong> One Guard 3D with a long Hearing Range, a short View Distance, and a fast Chase Speed.</p>
+<p><strong>A guard that stands still.</strong> One patrol point, and a wide View Angle; it turns to look around when it hears something.</p>
+<p><strong>Battery pickups.</strong> A Collectible whose <strong>On Collected</strong> calls <strong>Flashlight3D → AddBattery</strong> with <code>50</code>.</p>
+<p><strong>No flashlight limit.</strong> Set <strong>Battery Seconds</strong> to <code>0</code>.</p>
+<p><strong>A caught sound.</strong> The Guard 3D's <strong>On Caught</strong> plays a Sound Effect; <strong>On Chase</strong> is good for a sting.</p>
+<h2>If something goes wrong</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something goes wrong</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What you see</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">"Guard … is not close enough to the NavMesh" or guards don't move</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Install AI Navigation, add a <strong>NavMesh Surface</strong> to the level, and <strong>Bake</strong>. The guard must start on the blue area</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Guards walk through walls</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Bake the NavMesh again after moving walls</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Guards see through walls</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The walls need colliders, and must be on a layer in <strong>Blocks View</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Guards never notice you</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player needs <strong>Stealth Target 3D</strong> and the <strong>Player</strong> tag; check <strong>View Distance</strong> and <strong>View Angle</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Hiding doesn't work</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Hiding Spot 3D needs a trigger collider covering the spot; desks need crouching</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">You're caught while hidden</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player's collider is partly outside the hiding spot's trigger: make the trigger bigger</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The flashlight doesn't light anything</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">It needs a <strong>Spot Light</strong> on the same object, pointing forward</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The vision cone is invisible</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Its Mesh Renderer needs a transparent, unlit material</td>
+</tr>
+</tbody>
+</table>

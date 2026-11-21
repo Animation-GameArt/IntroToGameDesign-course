@@ -261,6 +261,8 @@ Most games mix genres a little. Choose the **one** genre that describes what the
 
 **The kit gives you:** a third-person character with a following camera, jumping, pickups, checkpoints and moving platforms.
 
+**Kit guide:** [3D Platformer Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/3D%20Platformer%20Kit.md)
+
 **A good scope:** one level with twenty collectibles and three distinct areas.
 
 **Leave out:** several worlds, and enemies that need animation.
@@ -274,6 +276,8 @@ Most games mix genres a little. Choose the **one** genre that describes what the
 **Examples:** Amnesia, Alien: Isolation, and the stealth sections of many games.
 
 **The kit gives you:** a first-person or third-person character, one enemy that patrols, sees and hears, places to hide, a flashlight and an alert meter.
+
+**Kit guide:** [Stealth Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Stealth%20Kit.md)
 
 **A good scope:** one building or level, one enemy, three objectives to collect and an exit.
 

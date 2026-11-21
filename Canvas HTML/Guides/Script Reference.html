@@ -1,4 +1,4 @@
-<p>Every course script in the course project, as of version <strong>0.21.0</strong>: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in <code>Assets/_Course/VERSION.txt</code>.</p>
+<p>Every course script in the course project, as of version <strong>0.22.0</strong>: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in <code>Assets/_Course/VERSION.txt</code>.</p>
 <h2>Finding the scripts</h2>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Finding the scripts</caption>
 <thead>
@@ -240,6 +240,21 @@
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/CardGame/UI</code></td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Card battle screen</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/Platformer3D/Scripts</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>CollinGame.Kits.Platformer3D</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">3D platformer kit scripts</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/Stealth/Scripts</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>CollinGame.Kits.Stealth</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Stealth kit scripts</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/Stealth/UI</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Stealth HUD</td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Art/Kenney</code></td>
@@ -923,6 +938,72 @@
 </table>
 <p>Read by other scripts: <strong>Progress</strong> (0 to 1 along the rail), <strong>RunSpeed</strong>, <strong>SideOffset</strong>, <strong>IsGrounded</strong>, <strong>Rail</strong>. Methods: <strong>SnapToNearest</strong>, <strong>Bounce</strong>.</p>
 <p><strong>Used in:</strong> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Tutorials/2.5D%20Tutorial%202%20-%20Rail%20Runner.md">2.5D Tutorial 2 — Rail Runner</a>.</p>
+<h3>Player Controller 3D</h3>
+<p><code>ThreeD/Movement/PlayerController3D.cs</code> · <strong>Add Component → Collin Game → 3D → Player Controller 3D</strong></p>
+<p>A player moved relative to the camera: up on the stick moves away from the camera. Sprint, crouch (shorter, slower, quieter; won't stand up under a ceiling) and jump. <strong>Face Movement</strong> turns the player toward where they walk (third person, orbit camera); <strong>Face Camera</strong> keeps them facing where the camera looks (first person). Rides <strong>Moving Platform 3D</strong>s. Uses a Character Controller, added and sized for you.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Player Controller 3D</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Setting</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Default</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Input · Camera Transform</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>InputReader</code> · the Main Camera</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Both filled in for you</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Walk Speed · Sprint Speed</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>6</code> · <code>9</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Sprint while Sprint (Left Shift) is held</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Acceleration · Deceleration · Air Control</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>40</code> · <code>50</code> · <code>0.6</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Facing · Turn Speed</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Face Movement · <code>720</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Can Crouch · Crouch Speed · Crouch Height</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">ticked · <code>2.5</code> · <code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Crouch (C) is held</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Can Jump · Jump Height · Extra Air Jumps</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">ticked · <code>2</code> · <code>0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Untick Can Jump for horror games</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Short Hop Speed Kept · Coyote Time · Jump Buffer Time</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.5</code> · <code>0.12</code> · <code>0.12</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Gravity · Fall Gravity Multiplier · Max Fall Speed</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>25</code> · <code>1.6</code> · <code>30</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">On Jump · On Landed</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+</tbody>
+</table>
+<p>Read by other scripts: <strong>IsGrounded</strong>, <strong>IsCrouching</strong>, <strong>IsSprinting</strong>, <strong>Velocity</strong>, <strong>MoveInput</strong>, <strong>Loudness</strong> (0 still, 0.15 crouching, 0.5 walking, 1 sprinting). Method: <strong>Bounce</strong> (height).</p>
+<p><strong>Used in:</strong> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/3D%20Platformer%20Kit.md">3D Platformer Kit</a>, <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Stealth%20Kit.md">Stealth Kit</a>.</p>
+<h3>Moving Platform 3D, Bounce Pad 3D, Spin 3D, Cursor Lock 3D</h3>
+<p><strong>Moving Platform 3D</strong> (<code>ThreeD/Movement/MovingPlatform3D.cs</code>): moves between <strong>Points</strong> (child empties) at <strong>Speed</strong>, waiting <strong>Wait Time</strong> at each, <strong>Back And Forth</strong> or <strong>Loop</strong>, and carries a Player Controller 3D standing on it. <strong>Wait For Start</strong>, with <strong>StartMoving</strong> and <strong>StopMoving</strong>.</p>
+<p><strong>Bounce Pad 3D</strong>: a trigger that launches a Player Controller 3D to <strong>Height</strong>. <strong>On Bounce</strong>.</p>
+<p><strong>Spin 3D</strong>: spins an object (<strong>Spin</strong>, degrees per second per axis) and bobs it (<strong>Bob Height</strong>, <strong>Bob Speed</strong>). For pickups.</p>
+<p><strong>Cursor Lock 3D</strong>: hides and locks the mouse pointer while playing; shows it while paused, while the player's controls are off, and after <strong>Unlock</strong> (call it from a win or game over event). <strong>Lock</strong> undoes Unlock.</p>
 <hr/>
 <h2>2D enemies and visuals</h2>
 <h3>Patrol Enemy 2D</h3>
@@ -2501,6 +2582,39 @@
 </tbody>
 </table>
 <hr/>
+<h2>3D platformer kit</h2>
+<p>Imported with the 3D Platformer Kit package; uses the 3D movement scripts above. See <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/3D%20Platformer%20Kit.md">3D Platformer Kit</a>.</p>
+<p><strong>Patrol Enemy 3D</strong> (<strong>Add Component → Collin Game → 3D Platformer Kit → Patrol Enemy 3D</strong>): walks back and forth between <strong>Points</strong> at <strong>Speed</strong>, waiting <strong>Wait Time</strong>. A Player Controller 3D landing on it while falling defeats it (<strong>Can Be Stomped</strong>, <strong>Stomp Bounce</strong>, <strong>Raise On Stomped</strong>, <strong>On Stomped</strong>); touching it otherwise deals <strong>Damage</strong> to the player's Health (<strong>On Hit Player</strong>). Needs a trigger collider.</p>
+<p><strong>Crumbling Platform 3D</strong>: when a grounded player stands on it, shakes for <strong>Hold Time</strong>, disappears, and comes back after <strong>Return Time</strong> (<code>0</code>: never). <strong>On Crumble</strong>, <strong>On Return</strong>.</p>
+<p><strong>Blob Shadow 3D</strong>: on the player; keeps a flat <strong>Shadow</strong> object (a Quad with a soft dark material, not a child of the player) on the ground below, shrinking with height. <strong>Max Distance</strong>, <strong>Size</strong>, <strong>Far Size</strong>, <strong>Ground Layers</strong>.</p>
+<h2>Stealth kit</h2>
+<p>Imported with the Stealth Kit package; uses Player Controller 3D. Guards need the <strong>AI Navigation</strong> package and a baked NavMesh. See <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Stealth%20Kit.md">Stealth Kit</a>.</p>
+<h3>Guard 3D</h3>
+<p><code>Kits/Stealth/Scripts/Guard3D.cs</code> · <strong>Add Component → Collin Game → Stealth Kit → Guard 3D</strong></p>
+<p>Needs a NavMesh Agent. <strong>Patrol</strong>: loops through <strong>Patrol Points</strong> at <strong>Patrol Speed</strong>, waiting <strong>Wait At Point</strong>. <strong>Sees</strong> the player within <strong>View Distance</strong> (× <strong>Flashlight Sight Bonus</strong> with their flashlight on) and <strong>View Angle</strong>, from <strong>Eye Height</strong>, unless <strong>Blocks View</strong> colliders are in the way; the <strong>Alert</strong> meter fills in <strong>Time To Spot</strong> up close, slower farther away. <strong>Hears</strong> the player within <strong>Hearing Range</strong> × their loudness. At a third alert, or on hearing, it <strong>Investigates</strong> (<strong>Investigate Speed</strong>, <strong>Look Around Time</strong>); at full alert it <strong>Chases</strong> (<strong>Chase Speed</strong>), giving up after <strong>Lose Track After</strong> seconds out of sight. Alert drains at <strong>Calm Down Rate</strong>. Within <strong>Catch Distance</strong> while chasing, it catches the player: <strong>Raise On Caught</strong>. Hidden players can't be seen, heard or caught. Events: <strong>On Suspicious</strong>, <strong>On Chase</strong>, <strong>On Gave Up</strong>, <strong>On Caught</strong>. Read by other scripts: <strong>Alert</strong>, <strong>CurrentState</strong>, <strong>CanSeePlayer</strong>, and the static <strong>All</strong>, <strong>HighestAlert</strong>, <strong>AnyChasing</strong>.</p>
+<h3>Stealth Target 3D, Hiding Spot 3D, Flashlight 3D</h3>
+<p><strong>Stealth Target 3D</strong>: on the player, with a Player Controller 3D. Tells guards the player's <strong>Loudness</strong>, <strong>IsHidden</strong> and <strong>IsLit</strong>. <strong>Look Point</strong> (default: 1.2 above the feet); <strong>Flashlight</strong> (found in children).</p>
+<p><strong>Hiding Spot 3D</strong>: a trigger. Inside it the player is hidden; with <strong>Needs Crouch</strong>, only while crouching. <strong>On Enter</strong>, <strong>On Exit</strong>.</p>
+<p><strong>Flashlight 3D</strong>: on a Spot Light. Attack toggles it. Drains over <strong>Battery Seconds</strong> (<code>0</code>: never), into <strong>Battery Percent</strong> (Float Variable, 0–100); flickers below <strong>Flicker Below</strong>; <strong>On At Start</strong>. <strong>AddBattery</strong> (percent) for pickups. <strong>On Switched On</strong>, <strong>On Switched Off</strong>, <strong>On Empty</strong>.</p>
+<h3>Vision Cone 3D, Alert Audio, UI Stealth HUD</h3>
+<p><strong>Vision Cone 3D</strong>: on a child of a guard at floor height, with a Mesh Filter and a Mesh Renderer (transparent unlit material). Draws the guard's view, cut by walls (<strong>Rays</strong>), colored <strong>Calm</strong>, <strong>Suspicious</strong> or <strong>Chasing</strong>.</p>
+<p><strong>Alert Audio</strong>: on a looping Audio Source; fades from <strong>Calm Volume</strong> to <strong>Alert Volume</strong> with the highest alert, and raises the pitch to <strong>Chase Pitch</strong> during a chase.</p>
+<p><strong>UI Stealth HUD</strong>: on the <code>StealthHUD</code> screen; fills <code>alert-fill</code> with the highest alert, writes <em>Unseen</em>, <em>Hidden</em>, <em>Suspicious</em> or <em>Spotted!</em> in <code>state-label</code>, and fills <code>battery-fill</code> from <strong>Battery Percent</strong>.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Vision Cone 3D, Alert Audio, UI Stealth HUD</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Screen</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Element names</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>StealthHUD</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>state-label</code>, <code>alert-bar</code>, <code>alert-fill</code>, <code>objective-label</code>, <code>message-label</code>, <code>battery-bar</code>, <code>battery-fill</code></td>
+</tr>
+</tbody>
+</table>
+<hr/>
 <h2>Editor tools</h2>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Editor tools</caption>
 <thead>
@@ -2749,6 +2863,14 @@
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A card battle game</td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Card</strong>s and <strong>Enemy</strong> assets + a <strong>Card Battle</strong> + <code>CardBattle</code> screen with <strong>UI Card Battle</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A 3D platformer</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Player Controller 3D</strong> + a Cinemachine Camera with Orbital Follow + <strong>Cursor Lock 3D</strong> + Collectibles with <strong>Spin 3D</strong>, <strong>Moving Platform 3D</strong>, <strong>Bounce Pad 3D</strong>, <strong>Patrol Enemy 3D</strong>, <strong>Blob Shadow 3D</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A stealth or horror game</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Player Controller 3D</strong> + <strong>Stealth Target 3D</strong> + <strong>Guard 3D</strong>s on a NavMesh + <strong>Hiding Spot 3D</strong>s + <strong>Flashlight 3D</strong> + <code>StealthHUD</code> with <strong>UI Stealth HUD</strong></td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Starting a new game from the menu</td>

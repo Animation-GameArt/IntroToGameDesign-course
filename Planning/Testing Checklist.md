@@ -464,6 +464,48 @@ Guide: [Card Game Kit - Building the Sample](https://github.com/Animation-GameAr
 
 - [ ] Card Game Kit: sample committed and pushed with its .meta files
 
+### 3D Platformer Kit
+
+Guide: [3D Platformer Kit - Building the Sample](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/3D%20Platformer%20Kit%20-%20Building%20the%20Sample.md) — section *Part 9 — Test*
+
+- [ ] The pointer is hidden while playing, and back while paused and on the win screen.
+- [ ] The mouse and right stick orbit the camera; up on the stick always moves away from the camera; the player turns to face where they walk.
+- [ ] Holding Space jumps higher than tapping it; jumping just after walking off a ledge still works; Shift sprints.
+- [ ] The blob shadow sits under the player on every surface, and shrinks the higher they are.
+- [ ] Coins spin and bob, and count up on the HUD; all twenty can be reached.
+- [ ] The player rides both moving platforms without sliding off.
+- [ ] Crumbling platforms shake, fall, and return after 3 seconds.
+- [ ] The bounce pad launches the player high enough to reach the tower's second level.
+- [ ] Landing on an enemy removes it and bounces the player; walking into one costs a heart and gives a moment of invulnerability.
+- [ ] At 0 hearts, or falling off, the player returns to the last checkpoint touched, with full health.
+- [ ] Walls and islands between the camera and the player don't hide them for long.
+- [ ] Touching the flag shows the win screen with the coin count.
+- [ ] **Feel:** play the level twice. Note any jump that's too hard, and any spot where the camera gets in the way.
+- [ ] 3D Platformer Kit: anything that failed is reported to Claude, with the Console message
+
+- [ ] 3D Platformer Kit: sample committed and pushed with its .meta files
+
+### Stealth Kit
+
+Guide: [Stealth Kit - Building the Sample](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Stealth%20Kit%20-%20Building%20the%20Sample.md) — section *Part 8 — Test*
+
+- [ ] Guards walk their routes and pause at each point; their vision cones sweep the floor and stop at walls.
+- [ ] Standing in a cone fills the alert meter, faster up close; the HUD says *Suspicious*, and the cone turns orange.
+- [ ] Ducking out of sight before the meter fills: the guard comes to look, looks around, and goes back to its route.
+- [ ] A full meter: *Spotted!*, the cone turns red, the guard runs at the player, and the heartbeat speeds up.
+- [ ] Getting caught shows the caught screen with the pointer back.
+- [ ] Sprinting near a guard (even behind it) makes it come to look; walking past at the same distance doesn't; crouching right behind it doesn't.
+- [ ] Inside a locker, a guard can look straight at the player and see nothing; under a desk only while crouching.
+- [ ] Losing a chase by breaking line of sight and hiding: the guard searches, then gives up.
+- [ ] The flashlight toggles with a left click, drains the battery bar, flickers below 20%, and goes out when empty; the battery pickup refills it.
+- [ ] With the flashlight on, guards spot the player from farther away.
+- [ ] Collecting three keys opens the exit and shows the message; reaching it shows the escaped screen.
+- [ ] Esc pauses the guards and brings the pointer back.
+- [ ] **Balance:** play twice carefully and once carelessly. A careful player should usually escape; a careless one should usually be caught.
+- [ ] Stealth Kit: anything that failed is reported to Claude, with the Console message
+
+- [ ] Stealth Kit: sample committed and pushed with its .meta files
+
 ## 5. Before the semester
 
 - [ ] The whole student path on a lab computer: download the Release ZIP, unzip, open, import a kit package

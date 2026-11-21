@@ -1,0 +1,107 @@
+<p><strong>For the instructor.</strong> These steps build the kit's sample level once, in the template project. Building it tests every kit script and the course's 3D scripts, and the result is what students import. Students read <strong>3D Platformer Kit</strong>, not this page.</p>
+<p>Everything goes in <code>Assets/_Course/Kits/Platformer3D/Sample/</code>, with folders <code>Data</code>, <code>Materials</code>, <code>Prefabs</code> and <code>Scenes</code>. The level is built from Unity's basic shapes; no art pack is needed.</p>
+<h2>Before you start</h2>
+<ol>
+<li>Pull the template project. It should be version 0.22.0 or later, with no red errors in the Console.</li>
+<li>Every UI Document uses <code>CoursePanelSettings</code>.</li>
+</ol>
+<h2>Part 1 — Data and materials</h2>
+<p>In <code>Sample/Data</code>: <code>Coins</code> and <code>PlayerHealth</code> (Int Variables, <code>0</code> and <code>3</code>), <code>LevelWon</code> (Void Event Channel).</p>
+<p>In <code>Sample/Materials</code>, four materials (<strong>Create → Material</strong>, shader <strong>Universal Render Pipeline/Lit</strong>): <code>Grass</code> (Base Map color <code>6DBE45</code>), <code>Stone</code> (<code>9A9AA6</code>), <code>Coin</code> (<code>FFD23F</code>, Emission ticked, same color), <code>Danger</code> (<code>E04848</code>). And <code>Shadow</code>: shader <strong>Universal Render Pipeline/Particles/Unlit</strong>, Surface Type <strong>Transparent</strong>, Base Map the built-in <code>Default-Particle</code> texture (click the circle beside Base Map and search for it), color black at 60% alpha.</p>
+<h2>Part 2 — The scene and camera</h2>
+<ol>
+<li><strong>File → New Scene → Basic (URP)</strong> if offered, otherwise <strong>Basic (Built-in)</strong>; save it as <code>Sample/Scenes/Islands_Level</code>.</li>
+<li>Main Camera → <strong>Rendering → Renderer</strong>: <strong>Universal Renderer</strong>. Main Camera → <strong>Environment → Background Type</strong>: Skybox (or a solid sky blue <code>8FD3FF</code>).</li>
+</ol>
+<h2>Part 3 — The player</h2>
+<ol>
+<li>An empty <code>Player</code> at <code>0, 1, 0</code>, tagged <strong>Player</strong>. Children: a Capsule <code>Body</code> at <code>0, 1, 0</code> (remove its collider, material <code>Stone</code>), and a small Cube <code>Nose</code> at <code>0, 1.5, 0.45</code>, Scale <code>0.3, 0.2, 0.4</code> (remove its collider), so you can see which way it faces.</li>
+<li>On <code>Player</code>: <strong>Player Controller 3D</strong> (it adds a Character Controller: Height <code>2</code>, Radius <code>0.4</code>, Center <code>0, 1, 0</code>). Facing <strong>Face Movement</strong>; Walk Speed <code>6</code>, Sprint Speed <code>9</code>; Jump Height <code>2.2</code>, Extra Air Jumps <code>0</code>; Can Crouch unticked.</li>
+<li><strong>Health</strong>: Max Health <code>3</code>, Invulnerable Time <code>1</code>, Health Variable <code>PlayerHealth</code>. <strong>Respawner</strong>: Respawn When Health Runs Out ticked.</li>
+<li>A Quad <code>Player Shadow</code>, <strong>not</strong> a child of the player, material <code>Shadow</code>, no collider. On <code>Player</code>, <strong>Blob Shadow 3D</strong>: Shadow <code>Player Shadow</code>, Size <code>0.9</code>.</li>
+<li>Make <code>Player</code> a prefab in <code>Sample/Prefabs</code>.</li>
+</ol>
+<h2>Part 4 — The orbit camera</h2>
+<ol>
+<li><strong>GameObject → Cinemachine → Cinemachine Camera</strong>. Name it <code>Orbit Camera</code>. Tracking Target <code>Player</code>.</li>
+<li><strong>Position Control: Orbital Follow</strong>. Orbit Style <strong>Sphere</strong>, Radius <code>7</code>, Target Offset <code>0, 1.2, 0</code>. Under <strong>Vertical Axis</strong>, Range <code>-10</code> to <code>60</code>, Value <code>20</code>.</li>
+<li><strong>Rotation Control: Rotation Composer</strong>, Target Offset <code>0, 1.2, 0</code>.</li>
+<li>Click <strong>Add Input Controller</strong> (or <strong>Add Component → Cinemachine Input Axis Controller</strong>). For <strong>Look Orbit X</strong> and <strong>Look Orbit Y</strong>, set the <strong>Input Action</strong> to <code>Player/Look</code> from <code>Assets/_Course/Core/Input/InputSystem_Actions</code> if it's empty. If moving the mouse up turns the camera the wrong way, change the sign of Look Orbit Y's <strong>Gain</strong>.</li>
+<li><strong>Add Extension → Cinemachine Deoccluder</strong>, so islands between the camera and the player don't hide them.</li>
+<li>On any object, add <strong>Cursor Lock 3D</strong>.</li>
+<li>Press <strong>Play</strong> on a big flat Cube floor: the player walks relative to the camera, and the mouse orbits.</li>
+</ol>
+<h2>Part 5 — Prefabs</h2>
+<p>In <code>Sample/Prefabs</code>:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 5 — Prefabs</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Prefab</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Build</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Coin</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A Cylinder, Scale <code>0.6, 0.05, 0.6</code>, rotated <code>90, 0, 0</code>, material <code>Coin</code>. Replace its collider with a <strong>Sphere Collider</strong> (Is Trigger, Radius <code>0.8</code>). <strong>Collectible</strong>: Add To <code>Coins</code>, Amount <code>1</code>. <strong>Spin 3D</strong>: Spin <code>0, 0, 180</code> (it's on its side), Bob Height <code>0.15</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Checkpoint</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A thin Cylinder pole, <code>Stone</code>, with a Box Collider trigger <code>2 × 3 × 2</code>, and <strong>Checkpoint</strong>. A child <code>Respawn Point</code> just in front</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Moving Platform</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A Cube <code>3 × 0.5 × 3</code>, <code>Stone</code>, <strong>Moving Platform 3D</strong>: Speed <code>2.5</code>, Wait Time <code>0.8</code>, Back And Forth; two child empties <code>A</code> and <code>B</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Crumbling Platform</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A Cube <code>2 × 0.4 × 2</code>, <code>Grass</code> darkened, <strong>Crumbling Platform 3D</strong>: Hold Time <code>0.6</code>, Return Time <code>3</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Bounce Pad</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A flat Cylinder <code>1.5 × 0.1 × 1.5</code>, <code>Danger</code>, with a Box Collider trigger above it, <strong>Bounce Pad 3D</strong>: Height <code>7</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Patrol Enemy</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A Cube <code>1 × 1 × 1</code>, <code>Danger</code>, collider Is Trigger, a child Cube for eyes, <strong>Patrol Enemy 3D</strong>: Speed <code>2</code>, Damage <code>1</code>, Can Be Stomped ticked, Stomp Bounce <code>3</code>; two child empties for its points</td>
+</tr>
+</tbody>
+</table>
+<h2>Part 6 — The level</h2>
+<p>Build in the order the player meets it. Islands are scaled Cubes with <code>Grass</code> on top (a thin Cube) and <code>Stone</code> below. Keep gaps to 3 units or less (4 where the player can take a run-up and sprint), and every step up to 1.5 or less.</p>
+<p><strong>Start</strong> — an island <code>10 × 2 × 10</code> at the origin. <code>Player</code> on it. Five coins in a line leading toward Area 1.</p>
+<p><strong>Area 1: Stepping Stones</strong> — six small islands <code>3 × 1 × 3</code>, each a little higher than the last, with 2–3 unit gaps, curving to the left. A <code>Checkpoint</code> on the first one. Five coins, one above each gap, so collecting them means jumping.</p>
+<p><strong>Area 2: Over the Drop</strong> — a long gap crossed by two <code>Moving Platform</code>s (one moving sideways, one up and down), then a bridge of five <code>Crumbling Platform</code>s in a row. A <code>Checkpoint</code> before it. Five coins: two on the moving platforms' paths, three above the crumbling bridge.</p>
+<p><strong>Area 3: The Tower</strong> — a wide island with a tower of three stacked islands. Two <code>Patrol Enemy</code> walk the base. A <code>Bounce Pad</code> launches the player to the second level; a ledge climb of small steps reaches the top. A <code>Checkpoint</code> at the base. Five coins: two guarded by the enemies, three up the tower.</p>
+<p><strong>Goal</strong> — at the top, a tall pole with a cloth (a thin Cube, <code>Danger</code>) and a trigger with <strong>Trigger Zone</strong>: Only Once, Raise On Enter <code>LevelWon</code>.</p>
+<p><strong>Kill Zone</strong> — a big Box Collider trigger <code>400 × 2 × 400</code> at <code>y = -15</code>, with <strong>Kill Zone</strong>.</p>
+<p>Count the coins: twenty.</p>
+<h2>Part 7 — Islands Systems</h2>
+<p>An empty <code>Islands Systems</code>, made into a prefab, with:</p>
+<p><strong><code>HUD</code></strong> — UI Document <code>HUD</code> (Core), <strong>UI Variable Binder</strong>: <code>health-label</code> → <code>PlayerHealth</code> → <code>Hearts: {0}</code>; <code>score-label</code> → <code>Coins</code> → <code>Coins: {0} / 20</code>.</p>
+<p><strong><code>Reset</code></strong> — a <strong>Variable Resetter</strong> with <code>Coins</code> and <code>PlayerHealth</code>.</p>
+<p><strong><code>Pause Menu</code></strong>, <strong><code>Scene Changer</code></strong>, <strong><code>To Menu</code></strong> — as in the Platformer Kit sample.</p>
+<p><strong><code>Won</code></strong> — UI Document <code>EndScreen</code>, hidden, shown on <code>LevelWon</code>; <code>score-label</code> → <code>Coins</code> → <code>Coins: {0} / 20</code>. Its Void Event Listener also calls <strong>CursorLock3D → Unlock</strong>.</p>
+<h2>Part 8 — Menu</h2>
+<p><code>Islands_Menu</code>, like the Platformer sample's menu, with Play loading <code>Islands_Level</code>. Scene List: <code>Islands_Menu</code>, <code>Islands_Level</code>.</p>
+<h2>Part 9 — Test</h2>
+<ul>
+<li>The pointer is hidden while playing, and back while paused and on the win screen.</li>
+<li>The mouse and right stick orbit the camera; up on the stick always moves away from the camera; the player turns to face where they walk.</li>
+<li>Holding Space jumps higher than tapping it; jumping just after walking off a ledge still works; Shift sprints.</li>
+<li>The blob shadow sits under the player on every surface, and shrinks the higher they are.</li>
+<li>Coins spin and bob, and count up on the HUD; all twenty can be reached.</li>
+<li>The player rides both moving platforms without sliding off.</li>
+<li>Crumbling platforms shake, fall, and return after 3 seconds.</li>
+<li>The bounce pad launches the player high enough to reach the tower's second level.</li>
+<li>Landing on an enemy removes it and bounces the player; walking into one costs a heart and gives a moment of invulnerability.</li>
+<li>At 0 hearts, or falling off, the player returns to the last checkpoint touched, with full health.</li>
+<li>Walls and islands between the camera and the player don't hide them for long.</li>
+<li>Touching the flag shows the win screen with the coin count.</li>
+<li><strong>Feel:</strong> play the level twice. Note any jump that's too hard, and any spot where the camera gets in the way.</li>
+</ul>
+<p>Note anything that fails, with the Console message.</p>
+<h2>Part 10 — Commit</h2>
+<p>Commit and push the <code>Sample</code> folder with its <code>.meta</code> files.</p>
+<h2>Later — Exporting the kit</h2>
+<p>Export <code>Assets/_Course/Kits/Platformer3D</code> with <strong>Assets → Export Package</strong>, unticking Core and 3D scripts that Unity adds as dependencies.</p>

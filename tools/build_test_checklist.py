@@ -73,7 +73,7 @@ doc += ["## 4. Kit samples", "",
         "through its checks. The other kits are built by hand from their guides for now; Claude writes their menu commands "
         "once the Platformer one is confirmed. Building a sample by hand is itself the test of the kit's scripts and guide.", ""]
 order = ["Platformer", "Physics Puzzle", "Top-Down Adventure", "Turn-Based Battle", "Arcade Classic",
-         "Top-Down Shooter", "Endless Runner", "Grid Puzzle", "Tower Defense", "Management", "Farming", "Visual Novel", "Card Game"]
+         "Top-Down Shooter", "Endless Runner", "Grid Puzzle", "Tower Defense", "Management", "Farming", "Visual Novel", "Card Game", "3D Platformer", "Stealth"]
 for kit in order:
     path = os.path.join(ROOT, "Kit Guides", f"{kit} Kit - Building the Sample.md")
     if os.path.exists(path):

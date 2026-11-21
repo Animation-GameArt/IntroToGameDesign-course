@@ -1,0 +1,193 @@
+<p>The 3D Platformer Kit is a starting point for 3D platformers: run, jump and explore a 3D space, collect things, and reach the goal. Examples: A Hat in Time, Super Mario 64 or Astro Bot (one small area of each).</p>
+<p>The sample, <em>Sky Islands</em>, is one level of floating islands in three areas: stepping stones, moving and crumbling platforms over a drop, and a tower with a bounce pad and enemies to stomp. Twenty coins are scattered across it, and a flag at the top ends the level.</p>
+<p>Read <strong>About 3D games</strong> on the Genre Map first. A 3D level takes longer to build and test than a 2D one, and the camera is a design problem of its own.</p>
+<h2>What the kit covers</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">What the kit covers</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The kit does this</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The kit doesn't do this</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A player moved relative to the camera, with sprint, crouch, jumps, double jumps and short hops</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Wall jumps, ledge grabs, swimming, climbing</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A camera that orbits the player with the mouse or right stick</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Fixed camera angles that change by area (Cinemachine can, with more cameras)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Moving, crumbling and bouncy platforms</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Rotating platforms that carry the player round</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Enemies that patrol, and can be stomped</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Enemies that chase, or shoot</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Coins, health, checkpoints and falling out of the level</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Several levels joined by a hub world</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A blob shadow, so the player can judge jumps</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Animated characters (use a capsule, or a model without animations)</td>
+</tr>
+</tbody>
+</table>
+<p>If your pitch needs something in the right-hand column, it has to be one of your agreed custom scripts, or it has to be cut. The Genre Map's advice stands: one level with twenty collectibles and three distinct areas.</p>
+<h2>Install the kit</h2>
+<p>The 3D scripts it builds on (Player Controller 3D and friends) are already in the course project.</p>
+<ol>
+<li>Download the 3D Platformer Kit package from the course project's <strong>Releases</strong> page.</li>
+<li>With your project open, double-click the package and click <strong>Import</strong>.</li>
+<li>Open <strong>File → Build Profiles → Open Scene List</strong>. From <code>Assets/_Course/Kits/Platformer3D/Sample/Scenes</code>, add <code>Islands_Menu</code> and <code>Islands_Level</code>, next to each other, in that order.</li>
+<li>Open <code>Islands_Menu</code> and press <strong>Play</strong>.</li>
+</ol>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Install the kit</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Action</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Keyboard and mouse</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Gamepad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Move</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">WASD</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Left stick</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Look around</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Mouse</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Right stick</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Jump (hold for higher)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Space</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Bottom face button</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Sprint</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Left Shift</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Left stick press</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Pause</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Esc</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Start</td>
+</tr>
+</tbody>
+</table>
+<h2>How it works</h2>
+<ul>
+<li><strong>Player Controller 3D</strong> moves the player relative to the camera: up on the stick is always away from the camera. The player turns to face where they walk.</li>
+<li>The camera is a <strong>Cinemachine Camera</strong> with <strong>Orbital Follow</strong>: it circles the player at a set distance, turned by the mouse or right stick. <strong>Cursor Lock 3D</strong> hides the mouse pointer while you play.</li>
+<li><strong>Coins</strong> are Core <strong>Collectibles</strong> with a <strong>Spin 3D</strong> to catch the eye. <strong>Checkpoints</strong> and a <strong>Kill Zone</strong> under the level work as they do in 2D: fall, and you're back at the last checkpoint.</li>
+<li><strong>Moving Platform 3D</strong> carries the player; <strong>Crumbling Platform 3D</strong> falls a moment after it's stepped on, and comes back; <strong>Bounce Pad 3D</strong> launches the player.</li>
+<li><strong>Patrol Enemy 3D</strong> walks between points. Land on it to defeat it; touch it any other way and lose a heart.</li>
+<li><strong>Blob Shadow 3D</strong> puts a dark circle on the ground under the player. In 3D it's hard to tell where you'll land without one.</li>
+</ul>
+<h2>What's in the sample</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">What's in the sample</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Object</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What it is</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Worth changing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Player</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Capsule with Player Controller 3D, Health, Respawner, Blob Shadow 3D</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Walk Speed</strong>, <strong>Jump Height</strong>, <strong>Extra Air Jumps</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Orbit Camera</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Cinemachine Camera</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Radius</strong>, the vertical range</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Area 1</code>, <code>Area 2</code>, <code>Area 3</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The three areas, each with a checkpoint</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Everything</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Coin</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Prefab: Collectible + Spin 3D</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Islands Systems</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">HUD, pause, win screen, kill zone</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+</tbody>
+</table>
+<h2>Start your own game</h2>
+<ol>
+<li>Sketch your level from above on paper: where the player starts, the three areas, where the coins are, and the goal. Each area should teach one idea, then test it.</li>
+<li>Open <code>Islands_Level</code>, <strong>File → Save As…</strong> into <code>Assets/_Game/Scenes</code>, and delete the three areas.</li>
+<li>Block out your level with Unity's basic shapes (<strong>GameObject → 3D Object → Cube</strong>). Play it often while it's grey; add art only once it's fun.</li>
+<li>Use the sample's prefabs (<code>Coin</code>, <code>Checkpoint</code>, <code>Moving Platform</code>, <code>Bounce Pad</code>, <code>Patrol Enemy</code>) as you need them.</li>
+</ol>
+<h3>Designing 3D levels</h3>
+<ul>
+<li><strong>Jump distances.</strong> With the default settings the player jumps about 2 units high, and about 4 units across walking or 6 sprinting. Measure gaps with the grid; make the first ones easy.</li>
+<li><strong>Look before you leap.</strong> Put the camera where the player can see the landing. Long jumps toward or away from the camera are hardest; sideways ones are easiest.</li>
+<li><strong>Landmarks.</strong> Something tall and distinct in each area (a tower, a big tree) helps players know where they are.</li>
+<li><strong>Coins as a trail.</strong> A line of coins shows players where to go, and where to jump.</li>
+</ul>
+<h2>Recipes</h2>
+<p><strong>A double jump.</strong> Set <strong>Extra Air Jumps</strong> to <code>1</code>.</p>
+<p><strong>Floaty or snappy jumps.</strong> Lower <strong>Fall Gravity Multiplier</strong> for floaty, raise it for snappy.</p>
+<p><strong>A platform that starts when you step on it.</strong> Tick <strong>Wait For Start</strong> on the Moving Platform 3D, and add a Trigger Zone on top whose <strong>On Enter</strong> calls <strong>MovingPlatform3D → StartMoving</strong>.</p>
+<p><strong>A spike strip.</strong> A Patrol Enemy 3D with no points and <strong>Can Be Stomped</strong> unticked.</p>
+<p><strong>Coins that open the goal.</strong> An <strong>Int Variable Condition</strong> (Coins at least 20) raises an event; a <strong>Void Event Listener</strong> on the goal's gate deactivates it.</p>
+<p><strong>A fixed camera.</strong> Replace Orbital Follow with <strong>Follow</strong> (as in 2.5D Tutorial 1) for a camera that stays behind the player, or position the camera by hand for a set angle.</p>
+<h2>If something goes wrong</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something goes wrong</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What you see</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The scene is pink</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The camera's <strong>Renderer</strong> must be <strong>Universal Renderer</strong> (Main Camera → Rendering)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player falls through the floor</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The floor needs a collider; the player's pivot must be at their feet</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Moving the mouse doesn't turn the camera</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Cinemachine Input Axis Controller needs the <strong>Look</strong> action (see the Building the Sample guide)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Up and down on the mouse are reversed</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Flip the sign of <strong>Look Orbit Y</strong>'s <strong>Gain</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player slides off moving platforms</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The platform needs Moving Platform 3D on the object with the collider</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Coins don't count</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Their collider needs <strong>Is Trigger</strong>, and the player the <strong>Player</strong> tag</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Falling doesn't send you back</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Kill Zone needs a trigger collider wide enough, and the player a Respawner</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The pointer stays hidden on the win screen</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Call <strong>CursorLock3D → Unlock</strong> from the win event</td>
+</tr>
+</tbody>
+</table>

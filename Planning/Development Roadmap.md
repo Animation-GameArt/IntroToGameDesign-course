@@ -18,14 +18,14 @@ What is built, what is left, the order to build it in, and the decisions that bl
 | Piece | State |
 |---|---|
 | Schedule, teaching philosophy, design-doc templates | Written |
-| Template project (v0.21.0): Core, 2D, 3D, and thirteen kits, with Yarn Spinner 3.3.2 | Compiles with no errors (checked through the Visual Novel kit, 2026-11-20; Card Game kit not yet compiled). Kits and 3D scripts not yet tested in Play mode |
+| Template project (v0.22.0): Core, 2D, 3D, and all fifteen kits, with Yarn Spinner 3.3.2 | Compiles with no errors (checked through the Visual Novel kit, 2026-11-20; Card Game, 3D Platformer and Stealth kits and the new 3D scripts not yet compiled). Kits and 3D scripts not yet tested in Play mode |
 | Exercise tutorials Ex 00–10 (two versions of Ex 05) | Drafted. Ex 01–04 tested |
 | Class and Lecture pages, weeks 1–7 | Drafted |
 | Canvas HTML copies, rebuilt automatically | Working |
 | Ex 00 tutorial | Drafted |
-| Script Reference (`Guides/Script Reference.md`) | Written for v0.21.0. Update whenever scripts change |
+| Script Reference (`Guides/Script Reference.md`) | Written for v0.22.0. Update whenever scripts change |
 | Genre map page for students | Drafted (`Guides/Genre Map.md`) |
-| Genre kits and kit guides | Platformer, Physics Puzzle, Top-Down Adventure, Turn-Based Battle, Arcade Classic, Top-Down Shooter, Endless Runner, Grid Puzzle, Tower Defense, Management, Farming, Visual Novel and Card Game: scripts and both guides written. Platformer sample built with its menu command (2026-11-20), not yet played through; other samples not built. 3D platformer and horror/stealth not started |
+| Genre kits and kit guides | Platformer, Physics Puzzle, Top-Down Adventure, Turn-Based Battle, Arcade Classic, Top-Down Shooter, Endless Runner, Grid Puzzle, Tower Defense, Management, Farming, Visual Novel, Card Game, 3D Platformer and Stealth: scripts and both guides written for all fifteen kits. Platformer sample built with its menu command (2026-11-20), not yet played through; other samples not built. |
 | Scripts for weeks 8–10 (v0.10.0) | Audio, music, camera shake, hit stop, cutscenes, saving, high score and settings. Compiled; not yet tested in Ex 07–10. Dialogue is part of the visual novel kit (v0.20.0) |
 | 3D module and 2.5D tutorials | Tank Controller 3D, Rail Runner 3D, two tutorials. Universal Renderer added. Compiles; not yet tested |
 | Class and Lecture pages, weeks 8–16 | Drafted |
@@ -73,8 +73,9 @@ Every test, with each guide's checks in order, is in the **[Testing Checklist](h
 - [x] Farming kit: scripts and both guides (v0.19.0). The sample's economy was checked with a simulation.
 - [x] Visual novel kit, with dating sim: scripts, sample story and both guides (v0.20.0), on Yarn Spinner 3.3.2.
 - [x] Card game kit: scripts and both guides (v0.21.0). The sample's balance was checked with a simulation.
-- [ ] Remaining kits, each with scripts, a student guide and a "Building the Sample" guide: 3D platformer, horror and stealth.
-- [ ] 3D kits: 3D platformer, then horror and stealth, with the 3D module scripts they need (camera helpers, enemies that use a navigation mesh).
+- [x] 3D scripts for the 3D kits: Player Controller 3D, Moving Platform 3D, Bounce Pad 3D, Spin 3D, Cursor Lock 3D (v0.22.0).
+- [x] 3D platformer kit and stealth kit: scripts and both guides each (v0.22.0). The stealth sample needs the AI Navigation package.
+- [ ] Install the **AI Navigation** package (Package Manager → Unity Registry) and push the manifest, for the Stealth kit.
 - [ ] Match the Week 5–7 lecture pages to the real script names.
 - [ ] Move the instructor's tested exercise scenes to `Assets/_Course/Exercises/Solutions/` (once Marshall says they're final).
 - [ ] Fix whatever the compile check and tests turn up. This always comes first when reports arrive.
@@ -108,8 +109,8 @@ One kit at a time, in priority order. For each kit:
 
 1. Small, and they settle the kit format: platformer, top-down adventure, turn-based battle, arcade classic (scripts and both guides written for all four; the samples need building and testing)
 2. Medium: physics puzzle (scripts and guides written; sample needs building, and Kenney's Physics Assets pack), top-down shooter (scripts and guides written, v0.14.0; sample needs Kenney's Pixel Shmup), endless runner (scripts and guides written, v0.15.0), grid puzzle (scripts and guides written, v0.16.0), tower defense (scripts and guides written, v0.17.0), management and strategy (scripts and guides written, v0.18.0), visual novel with dating sim (scripts and guides written, v0.20.0)
-3. The 3D script module, in the same course project (**decided** 2026-11-20: one project, one repository, with the 2D and 3D scripts and kits side by side, sharing the same Core, UI and data). The module's first two scripts, Tank Controller 3D and Rail Runner 3D, are in `_Course/ThreeD`, with two tutorials in `Tutorials/`. Next: a 3D renderer added to the project's URP settings (one-time, in Unity), then the 3D platformer kit
-4. Large: card game (scripts and guides written, v0.21.0), farming and life sim (scripts and guides written, v0.19.0), horror and stealth
+3. The 3D script module, in the same course project (**decided** 2026-11-20: one project, one repository, with the 2D and 3D scripts and kits side by side, sharing the same Core, UI and data). The module's first two scripts, Tank Controller 3D and Rail Runner 3D, are in `_Course/ThreeD`, with two tutorials in `Tutorials/`. The Universal Renderer is added, and the 3D platformer and stealth kits are written (v0.22.0), with Player Controller 3D and the other scripts they need
+4. Large: card game (scripts and guides written, v0.21.0), farming and life sim (scripts and guides written, v0.19.0), 3D platformer and horror and stealth (scripts and guides written, v0.22.0)
 
 Kits aren't used until week 8 of the semester, so the later ones can be finished during weeks 1–7.
 
@@ -170,7 +171,7 @@ Kits aren't used until week 8 of the semester, so the later ones can be finished
 
 ## Open risks
 
-- **Untested code is stacked up.** Thirteen kits and the 3D module compile but haven't been played, and Ex 05–10 haven't been tested. Each new kit adds to the pile, so test reports take priority over new kits.
+- **Untested code is stacked up.** Fifteen kits and the 3D module compile but haven't been played, and Ex 05–10 haven't been tested. Each new kit adds to the pile, so test reports take priority over new kits.
 - **Each kit costs instructor testing time.** The kit count in decision 1 should match the time available before the semester.
 - **The Unity Version Control allowance for students** is still unconfirmed.
 - **3D lives in the same course project** as 2D (decided 2026-11-20): one project, one repository, one set of Core, UI and data. 3D scenes use a second URP renderer. **The Unreal section** is deferred until the 2D Unity course is complete.

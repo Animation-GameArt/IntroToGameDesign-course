@@ -3,7 +3,7 @@ title: "Script Reference"
 course: GAME 1303
 type: guide
 status: draft
-course_version: 0.21.0
+course_version: 0.22.0
 unity: 6000.3.10f1
 tags:
   - game1303
@@ -13,7 +13,7 @@ tags:
 
 # Script Reference
 
-Every course script in the course project, as of version **0.21.0**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
+Every course script in the course project, as of version **0.22.0**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
 
 ## Finding the scripts
 
@@ -73,6 +73,9 @@ Every script explains its settings: hover over a field in the Inspector to see i
 | `_Course/Kits/VisualNovel/UI` | — | Visual novel screen |
 | `_Course/Kits/CardGame/Scripts` | `CollinGame.Kits.CardGame` | Card game kit scripts |
 | `_Course/Kits/CardGame/UI` | — | Card battle screen |
+| `_Course/Kits/Platformer3D/Scripts` | `CollinGame.Kits.Platformer3D` | 3D platformer kit scripts |
+| `_Course/Kits/Stealth/Scripts` | `CollinGame.Kits.Stealth` | Stealth kit scripts |
+| `_Course/Kits/Stealth/UI` | — | Stealth HUD |
 | `_Course/Art/Kenney` | — | Kenney art packs (CC0). Its README links to every pack the kits use |
 | `_Course/Credits` | — | The course's credits text |
 
@@ -387,6 +390,38 @@ Keeps the player on a **Spline Container** (the rail): they run along it, step s
 Read by other scripts: **Progress** (0 to 1 along the rail), **RunSpeed**, **SideOffset**, **IsGrounded**, **Rail**. Methods: **SnapToNearest**, **Bounce**.
 
 **Used in:** [2.5D Tutorial 2 — Rail Runner](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Tutorials/2.5D%20Tutorial%202%20-%20Rail%20Runner.md).
+
+### Player Controller 3D
+
+`ThreeD/Movement/PlayerController3D.cs` · **Add Component → Collin Game → 3D → Player Controller 3D**
+
+A player moved relative to the camera: up on the stick moves away from the camera. Sprint, crouch (shorter, slower, quieter; won't stand up under a ceiling) and jump. **Face Movement** turns the player toward where they walk (third person, orbit camera); **Face Camera** keeps them facing where the camera looks (first person). Rides **Moving Platform 3D**s. Uses a Character Controller, added and sized for you.
+
+| Setting | Default | |
+|---|---|---|
+| Input · Camera Transform | `InputReader` · the Main Camera | Both filled in for you |
+| Walk Speed · Sprint Speed | `6` · `9` | Sprint while Sprint (Left Shift) is held |
+| Acceleration · Deceleration · Air Control | `40` · `50` · `0.6` | |
+| Facing · Turn Speed | Face Movement · `720` | |
+| Can Crouch · Crouch Speed · Crouch Height | ticked · `2.5` · `1` | Crouch (C) is held |
+| Can Jump · Jump Height · Extra Air Jumps | ticked · `2` · `0` | Untick Can Jump for horror games |
+| Short Hop Speed Kept · Coyote Time · Jump Buffer Time | `0.5` · `0.12` · `0.12` | |
+| Gravity · Fall Gravity Multiplier · Max Fall Speed | `25` · `1.6` · `30` | |
+| On Jump · On Landed | — | |
+
+Read by other scripts: **IsGrounded**, **IsCrouching**, **IsSprinting**, **Velocity**, **MoveInput**, **Loudness** (0 still, 0.15 crouching, 0.5 walking, 1 sprinting). Method: **Bounce** (height).
+
+**Used in:** [3D Platformer Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/3D%20Platformer%20Kit.md), [Stealth Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Stealth%20Kit.md).
+
+### Moving Platform 3D, Bounce Pad 3D, Spin 3D, Cursor Lock 3D
+
+**Moving Platform 3D** (`ThreeD/Movement/MovingPlatform3D.cs`): moves between **Points** (child empties) at **Speed**, waiting **Wait Time** at each, **Back And Forth** or **Loop**, and carries a Player Controller 3D standing on it. **Wait For Start**, with **StartMoving** and **StopMoving**.
+
+**Bounce Pad 3D**: a trigger that launches a Player Controller 3D to **Height**. **On Bounce**.
+
+**Spin 3D**: spins an object (**Spin**, degrees per second per axis) and bobs it (**Bob Height**, **Bob Speed**). For pickups.
+
+**Cursor Lock 3D**: hides and locks the mouse pointer while playing; shows it while paused, while the player's controls are off, and after **Unlock** (call it from a win or game over event). **Lock** undoes Unlock.
 
 ---
 
@@ -1420,6 +1455,48 @@ Shows the battle on the `CardBattle` screen and builds a card in `hand` for each
 
 ---
 
+## 3D platformer kit
+
+Imported with the 3D Platformer Kit package; uses the 3D movement scripts above. See [3D Platformer Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/3D%20Platformer%20Kit.md).
+
+**Patrol Enemy 3D** (**Add Component → Collin Game → 3D Platformer Kit → Patrol Enemy 3D**): walks back and forth between **Points** at **Speed**, waiting **Wait Time**. A Player Controller 3D landing on it while falling defeats it (**Can Be Stomped**, **Stomp Bounce**, **Raise On Stomped**, **On Stomped**); touching it otherwise deals **Damage** to the player's Health (**On Hit Player**). Needs a trigger collider.
+
+**Crumbling Platform 3D**: when a grounded player stands on it, shakes for **Hold Time**, disappears, and comes back after **Return Time** (`0`: never). **On Crumble**, **On Return**.
+
+**Blob Shadow 3D**: on the player; keeps a flat **Shadow** object (a Quad with a soft dark material, not a child of the player) on the ground below, shrinking with height. **Max Distance**, **Size**, **Far Size**, **Ground Layers**.
+
+## Stealth kit
+
+Imported with the Stealth Kit package; uses Player Controller 3D. Guards need the **AI Navigation** package and a baked NavMesh. See [Stealth Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Stealth%20Kit.md).
+
+### Guard 3D
+
+`Kits/Stealth/Scripts/Guard3D.cs` · **Add Component → Collin Game → Stealth Kit → Guard 3D**
+
+Needs a NavMesh Agent. **Patrol**: loops through **Patrol Points** at **Patrol Speed**, waiting **Wait At Point**. **Sees** the player within **View Distance** (× **Flashlight Sight Bonus** with their flashlight on) and **View Angle**, from **Eye Height**, unless **Blocks View** colliders are in the way; the **Alert** meter fills in **Time To Spot** up close, slower farther away. **Hears** the player within **Hearing Range** × their loudness. At a third alert, or on hearing, it **Investigates** (**Investigate Speed**, **Look Around Time**); at full alert it **Chases** (**Chase Speed**), giving up after **Lose Track After** seconds out of sight. Alert drains at **Calm Down Rate**. Within **Catch Distance** while chasing, it catches the player: **Raise On Caught**. Hidden players can't be seen, heard or caught. Events: **On Suspicious**, **On Chase**, **On Gave Up**, **On Caught**. Read by other scripts: **Alert**, **CurrentState**, **CanSeePlayer**, and the static **All**, **HighestAlert**, **AnyChasing**.
+
+### Stealth Target 3D, Hiding Spot 3D, Flashlight 3D
+
+**Stealth Target 3D**: on the player, with a Player Controller 3D. Tells guards the player's **Loudness**, **IsHidden** and **IsLit**. **Look Point** (default: 1.2 above the feet); **Flashlight** (found in children).
+
+**Hiding Spot 3D**: a trigger. Inside it the player is hidden; with **Needs Crouch**, only while crouching. **On Enter**, **On Exit**.
+
+**Flashlight 3D**: on a Spot Light. Attack toggles it. Drains over **Battery Seconds** (`0`: never), into **Battery Percent** (Float Variable, 0–100); flickers below **Flicker Below**; **On At Start**. **AddBattery** (percent) for pickups. **On Switched On**, **On Switched Off**, **On Empty**.
+
+### Vision Cone 3D, Alert Audio, UI Stealth HUD
+
+**Vision Cone 3D**: on a child of a guard at floor height, with a Mesh Filter and a Mesh Renderer (transparent unlit material). Draws the guard's view, cut by walls (**Rays**), colored **Calm**, **Suspicious** or **Chasing**.
+
+**Alert Audio**: on a looping Audio Source; fades from **Calm Volume** to **Alert Volume** with the highest alert, and raises the pitch to **Chase Pitch** during a chase.
+
+**UI Stealth HUD**: on the `StealthHUD` screen; fills `alert-fill` with the highest alert, writes *Unseen*, *Hidden*, *Suspicious* or *Spotted!* in `state-label`, and fills `battery-fill` from **Battery Percent**.
+
+| Screen | Element names |
+|---|---|
+| `StealthHUD` | `state-label`, `alert-bar`, `alert-fill`, `objective-label`, `message-label`, `battery-bar`, `battery-fill` |
+
+---
+
 ## Editor tools
 
 | Tool | Where | What it does |
@@ -1486,6 +1563,8 @@ Shows the battle on the `CardBattle` screen and builds a card in `hand` for each
 | A visual novel or dating sim | A Yarn script and Yarn Project + a **Dialogue Runner** + `VisualNovel` screen with **UI Dialogue Presenter** and **Visual Novel Stage** + **Character**s; for a dating sim, **Yarn Variable Link** and **UI Relationship Meters** |
 | People who talk, in any game | A **Dialogue Runner** + **UI Dialogue Presenter**; start it with **DialogueRunner → StartDialogue** from an Interactable 2D |
 | A card battle game | **Card**s and **Enemy** assets + a **Card Battle** + `CardBattle` screen with **UI Card Battle** |
+| A 3D platformer | **Player Controller 3D** + a Cinemachine Camera with Orbital Follow + **Cursor Lock 3D** + Collectibles with **Spin 3D**, **Moving Platform 3D**, **Bounce Pad 3D**, **Patrol Enemy 3D**, **Blob Shadow 3D** |
+| A stealth or horror game | **Player Controller 3D** + **Stealth Target 3D** + **Guard 3D**s on a NavMesh + **Hiding Spot 3D**s + **Flashlight 3D** + `StealthHUD` with **UI Stealth HUD** |
 | Starting a new game from the menu | **Variable Resetter** in the menu scene, with every variable that carries between levels |
 
 ## Common Console messages

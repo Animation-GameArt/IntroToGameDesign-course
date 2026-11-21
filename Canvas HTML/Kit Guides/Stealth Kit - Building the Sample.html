@@ -1,0 +1,86 @@
+<p><strong>For the instructor.</strong> These steps build the kit's sample level once, in the template project. Building it tests every kit script, and the result is what students import. Students read <strong>Stealth Kit</strong>, not this page.</p>
+<p>Everything goes in <code>Assets/_Course/Kits/Stealth/Sample/</code>, with folders <code>Data</code>, <code>Materials</code>, <code>Prefabs</code> and <code>Scenes</code>. The level is built from Unity's basic shapes.</p>
+<h2>Before you start</h2>
+<ol>
+<li>Pull the template project. It should be version 0.22.0 or later, with no red errors in the Console.</li>
+<li>Install <strong>AI Navigation</strong>: <strong>Window → Package Manager → Unity Registry → AI Navigation → Install</strong>. Commit <code>Packages/manifest.json</code> and <code>packages-lock.json</code> afterward, so every copy of the course project has it.</li>
+<li>The 3D Platformer sample's orbit camera (Part 4 of its guide) is reused here; build that first, or follow its Part 4 again.</li>
+<li>Every UI Document uses <code>CoursePanelSettings</code>.</li>
+</ol>
+<h2>Part 1 — Data and materials</h2>
+<p>In <code>Sample/Data</code>: <code>Keys</code> (Int Variable, <code>0</code>), <code>Battery</code> (Float Variable, <code>100</code>), <code>Message</code> (String Variable, empty), and Void Event Channels <code>ExitOpened</code>, <code>Escaped</code>, <code>Caught</code>.</p>
+<p>In <code>Sample/Materials</code> (shader <strong>Universal Render Pipeline/Lit</strong> unless noted): <code>Floor</code> (<code>4A4F5C</code>), <code>Wall</code> (<code>8A8F9C</code>), <code>Furniture</code> (<code>6B5640</code>), <code>Locker</code> (<code>5C7A8C</code>), <code>Key</code> (<code>FFD23F</code>, Emission ticked), <code>Guard</code> (<code>C04848</code>). And <code>Vision</code>: shader <strong>Universal Render Pipeline/Unlit</strong>, Surface Type <strong>Transparent</strong>, Render Face <strong>Both</strong>, color white at 30% alpha.</p>
+<h2>Part 2 — The building</h2>
+<ol>
+<li>A new scene from <strong>Basic (Built-in)</strong>, saved as <code>Sample/Scenes/NightShift_Level</code>. Main Camera → Renderer: <strong>Universal Renderer</strong>.</li>
+<li><strong>Lighting:</strong> set the Directional Light's Intensity to <code>0.15</code> and its color to a dark blue (<code>4060A0</code>). In <strong>Window → Rendering → Lighting → Environment</strong>, set Environment Lighting Intensity to <code>0.3</code>. Add a few dim <strong>Point Lights</strong> (Intensity <code>2</code>, Range <code>6</code>, warm color) in some rooms, and leave others dark.</li>
+<li>An empty <code>Level</code>. Inside it, a floor Cube <code>30 × 0.2 × 20</code> (<code>Floor</code>), and walls <code>0.3</code> thick and <code>3</code> high (<code>Wall</code>) making five rooms around a corridor, with door gaps 2 units wide:
+<ul>
+<li><strong>Lobby</strong> (start), <strong>Office</strong> (desks), <strong>Storage</strong> (shelves and lockers), <strong>Break Room</strong>, <strong>Security</strong> (the exit is here).</li>
+</ul>
+</li>
+<li>Furniture (<code>Furniture</code>): desks (<code>2 × 1 × 1</code>) in the Office, shelves (<code>3 × 2.5 × 0.6</code>) in Storage that block sight lines. Give every wall and piece of furniture its collider.</li>
+<li><strong>Add Component → NavMesh Surface</strong> on <code>Level</code>, and click <strong>Bake</strong>. A blue overlay should cover the floor, but not the furniture.</li>
+</ol>
+<h2>Part 3 — The player</h2>
+<ol>
+<li>Reuse the 3D Platformer sample's <code>Player</code> (or build it the same way), at the Lobby's far end.</li>
+<li><strong>Player Controller 3D</strong>: Facing <strong>Face Movement</strong>, Walk Speed <code>4</code>, Sprint Speed <code>6.5</code>, Can Crouch ticked, Crouch Speed <code>1.8</code>, Crouch Height <code>1</code>, Can Jump unticked.</li>
+<li><strong>Stealth Target 3D</strong>: Look Point empty.</li>
+<li>A child <strong>Spot Light</strong> <code>Flashlight</code> at <code>0, 1.4, 0.3</code>, pointing forward: Range <code>15</code>, Spot Angle <code>45</code>, Intensity <code>8</code>. Add <strong>Flashlight 3D</strong>: Battery Seconds <code>120</code>, Battery Percent <code>Battery</code>, Flicker Below <code>20</code>, On At Start unticked.</li>
+<li>No Health or Respawner: being caught ends the game.</li>
+<li>The orbit camera as in the 3D Platformer sample, with Radius <code>5</code>, and <strong>Cursor Lock 3D</strong>.</li>
+</ol>
+<h2>Part 4 — Guards</h2>
+<p><code>Guard</code> prefab, in <code>Sample/Prefabs</code>: a Capsule (<code>Guard</code>), with a child Cube for a visor at head height so you can see which way it looks.</p>
+<ol>
+<li><strong>NavMesh Agent</strong>: Radius <code>0.4</code>, Height <code>2</code>, Angular Speed <code>360</code>, Acceleration <code>12</code>, Stopping Distance <code>0.3</code>.</li>
+<li><strong>Guard 3D</strong>: Patrol Speed <code>2</code>, Wait At Point <code>1.5</code>; View Distance <code>11</code>, View Angle <code>90</code>, Eye Height <code>1.6</code>, Time To Spot <code>1</code>, Flashlight Sight Bonus <code>1.5</code>; Hearing Range <code>10</code>; Investigate Speed <code>3</code>, Look Around Time <code>4</code>, Chase Speed <code>4.5</code>, Lose Track After <code>3</code>, Calm Down Rate <code>0.15</code>, Catch Distance <code>1.2</code>; Raise On Caught <code>Caught</code>.</li>
+<li>A child <code>Vision Cone</code> at <code>0, 0.05, 0</code>: <strong>Mesh Filter</strong>, <strong>Mesh Renderer</strong> (material <code>Vision</code>), <strong>Vision Cone 3D</strong> (Rays <code>24</code>).</li>
+</ol>
+<p>In the level:</p>
+<ul>
+<li><code>Guard A</code> patrols the corridor and the Office: four points, a loop, passing the Office desks.</li>
+<li><code>Guard B</code> patrols Storage and the Break Room: four points, with a long wait in the Break Room doorway.</li>
+</ul>
+<p>Patrol points are empty objects in a <code>Routes</code> group, not children of the guards.</p>
+<h2>Part 5 — Hiding, keys and the exit</h2>
+<ul>
+<li><strong>Lockers</strong> (three, in Storage and the corridor): an open-fronted box the player can step into, made of thin Cubes (<code>Locker</code>) for the back, the two sides and the top, about <code>1.2</code> wide, <code>2.4</code> high and <code>1</code> deep inside. Inside it, an empty with a trigger Box Collider filling the space, and <strong>Hiding Spot 3D</strong> (Needs Crouch unticked). Hidden players can't be seen, so place lockers where a guard walks close by, for tension.</li>
+<li><strong>Desks</strong> (in the Office): a trigger under each desk with <strong>Hiding Spot 3D</strong>, Needs Crouch ticked.</li>
+<li><strong>Keys</strong>: <code>Key 1</code> in the Office (between the desks), <code>Key 2</code> in Storage (behind the shelves), <code>Key 3</code> in the Break Room (on the table). Each a small Cube or Cylinder (<code>Key</code>), trigger collider, <strong>Collectible</strong>: Add To <code>Keys</code>, Amount <code>1</code>; <strong>Spin 3D</strong>.</li>
+<li><strong>Battery</strong>: one in Storage. A small Cube with <strong>Collectible</strong> (Add To empty); On Collected → <code>Flashlight</code> → <strong>Flashlight3D → AddBattery</strong> <code>50</code>.</li>
+<li><strong>Exit</strong>: in Security, a door Cube <code>Exit Door</code> closing a gap, and behind it a trigger <code>Exit Zone</code> with <strong>Trigger Zone</strong>: Raise On Enter <code>Escaped</code>.</li>
+<li><strong><code>Exit Logic</code></strong>: an <strong>Int Variable Condition</strong>: Variable <code>Keys</code>, At Least <code>3</code>, Raise Event <code>ExitOpened</code>. A <strong>Void Event Listener</strong> on <code>ExitOpened</code>: <code>Exit Door</code> → <strong>GameObject.SetActive</strong> (unticked), and <code>Message</code> → <strong>StringVariable.SetValue</strong> <code>The exit is open. Get to Security!</code>.</li>
+</ul>
+<h2>Part 6 — Stealth Systems</h2>
+<p>An empty <code>Stealth Systems</code>, made into a prefab:</p>
+<p><strong><code>HUD</code></strong> — UI Document <code>StealthHUD</code> (from <code>Kits/Stealth/UI</code>), with <strong>UI Stealth HUD</strong> (Battery Percent <code>Battery</code>), and a <strong>UI Variable Binder</strong>: <code>objective-label</code> → <code>Keys</code> → <code>Keys: {0} / 3</code>; <code>message-label</code> → <code>Message</code> → <code>{0}</code>.</p>
+<p><strong><code>Alert Audio</code></strong> — an Audio Source with a looping heartbeat (from Kenney's sound packs, or any short low thump), Loop and Play On Awake ticked, Spatial Blend <code>0</code>; <strong>Alert Audio</strong>: Calm Volume <code>0</code>, Alert Volume <code>0.8</code>, Chase Pitch <code>1.25</code>.</p>
+<p><strong><code>Reset</code></strong> — a <strong>Variable Resetter</strong> with <code>Keys</code>, <code>Battery</code> and <code>Message</code>.</p>
+<p><strong><code>Pause Menu</code></strong>, <strong><code>Scene Changer</code></strong>, <strong><code>To Menu</code></strong> — as in the Platformer Kit sample.</p>
+<p><strong><code>Escaped</code></strong> — UI Document <code>EndScreen</code>, hidden, shown on <code>Escaped</code>; title <em>You Escaped</em>; also calls <strong>CursorLock3D → Unlock</strong>.</p>
+<p><strong><code>Caught</code></strong> — UI Document <code>GameOver</code>, hidden, shown on <code>Caught</code>; Try Again → <strong>ReloadScene</strong>; also calls <strong>CursorLock3D → Unlock</strong>.</p>
+<h2>Part 7 — Menu</h2>
+<p><code>NightShift_Menu</code>, like the Platformer sample's menu, with Play loading <code>NightShift_Level</code>. Scene List: <code>NightShift_Menu</code>, <code>NightShift_Level</code>.</p>
+<h2>Part 8 — Test</h2>
+<ul>
+<li>Guards walk their routes and pause at each point; their vision cones sweep the floor and stop at walls.</li>
+<li>Standing in a cone fills the alert meter, faster up close; the HUD says <em>Suspicious</em>, and the cone turns orange.</li>
+<li>Ducking out of sight before the meter fills: the guard comes to look, looks around, and goes back to its route.</li>
+<li>A full meter: <em>Spotted!</em>, the cone turns red, the guard runs at the player, and the heartbeat speeds up.</li>
+<li>Getting caught shows the caught screen with the pointer back.</li>
+<li>Sprinting near a guard (even behind it) makes it come to look; walking past at the same distance doesn't; crouching right behind it doesn't.</li>
+<li>Inside a locker, a guard can look straight at the player and see nothing; under a desk only while crouching.</li>
+<li>Losing a chase by breaking line of sight and hiding: the guard searches, then gives up.</li>
+<li>The flashlight toggles with a left click, drains the battery bar, flickers below 20%, and goes out when empty; the battery pickup refills it.</li>
+<li>With the flashlight on, guards spot the player from farther away.</li>
+<li>Collecting three keys opens the exit and shows the message; reaching it shows the escaped screen.</li>
+<li>Esc pauses the guards and brings the pointer back.</li>
+<li><strong>Balance:</strong> play twice carefully and once carelessly. A careful player should usually escape; a careless one should usually be caught.</li>
+</ul>
+<p>Note anything that fails, with the Console message.</p>
+<h2>Part 9 — Commit</h2>
+<p>Commit and push the <code>Sample</code> folder with its <code>.meta</code> files, and the package manifest if AI Navigation was just installed.</p>
+<h2>Later — Exporting the kit</h2>
+<p>Export <code>Assets/_Course/Kits/Stealth</code> with <strong>Assets → Export Package</strong>, unticking Core and 3D scripts that Unity adds as dependencies. Students' projects get AI Navigation from the course project's manifest.</p>
