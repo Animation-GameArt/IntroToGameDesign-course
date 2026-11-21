@@ -45,7 +45,7 @@ What is built, what is left, the order to build it in, and the decisions that bl
 
 - [ ] **Test the exercises** not yet tested: Ex 00, Ex 05 (both versions), Ex 06, Ex 07–10. Report what breaks.
 - [ ] **Test the 2.5D tutorials** 1 and 2.
-- [ ] **Download the Kenney packs** into `Assets/_Course/Art/Kenney/`, following its README: Tiny Dungeon, Tiny Town, Puzzle Pack, Space Shooter Redux, Physics Assets, UI Pack, and the sound packs. The workspace Claude works in can't reach kenney.nl.
+- [x] **Download the Kenney packs** (2026-11-20): Tiny Dungeon, Tiny Town, Physics Assets, Puzzle Pack 2, Space Shooter Remastered, Pixel UI Pack and ten sound packs. Still to download: **Pixel Shmup** (top-down shooter) and **Sokoban** (grid puzzle).
 - [ ] **Test the first sample builder:** **Collin Game → Kit Samples → Build Platformer Sample**, then play it through Part 10 of the Platformer "Building the Sample" guide. Once it works, Claude writes the same command for the other four kits.
 - [ ] **Decisions 3 and 8** below.
 
@@ -113,14 +113,14 @@ Kits aren't used until week 8 of the semester, so the later ones can be finished
 | Platformer | Pixel Platformer (in the template) |
 | Top-down adventure | Tiny Dungeon, Tiny Town |
 | Turn-based battle | Tiny Dungeon |
-| Arcade classic | Puzzle Pack (Breakout, Pong), Space Shooter Redux (Asteroids) |
+| Arcade classic | Puzzle Pack 2 (Breakout, Pong), Space Shooter Remastered (Asteroids) |
 | Physics puzzle | Physics Assets |
-| Top-down shooter | Pixel Shmup, or Space Shooter Redux |
+| Top-down shooter | Pixel Shmup, or Space Shooter Remastered |
 | Grid puzzle | Sokoban |
 | Tower defense | Tower Defense (top-down) |
 | Card game | Playing Cards Pack |
-| Menus and HUD | UI Pack |
-| Sound effects | Interface Sounds, Impact Sounds |
+| Menus and HUD | Pixel UI Pack |
+| Sound effects | Interface Sounds, UI Audio, Impact Sounds, Digital Audio, Sci-Fi Sounds, RPG Audio, Casino Audio, Music Jingles, Voiceover packs (in `Art/Kenney/audio`) |
 | 3D kits | Platformer Kit, Prototype Textures |
 
 

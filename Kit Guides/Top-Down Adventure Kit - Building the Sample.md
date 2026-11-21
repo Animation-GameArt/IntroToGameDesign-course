@@ -20,7 +20,7 @@ Everything goes in `Assets/_Course/Kits/TopDownAdventure/Sample/`, with folders 
 ## Before you start
 
 1. Pull the template project. It should be version 0.12.0 or later, with no red errors in the Console.
-2. **Art.** Download Kenney's **Tiny Dungeon** pack (link in `Assets/_Course/Art/Kenney/README.md`). Unzip it to `Assets/_Course/Art/Kenney/kenney_tiny-dungeon`, remove the non-Unity files, and choose **Collin Game → Art → Reapply Art Import Settings**. Its tiles are 16 pixels, so one tile is one unit. Push it, and I'll add it to `Course Credits`.
+2. **Art.** Kenney's **Tiny Dungeon** pack is already in `Assets/_Course/Art/Kenney/kenney_tiny-dungeon`, and **Tiny Town** beside it for outdoor areas. Their tiles are 16 pixels, so one tile is one unit. If sprites look blurry, choose **Collin Game → Art → Reapply Art Import Settings**.
 3. **Tags.** In **Project Settings → Tags and Layers**, add the tag `Enemy` if it isn't there.
 4. **Panel Settings.** Every UI Document uses `CoursePanelSettings`. New UI Documents get it by themselves; **Collin Game → UI → Use Course Panel Settings in Open Scenes** fixes any that don't.
 

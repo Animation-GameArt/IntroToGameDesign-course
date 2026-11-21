@@ -20,7 +20,7 @@ Everything goes in `Assets/_Course/Kits/ArcadeClassic/Sample/`, with folders `Da
 ## Before you start
 
 1. Pull the template project. It should be version 0.12.0 or later, with no red errors in the Console.
-2. **Art.** Download Kenney's **Puzzle Pack** (paddles, balls, bricks) and **Space Shooter Redux** (ship, lasers, meteors); links are in `Assets/_Course/Art/Kenney/README.md`. Unzip each to `Assets/_Course/Art/Kenney/` keeping Kenney's folder name, remove the non-Unity files, and choose **Collin Game → Art → Reapply Art Import Settings**. Push them, and I'll add them to `Course Credits`. Plain sprites from **Create → 2D → Sprites** work for testing.
+2. **Art.** Kenney's **Puzzle Pack 2** (paddles, balls, bricks: `kenney_puzzle-pack-2`) and **Space Shooter Remastered** (ship, lasers, meteors: `kenney_space-shooter-remastered`) are already in `Assets/_Course/Art/Kenney`. If their sprites look blurry or the wrong size, choose **Collin Game → Art → Reapply Art Import Settings**. At the import settings, a Puzzle Pack 2 paddle is about 2 units long, a ball 0.5, and a Space Shooter Remastered ship about 1 unit (so the scales below halve it).
 3. **Tags.** In **Project Settings → Tags and Layers**, add `Enemy` if it isn't there.
 4. **Camera.** In every game scene: Main Camera Orthographic, **Size** `5`, at `0, 0, -10`, background black. No Cinemachine.
 5. **Panel Settings.** Every UI Document uses `CoursePanelSettings`.
@@ -61,7 +61,7 @@ An empty GameObject at `0, 0, 0`, made into a prefab, with these children:
 
 **`Paddle`** — a paddle sprite at `0, -4.2`, about `2 × 0.35`, with a **Box Collider 2D** and **Paddle 2D**: Moves Along Horizontal, Player, Follow Mouse ticked, Speed `14`, Min `-7.8`, Max `7.8`.
 
-**`Ball`** — a ball sprite, Scale about `0.35`, with a **Circle Collider 2D** and **Ball 2D**: Play Direction Up And Down, Start Speed `7`, Speed Up `0.3`, Max Speed `14`, Max Bounce Angle `60`, Min Angle `20`, Serve From `Paddle`, Serve Offset `0, 0.45`, Serve Direction `0.3, 1`, Auto Serve `0`.
+**`Ball`** — a ball sprite, Scale about `0.7` (about 0.35 units across), with a **Circle Collider 2D** and **Ball 2D**: Play Direction Up And Down, Start Speed `7`, Speed Up `0.3`, Max Speed `14`, Max Bounce Angle `60`, Min Angle `20`, Serve From `Paddle`, Serve Offset `0, 0.45`, Serve Direction `0.3, 1`, Auto Serve `0`.
 
 **`Brick`** — a brick sprite about `1.4 × 0.5` with a **Box Collider 2D**, **Brick 2D** (Hits To Break `1`, Add To `ArcadeScore`, Amount `10`) and **Counted Object** (Count `BricksLeft`). **`Tough Brick`** is a variant: Hits To Break `3`, Amount `30`, Color By Hits Left: element 0 light red, 1 orange, 2 dark red.
 
