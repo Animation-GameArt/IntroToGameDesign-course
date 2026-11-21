@@ -231,6 +231,8 @@ Most games mix genres a little. Choose the **one** genre that describes what the
 
 **The kit gives you:** cards stored as data, a deck, a hand and a discard pile, basic card effects (damage, block, draw, heal), and turn phases.
 
+**Kit guide:** [Card Game Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Card%20Game%20Kit.md)
+
 **A good scope:** twelve to fifteen cards, one fixed deck, and three battles against opponents that follow simple rules.
 
 **Leave out:** building your own deck between battles, a map of branching paths, and a second human player.

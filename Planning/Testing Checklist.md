@@ -444,6 +444,26 @@ Guide: [Visual Novel Kit - Building the Sample](https://github.com/Animation-Gam
 
 - [ ] Visual Novel Kit: sample committed and pushed with its .meta files
 
+### Card Game Kit
+
+Guide: [Card Game Kit - Building the Sample](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Card%20Game%20Kit%20-%20Building%20the%20Sample.md) — section *Part 6 — Test*
+
+- [ ] The screen shows Battle 1 of 3, the Slime with 28 / 28 and *Next: Attack 6*, the player with 40 / 40 and Energy 3 / 3, five cards, Draw: 10 and Discard: 0.
+- [ ] The cards are crisp pixel art; each shows its cost and its text underneath ("Deal 4", "Block 5", "Heal 3", "Draw 2 cards", "Gain 2 energy").
+- [ ] Pointing at a card lifts it; clicking, tapping or pressing its number plays it; cards costing more than the energy left are faded and can't be played.
+- [ ] Damage lowers the enemy's health; block shows under the health bar and is used up first.
+- [ ] End Turn (or E, or Enter) discards the hand; the enemy makes the move it showed; a new hand is drawn and energy refills; the player's block is gone.
+- [ ] The Demon's *Attack 4 x3* hits three times, one after another.
+- [ ] When the draw pile runs out, the discard pile is shuffled into it.
+- [ ] Beating an enemy heals 10 and starts the next battle after a moment.
+- [ ] Beating the Demon shows the won screen with the health left; reaching 0 health shows the lost screen.
+- [ ] End Turn is greyed out during the enemy's turn, and cards can't be played then.
+- [ ] Esc pauses; nothing can be played while paused.
+- [ ] **Balance:** play two runs carefully and one choosing cards at random. Note how each ends.
+- [ ] Card Game Kit: anything that failed is reported to Claude, with the Console message
+
+- [ ] Card Game Kit: sample committed and pushed with its .meta files
+
 ## 5. Before the semester
 
 - [ ] The whole student path on a lab computer: download the Release ZIP, unzip, open, import a kit package

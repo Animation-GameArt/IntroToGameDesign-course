@@ -1,0 +1,126 @@
+<p><strong>For the instructor.</strong> These steps build the kit's sample game once, in the template project. Building it tests every kit script, and the result is what students import. Students read <strong>Card Game Kit</strong>, not this page.</p>
+<p>Everything goes in <code>Assets/_Course/Kits/CardGame/Sample/</code>, with folders <code>Data</code>, <code>Cards</code>, <code>Enemies</code> and <code>Scenes</code>.</p>
+<h2>Before you start</h2>
+<ol>
+<li>Pull the template project. It should be version 0.21.0 or later, with no red errors in the Console.</li>
+<li><strong>Art.</strong> Run <strong>Collin Game → Art → Reapply Art Import Settings</strong> once, so Kenney's <strong>Playing Cards Pack</strong> (<code>kenney_playing-cards-pack/PNG/Cards (large)</code>) gets pixel-art settings. The enemies are from <strong>Tiny Dungeon</strong>.</li>
+<li>Every UI Document uses <code>CoursePanelSettings</code>.</li>
+</ol>
+<h2>Part 1 — Data</h2>
+<p>In <code>Sample/Data</code>: <code>PlayerHealth</code> (Int Variable, <code>40</code>), <code>RunWon</code> and <code>RunLost</code> (Void Event Channels).</p>
+<h2>Part 2 — Cards</h2>
+<p>In <code>Sample/Cards</code> (<strong>Create → Collin Game → Card Game Kit → Card</strong>). For every card: <strong>Face</strong> is the Kenney card named in the table, <strong>Show Name</strong> unticked, and one effect.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 2 — Cards</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Card</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Face</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Cost</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Spades 2</code> … <code>Spades 7</code> (six cards)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>card_spades_02</code> … <code>card_spades_07</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Damage, the card's number</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>King of Spades</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>card_spades_K</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>2</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Damage <code>10</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Diamonds 3</code> … <code>Diamonds 6</code> (four cards)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>card_diamonds_03</code> … <code>card_diamonds_06</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Block, the card's number</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Hearts 3</code>, <code>Hearts 4</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>card_hearts_03</code>, <code>card_hearts_04</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Heal, the card's number</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Clubs 2</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>card_clubs_02</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Draw <code>2</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Jack of Clubs</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>card_clubs_J</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Energy <code>2</code></td>
+</tr>
+</tbody>
+</table>
+<p>Fifteen cards. Making one and duplicating it (<strong>Ctrl+D</strong>) is quickest.</p>
+<h2>Part 3 — Enemies</h2>
+<p>In <code>Sample/Enemies</code> (<strong>Create → Collin Game → Card Game Kit → Enemy</strong>):</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 3 — Enemies</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Enemy</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Portrait (Tiny Dungeon)</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Max Health</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Moves</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Slime</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0108</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>28</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Attack <code>6</code>; Attack <code>6</code>; Block <code>4</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Knight</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0096</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>42</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Block <code>10</code>; Attack <code>11</code>; Attack <code>8</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Demon</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>tile_0110</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>62</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Attack <code>4</code> × <code>3</code> times; Block <code>10</code>; Attack <code>15</code></td>
+</tr>
+</tbody>
+</table>
+<p>Random Order unticked for all three.</p>
+<h2>Part 4 — Card Systems</h2>
+<p>An empty <code>Card Systems</code>, made into a prefab, with these children:</p>
+<p><strong><code>Battle</code></strong> — <strong>Card Battle</strong>: Deck: all fifteen cards; Max Health <code>40</code>, Energy Per Turn <code>3</code>, Hand Size <code>5</code>, Max Hand Size <code>10</code>, Player Health <code>PlayerHealth</code>; Enemies <code>Slime</code>, <code>Knight</code>, <code>Demon</code>; Heal Between Battles <code>10</code>; Enemy Turn Pause <code>0.6</code>; Pause Between Battles <code>1.5</code>; Raise On Win <code>RunWon</code>, Raise On Lose <code>RunLost</code>.</p>
+<p><strong><code>Screen</code></strong> — UI Document <code>CardBattle</code> (from <code>Kits/CardGame/UI</code>), with <strong>UI Card Battle</strong>: Battle <code>Battle</code>, Blank Card <code>card_empty</code>.</p>
+<p><strong><code>Reset</code></strong> — a <strong>Variable Resetter</strong> with <code>PlayerHealth</code>.</p>
+<p><strong><code>Pause Menu</code></strong>, <strong><code>Scene Changer</code></strong>, <strong><code>To Menu</code></strong> — as in the Platformer Kit sample.</p>
+<p><strong><code>Won</code></strong> — UI Document <code>EndScreen</code>, hidden, shown on <code>RunWon</code>; <code>score-label</code> → <code>PlayerHealth</code> → <code>Health left: {0}</code>.</p>
+<p><strong><code>Lost</code></strong> — UI Document <code>GameOver</code>, hidden, shown on <code>RunLost</code>; Try Again → <strong>ReloadScene</strong>.</p>
+<h2>Part 5 — Scenes</h2>
+<p><strong><code>Cards_Game</code></strong>: a new 2D scene with a camera and <code>Card Systems</code>.</p>
+<p><strong><code>Cards_Menu</code></strong>: like the Platformer sample's menu, with Play loading <code>Cards_Game</code>.</p>
+<p>Scene List: <code>Cards_Menu</code>, <code>Cards_Game</code>.</p>
+<h2>Part 6 — Test</h2>
+<ul>
+<li>The screen shows Battle 1 of 3, the Slime with 28 / 28 and <em>Next: Attack 6</em>, the player with 40 / 40 and Energy 3 / 3, five cards, Draw: 10 and Discard: 0.</li>
+<li>The cards are crisp pixel art; each shows its cost and its text underneath ("Deal 4", "Block 5", "Heal 3", "Draw 2 cards", "Gain 2 energy").</li>
+<li>Pointing at a card lifts it; clicking, tapping or pressing its number plays it; cards costing more than the energy left are faded and can't be played.</li>
+<li>Damage lowers the enemy's health; block shows under the health bar and is used up first.</li>
+<li>End Turn (or E, or Enter) discards the hand; the enemy makes the move it showed; a new hand is drawn and energy refills; the player's block is gone.</li>
+<li>The Demon's <em>Attack 4 x3</em> hits three times, one after another.</li>
+<li>When the draw pile runs out, the discard pile is shuffled into it.</li>
+<li>Beating an enemy heals 10 and starts the next battle after a moment.</li>
+<li>Beating the Demon shows the won screen with the health left; reaching 0 health shows the lost screen.</li>
+<li>End Turn is greyed out during the enemy's turn, and cards can't be played then.</li>
+<li>Esc pauses; nothing can be played while paused.</li>
+<li><strong>Balance:</strong> play two runs carefully and one choosing cards at random. Note how each ends.</li>
+</ul>
+<p>Note anything that fails, with the Console message.</p>
+<h2>Part 7 — Commit</h2>
+<p>Commit and push the <code>Sample</code> folder with its <code>.meta</code> files.</p>
+<h2>Later — Exporting the kit</h2>
+<p>Export <code>Assets/_Course/Kits/CardGame</code>, the Playing Cards Pack and the Tiny Dungeon art folder with <strong>Assets → Export Package</strong>, unticking Core scripts that Unity adds as dependencies.</p>

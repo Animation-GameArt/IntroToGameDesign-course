@@ -1,0 +1,192 @@
+<p>The Card Game Kit is a starting point for card battle games: draw a hand, spend energy to play cards, see what the enemy is about to do, and end your turn. Examples: Slay the Spire (its battles), Monster Train, Balatro (for its feel of playing a hand).</p>
+<p>The sample, <em>Suit Duel</em>, turns an ordinary deck of playing cards into a battle deck. Spades attack, diamonds block, hearts heal, and clubs draw more cards. The number on the card is how strong it is. You fight three enemies in a row; your health carries over between fights, and you rest a little after each one.</p>
+<p>A card game is <strong>rules and numbers</strong>. Every card is something that has to be designed and balanced, so the kit keeps cards and enemies as assets you edit in the Inspector, and leaves your time for designing the deck.</p>
+<h2>What the kit covers</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">What the kit covers</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The kit does this</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The kit doesn't do this</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A deck, a hand, a draw pile and a discard pile, shuffled when the draw pile runs out</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Building your deck between battles, or card rewards</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Energy, and cards that cost it</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Cards that target one of several enemies</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Damage, block, heal, draw and energy effects, each once or several times</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Poison, strength and other effects that last (a custom script)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Cards that are used up for the battle (Exhaust)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Upgrading cards</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Enemies whose next move is shown, in order or at random</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Several enemies at once, or bosses with phases</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A run of battles, with health carrying over</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A map of branching paths, shops, relics</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Mouse, touch and keyboard</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A second human player</td>
+</tr>
+</tbody>
+</table>
+<p>If your pitch needs something in the right-hand column, it has to be one of your agreed custom scripts, or it has to be cut. The Genre Map's advice stands: twelve to fifteen cards, one fixed deck, three battles.</p>
+<h2>Install the kit</h2>
+<ol>
+<li>Download the Card Game Kit package from the course project's <strong>Releases</strong> page.</li>
+<li>With your project open, double-click the package and click <strong>Import</strong>.</li>
+<li>Open <strong>File → Build Profiles → Open Scene List</strong>. From <code>Assets/_Course/Kits/CardGame/Sample/Scenes</code>, add <code>Cards_Menu</code> and <code>Cards_Game</code>, next to each other, in that order.</li>
+<li>Open <code>Cards_Menu</code> and press <strong>Play</strong>.</li>
+</ol>
+<p>Click or tap a card to play it (it lifts when you point at it). The number keys 1–9 play the cards in order. <strong>End Turn</strong>, E or Enter ends your turn. Esc pauses.</p>
+<h2>How it works</h2>
+<ul>
+<li><strong>Cards</strong> (assets) have a <strong>Cost</strong> in energy and a list of <strong>Effects</strong>: Damage, Block, Heal, Draw or Energy, each with an <strong>Amount</strong> and how many <strong>Times</strong>. The text under the card is written from its effects unless you write your own.</li>
+<li><strong>Enemies</strong> (assets) have health, a picture, and a list of <strong>Moves</strong>: Attack, Block or Heal. The screen always shows the next move, so the player can plan: block when an attack is coming, attack when it isn't.</li>
+<li><strong>Block</strong> lasts until the blocker's next turn. It's used up before health.</li>
+<li>The <strong>Card Battle</strong> runs it all: at the start of each turn the player's block resets, energy refills and five cards are drawn. Playing cards spends energy. Ending the turn discards the hand, and the enemy makes its move.</li>
+<li>When the enemy is beaten, the next battle starts. Beat them all to win; run out of health to lose.</li>
+</ul>
+<h2>What's in the sample</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">What's in the sample</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Cards</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Effect</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Cost</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">In the deck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Spades 2–7</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Deal the card's number</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">1</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">6</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">King of Spades</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Deal 10</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">2</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">1</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Diamonds 3–6</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Block the card's number</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">1</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">4</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Hearts 3–4</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Heal the card's number</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">1</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">2</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">2 of Clubs</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Draw 2 cards</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">1</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">1</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Jack of Clubs</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Gain 2 energy</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">0</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">1</td>
+</tr>
+</tbody>
+</table>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">What's in the sample (2)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Enemy</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Health</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Moves, in order</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Slime</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">28</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Attack 6, Attack 6, Block 4</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Knight</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">42</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Block 10, Attack 11, Attack 8</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Demon</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">62</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Attack 4 three times, Block 10, Attack 15</td>
+</tr>
+</tbody>
+</table>
+<p>You have 40 health, 3 energy a turn, and heal 10 after each battle. The numbers were checked with a simulation: a player who blocks when an attack is coming and attacks otherwise wins about four runs in five; a player who plays cards at random wins about one in four, and almost always loses to the Demon.</p>
+<h2>Start your own game</h2>
+<ol>
+<li>Design five cards on paper first, and play a few turns with paper cards against a made-up enemy. Then add more.</li>
+<li>Create your <strong>Cards</strong> (<strong>Create → Collin Game → Card Game Kit → Card</strong>) and <strong>Enemies</strong> (<strong>Create → Collin Game → Card Game Kit → Enemy</strong>).</li>
+<li>Open <code>Cards_Game</code>, <strong>File → Save As…</strong> into <code>Assets/_Game/Scenes</code>, and on the <strong>Card Battle</strong>: your cards in <strong>Deck</strong> (twice for two copies), your enemies in <strong>Enemies</strong>, and the player's <strong>Max Health</strong>, <strong>Energy Per Turn</strong> and <strong>Hand Size</strong>.</li>
+<li>Press <strong>Play</strong> and play a full run. Then change one number and play again.</li>
+</ol>
+<p>Card art: use the <strong>Face</strong> for a whole picture of the card. Leave Face empty to use the blank card with the name written on it, which is quickest while you're still designing.</p>
+<h3>Designing the cards</h3>
+<ul>
+<li><strong>Each card should be best somewhere.</strong> A card that's always worse than another never gets played.</li>
+<li><strong>Cost is the main lever.</strong> A 2-energy card has to be worth more than two 1-energy cards, or nobody plays it.</li>
+<li><strong>Enemy moves are the puzzle.</strong> A big attack telegraphed a turn ahead makes the player choose between blocking now and attacking now.</li>
+<li><strong>Test with a random player.</strong> Play a run choosing cards without thinking. If you win easily, it's too easy.</li>
+</ul>
+<h2>Recipes</h2>
+<p><strong>A card that hits several times.</strong> One Damage effect with <strong>Times</strong> <code>3</code>.</p>
+<p><strong>A card that does two things.</strong> Two effects, such as Damage 5 and Block 5.</p>
+<p><strong>A powerful one-off.</strong> Tick <strong>Exhaust</strong>: once played, it's gone for the rest of the battle.</p>
+<p><strong>An unpredictable enemy.</strong> Tick <strong>Random Order</strong> on the enemy.</p>
+<p><strong>A run that's one long battle.</strong> Put one enemy in <strong>Enemies</strong> with a lot of health.</p>
+<p><strong>Sounds.</strong> The Card Battle's <strong>On Card Played</strong>, <strong>On Enemy Hit</strong>, <strong>On Player Hit</strong>, <strong>On Block</strong> and <strong>On Enemy Defeated</strong> can each play a Sound Effect. Kenney's Casino Audio has card sounds.</p>
+<h2>If something goes wrong</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something goes wrong</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What you see</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Nothing appears</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Card Battle needs cards in <strong>Deck</strong> and at least one enemy</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A card can't be played</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">It's faded: it costs more energy than you have left</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Cards are blank</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Set each card's <strong>Face</strong>, or the UI Card Battle's <strong>Blank Card</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The card text is wrong</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Clear the card's <strong>Description</strong>, and it's written from the effects</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The enemy does nothing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Give it at least one move</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The game ends at once</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player's <strong>Max Health</strong> is 0, or the first enemy has 0 health</td>
+</tr>
+</tbody>
+</table>

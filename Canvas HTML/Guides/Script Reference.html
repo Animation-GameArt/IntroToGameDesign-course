@@ -1,4 +1,4 @@
-<p>Every course script in the course project, as of version <strong>0.20.0</strong>: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in <code>Assets/_Course/VERSION.txt</code>.</p>
+<p>Every course script in the course project, as of version <strong>0.21.0</strong>: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in <code>Assets/_Course/VERSION.txt</code>.</p>
 <h2>Finding the scripts</h2>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Finding the scripts</caption>
 <thead>
@@ -230,6 +230,16 @@
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/VisualNovel/UI</code></td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Visual novel screen</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/CardGame/Scripts</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>CollinGame.Kits.CardGame</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Card game kit scripts</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/CardGame/UI</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Card battle screen</td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Art/Kenney</code></td>
@@ -2464,6 +2474,33 @@
 </tbody>
 </table>
 <hr/>
+<h2>Card game kit</h2>
+<p>Imported with the Card Game Kit package. See <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Card%20Game%20Kit.md">Card Game Kit</a>.</p>
+<h3>Card and Enemy</h3>
+<p><strong>Card</strong> (<strong>Create → Collin Game → Card Game Kit → Card</strong>): <strong>Display Name</strong>, <strong>Face</strong> (the whole card picture; empty: the blank card with the name), <strong>Show Name</strong>, <strong>Cost</strong>, <strong>Effects</strong> (Damage, Block, Heal, Draw or Energy, with <strong>Amount</strong> and <strong>Times</strong>), <strong>Exhaust</strong>, and an optional <strong>Description</strong> (written from the effects if empty).</p>
+<p><strong>Enemy</strong> (<strong>Create → … → Enemy</strong>): <strong>Display Name</strong>, <strong>Portrait</strong>, <strong>Max Health</strong>, <strong>Moves</strong> (Attack, Block or Heal, with <strong>Amount</strong> and <strong>Times</strong>), <strong>Random Order</strong>.</p>
+<h3>Card Battle</h3>
+<p><code>Kits/CardGame/Scripts/CardBattle.cs</code> · <strong>Add Component → Collin Game → Card Game Kit → Card Battle</strong></p>
+<p>Fights each of <strong>Enemies</strong> in turn with the <strong>Deck</strong>. Each player turn: block resets, energy refills to <strong>Energy Per Turn</strong>, <strong>Hand Size</strong> cards are drawn (up to <strong>Max Hand Size</strong>), and the enemy's next move is shown. <strong>EndTurn</strong> discards the hand and the enemy moves (<strong>Enemy Turn Pause</strong>). Block lasts until the blocker's next turn. The discard pile is shuffled in when the draw pile runs out. Health carries over, plus <strong>Heal Between Battles</strong>. <strong>Player Health</strong> (optional Int Variable), <strong>Raise On Win</strong>, <strong>Raise On Lose</strong>; events <strong>On Card Played</strong>, <strong>On Enemy Hit</strong>, <strong>On Player Hit</strong>, <strong>On Block</strong>, <strong>On Enemy Defeated</strong>. Methods: <strong>PlayCard</strong> (hand position), <strong>EndTurn</strong>.</p>
+<h3>UI Card Battle</h3>
+<p><code>Kits/CardGame/Scripts/UICardBattle.cs</code> · <strong>Add Component → Collin Game → Card Game Kit → UI Card Battle</strong></p>
+<p>Shows the battle on the <code>CardBattle</code> screen and builds a card in <code>hand</code> for each card held (its face, cost, text and number key). Click, tap or 1–9 plays a card; E, Enter or <code>end-turn-button</code> ends the turn. <strong>Blank Card</strong> is the picture for cards without a Face.</p>
+<h3>Kit screens</h3>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Kit screens (13)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Screen</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Element names</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>CardBattle</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>battle-label</code>, <code>enemy-intent-label</code>, <code>enemy-portrait</code>, <code>enemy-name</code>, <code>enemy-health-fill</code>, <code>enemy-health-label</code>, <code>enemy-block-label</code>, <code>log-label</code>, <code>player-health-fill</code>, <code>player-health-label</code>, <code>player-block-label</code>, <code>energy-label</code>, <code>draw-label</code>, <code>discard-label</code>, <code>hand</code>, <code>end-turn-button</code></td>
+</tr>
+</tbody>
+</table>
+<hr/>
 <h2>Editor tools</h2>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Editor tools</caption>
 <thead>
@@ -2708,6 +2745,10 @@
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">People who talk, in any game</td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A <strong>Dialogue Runner</strong> + <strong>UI Dialogue Presenter</strong>; start it with <strong>DialogueRunner → StartDialogue</strong> from an Interactable 2D</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A card battle game</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Card</strong>s and <strong>Enemy</strong> assets + a <strong>Card Battle</strong> + <code>CardBattle</code> screen with <strong>UI Card Battle</strong></td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Starting a new game from the menu</td>

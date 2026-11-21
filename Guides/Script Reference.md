@@ -3,7 +3,7 @@ title: "Script Reference"
 course: GAME 1303
 type: guide
 status: draft
-course_version: 0.20.0
+course_version: 0.21.0
 unity: 6000.3.10f1
 tags:
   - game1303
@@ -13,7 +13,7 @@ tags:
 
 # Script Reference
 
-Every course script in the course project, as of version **0.20.0**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
+Every course script in the course project, as of version **0.21.0**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
 
 ## Finding the scripts
 
@@ -71,6 +71,8 @@ Every script explains its settings: hover over a field in the Inspector to see i
 | `_Course/Kits/Farming/UI` | — | Farm HUD, hotbar, shop and morning report |
 | `_Course/Kits/VisualNovel/Scripts` | `CollinGame.Kits.VisualNovel` | Visual novel kit scripts (need Yarn Spinner) |
 | `_Course/Kits/VisualNovel/UI` | — | Visual novel screen |
+| `_Course/Kits/CardGame/Scripts` | `CollinGame.Kits.CardGame` | Card game kit scripts |
+| `_Course/Kits/CardGame/UI` | — | Card battle screen |
 | `_Course/Art/Kenney` | — | Kenney art packs (CC0). Its README links to every pack the kits use |
 | `_Course/Credits` | — | The course's credits text |
 
@@ -1388,6 +1390,36 @@ A bar per **Meter** (a Character, an Int Variable and a **Max**) in the `meters`
 
 ---
 
+## Card game kit
+
+Imported with the Card Game Kit package. See [Card Game Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Card%20Game%20Kit.md).
+
+### Card and Enemy
+
+**Card** (**Create → Collin Game → Card Game Kit → Card**): **Display Name**, **Face** (the whole card picture; empty: the blank card with the name), **Show Name**, **Cost**, **Effects** (Damage, Block, Heal, Draw or Energy, with **Amount** and **Times**), **Exhaust**, and an optional **Description** (written from the effects if empty).
+
+**Enemy** (**Create → … → Enemy**): **Display Name**, **Portrait**, **Max Health**, **Moves** (Attack, Block or Heal, with **Amount** and **Times**), **Random Order**.
+
+### Card Battle
+
+`Kits/CardGame/Scripts/CardBattle.cs` · **Add Component → Collin Game → Card Game Kit → Card Battle**
+
+Fights each of **Enemies** in turn with the **Deck**. Each player turn: block resets, energy refills to **Energy Per Turn**, **Hand Size** cards are drawn (up to **Max Hand Size**), and the enemy's next move is shown. **EndTurn** discards the hand and the enemy moves (**Enemy Turn Pause**). Block lasts until the blocker's next turn. The discard pile is shuffled in when the draw pile runs out. Health carries over, plus **Heal Between Battles**. **Player Health** (optional Int Variable), **Raise On Win**, **Raise On Lose**; events **On Card Played**, **On Enemy Hit**, **On Player Hit**, **On Block**, **On Enemy Defeated**. Methods: **PlayCard** (hand position), **EndTurn**.
+
+### UI Card Battle
+
+`Kits/CardGame/Scripts/UICardBattle.cs` · **Add Component → Collin Game → Card Game Kit → UI Card Battle**
+
+Shows the battle on the `CardBattle` screen and builds a card in `hand` for each card held (its face, cost, text and number key). Click, tap or 1–9 plays a card; E, Enter or `end-turn-button` ends the turn. **Blank Card** is the picture for cards without a Face.
+
+### Kit screens
+
+| Screen | Element names |
+|---|---|
+| `CardBattle` | `battle-label`, `enemy-intent-label`, `enemy-portrait`, `enemy-name`, `enemy-health-fill`, `enemy-health-label`, `enemy-block-label`, `log-label`, `player-health-fill`, `player-health-label`, `player-block-label`, `energy-label`, `draw-label`, `discard-label`, `hand`, `end-turn-button` |
+
+---
+
 ## Editor tools
 
 | Tool | Where | What it does |
@@ -1453,6 +1485,7 @@ A bar per **Meter** (a Character, an Int Variable and a **Max**) in the `meters`
 | A clock and days | **Day Cycle** (Farming kit) |
 | A visual novel or dating sim | A Yarn script and Yarn Project + a **Dialogue Runner** + `VisualNovel` screen with **UI Dialogue Presenter** and **Visual Novel Stage** + **Character**s; for a dating sim, **Yarn Variable Link** and **UI Relationship Meters** |
 | People who talk, in any game | A **Dialogue Runner** + **UI Dialogue Presenter**; start it with **DialogueRunner → StartDialogue** from an Interactable 2D |
+| A card battle game | **Card**s and **Enemy** assets + a **Card Battle** + `CardBattle` screen with **UI Card Battle** |
 | Starting a new game from the menu | **Variable Resetter** in the menu scene, with every variable that carries between levels |
 
 ## Common Console messages
