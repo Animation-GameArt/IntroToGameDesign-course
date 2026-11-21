@@ -20,7 +20,7 @@ Everything goes in `Assets/_Course/Kits/TopDownShooter/Sample/`, with folders `D
 ## Before you start
 
 1. Pull the template project. It should be version 0.14.0 or later, with no red errors in the Console.
-2. **Art.** Download Kenney's **Pixel Shmup** pack (link in `Assets/_Course/Art/Kenney/README.md`). Unzip it to `Assets/_Course/Art/Kenney/kenney_pixel-shmup`, remove the non-Unity files, and choose **Collin Game → Art → Reapply Art Import Settings**. Push it, and I'll add it to `Course Credits`. Its sprites are 16 pixels, so one tile is one unit.
+2. **Art.** Kenney's **Pixel Shmup** pack is already in `Assets/_Course/Art/Kenney/kenney_pixel-shmup`. Its sprites are 16 pixels, so one tile is one unit.
 3. **Tags.** In **Project Settings → Tags and Layers**, add `Enemy` if it isn't there.
 4. **Panel Settings.** Every UI Document uses `CoursePanelSettings`.
 

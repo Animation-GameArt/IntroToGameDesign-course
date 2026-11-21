@@ -20,7 +20,7 @@ Everything goes in `Assets/_Course/Kits/GridPuzzle/Sample/`, with folders `Data`
 ## Before you start
 
 1. Pull the template project. It should be version 0.16.0 or later, with no red errors in the Console.
-2. **Art.** Download Kenney's **Sokoban** pack (link in `Assets/_Course/Art/Kenney/README.md`). Unzip it to `Assets/_Course/Art/Kenney/kenney_sokoban`, remove the non-Unity files, and choose **Collin Game → Art → Reapply Art Import Settings**. Its tiles are 64 pixels, so one tile is one unit. Push it, and I'll add it to `Course Credits`.
+2. **Art.** Kenney's **Sokoban** pack is already in `Assets/_Course/Art/Kenney/kenney_sokoban-pack` (use the `PNG/Default size` images). Its tiles are 64 pixels, so one tile is one unit.
 3. Every UI Document uses `CoursePanelSettings`.
 
 ## Part 1 — Data

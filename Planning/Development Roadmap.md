@@ -45,7 +45,7 @@ What is built, what is left, the order to build it in, and the decisions that bl
 
 - [ ] **Test the exercises** not yet tested: Ex 00, Ex 05 (both versions), Ex 06, Ex 07–10. Report what breaks.
 - [ ] **Test the 2.5D tutorials** 1 and 2.
-- [x] **Download the Kenney packs** (2026-11-20): Tiny Dungeon, Tiny Town, Physics Assets, Puzzle Pack 2, Space Shooter Remastered, Pixel UI Pack and ten sound packs. Still to download: **Pixel Shmup** (top-down shooter) and **Sokoban** (grid puzzle).
+- [x] **Download the Kenney packs** (2026-11-20): Tiny Dungeon, Tiny Town, Physics Assets, Puzzle Pack 2, Space Shooter Remastered, Pixel UI Pack and ten sound packs. Pixel Shmup and Sokoban added the same day. Still to download for later kits: Tower Defense (top-down) and Playing Cards Pack.
 - [ ] **Test the first sample builder:** **Collin Game → Kit Samples → Build Platformer Sample**, then play it through Part 10 of the Platformer "Building the Sample" guide. Once it works, Claude writes the same command for the other four kits.
 - [ ] **Decisions 3 and 8** below.
 
