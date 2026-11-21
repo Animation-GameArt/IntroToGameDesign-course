@@ -46,7 +46,7 @@ What is built, what is left, the order to build it in, and the decisions that bl
 - [ ] **Test the exercises** not yet tested: Ex 00, Ex 05 (both versions), Ex 06, Ex 07–10. Report what breaks.
 - [ ] **Test the 2.5D tutorials** 1 and 2.
 - [ ] **Download the Kenney packs** into `Assets/_Course/Art/Kenney/`, following its README: Tiny Dungeon, Tiny Town, Puzzle Pack, Space Shooter Redux, Physics Assets, UI Pack, and the sound packs. The workspace Claude works in can't reach kenney.nl.
-- [ ] **Build the kit samples** by following each kit's "Building the Sample" guide: Platformer, Physics Puzzle, Top-Down Adventure, Turn-Based Battle, Arcade Classic. (See decision 3: Claude could write menu commands that build them instead.)
+- [ ] **Test the first sample builder:** **Collin Game → Kit Samples → Build Platformer Sample**, then play it through Part 10 of the Platformer "Building the Sample" guide. Once it works, Claude writes the same command for the other four kits.
 - [ ] **Decisions 3 and 8** below.
 
 **Before the semester:**
@@ -60,7 +60,9 @@ What is built, what is left, the order to build it in, and the decisions that bl
 
 ### Claude (can start now)
 
-- [ ] Script Reference: add the 3D module.
+- [x] Script Reference: add the 3D module.
+- [x] Sample builder for the Platformer Kit.
+- [ ] Sample builders for Physics Puzzle, Top-Down Adventure, Turn-Based Battle and Arcade Classic (after the Platformer one is tested; those three also need their Kenney packs).
 - [ ] Remaining kits, each with scripts, a student guide and a "Building the Sample" guide: top-down shooter, endless runner, grid puzzle, tower defense, management and strategy, visual novel with dating sim (Yarn Spinner), card game, farming and life sim.
 - [ ] 3D kits: 3D platformer, then horror and stealth, with the 3D module scripts they need (camera helpers, enemies that use a navigation mesh).
 - [ ] Match the Week 5–7 lecture pages to the real script names.
@@ -148,7 +150,7 @@ Kits aren't used until week 8 of the semester, so the later ones can be finished
 |---|---|---|---|
 | 1 | Which genres are on the map for the first semester | **Decided:** sixteen genres. 2D: arcade classic, platformer, top-down adventure, turn-based battle, endless runner, top-down shooter, grid puzzle, physics puzzle (added later), tower defense, management and strategy, card game, farming and life sim. Narrative: visual novel, dating sim (one kit). 3D: 3D platformer, horror and stealth. No VR or AR. Lectures and exercises stay 2D | — |
 | 2 | Art in kit samples | **Decided:** Kenney's CC0 packs, kept under `Assets/_Course/Art/Kenney/` in a folder named as Kenney's download is named (for example `kenney_pixel-platformer`), with the pack's license file. Each pack gets an entry in `CourseArtImporter`, which sets its import settings. Every pack is listed in `Course Credits`, which the game's Credits screen shows. Plain shapes stay in the exercises | — |
-| 3 | How each kit's sample is built | Either the instructor follows each "Building the Sample" guide (tests the guide too, but takes an hour or more per kit), or Claude writes a menu command per kit that builds the sample scene, prefabs and data, and the instructor only plays and checks it | Instructor time per kit |
+| 3 | How each kit's sample is built | **Decided:** a menu command per kit (**Collin Game → Kit Samples**) builds the sample; the instructor plays it, and can follow the "Building the Sample" guide to check it. First one: Platformer (v0.13.1). The rest follow once it's tested | — |
 | 4 | Dialogue tool | **Decided:** Yarn Spinner. To be installed from a package registry and not from a Git URL, so lab computers don't need Git | — |
 | 5 | Are there graded exercises in weeks 8–10? | **Decided:** yes. Ex 07–10, 2 points each, done inside the student's own game | — |
 | 6 | What a Topic page is | **Decided:** one page per lecture topic in `Topics/`, with the lecture's intent, key ideas, an in-class plan, common problems, where the topic comes up, and further resources. Linked from the Lecture page, the Class page and the exercises | — |

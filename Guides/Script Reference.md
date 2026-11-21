@@ -1036,6 +1036,7 @@ Methods: **Serve**, **ResetBall**.
 | Current Value | Inspector of any variable, during Play | Shows the live value |
 | Raise | Inspector of any Void Event Channel, during Play | Raises the event, for testing |
 | Reapply Art Import Settings | **Collin Game → Art** menu | Gives the course's art packs their pixel-art settings again |
+| Build Platformer Sample | **Collin Game → Kit Samples** menu | Builds the Platformer Kit's sample game: data, prefabs, tiles, two levels, menu and win scenes, and the Scene List. Replaces the kit's `Sample` folder |
 | Use Course Panel Settings in Open Scenes | **Collin Game → UI** menu | Sets `CoursePanelSettings` on every UI Document in the open scenes |
 | Repair Course Panel Settings | **Collin Game → UI** menu | Creates `CoursePanelSettings` if it's missing, and puts back its settings |
 | Course Panel Settings for new UI Documents | Automatic | A new UI Document with no Panel Settings gets `CoursePanelSettings` |

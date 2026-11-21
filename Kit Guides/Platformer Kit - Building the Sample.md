@@ -19,6 +19,14 @@ Everything goes in `Assets/_Course/Kits/Platformer/Sample/`. The art is in `Asse
 
 Collider sizes are starting points. Adjust each one until it fits the artwork.
 
+## The quick way: build it with one command
+
+**Collin Game → Kit Samples → Build Platformer Sample** builds everything on this page in a few seconds: the data, every prefab, a Tile asset for every tile, both levels, the menu and win scenes, and the Scene List. It opens the menu scene when it's done; press **Play**.
+
+To check the command, or to learn the kit, follow the steps below and compare. The command's two levels are drawn as text maps at the top of `Kits/Platformer/Editor/PlatformerSampleBuilder.cs`; change a map and run the command again to rebuild. Running it again replaces the whole `Sample` folder.
+
+What the command leaves for you: a Tile Palette (Part 4, steps 1–2, if you want to paint), and decorations on the `Decor` Tilemap.
+
 ## Before you start
 
 1. Pull the template project. It should be version 0.9.0 or later (`Assets/_Course/VERSION.txt`), with no red errors in the Console.
