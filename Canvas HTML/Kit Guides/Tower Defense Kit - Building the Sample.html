@@ -1,0 +1,267 @@
+<p><strong>For the instructor.</strong> These steps build the kit's sample map once, in the template project. Building it tests every kit script, and the result is what students import. Students read <strong>Tower Defense Kit</strong>, not this page.</p>
+<p>Everything goes in <code>Assets/_Course/Kits/TowerDefense/Sample/</code>, with folders <code>Data</code>, <code>Towers</code>, <code>Prefabs</code> and <code>Scenes</code>.</p>
+<h2>Before you start</h2>
+<ol>
+<li>Pull the template project. It should be version 0.17.0 or later, with no red errors in the Console.</li>
+<li><strong>Art.</strong> Download Kenney's <strong>Tower Defense (top-down)</strong> pack (link in <code>Assets/_Course/Art/Kenney/README.md</code>). Unzip it to <code>Assets/_Course/Art/Kenney/kenney_tower-defense-top-down</code>, remove the <code>.url</code> files and any <code>Vector</code> folder, and choose <strong>Collin Game → Art → Reapply Art Import Settings</strong>. Its tiles are 64 pixels, so one tile is one unit. If the folder name differs, tell me and I'll match the import settings.</li>
+<li>Every UI Document uses <code>CoursePanelSettings</code>.</li>
+</ol>
+<h2>Part 1 — Data</h2>
+<p>In <code>Sample/Data</code>:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 1 — Data</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Asset</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Money</code>, <code>Lives</code>, <code>Wave</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Int Variable</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>MapWon</code>, <code>MapLost</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Void Event Channel</td>
+</tr>
+</tbody>
+</table>
+<h2>Part 2 — Projectiles and towers</h2>
+<p><strong>Projectiles</strong> (prefabs with <strong>Tower Projectile 2D</strong>, a small sprite pointing right, Order in Layer <code>20</code>): <code>Arrow</code>, <code>Cannonball</code> (Hit Effect: a small explosion sprite with a <strong>Lifetime</strong> of <code>0.3</code>), <code>Frost Bolt</code> (tinted pale blue).</p>
+<p><strong>Tower prefabs</strong>: each a base sprite (Order in Layer <code>5</code>) with <strong>Tower 2D</strong>, a child <code>Turret</code> sprite pointing right (Order <code>6</code>), and a child <code>Range</code> using a circle sprite 1 unit across, tinted white at 20% opacity (Order <code>1</code>), dragged into <strong>Range Indicator</strong>. Make <code>Archer Tower</code>, <code>Cannon Tower</code> and <code>Frost Tower</code>, with a different turret sprite each. Targeting <strong>First</strong>.</p>
+<p><strong>Tower assets</strong>, in <code>Sample/Towers</code> (<strong>Create → Collin Game → Tower Defense Kit → Tower</strong>):</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 2 — Projectiles and towers</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Asset</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Prefab</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Cost</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Range</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Damage</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Shots/s</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Projectile</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Splash</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Slow</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Upgrades to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Archer</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Archer Tower</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>50</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>3</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>2</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Arrow, speed <code>12</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Archer II</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Archer II</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>60</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>3.5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>2</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>2.5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Arrow, speed <code>14</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Cannon</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Cannon Tower</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>90</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>2.5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>3</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.6</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Cannonball, speed <code>6</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1.2</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Cannon II</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Cannon II</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>110</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>3</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.7</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Cannonball, speed <code>7</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1.5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Frost</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Frost Tower</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>70</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>2.5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Frost Bolt, speed <code>10</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.8</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.5</code>, <code>2</code> s</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Frost II</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Frost II</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>70</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>3</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1.2</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Frost Bolt, speed <code>12</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1.2</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.35</code>, <code>2.5</code> s</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+</tr>
+</tbody>
+</table>
+<p>Upgrades leave Prefab empty, so the same tower object carries on with the new numbers.</p>
+<h2>Part 3 — Enemies</h2>
+<p>Each: a sprite (Order in Layer <code>10</code>), <strong>Health</strong> (When Health Runs Out <strong>Destroy</strong>, Invulnerable Time <code>0</code>), <strong>Path Enemy 2D</strong>. No collider.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 3 — Enemies</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Prefab</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Health</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Speed</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Reward</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Lives Taken</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Scout</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>3</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>2.5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>4</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Soldier</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>8</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1.5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>6</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Brute</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>30</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.9</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>15</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>3</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Swarmling</code> (smaller sprite)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>2</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>2</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>2</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+</tr>
+</tbody>
+</table>
+<h2>Part 4 — TD Systems</h2>
+<p>An empty <code>TD Systems</code>, made into a prefab, with these children:</p>
+<p><strong><code>Waves</code></strong> — <strong>Tower Wave Spawner</strong>: Path (set in the scene), Money <code>Money</code>, Starting Money <code>120</code>, Lives <code>Lives</code>, Starting Lives <code>20</code>, Wave Number <code>Wave</code>, Raise When Won <code>MapWon</code>. Waves:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 4 — TD Systems</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Wave</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Groups (count × enemy, seconds between)</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Bonus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">1</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">6 × Scout, <code>1.2</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>20</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">2</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">10 × Scout, <code>0.9</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>20</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">3</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">6 × Soldier, <code>1.2</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>25</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">4</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">8 × Scout <code>0.6</code>; 6 × Soldier <code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>25</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">5</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">2 × Brute, <code>3</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>30</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">6</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">20 × Swarmling, <code>0.4</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>30</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">7</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">10 × Soldier <code>0.8</code>; 2 × Brute <code>2.5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>35</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">8</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">30 × Swarmling <code>0.3</code>; 8 × Scout <code>0.5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>35</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">9</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">4 × Brute <code>2</code>; 12 × Soldier <code>0.6</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>40</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">10</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">25 × Swarmling <code>0.3</code>; 6 × Brute <code>2</code>; 15 × Soldier <code>0.5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>Lose</code></strong> — <strong>Int Variable Condition</strong>: Variable <code>Lives</code>, At Most <code>0</code>, Raise Event <code>MapLost</code>.</p>
+<p><strong><code>HUD</code></strong> — UI Document <code>TowerHUD</code> (from <code>Kits/TowerDefense/UI</code>), with <strong>UI Build Menu</strong> (Towers: <code>Archer</code>, <code>Cannon</code>, <code>Frost</code>; Money <code>Money</code>; Spawner <code>Waves</code>), and a <strong>UI Variable Binder</strong>: <code>money-label</code> → <code>Money</code> → <code>${0}</code>; <code>lives-label</code> → <code>Lives</code> → <code>Lives: {0}</code>; <code>wave-label</code> → <code>Wave</code> → <code>Wave {0} / 10</code>.</p>
+<p><strong><code>Pause Menu</code></strong>, <strong><code>Scene Changer</code></strong>, <strong><code>To Menu</code></strong> — as in the Platformer Kit sample.</p>
+<p><strong><code>Won</code></strong> — UI Document <code>EndScreen</code>, hidden, shown by a <strong>Void Event Listener</strong> on <code>MapWon</code>; <code>score-label</code> → <code>Lives</code> → <code>Lives left: {0}</code>.</p>
+<p><strong><code>Lost</code></strong> — UI Document <code>GameOver</code>, hidden, shown on <code>MapLost</code>; Try Again → <strong>ReloadScene</strong>.</p>
+<h2>Part 5 — The map (<code>TD_Map</code>)</h2>
+<ol>
+<li>Main Camera: Orthographic, Size <code>6</code>, at <code>0, 0, -10</code>. No Cinemachine.</li>
+<li>A Tilemap of grass covering the view, and a second Tilemap for the road, winding from the left edge to the right edge with five or six bends.</li>
+<li><code>Path</code>: an <strong>Enemy Path 2D</strong> with a child at each bend of the road, starting just off the left edge and ending just off the right.</li>
+<li>Eight <code>Build Spot</code> prefabs (a stone pad sprite with a <strong>Circle Collider 2D</strong> of radius <code>0.45</code> and <strong>Build Spot 2D</strong>), on the insides of bends where they reach two stretches of road.</li>
+<li><code>TD Systems</code>, with Waves → <strong>Path</strong> set to <code>Path</code>.</li>
+</ol>
+<h2>Part 6 — Menu</h2>
+<p><code>TD_Menu</code>, like the Platformer sample's menu, with Play loading <code>TD_Map</code>.</p>
+<h2>Part 7 — Scene List</h2>
+<p><code>TD_Menu</code>, <code>TD_Map</code>.</p>
+<h2>Part 8 — Test</h2>
+<ul>
+<li>Money starts at 120, lives at 20; the HUD shows them.</li>
+<li>Clicking a pad opens the build menu; towers you can't afford are grey; clicking grass closes it.</li>
+<li>Building takes the money and places the tower; the turret turns to enemies in range.</li>
+<li>Clicking a tower shows its range, the upgrade price and the sale value.</li>
+<li>Upgrading changes the tower's numbers; selling returns 60% of what was spent.</li>
+<li>Start Wave is grey during a wave and lights up after it, with the bonus added.</li>
+<li>Arrows hit one enemy; cannonballs hit a group; frost slows enemies visibly.</li>
+<li>Enemies reaching the end cost lives; at 0 lives, the lost screen shows.</li>
+<li>Clearing wave 10 shows the won screen with lives left.</li>
+<li>Clicking the HUD's buttons never opens or closes the build menu by mistake.</li>
+<li>Esc pauses.</li>
+<li><strong>Balance:</strong> a first-time player can win with some losses. Note which waves feel too easy or too hard.</li>
+</ul>
+<p>Note anything that fails, with the Console message.</p>
+<h2>Part 9 — Commit</h2>
+<p>Commit and push the <code>Sample</code> folder with its <code>.meta</code> files, and the art folder.</p>
+<h2>Later — Exporting the kit</h2>
+<p>Export <code>Assets/_Course/Kits/TowerDefense</code> and the art folder with <strong>Assets → Export Package</strong>, unticking Core scripts that Unity adds as dependencies.</p>

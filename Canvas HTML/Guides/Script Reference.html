@@ -1,4 +1,4 @@
-<p>Every course script in the course project, as of version <strong>0.16.0</strong>: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in <code>Assets/_Course/VERSION.txt</code>.</p>
+<p>Every course script in the course project, as of version <strong>0.17.0</strong>: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in <code>Assets/_Course/VERSION.txt</code>.</p>
 <h2>Finding the scripts</h2>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Finding the scripts</caption>
 <thead>
@@ -190,6 +190,16 @@
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/GridPuzzle/UI</code></td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Puzzle HUD, level select and solved screens</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/TowerDefense/Scripts</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>CollinGame.Kits.TowerDefense</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Tower defense kit scripts</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/TowerDefense/UI</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Tower HUD and build menu</td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Art/Kenney</code></td>
@@ -2244,6 +2254,85 @@
 </tbody>
 </table>
 <hr/>
+<h2>Tower defense kit</h2>
+<p>Imported with the Tower Defense Kit package. See <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Tower%20Defense%20Kit.md">Tower Defense Kit</a>.</p>
+<h3>Tower</h3>
+<p><code>Kits/TowerDefense/Scripts/TowerData.cs</code> · <strong>Create → Collin Game → Tower Defense Kit → Tower</strong></p>
+<p>A tower's numbers, as an asset.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Tower</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Setting</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Default</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Display Name · Prefab · Cost</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">the asset's name · — · <code>50</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The prefab needs a Tower 2D. For an upgrade, Prefab can stay empty</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Range · Damage · Shots Per Second</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>3</code> · <code>1</code> · <code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Projectile · Projectile Speed</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">— · <code>8</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">No projectile hits instantly</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Splash Radius</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Hits every enemy this close to the target</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Slow To · Slow Seconds</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code> · <code>1.5</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.5</code> is half speed; <code>1</code> is no slow</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Upgrades To · Sell Share</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">— · <code>0.6</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The upgrade's Cost is the upgrade price</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Sound</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+</tbody>
+</table>
+<h3>Tower 2D and Tower Projectile 2D</h3>
+<p><strong>Tower 2D</strong>, on a tower prefab: finds enemies within its Tower asset's range, picks one by <strong>Targeting</strong> (<strong>First</strong>, <strong>Closest</strong>, <strong>Strongest</strong>), turns <strong>Turret</strong> to it, and fires from <strong>Muzzle</strong>. <strong>Range Indicator</strong> (a circle 1 unit across) shows the range while selected. Towers are built on Build Spots, which give them their Tower asset.</p>
+<p><strong>Tower Projectile 2D</strong>: flies to its target, following it, then hits (with splash and slow from the Tower asset). <strong>Hit Effect</strong> is created where it lands.</p>
+<h3>Build Spot 2D</h3>
+<p>A place for one tower, with a 2D collider for clicking. Methods: <strong>Build</strong> (Tower, money), <strong>Upgrade</strong>, <strong>Sell</strong>. <strong>SellValue</strong>. Events <strong>On Built</strong>, <strong>On Sold</strong>.</p>
+<h3>Enemy Path 2D and Path Enemy 2D</h3>
+<p><strong>Enemy Path 2D</strong>: the path's corners are its children, in order.</p>
+<p><strong>Path Enemy 2D</strong>: walks the path at <strong>Speed</strong> (<code>2</code>). At the end, takes <strong>Lives Taken</strong> (<code>1</code>) from lives and disappears; if its Health runs out first, adds <strong>Reward</strong> (<code>5</code>) to money. <strong>Rotate To Path</strong> turns the sprite; otherwise it flips. Method <strong>Slow</strong> (share, seconds). Read by towers: <strong>Progress</strong>, <strong>Health</strong>. Needs a Health, and no collider.</p>
+<h3>Tower Wave Spawner</h3>
+<p>Holds the map's <strong>Money</strong> and <strong>Lives</strong> (set to <strong>Starting Money</strong> <code>100</code> and <strong>Starting Lives</strong> <code>20</code>), and sends <strong>Waves</strong> of groups (enemy, count, seconds between) down <strong>Path</strong>. Each wave gives its <strong>Bonus</strong> when cleared. <strong>Start Waves Automatically</strong>, or wire <strong>StartNextWave</strong> to a button. <strong>Wave Number</strong>, <strong>Raise When Won</strong>, <strong>On Wave Started</strong>, <strong>On Wave Cleared</strong>, <strong>On Won</strong>. Read: <strong>WaveInProgress</strong>, <strong>HasNextWave</strong>.</p>
+<h3>UI Build Menu</h3>
+<p>Opens when a Build Spot is clicked or tapped: a button per entry in <strong>Towers</strong> with its price (greyed out if unaffordable), or the upgrade and sale for a built tower. Clicking empty ground closes it; clicks on the UI are ignored. Wires the HUD's Start Wave button to the <strong>Spawner</strong>. Mouse and touch only.</p>
+<h3>Kit screens</h3>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Kit screens (9)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Screen</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Element names</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>TowerHUD</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>money-label</code>, <code>lives-label</code>, <code>wave-label</code>, <code>start-wave-button</code>, <code>build-menu</code>, <code>build-title</code>, <code>tower-buttons</code>, <code>upgrade-button</code>, <code>sell-button</code>, <code>close-button</code></td>
+</tr>
+</tbody>
+</table>
+<hr/>
 <h2>Editor tools</h2>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Editor tools</caption>
 <thead>
@@ -2456,6 +2545,10 @@
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Levels that unlock in order</td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A <strong>Level List</strong> + <strong>Puzzle Level Loader</strong> + <strong>UI Level Select</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Tower defense</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">An <strong>Enemy Path 2D</strong>, a <strong>Tower Wave Spawner</strong>, <strong>Build Spot 2D</strong>s, Tower assets, and the <strong>UI Build Menu</strong> on <code>TowerHUD</code></td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Starting a new game from the menu</td>

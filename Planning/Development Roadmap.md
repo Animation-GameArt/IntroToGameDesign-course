@@ -25,7 +25,7 @@ What is built, what is left, the order to build it in, and the decisions that bl
 | Ex 00 tutorial | Drafted |
 | Script Reference (`Guides/Script Reference.md`) | Written for v0.12.0. Update whenever scripts change |
 | Genre map page for students | Drafted (`Guides/Genre Map.md`) |
-| Genre kits and kit guides | Platformer, Physics Puzzle, Top-Down Adventure, Turn-Based Battle, Arcade Classic, Top-Down Shooter, Endless Runner and Grid Puzzle: scripts and both guides written. Platformer sample built with its menu command (2026-11-20), not yet played through; other samples not built. Other 7 kits not started |
+| Genre kits and kit guides | Platformer, Physics Puzzle, Top-Down Adventure, Turn-Based Battle, Arcade Classic, Top-Down Shooter, Endless Runner, Grid Puzzle and Tower Defense: scripts and both guides written. Platformer sample built with its menu command (2026-11-20), not yet played through; other samples not built. Other 6 kits not started |
 | Scripts for weeks 8–10 (v0.10.0) | Audio, music, camera shake, hit stop, cutscenes, saving, high score and settings. Compiled; not yet tested in Ex 07–10. Dialogue is part of the visual novel kit |
 | 3D module and 2.5D tutorials | Tank Controller 3D, Rail Runner 3D, two tutorials. Universal Renderer added. Compiles; not yet tested |
 | Class and Lecture pages, weeks 8–16 | Drafted |
@@ -66,7 +66,8 @@ What is built, what is left, the order to build it in, and the decisions that bl
 - [x] Top-down shooter kit: scripts and both guides (v0.14.0).
 - [x] Endless runner kit: scripts and both guides (v0.15.0). Uses the Pixel Platformer art already in the project.
 - [x] Grid puzzle kit: scripts and both guides (v0.16.0). The eight sample levels were checked with a solver.
-- [ ] Remaining kits, each with scripts, a student guide and a "Building the Sample" guide: tower defense, management and strategy, visual novel with dating sim (Yarn Spinner), card game, farming and life sim.
+- [x] Tower defense kit: scripts and both guides (v0.17.0). Sample needs Kenney's Tower Defense (top-down).
+- [ ] Remaining kits, each with scripts, a student guide and a "Building the Sample" guide: management and strategy, visual novel with dating sim (Yarn Spinner), card game, farming and life sim.
 - [ ] 3D kits: 3D platformer, then horror and stealth, with the 3D module scripts they need (camera helpers, enemies that use a navigation mesh).
 - [ ] Match the Week 5–7 lecture pages to the real script names.
 - [ ] Move the instructor's tested exercise scenes to `Assets/_Course/Exercises/Solutions/` (once Marshall says they're final).
@@ -100,7 +101,7 @@ One kit at a time, in priority order. For each kit:
 **Build order** (fifteen kits; visual novel and dating sim share one):
 
 1. Small, and they settle the kit format: platformer, top-down adventure, turn-based battle, arcade classic (scripts and both guides written for all four; the samples need building and testing)
-2. Medium: physics puzzle (scripts and guides written; sample needs building, and Kenney's Physics Assets pack), top-down shooter (scripts and guides written, v0.14.0; sample needs Kenney's Pixel Shmup), endless runner (scripts and guides written, v0.15.0), grid puzzle (scripts and guides written, v0.16.0; sample needs Kenney's Sokoban), tower defense, management and strategy, visual novel with dating sim
+2. Medium: physics puzzle (scripts and guides written; sample needs building, and Kenney's Physics Assets pack), top-down shooter (scripts and guides written, v0.14.0; sample needs Kenney's Pixel Shmup), endless runner (scripts and guides written, v0.15.0), grid puzzle (scripts and guides written, v0.16.0), tower defense (scripts and guides written, v0.17.0; sample needs Kenney's Tower Defense pack), management and strategy, visual novel with dating sim
 3. The 3D script module, in the same course project (**decided** 2026-11-20: one project, one repository, with the 2D and 3D scripts and kits side by side, sharing the same Core, UI and data). The module's first two scripts, Tank Controller 3D and Rail Runner 3D, are in `_Course/ThreeD`, with two tutorials in `Tutorials/`. Next: a 3D renderer added to the project's URP settings (one-time, in Unity), then the 3D platformer kit
 4. Large: card game, farming and life sim, horror and stealth
 

@@ -167,7 +167,9 @@ Most games mix genres a little. Choose the **one** genre that describes what the
 
 **Examples:** Bloons TD, Kingdom Rush, Plants vs. Zombies.
 
-**The kit gives you:** a path for enemies, towers stored as data (range, damage, rate), targeting, waves, currency and fixed building spots.
+**The kit gives you:** a path for enemies, towers stored as data (range, damage, rate, splash, slow), targeting, upgrades and selling, waves, money and lives, and fixed building spots with a build menu.
+
+**Kit guide:** [Tower Defense Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Tower%20Defense%20Kit.md)
 
 **A good scope:** one map, three tower types, four enemy types and ten waves.
 

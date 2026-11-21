@@ -3,7 +3,7 @@ title: "Script Reference"
 course: GAME 1303
 type: guide
 status: draft
-course_version: 0.16.0
+course_version: 0.17.0
 unity: 6000.3.10f1
 tags:
   - game1303
@@ -13,7 +13,7 @@ tags:
 
 # Script Reference
 
-Every course script in the course project, as of version **0.16.0**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
+Every course script in the course project, as of version **0.17.0**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
 
 ## Finding the scripts
 
@@ -63,6 +63,8 @@ Every script explains its settings: hover over a field in the Inspector to see i
 | `_Course/Kits/EndlessRunner/UI` | — | Runner HUD |
 | `_Course/Kits/GridPuzzle/Scripts` | `CollinGame.Kits.GridPuzzle` | Grid puzzle kit scripts |
 | `_Course/Kits/GridPuzzle/UI` | — | Puzzle HUD, level select and solved screens |
+| `_Course/Kits/TowerDefense/Scripts` | `CollinGame.Kits.TowerDefense` | Tower defense kit scripts |
+| `_Course/Kits/TowerDefense/UI` | — | Tower HUD and build menu |
 | `_Course/Art/Kenney` | — | Kenney art packs (CC0). Its README links to every pack the kits use |
 | `_Course/Credits` | — | The course's credits text |
 
@@ -1198,6 +1200,58 @@ Moves the players one cell per press of Move, repeating after **Repeat Delay** (
 
 ---
 
+## Tower defense kit
+
+Imported with the Tower Defense Kit package. See [Tower Defense Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Tower%20Defense%20Kit.md).
+
+### Tower
+
+`Kits/TowerDefense/Scripts/TowerData.cs` · **Create → Collin Game → Tower Defense Kit → Tower**
+
+A tower's numbers, as an asset.
+
+| Setting | Default | |
+|---|---|---|
+| Display Name · Prefab · Cost | the asset's name · — · `50` | The prefab needs a Tower 2D. For an upgrade, Prefab can stay empty |
+| Range · Damage · Shots Per Second | `3` · `1` · `1` | |
+| Projectile · Projectile Speed | — · `8` | No projectile hits instantly |
+| Splash Radius | `0` | Hits every enemy this close to the target |
+| Slow To · Slow Seconds | `1` · `1.5` | `0.5` is half speed; `1` is no slow |
+| Upgrades To · Sell Share | — · `0.6` | The upgrade's Cost is the upgrade price |
+| Sound | — | |
+
+### Tower 2D and Tower Projectile 2D
+
+**Tower 2D**, on a tower prefab: finds enemies within its Tower asset's range, picks one by **Targeting** (**First**, **Closest**, **Strongest**), turns **Turret** to it, and fires from **Muzzle**. **Range Indicator** (a circle 1 unit across) shows the range while selected. Towers are built on Build Spots, which give them their Tower asset.
+
+**Tower Projectile 2D**: flies to its target, following it, then hits (with splash and slow from the Tower asset). **Hit Effect** is created where it lands.
+
+### Build Spot 2D
+
+A place for one tower, with a 2D collider for clicking. Methods: **Build** (Tower, money), **Upgrade**, **Sell**. **SellValue**. Events **On Built**, **On Sold**.
+
+### Enemy Path 2D and Path Enemy 2D
+
+**Enemy Path 2D**: the path's corners are its children, in order.
+
+**Path Enemy 2D**: walks the path at **Speed** (`2`). At the end, takes **Lives Taken** (`1`) from lives and disappears; if its Health runs out first, adds **Reward** (`5`) to money. **Rotate To Path** turns the sprite; otherwise it flips. Method **Slow** (share, seconds). Read by towers: **Progress**, **Health**. Needs a Health, and no collider.
+
+### Tower Wave Spawner
+
+Holds the map's **Money** and **Lives** (set to **Starting Money** `100` and **Starting Lives** `20`), and sends **Waves** of groups (enemy, count, seconds between) down **Path**. Each wave gives its **Bonus** when cleared. **Start Waves Automatically**, or wire **StartNextWave** to a button. **Wave Number**, **Raise When Won**, **On Wave Started**, **On Wave Cleared**, **On Won**. Read: **WaveInProgress**, **HasNextWave**.
+
+### UI Build Menu
+
+Opens when a Build Spot is clicked or tapped: a button per entry in **Towers** with its price (greyed out if unaffordable), or the upgrade and sale for a built tower. Clicking empty ground closes it; clicks on the UI are ignored. Wires the HUD's Start Wave button to the **Spawner**. Mouse and touch only.
+
+### Kit screens
+
+| Screen | Element names |
+|---|---|
+| `TowerHUD` | `money-label`, `lives-label`, `wave-label`, `start-wave-button`, `build-menu`, `build-title`, `tower-buttons`, `upgrade-button`, `sell-button`, `close-button` |
+
+---
+
 ## Editor tools
 
 | Tool | Where | What it does |
@@ -1255,6 +1309,7 @@ Moves the players one cell per press of Move, repeating after **Repeat Delay** (
 | Background that scrolls slower than the world | **Parallax 2D** on each layer |
 | A Sokoban-style puzzle | **Grid Board** (with a walls Tilemap) + **Grid Player Input** + **Grid Piece**s + **Grid Goal**s |
 | Levels that unlock in order | A **Level List** + **Puzzle Level Loader** + **UI Level Select** |
+| Tower defense | An **Enemy Path 2D**, a **Tower Wave Spawner**, **Build Spot 2D**s, Tower assets, and the **UI Build Menu** on `TowerHUD` |
 | Starting a new game from the menu | **Variable Resetter** in the menu scene, with every variable that carries between levels |
 
 ## Common Console messages

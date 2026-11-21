@@ -1,0 +1,168 @@
+<p>The Tower Defense Kit is a starting point for games where enemies walk a path and the player stops them by building towers beside it. The loop: earn money, build or upgrade a tower, start the wave, watch what gets through, and adjust. Examples: Bloons TD, Kingdom Rush, the early waves of Plants vs. Zombies.</p>
+<p>The sample is one map with three towers (each with an upgrade), four kinds of enemy and ten waves.</p>
+<p>Most of the work in a tower defense game is <strong>balancing</strong>: tower costs, damage, enemy health and wave sizes. The kit keeps all of those as numbers in assets and Inspector fields, so you can change them between playtests without touching code.</p>
+<h2>What the kit covers</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">What the kit covers</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The kit does this</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The kit doesn't do this</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A path with any number of corners</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Enemies that choose their own way through a maze</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Towers as assets: cost, range, damage, fire rate, projectile, splash, slow</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Towers with special abilities you trigger by hand</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Targeting the first, closest or strongest enemy in range</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Air and ground enemies that only some towers can hit</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Fixed building spots, build menu, upgrades and selling</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Placing towers anywhere on the map</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Waves started by the player or by themselves, with a bonus for clearing each</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Several maps with a world map</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Money, lives, win and lose</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Long upgrade trees</td>
+</tr>
+</tbody>
+</table>
+<p>If your pitch needs something in the right-hand column, it has to be one of your agreed custom scripts, or it has to be cut.</p>
+<h2>Install the kit</h2>
+<ol>
+<li>Download the Tower Defense Kit package from the course project's <strong>Releases</strong> page.</li>
+<li>With your project open, double-click the package and click <strong>Import</strong>.</li>
+<li>Open <strong>File → Build Profiles → Open Scene List</strong>. From <code>Assets/_Course/Kits/TowerDefense/Sample/Scenes</code>, add <code>TD_Menu</code> and <code>TD_Map</code>, next to each other, in that order.</li>
+<li>Open <code>TD_Menu</code> and press <strong>Play</strong>.</li>
+</ol>
+<p>Tower defense is played with the <strong>mouse</strong> (or a touch screen): click a stone pad to build, click a tower to upgrade or sell it, click <strong>Start Wave</strong> when you're ready. <strong>Esc</strong> pauses.</p>
+<h2>What's in the sample</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">What's in the sample</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Asset or prefab</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What it is</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Settings worth changing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Archer</code>, <code>Archer II</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Tower assets: cheap, fast, short range; the upgrade hits harder</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Cost</strong>, <strong>Range</strong>, <strong>Damage</strong>, <strong>Shots Per Second</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Cannon</code>, <code>Cannon II</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Slow, expensive, splash damage</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Splash Radius</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Frost</code>, <code>Frost II</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">No damage, but slows enemies</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Slow To</strong>, <strong>Slow Seconds</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Scout</code>, <code>Soldier</code>, <code>Brute</code>, <code>Swarmling</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Enemies: fast and weak, average, slow and tough, tiny in large groups</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Path Enemy 2D <strong>Speed</strong>, <strong>Reward</strong>, <strong>Lives Taken</strong>; Health <strong>Max Health</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Build Spot</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A stone pad that takes one tower</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>TD Systems</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">HUD, build menu, wave spawner, win and lose screens</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The waves on <strong>Tower Wave Spawner</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>How the sample fits together</h2>
+<p><strong>The path.</strong> <code>Path</code> is an <strong>Enemy Path 2D</strong>: its children are the corners, in order. Select it to see the route (green start, red end).</p>
+<p><strong>Enemies.</strong> The <strong>Tower Wave Spawner</strong> creates each enemy at the start of the path and hands it the path. A <strong>Path Enemy 2D</strong> walks from corner to corner. If it reaches the end, the player loses <strong>Lives Taken</strong> lives; if its Health runs out first, the player earns its <strong>Reward</strong>.</p>
+<p><strong>Towers.</strong> A <strong>Tower</strong> asset holds a tower's numbers. A <strong>Tower 2D</strong>, on the tower prefab, looks for enemies within range, picks one by its <strong>Targeting</strong> (First, the one furthest along, is usually best), turns its turret, and fires. With a projectile, a <strong>Tower Projectile 2D</strong> flies to the enemy; without one, the hit is instant. Splash damage hits every enemy near the target; frost slows them.</p>
+<p><strong>Building.</strong> Clicking a <strong>Build Spot 2D</strong> opens the <strong>UI Build Menu</strong>: a button per tower with its price, greyed out if the player can't afford it. On a spot with a tower, the menu offers the upgrade and a sale (which returns part of what was spent), and shows the tower's range.</p>
+<p><strong>Waves.</strong> The player presses <strong>Start Wave</strong>. When every enemy of the wave is gone, the player gets the wave's <strong>Bonus</strong>, and the button lights up again. Clearing the last wave raises <code>MapWon</code>. Lives reaching 0 raises <code>MapLost</code> through an Int Variable Condition.</p>
+<h2>Start your own game</h2>
+<ol>
+<li>Create a new 2D scene in <code>Assets/_Game/Scenes</code>, and set the Main Camera's <strong>Size</strong> so the whole map fits.</li>
+<li>Paint the ground and the road (a Tilemap works well).</li>
+<li>Add an empty <code>Path</code> with <strong>Enemy Path 2D</strong>, and an empty child for each corner of the road, in order. Put the first just off screen where enemies enter, and the last where they leave.</li>
+<li>Drag in <code>TD Systems</code> from the kit's <code>Sample/Prefabs</code>, and set the Tower Wave Spawner's <strong>Path</strong> to your path.</li>
+<li>Place <code>Build Spot</code> prefabs beside the road. Spots on the inside of bends reach the most road.</li>
+<li>Press <strong>Play</strong>, build, and start a wave.</li>
+</ol>
+<h3>Changing towers and enemies</h3>
+<p>Duplicate a Tower asset or make a Prefab Variant of an enemy (right-click → <strong>Create → Prefab Variant</strong>), move it to <code>Assets/_Game</code>, and change the copy. Add new towers to the UI Build Menu's <strong>Towers</strong> list.</p>
+<h2>Balancing</h2>
+<ul>
+<li><strong>Start with money for one tower</strong>, and make the first wave beatable with one well-placed tower.</li>
+<li><strong>Each tower needs a job.</strong> Fast single-target, slow splash, slowing. If one tower is best at everything, nobody builds the others.</li>
+<li><strong>Work out damage per second:</strong> Damage × Shots Per Second. Compare it with the enemies' health × how many come per second.</li>
+<li><strong>Change one number at a time</strong> between playtests, and write down what changed.</li>
+<li><strong>Watch where enemies leak.</strong> That's the spot that needs a tower, or the wave that's too strong.</li>
+</ul>
+<h2>Recipes</h2>
+<p><strong>A sniper.</strong> Range <code>8</code>, Damage <code>5</code>, Shots Per Second <code>0.4</code>, Targeting <strong>Strongest</strong>.</p>
+<p><strong>A machine gun.</strong> Range <code>2.5</code>, Damage <code>1</code>, Shots Per Second <code>6</code>, no projectile (instant hits).</p>
+<p><strong>A boss.</strong> An enemy variant with Max Health <code>200</code>, Speed <code>0.8</code>, Lives Taken <code>10</code>, and a larger sprite. Put one at the end of the last wave.</p>
+<p><strong>Waves that start by themselves.</strong> Tick <strong>Start Waves Automatically</strong> on the Tower Wave Spawner, and set <strong>Seconds Between Waves</strong>.</p>
+<p><strong>A harder map.</strong> Lower <strong>Starting Money</strong> and <strong>Starting Lives</strong>, and raise each wave's counts.</p>
+<p><strong>Sounds.</strong> Each Tower asset has a <strong>Sound</strong> for its shots; Build Spot 2D has <strong>On Built</strong> and <strong>On Sold</strong>; Path Enemy 2D has <strong>On Reached End</strong>.</p>
+<h2>If something goes wrong</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something goes wrong</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What you see</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Enemies don't move</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Tower Wave Spawner needs a <strong>Path</strong> with at least two child points</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Enemies walk off in a straight line</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The path's corners must be <strong>children</strong> of the Path object, in order</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Clicking a spot does nothing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The spot needs a 2D collider. Check nothing in the UI (such as a full-screen panel) covers it</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The build buttons are greyed out</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Not enough money. Check <strong>Starting Money</strong>, or the tower's <strong>Cost</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Towers don't shoot</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The tower prefab needs a <strong>Tower 2D</strong>, and it gets its numbers from the Tower asset that built it; place towers by building them, not by dragging the prefab in</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Towers shoot the wrong enemy</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Change <strong>Targeting</strong> on the tower prefab</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Projectiles miss</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Fast enemies can outrun slow projectiles: raise <strong>Projectile Speed</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Start Wave stays grey</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A wave is still in progress: some enemy is still on the path</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The game never ends</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The last wave must be cleared; check every enemy can reach the end or be defeated</td>
+</tr>
+</tbody>
+</table>
