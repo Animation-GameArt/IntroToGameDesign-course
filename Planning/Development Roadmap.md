@@ -18,12 +18,12 @@ What is built, what is left, the order to build it in, and the decisions that bl
 | Piece | State |
 |---|---|
 | Schedule, teaching philosophy, design-doc templates | Written |
-| Template project (v0.13.0): Core, 2D, 3D, and five kits | Everything compiles with no errors or warnings (2026-11-20). Kits and 3D scripts not yet tested in Play mode |
+| Template project (v0.18.0): Core, 2D, 3D, and ten kits | Compiles with no errors (checked through the Tower Defense kit, 2026-11-20; Management kit not yet compiled). Kits and 3D scripts not yet tested in Play mode |
 | Exercise tutorials Ex 00–10 (two versions of Ex 05) | Drafted. Ex 01–04 tested |
 | Class and Lecture pages, weeks 1–7 | Drafted |
 | Canvas HTML copies, rebuilt automatically | Working |
 | Ex 00 tutorial | Drafted |
-| Script Reference (`Guides/Script Reference.md`) | Written for v0.12.0. Update whenever scripts change |
+| Script Reference (`Guides/Script Reference.md`) | Written for v0.18.0. Update whenever scripts change |
 | Genre map page for students | Drafted (`Guides/Genre Map.md`) |
 | Genre kits and kit guides | Platformer, Physics Puzzle, Top-Down Adventure, Turn-Based Battle, Arcade Classic, Top-Down Shooter, Endless Runner, Grid Puzzle, Tower Defense and Management: scripts and both guides written. Platformer sample built with its menu command (2026-11-20), not yet played through; other samples not built. Other 5 kits not started |
 | Scripts for weeks 8–10 (v0.10.0) | Audio, music, camera shake, hit stop, cutscenes, saving, high score and settings. Compiled; not yet tested in Ex 07–10. Dialogue is part of the visual novel kit |
@@ -36,6 +36,8 @@ What is built, what is left, the order to build it in, and the decisions that bl
 ## Next steps: who does what
 
 ### Marshall (needs Unity, the lab, or an account)
+
+Every test, with each guide's checks in order, is in the **[Testing Checklist](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Planning/Testing%20Checklist.md)**. Tick items there as they pass.
 
 **First — unblocks everything else (about 15 minutes):**
 
@@ -165,7 +167,7 @@ Kits aren't used until week 8 of the semester, so the later ones can be finished
 
 ## Open risks
 
-- **Untested code is stacked up.** Five kits and the 3D module compile but haven't been played, and Ex 05–10 haven't been tested. Each new kit adds to the pile, so test reports take priority over new kits.
+- **Untested code is stacked up.** Ten kits and the 3D module compile but haven't been played, and Ex 05–10 haven't been tested. Each new kit adds to the pile, so test reports take priority over new kits.
 - **Each kit costs instructor testing time.** The kit count in decision 1 should match the time available before the semester.
 - **The Unity Version Control allowance for students** is still unconfirmed.
 - **3D lives in the same course project** as 2D (decided 2026-11-20): one project, one repository, one set of Core, UI and data. 3D scenes use a second URP renderer. **The Unreal section** is deferred until the 2D Unity course is complete.
