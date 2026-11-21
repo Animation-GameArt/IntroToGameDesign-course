@@ -3,7 +3,7 @@ title: "Script Reference"
 course: GAME 1303
 type: guide
 status: draft
-course_version: 0.19.0
+course_version: 0.20.0
 unity: 6000.3.10f1
 tags:
   - game1303
@@ -13,7 +13,7 @@ tags:
 
 # Script Reference
 
-Every course script in the course project, as of version **0.19.0**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
+Every course script in the course project, as of version **0.20.0**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
 
 ## Finding the scripts
 
@@ -69,6 +69,8 @@ Every script explains its settings: hover over a field in the Inspector to see i
 | `_Course/Kits/Management/UI` | — | Management game screen |
 | `_Course/Kits/Farming/Scripts` | `CollinGame.Kits.Farming` | Farming kit scripts |
 | `_Course/Kits/Farming/UI` | — | Farm HUD, hotbar, shop and morning report |
+| `_Course/Kits/VisualNovel/Scripts` | `CollinGame.Kits.VisualNovel` | Visual novel kit scripts (need Yarn Spinner) |
+| `_Course/Kits/VisualNovel/UI` | — | Visual novel screen |
 | `_Course/Art/Kenney` | — | Kenney art packs (CC0). Its README links to every pack the kits use |
 | `_Course/Credits` | — | The course's credits text |
 
@@ -1346,6 +1348,46 @@ A trigger area. While the player (**User Tag**) is inside, the **Prompt** shows 
 
 ---
 
+## Visual novel kit
+
+Imported with the Visual Novel Kit package. Needs Yarn Spinner 3.3.2, already in the course project. See [Visual Novel Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Visual%20Novel%20Kit.md).
+
+### Character
+
+**Create → Collin Game → Visual Novel Kit → Character**: **Character Name** (exactly as in the Yarn script), **Name Color**, **Portraits** (a mood name and sprite each; the first is the default), **Default Position** (Left, Center, Right).
+
+### UI Dialogue Presenter
+
+`Kits/VisualNovel/Scripts/UIDialoguePresenter.cs` · **Add Component → Collin Game → Visual Novel Kit → UI Dialogue Presenter**
+
+A Yarn Spinner dialogue presenter for UI Toolkit. Drag it into the Dialogue Runner's **Dialogue Presenters**. Shows the speaker in `speaker-label` (in their Name Color), types the line into `line-label` at **Letters Per Second** (`0`: at once), shows `continue-mark`, and makes a button per choice in `choices` (**Show Unavailable Choices** greys out locked ones). Click, tap, Space, Enter, E or the gamepad's bottom button advances. **Stop Player While Talking** switches the player's controls off during dialogue. **On Dialogue Started**, **On Line Started**, **On Dialogue Complete**.
+
+### Visual Novel Stage
+
+`Kits/VisualNovel/Scripts/VisualNovelStage.cs` · **Add Component → Collin Game → Visual Novel Kit → Visual Novel Stage**
+
+Shows the `background` and characters in `character-left`, `character-center` and `character-right`, darkening those not speaking (**Dim Others**). Adds the Yarn commands `<<background>>`, `<<show Name [mood] [left|center|right]>>`, `<<mood>>`, `<<hide>>`, `<<hide_all>>`, `<<sound>>`, `<<music>>`, `<<stop_music>>`, `<<raise>>` and `<<scene>>`, using the names in **Characters**, **Backgrounds** (a sprite or a color), **Sounds**, **Music** and **Events**. **Starting Background**.
+
+### Yarn Variable Link
+
+`Kits/VisualNovel/Scripts/YarnVariableLink.cs` · **Add Component → Collin Game → Visual Novel Kit → Yarn Variable Link**
+
+Copies Yarn number variables (such as `$ren`) into Int Variables whenever they change, starting from their declared values. **Two Way** also sends the game's changes back to Yarn.
+
+### UI Relationship Meters
+
+`Kits/VisualNovel/Scripts/UIRelationshipMeters.cs` · **Add Component → Collin Game → Visual Novel Kit → UI Relationship Meters**
+
+A bar per **Meter** (a Character, an Int Variable and a **Max**) in the `meters` element, in the character's color. **Show Numbers**.
+
+### Kit screens
+
+| Screen | Element names |
+|---|---|
+| `VisualNovel` | `background`, `character-left`, `character-center`, `character-right`, `meters`, `choices`, `dialogue-panel`, `speaker-label`, `line-label`, `continue-mark` |
+
+---
+
 ## Editor tools
 
 | Tool | Where | What it does |
@@ -1409,6 +1451,8 @@ A trigger area. While the player (**User Tag**) is inside, the **Prompt** shows 
 | A farming game | A **Farm Field** on a tilemap + **Item**s and **Crop**s + a player with **Inventory** and **Farmer Tools 2D** + a **Day Cycle** + `FarmHUD` with **UI Farm Screen** and **UI Shop** |
 | A bed, counter or door to use with E | **Interact Zone 2D** (Farming kit), or **Interactable 2D** (Top-Down Adventure kit) |
 | A clock and days | **Day Cycle** (Farming kit) |
+| A visual novel or dating sim | A Yarn script and Yarn Project + a **Dialogue Runner** + `VisualNovel` screen with **UI Dialogue Presenter** and **Visual Novel Stage** + **Character**s; for a dating sim, **Yarn Variable Link** and **UI Relationship Meters** |
+| People who talk, in any game | A **Dialogue Runner** + **UI Dialogue Presenter**; start it with **DialogueRunner → StartDialogue** from an Interactable 2D |
 | Starting a new game from the menu | **Variable Resetter** in the menu scene, with every variable that carries between levels |
 
 ## Common Console messages

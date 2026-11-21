@@ -425,6 +425,25 @@ Guide: [Farming Kit - Building the Sample](https://github.com/Animation-GameArt/
 
 - [ ] Farming Kit: sample committed and pushed with its .meta files
 
+### Visual Novel Kit
+
+Guide: [Visual Novel Kit - Building the Sample](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Visual%20Novel%20Kit%20-%20Building%20the%20Sample.md) — section *Part 6 — Test*
+
+- [ ] The story starts at Play: the Square background, then Ren appears on the left.
+- [ ] Lines type out; a click, tap, Space, Enter or E shows the whole line, and another goes to the next line; one press never skips two lines.
+- [ ] Narration lines have no name; Ren's name is orange, Mika's blue.
+- [ ] When Mika speaks, Ren is darkened, and the other way round.
+- [ ] Choices appear as buttons, and work with the mouse, a tap, and the arrow keys and Enter.
+- [ ] The relationship meters move when a choice raises or lowers `$ren` or `$mika` (Mika's can go down).
+- [ ] In Stalls, *"Ren and I will fix it together."* is greyed out unless you helped Ren find the ticket.
+- [ ] At the Bridge, Ren and Mika are greyed out until their meter is 3 or more; *"I'll watch from here."* always works.
+- [ ] Each of the three endings shows its own screen; Play Again restarts with both meters at 0.
+- [ ] Esc pauses, and lines don't advance while paused.
+- [ ] No warnings in the Console about missing characters, backgrounds or events.
+- [ ] Visual Novel Kit: anything that failed is reported to Claude, with the Console message
+
+- [ ] Visual Novel Kit: sample committed and pushed with its .meta files
+
 ## 5. Before the semester
 
 - [ ] The whole student path on a lab computer: download the Release ZIP, unzip, open, import a kit package

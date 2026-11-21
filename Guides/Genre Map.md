@@ -201,6 +201,8 @@ Most games mix genres a little. Choose the **one** genre that describes what the
 
 **The kit gives you:** dialogue with choices, characters with different expressions, backgrounds, music cues and saving.
 
+**Kit guide:** [Visual Novel Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Visual%20Novel%20Kit.md)
+
 **A good scope:** one story of fifteen to twenty minutes with two or three endings and three or four characters.
 
 **Leave out:** a long branching story. Every branch has to be written, illustrated and tested.
@@ -214,6 +216,8 @@ Most games mix genres a little. Choose the **one** genre that describes what the
 **Examples:** Hatoful Boyfriend, Dream Daddy, Monster Prom.
 
 **The kit gives you:** everything in the visual novel kit, plus relationship scores that your choices raise and lower, and endings chosen by those scores.
+
+**Kit guide:** [Visual Novel Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Visual%20Novel%20Kit.md)
 
 **A good scope:** two or three characters, a handful of scenes with each, and one ending per character.
 

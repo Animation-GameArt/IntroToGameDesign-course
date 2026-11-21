@@ -1,0 +1,166 @@
+<p><strong>For the instructor.</strong> These steps build the kit's sample story once, in the template project. Building it tests every kit script, and the result is what students import. Students read <strong>Visual Novel Kit</strong>, not this page.</p>
+<p>Everything goes in <code>Assets/_Course/Kits/VisualNovel/Sample/</code>. The story is already written: <code>Sample/Story/LanternFestival.yarn</code>. Add folders <code>Data</code>, <code>Characters</code>, <code>UI</code> and <code>Scenes</code>.</p>
+<h2>Before you start</h2>
+<ol>
+<li>Pull the template project. It should be version 0.20.0 or later, with Yarn Spinner 3.3.2 in the Package Manager, and no red errors in the Console.</li>
+<li>Click <code>Sample/Story/LanternFestival.yarn</code>. The Inspector should show its nodes (Start, Stalls, Bridge and three endings) and no errors.</li>
+<li>Every UI Document uses <code>CoursePanelSettings</code>.</li>
+</ol>
+<h2>Part 1 — The Yarn Project</h2>
+<ol>
+<li>Right-click <code>Sample/Story</code> → <strong>Create → Yarn Spinner → Yarn Project</strong>. Name it <code>LanternFestival</code>.</li>
+<li>Click it. The Inspector lists <code>LanternFestival.yarn</code> under its source scripts, with no errors. If it shows errors, note them; they're mistakes in the script for Claude to fix.</li>
+</ol>
+<h2>Part 2 — Data</h2>
+<p>In <code>Sample/Data</code>:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 2 — Data</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Asset</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>RenAffection</code>, <code>MikaAffection</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Int Variable, Initial Value <code>0</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>RenEnding</code>, <code>MikaEnding</code>, <code>AloneEnding</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Void Event Channel</td>
+</tr>
+</tbody>
+</table>
+<h2>Part 3 — Characters</h2>
+<p>In <code>Sample/Characters</code> (<strong>Create → Collin Game → Visual Novel Kit → Character</strong>):</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 3 — Characters</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Character</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Character Name</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Name Color</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Portraits</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Default Position</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Ren</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Ren</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>FF9F6B</code> (orange)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>neutral</code>: Tiny Dungeon <code>tile_0099</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Left</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Mika</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Mika</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>7FC8FF</code> (blue)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>neutral</code>: Tiny Dungeon <code>tile_0085</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Right</td>
+</tr>
+</tbody>
+</table>
+<p>The pixel characters are tiny; the screen scales them up. With <strong>Filter Mode: Point</strong> (the course art import settings already do this) they stay sharp.</p>
+<h2>Part 4 — Story Systems</h2>
+<p>An empty <code>Story Systems</code>, made into a prefab, with these children:</p>
+<p><strong><code>Dialogue</code></strong>:</p>
+<ol>
+<li>
+<p><strong>Dialogue Runner</strong> (from Yarn Spinner): Yarn Project <code>LanternFestival</code>, Start Node <code>Start</code>, <strong>Auto Start</strong> ticked.</p>
+</li>
+<li>
+<p>A <strong>UI Document</strong>: Source Asset <code>VisualNovel</code> (from <code>Kits/VisualNovel/UI</code>).</p>
+</li>
+<li>
+<p><strong>UI Dialogue Presenter</strong>: Letters Per Second <code>45</code>, Show Unavailable Choices ticked, Stop Player While Talking ticked. Drag this component into the Dialogue Runner's <strong>Dialogue Presenters</strong> list, and remove any other presenters there.</p>
+</li>
+<li>
+<p><strong>Visual Novel Stage</strong>: Runner <code>Dialogue</code>; Characters <code>Ren</code>, <code>Mika</code>; Dim Others ticked; Backgrounds:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 4 — Story Systems</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Name</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Sprite</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Square</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>2B2547</code> (dusky purple)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Stalls</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>5A2E2E</code> (warm red)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Bridge</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>16304A</code> (night blue)</td>
+</tr>
+</tbody>
+</table>
+<p>Starting Background <code>Square</code>; Events: <code>RenEnding</code> → <code>RenEnding</code>, <code>MikaEnding</code> → <code>MikaEnding</code>, <code>AloneEnding</code> → <code>AloneEnding</code>.</p>
+</li>
+<li>
+<p><strong>Yarn Variable Link</strong>: Runner <code>Dialogue</code>; Links <code>$ren</code> → <code>RenAffection</code>, <code>$mika</code> → <code>MikaAffection</code>; Two Way unticked.</p>
+</li>
+<li>
+<p><strong>UI Relationship Meters</strong>: Ren → <code>RenAffection</code>, max <code>6</code>; Mika → <code>MikaAffection</code>, max <code>6</code>; Show Numbers ticked.</p>
+</li>
+</ol>
+<p><strong><code>Reset</code></strong> — a <strong>Variable Resetter</strong> with <code>RenAffection</code> and <code>MikaAffection</code>.</p>
+<p><strong><code>Pause Menu</code></strong>, <strong><code>Scene Changer</code></strong>, <strong><code>To Menu</code></strong> — as in the Platformer Kit sample.</p>
+<p><strong><code>Endings</code></strong> — first, duplicate <code>Core/UI/EndScreen.uxml</code> three times into <code>Sample/UI</code>, and in each copy change the text of <code>title-label</code> and <code>score-label</code> (in the UI Builder, or in a text editor):</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 4 — Story Systems (2)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Copy</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;"><code>title-label</code></th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;"><code>score-label</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>RenEndScreen</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><em>Ren's Lantern</em></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><em>You and Ren, side by side.</em></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>MikaEndScreen</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><em>Mika's Lantern</em></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><em>The bridge lantern stayed lit.</em></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>AloneEndScreen</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><em>A Quiet Night</em></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><em>Maybe next year.</em></td>
+</tr>
+</tbody>
+</table>
+<p>Then three children, each a UI Document using its copy, hidden at start (<strong>UI Screen</strong>), shown by a <strong>Void Event Listener</strong> on its ending (<code>RenEnding</code>, <code>MikaEnding</code>, <code>AloneEnding</code>), with Play Again → <strong>ReloadScene</strong> and Main Menu → the menu scene, as in the Platformer sample's end screen.</p>
+<h2>Part 5 — Scenes</h2>
+<p><strong><code>Story_Game</code></strong>: a new 2D scene with a camera (any background; the screen covers it) and <code>Story Systems</code>.</p>
+<p><strong><code>Story_Menu</code></strong>: like the Platformer sample's menu, with Play loading <code>Story_Game</code>.</p>
+<p>Scene List: <code>Story_Menu</code>, <code>Story_Game</code>.</p>
+<h2>Part 6 — Test</h2>
+<ul>
+<li>The story starts at Play: the Square background, then Ren appears on the left.</li>
+<li>Lines type out; a click, tap, Space, Enter or E shows the whole line, and another goes to the next line; one press never skips two lines.</li>
+<li>Narration lines have no name; Ren's name is orange, Mika's blue.</li>
+<li>When Mika speaks, Ren is darkened, and the other way round.</li>
+<li>Choices appear as buttons, and work with the mouse, a tap, and the arrow keys and Enter.</li>
+<li>The relationship meters move when a choice raises or lowers <code>$ren</code> or <code>$mika</code> (Mika's can go down).</li>
+<li>In Stalls, <em>"Ren and I will fix it together."</em> is greyed out unless you helped Ren find the ticket.</li>
+<li>At the Bridge, Ren and Mika are greyed out until their meter is 3 or more; <em>"I'll watch from here."</em> always works.</li>
+<li>Each of the three endings shows its own screen; Play Again restarts with both meters at 0.</li>
+<li>Esc pauses, and lines don't advance while paused.</li>
+<li>No warnings in the Console about missing characters, backgrounds or events.</li>
+</ul>
+<p>Note anything that fails, with the Console message.</p>
+<h2>Part 7 — Commit</h2>
+<p>Commit and push the <code>Sample</code> folder with its <code>.meta</code> files.</p>
+<h2>Later — Exporting the kit</h2>
+<p>Export <code>Assets/_Course/Kits/VisualNovel</code> and the Tiny Dungeon art folder with <strong>Assets → Export Package</strong>, unticking Core scripts that Unity adds as dependencies. Yarn Spinner isn't in the package; it's already in every copy of the course project.</p>

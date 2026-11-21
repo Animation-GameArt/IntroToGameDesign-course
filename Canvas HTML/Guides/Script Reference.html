@@ -1,4 +1,4 @@
-<p>Every course script in the course project, as of version <strong>0.19.0</strong>: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in <code>Assets/_Course/VERSION.txt</code>.</p>
+<p>Every course script in the course project, as of version <strong>0.20.0</strong>: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in <code>Assets/_Course/VERSION.txt</code>.</p>
 <h2>Finding the scripts</h2>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Finding the scripts</caption>
 <thead>
@@ -220,6 +220,16 @@
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/Farming/UI</code></td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Farm HUD, hotbar, shop and morning report</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/VisualNovel/Scripts</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>CollinGame.Kits.VisualNovel</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Visual novel kit scripts (need Yarn Spinner)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/VisualNovel/UI</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Visual novel screen</td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Art/Kenney</code></td>
@@ -2422,6 +2432,38 @@
 </tbody>
 </table>
 <hr/>
+<h2>Visual novel kit</h2>
+<p>Imported with the Visual Novel Kit package. Needs Yarn Spinner 3.3.2, already in the course project. See <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Visual%20Novel%20Kit.md">Visual Novel Kit</a>.</p>
+<h3>Character</h3>
+<p><strong>Create → Collin Game → Visual Novel Kit → Character</strong>: <strong>Character Name</strong> (exactly as in the Yarn script), <strong>Name Color</strong>, <strong>Portraits</strong> (a mood name and sprite each; the first is the default), <strong>Default Position</strong> (Left, Center, Right).</p>
+<h3>UI Dialogue Presenter</h3>
+<p><code>Kits/VisualNovel/Scripts/UIDialoguePresenter.cs</code> · <strong>Add Component → Collin Game → Visual Novel Kit → UI Dialogue Presenter</strong></p>
+<p>A Yarn Spinner dialogue presenter for UI Toolkit. Drag it into the Dialogue Runner's <strong>Dialogue Presenters</strong>. Shows the speaker in <code>speaker-label</code> (in their Name Color), types the line into <code>line-label</code> at <strong>Letters Per Second</strong> (<code>0</code>: at once), shows <code>continue-mark</code>, and makes a button per choice in <code>choices</code> (<strong>Show Unavailable Choices</strong> greys out locked ones). Click, tap, Space, Enter, E or the gamepad's bottom button advances. <strong>Stop Player While Talking</strong> switches the player's controls off during dialogue. <strong>On Dialogue Started</strong>, <strong>On Line Started</strong>, <strong>On Dialogue Complete</strong>.</p>
+<h3>Visual Novel Stage</h3>
+<p><code>Kits/VisualNovel/Scripts/VisualNovelStage.cs</code> · <strong>Add Component → Collin Game → Visual Novel Kit → Visual Novel Stage</strong></p>
+<p>Shows the <code>background</code> and characters in <code>character-left</code>, <code>character-center</code> and <code>character-right</code>, darkening those not speaking (<strong>Dim Others</strong>). Adds the Yarn commands <code>&lt;&lt;background&gt;&gt;</code>, <code>&lt;&lt;show Name [mood] [left|center|right]&gt;&gt;</code>, <code>&lt;&lt;mood&gt;&gt;</code>, <code>&lt;&lt;hide&gt;&gt;</code>, <code>&lt;&lt;hide_all&gt;&gt;</code>, <code>&lt;&lt;sound&gt;&gt;</code>, <code>&lt;&lt;music&gt;&gt;</code>, <code>&lt;&lt;stop_music&gt;&gt;</code>, <code>&lt;&lt;raise&gt;&gt;</code> and <code>&lt;&lt;scene&gt;&gt;</code>, using the names in <strong>Characters</strong>, <strong>Backgrounds</strong> (a sprite or a color), <strong>Sounds</strong>, <strong>Music</strong> and <strong>Events</strong>. <strong>Starting Background</strong>.</p>
+<h3>Yarn Variable Link</h3>
+<p><code>Kits/VisualNovel/Scripts/YarnVariableLink.cs</code> · <strong>Add Component → Collin Game → Visual Novel Kit → Yarn Variable Link</strong></p>
+<p>Copies Yarn number variables (such as <code>$ren</code>) into Int Variables whenever they change, starting from their declared values. <strong>Two Way</strong> also sends the game's changes back to Yarn.</p>
+<h3>UI Relationship Meters</h3>
+<p><code>Kits/VisualNovel/Scripts/UIRelationshipMeters.cs</code> · <strong>Add Component → Collin Game → Visual Novel Kit → UI Relationship Meters</strong></p>
+<p>A bar per <strong>Meter</strong> (a Character, an Int Variable and a <strong>Max</strong>) in the <code>meters</code> element, in the character's color. <strong>Show Numbers</strong>.</p>
+<h3>Kit screens</h3>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Kit screens (12)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Screen</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Element names</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>VisualNovel</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>background</code>, <code>character-left</code>, <code>character-center</code>, <code>character-right</code>, <code>meters</code>, <code>choices</code>, <code>dialogue-panel</code>, <code>speaker-label</code>, <code>line-label</code>, <code>continue-mark</code></td>
+</tr>
+</tbody>
+</table>
+<hr/>
 <h2>Editor tools</h2>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Editor tools</caption>
 <thead>
@@ -2658,6 +2700,14 @@
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A clock and days</td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Day Cycle</strong> (Farming kit)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A visual novel or dating sim</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A Yarn script and Yarn Project + a <strong>Dialogue Runner</strong> + <code>VisualNovel</code> screen with <strong>UI Dialogue Presenter</strong> and <strong>Visual Novel Stage</strong> + <strong>Character</strong>s; for a dating sim, <strong>Yarn Variable Link</strong> and <strong>UI Relationship Meters</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">People who talk, in any game</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A <strong>Dialogue Runner</strong> + <strong>UI Dialogue Presenter</strong>; start it with <strong>DialogueRunner → StartDialogue</strong> from an Interactable 2D</td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Starting a new game from the menu</td>

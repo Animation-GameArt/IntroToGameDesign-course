@@ -1,0 +1,242 @@
+<p>The Visual Novel Kit is a starting point for visual novels and dating sims: stories told in lines of dialogue over pictures, where the player's choices change what happens. Examples: Doki Doki Literature Club, Ace Attorney (its story scenes), Monster Prom, Florence.</p>
+<p>You write the story in <strong>Yarn Spinner</strong>, a scripting language made for game dialogue. It reads like a screenplay. The kit puts the story on screen: the backgrounds, the characters, the dialogue box, the choices, and, for a dating sim, a meter for how each character feels about the player.</p>
+<p>The sample, <em>Lantern Festival</em>, is a short story with two characters, Ren and Mika, and three endings. What you say decides who you watch the lanterns with at midnight.</p>
+<h2>What the kit covers</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">What the kit covers</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The kit does this</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The kit doesn't do this</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Lines typed out, with the speaker's name in their color</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Voice acting (Yarn Spinner can, but the kit doesn't set it up)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Choices, including ones locked until a condition is met</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Timed choices</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A background, and up to three characters on stage</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Animated characters, or more than three at once</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Moods: a different portrait per mood</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Lip sync</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Relationship meters for a dating sim</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Calendars and schedules (write them in Yarn as choices)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Sounds, music, endings and scene changes from the script</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A history of past lines, auto-play or skip</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Using the dialogue in any other game, such as talking to people in a top-down game</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Saving in the middle of the story</td>
+</tr>
+</tbody>
+</table>
+<p>If your pitch needs something in the right-hand column, it has to be one of your agreed custom scripts, or it has to be cut. Most of a visual novel's work is the writing and the art; plan for both.</p>
+<h2>Install the kit</h2>
+<p>Yarn Spinner is already in the course project. You don't need to install anything else.</p>
+<ol>
+<li>Download the Visual Novel Kit package from the course project's <strong>Releases</strong> page.</li>
+<li>With your project open, double-click the package and click <strong>Import</strong>.</li>
+<li>Open <strong>File → Build Profiles → Open Scene List</strong>. From <code>Assets/_Course/Kits/VisualNovel/Sample/Scenes</code>, add <code>Story_Menu</code> and <code>Story_Game</code>, next to each other, in that order.</li>
+<li>Open <code>Story_Menu</code> and press <strong>Play</strong>.</li>
+</ol>
+<p>Click, tap, or press Space, Enter or E to show the whole line, and again for the next one. Click or tap a choice, or choose with the arrow keys and Enter. <strong>Esc</strong> pauses.</p>
+<p><strong>About the message "This package has no signature."</strong> Unity shows it for Yarn Spinner because it comes from OpenUPM, not from Unity. It's expected, and safe to ignore.</p>
+<h2>Writing in Yarn</h2>
+<p>A Yarn script is a text file (<code>.yarn</code>) made of <strong>nodes</strong>. Each node has a title, then its lines between <code>---</code> and <code>===</code>:</p>
+<pre><code>title: Start
+---
+&lt;&lt;background Square&gt;&gt;
+It's the night of the Lantern Festival.
+&lt;&lt;show Ren left&gt;&gt;
+Ren: Oh! Sorry, I almost walked right into you.
+-&gt; "No problem."
+    &lt;&lt;set $ren = $ren + 1&gt;&gt;
+    Ren: You're nice. I like you already.
+-&gt; "Watch where you're going."
+    Ren: Yikes. Okay.
+&lt;&lt;jump Stalls&gt;&gt;
+===
+</code></pre>
+<ul>
+<li><strong>Lines.</strong> <code>Ren: Hello!</code> is Ren speaking. A line with no name is narration.</li>
+<li><strong>Choices.</strong> Lines starting with <code>-&gt;</code> are choices. The indented lines under each happen only if it's chosen.</li>
+<li><strong>Variables.</strong> <code>&lt;&lt;declare $ren = 0&gt;&gt;</code> creates one; <code>&lt;&lt;set $ren = $ren + 1&gt;&gt;</code> changes it. <code>&lt;&lt;if $ren &gt;= 3&gt;&gt;</code> … <code>&lt;&lt;endif&gt;&gt;</code> checks it.</li>
+<li><strong>Locked choices.</strong> <code>-&gt; Ren &lt;&lt;if $ren &gt;= 3&gt;&gt;</code> is shown greyed out until the condition is true.</li>
+<li><strong>Jumps.</strong> <code>&lt;&lt;jump Stalls&gt;&gt;</code> goes to the node titled <code>Stalls</code>.</li>
+</ul>
+<p>Yarn Spinner's own documentation (<strong>docs.yarnspinner.dev</strong>) covers the language in full.</p>
+<h3>The kit's commands</h3>
+<p>The <strong>Visual Novel Stage</strong> adds these commands. Names are the ones in its lists.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">The kit's commands</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Command</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>&lt;&lt;background Bridge&gt;&gt;</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Changes the background</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>&lt;&lt;show Ren&gt;&gt;</code>, <code>&lt;&lt;show Ren happy&gt;&gt;</code>, <code>&lt;&lt;show Ren left&gt;&gt;</code>, <code>&lt;&lt;show Ren happy right&gt;&gt;</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Shows a character, with an optional mood and position (<code>left</code>, <code>center</code> or <code>right</code>)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>&lt;&lt;mood Ren sad&gt;&gt;</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Changes the character's portrait</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>&lt;&lt;hide Ren&gt;&gt;</code>, <code>&lt;&lt;hide_all&gt;&gt;</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Takes characters off the stage</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>&lt;&lt;sound Door&gt;&gt;</code>, <code>&lt;&lt;music Theme&gt;&gt;</code>, <code>&lt;&lt;stop_music&gt;&gt;</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Plays a sound, plays or stops music</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>&lt;&lt;raise GoodEnding&gt;&gt;</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Raises a Void Event Channel, such as to show an ending screen</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>&lt;&lt;scene Credits&gt;&gt;</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Loads a scene</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>&lt;&lt;wait 2&gt;&gt;</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Waits two seconds (built into Yarn Spinner)</td>
+</tr>
+</tbody>
+</table>
+<h2>How it works</h2>
+<ul>
+<li>The <strong>Dialogue Runner</strong> (from Yarn Spinner) runs the script, starting at its <strong>Start Node</strong>.</li>
+<li>The <strong>UI Dialogue Presenter</strong> shows each line and each set of choices on the kit's <code>VisualNovel</code> screen.</li>
+<li>The <strong>Visual Novel Stage</strong> shows the background and characters, and runs the commands above. It also darkens the characters who aren't speaking.</li>
+<li><strong>Characters</strong> (assets) hold a name, a name color and a portrait per mood.</li>
+<li>For a dating sim, the <strong>Yarn Variable Link</strong> copies Yarn variables, such as <code>$ren</code>, into course <strong>Int Variables</strong>. The <strong>UI Relationship Meters</strong> draw them as bars, and anything else in the course scripts can use them too.</li>
+<li>Endings are <code>&lt;&lt;raise&gt;&gt;</code> commands, each shown by an ending screen.</li>
+</ul>
+<h2>What's in the sample</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">What's in the sample</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Asset</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What it is</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Worth changing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Story/LanternFestival.yarn</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The story</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Everything</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Ren</code>, <code>Mika</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Characters</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Name Color</strong>, <strong>Portraits</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>RenAffection</code>, <code>MikaAffection</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Int Variables, linked to <code>$ren</code> and <code>$mika</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>RenEnding</code>, <code>MikaEnding</code>, <code>AloneEnding</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Void Event Channels, one per ending</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Story Systems</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Dialogue Runner, the screen, the stage and the ending screens</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Backgrounds</strong>, <strong>Letters Per Second</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The sample's art is a placeholder: the portraits are tiny pixel characters and the backgrounds are plain colors. Your game's art is up to you.</p>
+<h2>Start your own game</h2>
+<ol>
+<li>Plan your story on paper first: the scenes, the choices, and where they lead. Keep it small: three scenes and two or three endings is plenty for eight weeks.</li>
+<li>In <code>Assets/_Game/Story</code>, create a Yarn script (<strong>Create → Yarn Spinner → Yarn Script</strong>) and a Yarn Project (<strong>Create → Yarn Spinner → Yarn Project</strong>). A Yarn Project includes every Yarn script in its folder and the folders inside it.</li>
+<li>Create a <strong>Character</strong> for each character (<strong>Create → Collin Game → Visual Novel Kit → Character</strong>), with their name exactly as you write it in the script.</li>
+<li>Open <code>Story_Game</code>, <strong>File → Save As…</strong> into <code>Assets/_Game/Scenes</code>, and on <code>Story Systems</code>:
+<ul>
+<li><strong>Dialogue Runner</strong>: your Yarn Project, and your first node in <strong>Start Node</strong>.</li>
+<li><strong>Visual Novel Stage</strong>: your characters, backgrounds, sounds and endings.</li>
+</ul>
+</li>
+<li>Press <strong>Play</strong>, and play every path. Then rewrite one scene and play again.</li>
+</ol>
+<h3>Writing tips</h3>
+<ul>
+<li><strong>Every choice should matter, or feel like it does.</strong> If both choices lead to the same line, change at least the next line.</li>
+<li><strong>Show feelings, then numbers.</strong> Players react to Ren's line more than to a meter moving. Use moods.</li>
+<li><strong>Short lines.</strong> Two lines of text at most per box; split long speeches.</li>
+<li><strong>Read it aloud.</strong> If it sounds stiff spoken, it reads stiff.</li>
+</ul>
+<h2>Recipes</h2>
+<p><strong>A dating sim.</strong> Declare a variable per character, change it in choices, link each to an Int Variable with <strong>Yarn Variable Link</strong>, and add <strong>UI Relationship Meters</strong>. Lock the best ending behind a condition, such as <code>-&gt; Ren &lt;&lt;if $ren &gt;= 5&gt;&gt;</code>.</p>
+<p><strong>Hide the meters.</strong> Leave UI Relationship Meters off; the variables still work. Many dating sims never show the numbers.</p>
+<p><strong>Characters talking in another game.</strong> Add a Dialogue Runner and the <code>VisualNovel</code> screen with only the UI Dialogue Presenter (no stage). In a top-down game, an <strong>Interactable 2D</strong>'s <strong>On Used</strong> can call <strong>DialogueRunner → StartDialogue</strong> with a node name. <strong>Stop Player While Talking</strong> keeps the player still.</p>
+<p><strong>Faster or slower text.</strong> Change <strong>Letters Per Second</strong>; <code>0</code> shows each line at once.</p>
+<p><strong>Locked choices hidden instead of greyed.</strong> Untick <strong>Show Unavailable Choices</strong>.</p>
+<p><strong>A blip sound per line.</strong> Play a Sound Effect from the presenter's <strong>On Line Started</strong>.</p>
+<h2>If something goes wrong</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something goes wrong</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What you see</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Nothing happens at Play</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Dialogue Runner needs your Yarn Project, and <strong>Auto Start</strong> ticked (or something that calls <strong>StartDialogue</strong>)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">"No node named …"</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Start Node, or a <code>&lt;&lt;jump&gt;&gt;</code>, doesn't match a node's title exactly</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Lines don't show</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Drag the UI Dialogue Presenter into the Dialogue Runner's <strong>Dialogue Presenters</strong> list</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Yarn errors in the Console</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Click the Yarn Project to see them; a missing <code>===</code> or a misspelled variable is the usual cause</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">"No character called …"</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Add the Character to the stage's <strong>Characters</strong>, with the name exactly as in the script</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A character doesn't appear</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Give the Character at least one portrait</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A meter doesn't move</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Yarn Variable Link's name needs the <code>$</code>, and the variable must be <code>&lt;&lt;declare&gt;&gt;</code>d as a number</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">An ending doesn't show</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>&lt;&lt;raise Name&gt;&gt;</code> needs the same Name in the stage's <strong>Events</strong>, and a Void Event Listener that shows the screen</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player walks around during dialogue</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Tick <strong>Stop Player While Talking</strong></td>
+</tr>
+</tbody>
+</table>
