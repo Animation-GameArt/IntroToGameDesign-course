@@ -1,0 +1,188 @@
+<p><strong>For the instructor.</strong> These steps build the kit's sample game once, in the template project. Building it tests every kit script, and the result is what students import. Students read <strong>Endless Runner Kit</strong>, not this page.</p>
+<p>Everything goes in <code>Assets/_Course/Kits/EndlessRunner/Sample/</code>, with folders <code>Data</code>, <code>Prefabs</code>, <code>Chunks</code> and <code>Scenes</code>. The art is Kenney's Pixel Platformer, already in the project at <code>Assets/_Course/Art/Kenney/kenney_pixel-platformer</code> (one tile is one unit). Tile names below match the Platformer Kit's guide.</p>
+<h2>Before you start</h2>
+<ol>
+<li>Pull the template project. It should be version 0.15.0 or later, with no red errors in the Console.</li>
+<li>Every UI Document uses <code>CoursePanelSettings</code>.</li>
+</ol>
+<h2>Part 1 — Data</h2>
+<p>In <code>Sample/Data</code>:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 1 — Data</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Asset</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Distance</code>, <code>BestDistance</code>, <code>Coins</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Int Variable, Initial Value <code>0</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>PlayerDied</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Void Event Channel</td>
+</tr>
+</tbody>
+</table>
+<h2>Part 2 — The runner and pickups</h2>
+<p><strong><code>Runner</code></strong>: the sprite <code>Characters/tile_0000</code>, Order in Layer <code>10</code>, tag <code>Player</code>, with:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 2 — The runner and pickups</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Component</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Settings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Box Collider 2D</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Size <code>0.7, 1</code>, Offset <code>0, -0.1</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Runner Controller 2D</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Style <strong>Jump</strong>; Start Speed <code>6</code>; Max Speed <code>14</code>; Speed Gain Per Second <code>0.1</code>; Start Delay <code>1</code>; Distance <code>Distance</code>; Jump Height <code>3.2</code>; Can Slide ticked; Slide Height <code>0.5</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Health</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Max Health <code>1</code>, Invulnerable Time <code>0</code>, Raise On Died <code>PlayerDied</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Coin Magnet 2D</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Radius <code>4</code>, Always On unticked</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Sprite Flipbook</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Frames <code>Characters/tile_0000</code>, <code>Characters/tile_0001</code>; Frames Per Second <code>10</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>Coin</code></strong>: <code>tile_0151</code>, Order <code>3</code>, Circle Collider 2D trigger (Radius <code>0.3</code>), <strong>Collectible</strong> (Add To <code>Coins</code>), Sprite Flipbook (<code>tile_0151</code>, <code>tile_0152</code>, 6 fps).</p>
+<p><strong><code>Magnet</code></strong>: a gem tile such as <code>tile_0067</code>, tinted blue, Circle Collider 2D trigger, <strong>Magnet Power-Up 2D</strong> (Duration <code>8</code>).</p>
+<h2>Part 3 — Chunks</h2>
+<p>Build each chunk in a scratch scene as in <strong>Making a chunk</strong> in the student guide: an empty with <strong>Track Chunk</strong> at <code>0, 0, 0</code>, ground with its top at <code>y = 0</code>, then saved to <code>Sample/Chunks</code>.</p>
+<p>Ground for every chunk: a child <code>Ground</code> sprite using <code>tile_0022</code> with <strong>Draw Mode Tiled</strong>, Width as listed, Height <code>3</code>, positioned so its top is at <code>y = 0</code> and its left edge at the given X. Give it a <strong>Box Collider 2D</strong> with <strong>Auto Tiling</strong> ticked.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Part 3 — Chunks</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Chunk</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Length</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Min · Max difficulty</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Ground (left X, width)</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Chunk Start</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>30</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code>, <code>30</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Nothing. Used as First Chunk</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Chunk Flat</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>20</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code> · <code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code>, <code>20</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">5 coins in a row at <code>y = 0.5</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Chunk Gap</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>20</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code> · <code>0.7</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code>, <code>9</code> and <code>12</code>, <code>8</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A 3-wide gap; 3 coins in an arc over it</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Chunk Crates</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>20</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code> · <code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code>, <code>20</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Two crates (<code>tile_0026</code>, Box Collider 2D, Damage On Touch) at X <code>8</code> and <code>15</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Chunk Steps</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>20</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.3</code> · <code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code>, <code>20</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Raised blocks (<code>tile_0000</code>, solid) one and two high, coins on top</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Chunk Low Bar</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>20</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.3</code> · <code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code>, <code>20</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A bar of <code>tile_0028</code> at <code>y = 1.2</code>, 3 wide, with Damage On Touch: slide under it</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Chunk Double Gap</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>24</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.3</code> · <code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code>, <code>7</code>; <code>10</code>, <code>5</code>; <code>18</code>, <code>6</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Two 3-wide gaps</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Chunk Spikes</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>20</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.6</code> · <code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code>, <code>20</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Three Spikes (from the Platformer sample) spread out; a Magnet at X <code>10</code>, <code>y = 3</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Chunk Platforms</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>24</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.6</code> · <code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code>, <code>6</code> and <code>20</code>, <code>4</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">One-way platforms (from the Platformer sample) across the gap at heights <code>1</code> and <code>2</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Chunk Gauntlet</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>24</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0.8</code> · <code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code>, <code>24</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Crate, Spikes, Low Bar, Crate, close together</td>
+</tr>
+</tbody>
+</table>
+<p>Check every gap at Max Speed <code>14</code>: a full jump covers about 9 units.</p>
+<h2>Part 4 — Runner Systems</h2>
+<p>An empty <code>Runner Systems</code> at <code>0, 0, 0</code>, made into a prefab, with these children:</p>
+<p><strong><code>Track</code></strong> — at <code>-10, 0, 0</code>, with <strong>Track Spawner 2D</strong>: First Chunk <code>Chunk Start</code>, Chunks: the other nine, Build Ahead <code>40</code>, Remove Behind <code>20</code>.</p>
+<p><strong><code>Pit</code></strong> — at <code>0, -8, 0</code>, a Box Collider 2D trigger, Size <code>100000, 2</code>, <strong>Kill Zone</strong>. It's that long so no run can outrun it. (Don't make it a child of the runner: a child's collider becomes part of the runner's own body.)</p>
+<p><strong><code>Background</code></strong> — three sprites from <code>Tiles/Backgrounds</code>, each with Draw Mode <strong>Tiled</strong>, Width three times the sprite, and <strong>Parallax 2D</strong>: far layer Distance <code>0.9</code>, Order in Layer <code>-30</code>; middle <code>0.7</code>, <code>-20</code>; near <code>0.4</code>, <code>-10</code>.</p>
+<p><strong><code>HUD</code></strong> — UI Document <code>RunnerHUD</code> (from <code>Kits/EndlessRunner/UI</code>), with a <strong>UI Variable Binder</strong>: <code>distance-label</code> → <code>Distance</code> → <code>{0} m</code>; <code>best-label</code> → <code>BestDistance</code> → <code>Best: {0} m</code>; <code>coins-label</code> → <code>Coins</code> → <code>Coins: {0}</code>.</p>
+<p><strong><code>Best</code></strong> — <strong>High Score</strong>: Score <code>Distance</code>, Best <code>BestDistance</code>, Save Name <code>Runner</code>.</p>
+<p><strong><code>Reset</code></strong> — a <strong>Variable Resetter</strong> with <code>Distance</code> and <code>Coins</code>.</p>
+<p><strong><code>Pause Menu</code></strong>, <strong><code>Scene Changer</code></strong>, <strong><code>To Menu</code></strong> — as in the Platformer Kit sample.</p>
+<p><strong><code>Game Over</code></strong> — UI Document <code>GameOver</code>, hidden, shown by a <strong>Void Event Listener</strong> on <code>PlayerDied</code>; <code>score-label</code> → <code>Distance</code> → <code>{0} m</code>; Try Again → <strong>ReloadScene</strong>; Menu → To Menu <strong>Load</strong>.</p>
+<h2>Part 5 — The game scene (<code>Runner_Game</code>)</h2>
+<ol>
+<li><code>Runner</code> at <code>0, 1, 0</code>.</li>
+<li>Select <code>Runner</code> and choose <strong>GameObject → Cinemachine → Targeted Cameras → 2D Camera</strong>. Lens Orthographic Size <code>6</code>. On its <strong>Position Composer</strong>, set <strong>Screen Position X</strong> to <code>-0.25</code>, so the runner sits left of centre and the player sees what's coming. Set Damping Y to <code>1</code>.</li>
+<li>Main Camera background: a sky color.</li>
+<li><code>Runner Systems</code>.</li>
+</ol>
+<h2>Part 6 — Menu</h2>
+<p><code>Runner_Menu</code>: like the Platformer sample's menu, with Play loading <code>Runner_Game</code>, and a label bound to <code>BestDistance</code> (<code>Best: {0} m</code>). Add a <strong>High Score</strong> (Score <code>Distance</code>, Best <code>BestDistance</code>, Save Name <code>Runner</code>) so the best is loaded on the menu.</p>
+<h2>Part 7 — Scene List</h2>
+<p><code>Runner_Menu</code>, <code>Runner_Game</code>.</p>
+<h2>Part 8 — Test</h2>
+<ul>
+<li>After a second, the runner starts running and speeds up.</li>
+<li>Tap Jump for a short hop; hold for a full jump.</li>
+<li>Holding down slides under the Low Bar.</li>
+<li>Gaps, crates and spikes end the run; falling into a gap ends it too.</li>
+<li>Chunks join without gaps or steps, and new chunks keep coming.</li>
+<li>After about 30 seconds, medium chunks appear; after about a minute, hard ones.</li>
+<li>Coins add to the HUD; the Magnet pulls in coins for 8 seconds.</li>
+<li>Distance counts up; after a run, Best shows the longest, also after restarting Unity.</li>
+<li>Background layers move at different speeds and never show an edge.</li>
+<li>Game Over shows the distance; Try Again starts a fresh run.</li>
+<li>Esc pauses.</li>
+</ul>
+<p>Note anything that fails, with the Console message.</p>
+<h2>Part 9 — Commit</h2>
+<p>Commit and push the <code>Sample</code> folder with its <code>.meta</code> files.</p>
+<h2>Later — Exporting the kit</h2>
+<p>Export <code>Assets/_Course/Kits/EndlessRunner</code> with <strong>Assets → Export Package</strong>. It uses prefabs and art from the Platformer Kit (Spikes, One-Way Platform, the Pixel Platformer pack): tick them in the export, or copy what's needed into this kit's <code>Sample</code> folder first.</p>

@@ -107,7 +107,9 @@ Most games mix genres a little. Choose the **one** genre that describes what the
 
 **Examples:** Canabalt, Jetpack Joyride, Temple Run (in 2D form).
 
-**The kit gives you:** automatic running, jump or lane controls, track pieces that are reused endlessly, difficulty that ramps up over time, and a distance score with a saved best.
+**The kit gives you:** automatic running with jump, jetpack or lane controls, a track built endlessly from pieces you design, difficulty that ramps up over time, a coin magnet, background layers, and a distance score with a saved best.
+
+**Kit guide:** [Endless Runner Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Endless%20Runner%20Kit.md)
 
 **A good scope:** one environment, five or six obstacle patterns, and one power-up.
 

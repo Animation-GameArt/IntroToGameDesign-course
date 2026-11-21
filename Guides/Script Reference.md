@@ -3,7 +3,7 @@ title: "Script Reference"
 course: GAME 1303
 type: guide
 status: draft
-course_version: 0.14.0
+course_version: 0.15.0
 unity: 6000.3.10f1
 tags:
   - game1303
@@ -13,7 +13,7 @@ tags:
 
 # Script Reference
 
-Every course script in the course project, as of version **0.14.0**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
+Every course script in the course project, as of version **0.15.0**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
 
 ## Finding the scripts
 
@@ -59,6 +59,8 @@ Every script explains its settings: hover over a field in the Inspector to see i
 | `_Course/Kits/ArcadeClassic/UI` | — | Arcade and Pong HUDs |
 | `_Course/Kits/TopDownShooter/Scripts` | `CollinGame.Kits.TopDownShooter` | Top-down shooter kit scripts |
 | `_Course/Kits/TopDownShooter/UI` | — | Shooter HUD |
+| `_Course/Kits/EndlessRunner/Scripts` | `CollinGame.Kits.EndlessRunner` | Endless runner kit scripts |
+| `_Course/Kits/EndlessRunner/UI` | — | Runner HUD |
 | `_Course/Art/Kenney` | — | Kenney art packs (CC0). Its README links to every pack the kits use |
 | `_Course/Credits` | — | The course's credits text |
 
@@ -1102,6 +1104,50 @@ Twin-stick aiming. **Aim With**: **Mouse Or Stick** (the pointer once the mouse 
 
 ---
 
+## Endless runner kit
+
+Imported with the Endless Runner Kit package. See [Endless Runner Kit](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Endless%20Runner%20Kit.md).
+
+### Runner Controller 2D
+
+`Kits/EndlessRunner/Scripts/RunnerController2D.cs` · **Add Component → Collin Game → Endless Runner Kit → Runner Controller 2D**
+
+Runs right by itself, speeding up from **Start Speed** (`6`) by **Speed Gain Per Second** (`0.1`) to **Max Speed** (`14`), after **Start Delay** (`1`). Writes the distance run to **Distance** (an Int Variable), one point per **Units Per Point**. Stops when the Health on the same object runs out.
+
+| Style | Settings |
+|---|---|
+| **Jump** | Jump Height `3.2`, Extra Air Jumps `0`, Short Hop Speed Kept `0.5`, Coyote Time `0.1`, Jump Buffer Time `0.15`; Can Slide (hold down), Slide Height `0.5`, Slide Sprite |
+| **Jetpack** | Hold Jump: Thrust `45`, Max Rise Speed `8` |
+| **Lanes** | Up and down change lane: Lane Heights `-2.5, 0, 2.5`, Start Lane `1`, Lane Change Time `0.12`. No gravity |
+
+Also: Gravity Scale `3.5`, Fall Gravity Multiplier `1.5`, Max Fall Speed `25`, Ground Layers. Events **On Jump**, **On Land**, **On Lane Change**, **On Stopped**. Read by other scripts: **Speed**, **Difficulty** (0 to 1 as the speed ramps), **DistanceRun**, **IsRunning**, **IsGrounded**, **IsSliding**. Methods: **Stop**, **GoToLane**.
+
+### Track Chunk and Track Spawner 2D
+
+**Track Chunk** marks a prefab as one piece of track, starting at its position and **Length** (`20`) units long, allowed between **Min Difficulty** and **Max Difficulty**, picked in proportion to **Weight**. Select it to see its start (green) and end (red).
+
+**Track Spawner 2D** places **First Chunk**, then keeps **Build Ahead** (`40`) units of chunks ahead of the runner, picked at random from **Chunks** by difficulty and weight (**Avoid Repeats**), and removes chunks **Remove Behind** (`20`) units behind it.
+
+### Parallax 2D
+
+`Kits/EndlessRunner/Scripts/Parallax2D.cs` · **Add Component → Collin Game → Endless Runner Kit → Parallax 2D**
+
+A background layer that moves at a share of the camera's speed: **Distance** `0` moves with the world, `1` with the camera. Repeats forever: give the sprite Draw Mode **Tiled** and three times its width. **Vertical** follows the camera up and down too.
+
+### Coin Magnet 2D and Magnet Power-Up 2D
+
+**Coin Magnet 2D**, on the player, pulls Collectibles within **Radius** (`4`) at **Pull Speed** (`18`), while on: **Always On**, or for some seconds after **Activate**. **Active Effect** is shown while it's on.
+
+**Magnet Power-Up 2D** turns the collector's magnet on for **Duration** (`8`).
+
+### Kit screens
+
+| Screen | Element names |
+|---|---|
+| `RunnerHUD` | `distance-label`, `best-label`, `coins-label` |
+
+---
+
 ## Editor tools
 
 | Tool | Where | What it does |
@@ -1155,6 +1201,8 @@ Twin-stick aiming. **Aim With**: **Mouse Or Stick** (the pointer once the mouse 
 | Twin-stick shooting | **Aim 2D** + **Weapon Shooter 2D** (Attack Button, Aim) + a Weapon asset with a Projectile 2D prefab |
 | Waves of enemies | **Wave Spawner 2D** with spawn points just off screen |
 | A scrolling shooter | **Scroll Camera 2D** on the Main Camera, **Keep On Screen 2D** on the player, **Wake On Screen 2D** on each enemy |
+| An endless runner | **Runner Controller 2D** + a **Track Spawner 2D** with **Track Chunk** prefabs + a long **Kill Zone** below |
+| Background that scrolls slower than the world | **Parallax 2D** on each layer |
 | Starting a new game from the menu | **Variable Resetter** in the menu scene, with every variable that carries between levels |
 
 ## Common Console messages

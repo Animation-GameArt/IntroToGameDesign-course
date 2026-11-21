@@ -1,4 +1,4 @@
-<p>Every course script in the course project, as of version <strong>0.14.0</strong>: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in <code>Assets/_Course/VERSION.txt</code>.</p>
+<p>Every course script in the course project, as of version <strong>0.15.0</strong>: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in <code>Assets/_Course/VERSION.txt</code>.</p>
 <h2>Finding the scripts</h2>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Finding the scripts</caption>
 <thead>
@@ -170,6 +170,16 @@
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/TopDownShooter/UI</code></td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Shooter HUD</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/EndlessRunner/Scripts</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>CollinGame.Kits.EndlessRunner</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Endless runner kit scripts</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Kits/EndlessRunner/UI</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">—</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Runner HUD</td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>_Course/Art/Kenney</code></td>
@@ -2096,6 +2106,59 @@
 </tbody>
 </table>
 <hr/>
+<h2>Endless runner kit</h2>
+<p>Imported with the Endless Runner Kit package. See <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Endless%20Runner%20Kit.md">Endless Runner Kit</a>.</p>
+<h3>Runner Controller 2D</h3>
+<p><code>Kits/EndlessRunner/Scripts/RunnerController2D.cs</code> · <strong>Add Component → Collin Game → Endless Runner Kit → Runner Controller 2D</strong></p>
+<p>Runs right by itself, speeding up from <strong>Start Speed</strong> (<code>6</code>) by <strong>Speed Gain Per Second</strong> (<code>0.1</code>) to <strong>Max Speed</strong> (<code>14</code>), after <strong>Start Delay</strong> (<code>1</code>). Writes the distance run to <strong>Distance</strong> (an Int Variable), one point per <strong>Units Per Point</strong>. Stops when the Health on the same object runs out.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Runner Controller 2D</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Style</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Settings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Jump</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Jump Height <code>3.2</code>, Extra Air Jumps <code>0</code>, Short Hop Speed Kept <code>0.5</code>, Coyote Time <code>0.1</code>, Jump Buffer Time <code>0.15</code>; Can Slide (hold down), Slide Height <code>0.5</code>, Slide Sprite</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Jetpack</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Hold Jump: Thrust <code>45</code>, Max Rise Speed <code>8</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Lanes</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Up and down change lane: Lane Heights <code>-2.5, 0, 2.5</code>, Start Lane <code>1</code>, Lane Change Time <code>0.12</code>. No gravity</td>
+</tr>
+</tbody>
+</table>
+<p>Also: Gravity Scale <code>3.5</code>, Fall Gravity Multiplier <code>1.5</code>, Max Fall Speed <code>25</code>, Ground Layers. Events <strong>On Jump</strong>, <strong>On Land</strong>, <strong>On Lane Change</strong>, <strong>On Stopped</strong>. Read by other scripts: <strong>Speed</strong>, <strong>Difficulty</strong> (0 to 1 as the speed ramps), <strong>DistanceRun</strong>, <strong>IsRunning</strong>, <strong>IsGrounded</strong>, <strong>IsSliding</strong>. Methods: <strong>Stop</strong>, <strong>GoToLane</strong>.</p>
+<h3>Track Chunk and Track Spawner 2D</h3>
+<p><strong>Track Chunk</strong> marks a prefab as one piece of track, starting at its position and <strong>Length</strong> (<code>20</code>) units long, allowed between <strong>Min Difficulty</strong> and <strong>Max Difficulty</strong>, picked in proportion to <strong>Weight</strong>. Select it to see its start (green) and end (red).</p>
+<p><strong>Track Spawner 2D</strong> places <strong>First Chunk</strong>, then keeps <strong>Build Ahead</strong> (<code>40</code>) units of chunks ahead of the runner, picked at random from <strong>Chunks</strong> by difficulty and weight (<strong>Avoid Repeats</strong>), and removes chunks <strong>Remove Behind</strong> (<code>20</code>) units behind it.</p>
+<h3>Parallax 2D</h3>
+<p><code>Kits/EndlessRunner/Scripts/Parallax2D.cs</code> · <strong>Add Component → Collin Game → Endless Runner Kit → Parallax 2D</strong></p>
+<p>A background layer that moves at a share of the camera's speed: <strong>Distance</strong> <code>0</code> moves with the world, <code>1</code> with the camera. Repeats forever: give the sprite Draw Mode <strong>Tiled</strong> and three times its width. <strong>Vertical</strong> follows the camera up and down too.</p>
+<h3>Coin Magnet 2D and Magnet Power-Up 2D</h3>
+<p><strong>Coin Magnet 2D</strong>, on the player, pulls Collectibles within <strong>Radius</strong> (<code>4</code>) at <strong>Pull Speed</strong> (<code>18</code>), while on: <strong>Always On</strong>, or for some seconds after <strong>Activate</strong>. <strong>Active Effect</strong> is shown while it's on.</p>
+<p><strong>Magnet Power-Up 2D</strong> turns the collector's magnet on for <strong>Duration</strong> (<code>8</code>).</p>
+<h3>Kit screens</h3>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Kit screens (7)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Screen</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Element names</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>RunnerHUD</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>distance-label</code>, <code>best-label</code>, <code>coins-label</code></td>
+</tr>
+</tbody>
+</table>
+<hr/>
 <h2>Editor tools</h2>
 <table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Editor tools</caption>
 <thead>
@@ -2292,6 +2355,14 @@
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A scrolling shooter</td>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Scroll Camera 2D</strong> on the Main Camera, <strong>Keep On Screen 2D</strong> on the player, <strong>Wake On Screen 2D</strong> on each enemy</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">An endless runner</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Runner Controller 2D</strong> + a <strong>Track Spawner 2D</strong> with <strong>Track Chunk</strong> prefabs + a long <strong>Kill Zone</strong> below</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Background that scrolls slower than the world</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Parallax 2D</strong> on each layer</td>
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Starting a new game from the menu</td>
