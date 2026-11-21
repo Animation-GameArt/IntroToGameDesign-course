@@ -28,6 +28,7 @@ Each line is a graded criterion.
 - [ ] The player can win or lose, or reach the end of the loop.
 - [ ] The player can start again without restarting the program.
 - [ ] Nothing stops the game from being played through: no crash, and no way to get permanently stuck.
+- [ ] The **First Playable checks** in your kit's Build Your Game guide are met, or replaced by checks for your agreed custom scripts.
 - [ ] Your note names what's in the build and the next three tasks on your board.
 
 ## Tips
@@ -35,6 +36,7 @@ Each line is a graded criterion.
 - Placeholder art is expected. Squares and circles are fine.
 - One level, one enemy type and one goal are enough.
 - Make the build two days early. Something always goes wrong the first time.
+- Your kit's **Build Your Game** guide gets you here in order: Stage 1 is everything this milestone needs.
 
 ## Grading
 

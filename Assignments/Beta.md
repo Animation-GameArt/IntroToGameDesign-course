@@ -34,6 +34,7 @@ Each line is a graded criterion.
 
 - Check each asset's license. If you can't find one, replace the asset.
 - Play from the first screen to the last without stopping, twice.
+- Stage 3 of your kit's **Build Your Game** guide covers art, sound and balance, with Beta checks to go through before you submit.
 
 ## Grading
 

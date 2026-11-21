@@ -24,6 +24,7 @@ Each line is a graded criterion.
 
 - [ ] The board has three columns: To Do, Doing and Done.
 - [ ] Every **must-have** feature from page 10 of your ten-pager appears as one or more tasks.
+- [ ] The steps in your kit's **Build Your Game** guide are on the board as tasks, with your decisions in them ("Build level 1: wall jumps", not "Build level 1").
 - [ ] Each task is small enough to finish in one sitting, about three hours or less.
 - [ ] Each task names a week, from 8 to 15.
 - [ ] Art and sound are on the board too: one task per asset or group of assets.

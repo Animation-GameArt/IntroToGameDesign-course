@@ -42,7 +42,7 @@ Each line is a graded criterion.
 - [ ] All ten pages have content. Notes and bullet points are fine.
 - [ ] Page 1 is complete.
 - [ ] Page 6 includes your screen layouts.
-- [ ] Page 10 has a must-have list and names the course kit you'll use.
+- [ ] Page 10 has a must-have list, names the course kit you'll use, and has your kit's decisions table started (from its **Build Your Game** guide).
 - [ ] In lab, you review a classmate's draft and give two specific notes: one thing that's clear, and one thing you couldn't picture.
 
 ## Related

@@ -143,9 +143,11 @@
 <p><strong>Finishing a level.</strong> The <code>Goal Gem</code> raises <code>LevelCompleted</code>. The Level Complete screen listens for it and appears. Its <strong>Next Level</strong> button loads whichever scene comes next in the Scene List, so the order of that list is the order of your levels.</p>
 <p><strong>Carrying things between levels.</strong> <code>Coins</code> and <code>Lives</code> are variable assets, so they keep their values when the scene changes. They are reset in the menu scene, which is why going back to the menu starts a new game.</p>
 <h2>Start your own game</h2>
+<p><strong><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Platformer%20Kit%20-%20Build%20Your%20Game.md">Platformer Kit — Build Your Game</a></strong> takes you from the decisions table on page 10 of your ten-pager to your finished game, step by step, with checks for First Playable, Alpha and Beta.</p>
+<p>The short version:</p>
 <ol>
 <li>In <code>Assets/_Game</code>, create a <code>Scenes</code> folder. Create a new 2D scene there for your first level.</li>
-<li>Drag in <code>Level Systems</code> and <code>Player</code> from the kit's <code>Sample/Prefabs</code>.</li>
+<li>Drag in variants of <code>Level Systems</code> and <code>Player</code> (see <strong>Changing a prefab</strong>, below).</li>
 <li>Add a Cinemachine camera that follows the player, with bounds, as in Exercise 04.</li>
 <li>Create a Tilemap for the ground, as in Exercise 04. Open <strong>Window → 2D → Tile Palette</strong> and choose <code>Platformer Palette</code> to paint with the kit's tiles.</li>
 <li>Place prefabs to build the level.</li>

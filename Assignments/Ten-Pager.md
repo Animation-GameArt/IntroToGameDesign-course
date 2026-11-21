@@ -57,6 +57,7 @@ Each line is a graded criterion.
 - [ ] The notes from your peer review have been addressed.
 - [ ] Page 6 includes your screen layouts.
 - [ ] Page 10 names your kit, lists any custom scripts agreed at Pitch Day, and separates must-haves from nice-to-haves.
+- [ ] Page 10 has the decisions table from your kit's **Build Your Game** guide, with every row filled in.
 - [ ] Page 10 has a milestone plan for weeks 10 to 15.
 - [ ] Page 10 names your biggest risk and a backup plan.
 - [ ] Every asset you plan to use that you didn't make is listed with its license.
@@ -66,6 +67,7 @@ Each line is a graded criterion.
 - Use pictures, sketches and tables wherever they explain faster than words.
 - Read your must-have list as if you had half the time. Anything that survives is a real must-have.
 - Your genre's kit guide lists what the kit does and doesn't do. Check your mechanics against it.
+- Copy the decisions table from your kit's **Build Your Game** guide (in `Kit Guides`). You'll build from it, step by step, starting in Week 8.
 
 ## Reference
 

@@ -28,6 +28,7 @@ Each line is a graded criterion.
 - [ ] The game can be played from the first screen to the last.
 - [ ] Saving works, if your game saves.
 - [ ] Your list of placeholders is written down.
+- [ ] The **Alpha checks** in your kit's Build Your Game guide are met.
 - [ ] No new features will be added after this build.
 
 ## Tips

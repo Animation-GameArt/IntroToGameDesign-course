@@ -176,6 +176,8 @@ tags:
 
 **Custom scripts you expect to need:** [Anything the course scripts don't cover]
 
+**Kit decisions:** [Paste the decisions table from your kit's *Build Your Game* guide, in `Kit Guides`, and fill in every row. You'll build from it.]
+
 **Art and audio sources:** [Your own, or asset packs, with licenses and credits]
 
 **Scope:**

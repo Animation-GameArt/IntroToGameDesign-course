@@ -1,0 +1,273 @@
+<p>This guide takes you from your ten-pager to your own finished platformer, built with the Platformer Kit. You've played the sample; now you build <strong>your</strong> game with the same parts, step by step. Every step uses a decision from your design, not a value from the sample.</p>
+<p>Each stage ends with checks for a milestone: <strong>First Playable</strong> (Week 10), <strong>Alpha</strong> (Week 12) and <strong>Beta</strong> (Week 14). Your milestone assignments use these checks.</p>
+<blockquote>
+<p><strong>Stuck on a step?</strong><br/>Each step names the part of <strong><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Platformer%20Kit%20-%20Building%20the%20Sample.md">Platformer Kit — Building the Sample</a></strong> that does the same thing with the sample's values. It's a worked example: read it to see how, then do it with your own decisions.</p>
+</blockquote>
+<h2>Before you start</h2>
+<ul>
+<li>The kit is installed, and you've played the sample from the menu to the win screen.</li>
+<li>You've opened <code>Platformer_Level1</code> and clicked through its Hierarchy.</li>
+<li>Your decisions table (below) is filled in on page 10 of your ten-pager.</li>
+</ul>
+<h2>Your decisions</h2>
+<p>Fill this in on page 10 of your ten-pager. Every step below uses it. An empty row is a decision you haven't made yet: make it before you build that part.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Your decisions</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Decision</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Your answer</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The sample's answer, for comparison</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>The character:</strong> who they are, and the art</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A green alien, from Kenney's Pixel Platformer</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Movement feel:</strong> speed, jump height, double jump or not, floaty or snappy</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Max Speed <code>7</code>, Jump Height <code>3</code>, no double jump, a little snappy</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Health and lives:</strong> hits per life, lives, what happens at 0</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">3 health, 3 lives, Game Over screen</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Levels:</strong> how many, and the one idea each level is about (teach, test, twist)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">2: jumping and stomping; then moving platforms and flyers</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Collectibles:</strong> what they are, how many per level, and what they're for</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Coins (score), hearts (heal), a key per level (opens a lock)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Hazards and enemies:</strong> which ones, and where they first appear</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Spikes and pits; walkers (stomp them), flyers (avoid them)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Goal:</strong> how a level ends, and how the game ends</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Touch the gem; after the last level, the win screen</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Theme and look:</strong> tiles, background, colors</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Grass world, pale blue sky</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Custom scripts:</strong> anything agreed at your pitch that the kit doesn't do</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">None</td>
+</tr>
+</tbody>
+</table>
+<p>Keep it small. Two or three levels, each built around one idea, is a complete game in eight weeks.</p>
+<h2>Stage 1 — First Playable</h2>
+<p>The goal: one level, played from the menu to the goal or to Game Over, with grey boxes or the kit's art. No polish.</p>
+<h3>1. Set up your folders</h3>
+<p>In <code>Assets/_Game</code>, create <code>Scenes</code>, <code>Prefabs</code>, <code>Data</code> and <code>Art</code> (if they don't exist yet). Everything you make goes in <code>_Game</code>. Never edit anything in <code>_Course</code>: an update to the course project would undo it.</p>
+<h3>2. Your data</h3>
+<p>The sample's <code>Coins</code>, <code>Lives</code>, <code>PlayerHealth</code> and events (in the kit's <code>Sample/Data</code>) work as they are. Make your own only where your decisions differ:</p>
+<ul>
+<li><strong>A different starting number of lives:</strong> create an <strong>Int Variable</strong> in <code>_Game/Data</code> (such as <code>MyLives</code>, Initial Value from your table), and use it everywhere the sample uses <code>Lives</code>: your player variant's <strong>Health → On Died</strong>, your <code>Level Systems</code> variant, the menu and the win scene.</li>
+<li><strong>A collectible with a different name or purpose:</strong> create an Int Variable for it, such as <code>Gems</code> or <code>Score</code>.</li>
+</ul>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Platformer%20Kit%20-%20Building%20the%20Sample.md#part-1--data">Part 1 — Data</a>.</p>
+<h3>3. Your player</h3>
+<ol>
+<li>Right-click the kit's <code>Player</code> prefab → <strong>Create → Prefab Variant</strong>. Move it to <code>_Game/Prefabs</code> and name it after your character.</li>
+<li>Open it. On <strong>Platformer Controller 2D</strong>, set the movement from your table. Use what you learned in Exercise 03: Max Speed and Acceleration for speed and weight; Jump Height and Fall Gravity Multiplier for floaty or snappy; Extra Air Jumps <code>1</code> for a double jump.</li>
+<li>On <strong>Health</strong>, set Max Health from your table.</li>
+<li>Placeholder art is fine for now. If your character art is ready, change the Sprite Renderer's sprite, and the Idle, Walk and In Air sprites on the <strong>Platformer Sprite Animator</strong>.</li>
+</ol>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Platformer%20Kit%20-%20Building%20the%20Sample.md#player">Part 3 — Prefabs, Player</a>.</p>
+<h3>4. Your Level Systems</h3>
+<ol>
+<li>Make a <strong>Prefab Variant</strong> of the kit's <code>Level Systems</code>, in <code>_Game/Prefabs</code>.</li>
+<li>If you made your own variables in step 2, swap them in: <code>Game Rules</code> (the Int Variable Condition and the Variable Resetter), and the <strong>UI Variable Binder</strong> on the HUD, Level Complete and Game Over.</li>
+<li>Change the HUD's label formats to your words, such as <code>Gems: {0}</code>.</li>
+<li>On <code>To Menu</code>, set Scene Name to your menu scene's name (you'll make it in step 7).</li>
+</ol>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Platformer%20Kit%20-%20Building%20the%20Sample.md#level-systems">Part 3 — Prefabs, Level Systems</a>.</p>
+<h3>5. Your first level, blocked in</h3>
+<p>Build level 1 from your table: the one idea it teaches.</p>
+<ol>
+<li>In <code>_Game/Scenes</code>, create a new 2D scene named after your game, such as <code>Glowbug_Level1</code>.</li>
+<li>Drag in your <code>Level Systems</code> variant and your player variant.</li>
+<li>Add a Cinemachine camera that follows the player, with bounds, as in Exercise 04.</li>
+<li>Add a Tilemap with a <strong>Tilemap Collider 2D</strong> for the ground, as in Exercise 04. Paint the level's shape with the kit's <code>Platformer Palette</code> (or plain squares).</li>
+<li>Place a checkpoint near the start, the goal (<code>Goal Gem</code> or your variant) at the end, and the pit below everything (it's in Level Systems; move it if your level goes lower).</li>
+<li>Add only what this level's idea needs: if it's about jumping, gaps and platforms; if it's about stomping, a few <code>Walker</code>s.</li>
+</ol>
+<blockquote>
+<p><strong>Teach, test, twist</strong><br/>Show the idea somewhere safe first, then test it where a mistake costs something, then twist it once. That's a whole level.</p>
+</blockquote>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Platformer%20Kit%20-%20Building%20the%20Sample.md#part-5--level-1">Part 5 — Level 1</a>.</p>
+<h3>6. Your pieces</h3>
+<p>For each collectible, hazard and enemy in your table, make a <strong>Prefab Variant</strong> of the closest kit prefab in <code>_Game/Prefabs</code>, and change it:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">6. Your pieces</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Your piece is like…</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Start from</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Usually change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Something to collect</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Coin</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Add To (your variable), Amount, the sprite</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Something that heals</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Heart</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Heal</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Something that opens a way</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Key</code> and <code>Lock</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The sprites; for "collect ten", see the recipe in <strong>Platformer Kit</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A ground enemy</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Walker</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Patrol Speed, Chase Range; Health for two stomps</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A flying enemy or moving hazard</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Flyer</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Stops, Speed</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A fixed hazard</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Spikes</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Damage, the sprite</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Something that launches the player</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Spring</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Bounce Height</td>
+</tr>
+</tbody>
+</table>
+<p>Anything in your table that none of these can do is a custom script: see <strong>Custom scripts</strong> below.</p>
+<h3>7. Your menu and win scenes</h3>
+<ol>
+<li>Copy the kit's <code>Platformer_Menu</code> and <code>Platformer_Win</code> scenes into <code>_Game/Scenes</code> (select them, <strong>Ctrl+D</strong>, then move and rename the copies).</li>
+<li>In your menu, set the <strong>Scene Changer</strong> on <code>Main Menu</code> to load your first level. In your win scene, set <code>To Level 1</code> and <code>To Menu</code> to your scenes.</li>
+<li>If you made your own variables, swap them into both scenes' <code>Game Rules</code> and binders.</li>
+<li>Change the title text to your game's name. You can copy the UXML into <code>_Game</code> and edit it in the UI Builder, or leave the kit's look for now.</li>
+</ol>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Platformer%20Kit%20-%20Building%20the%20Sample.md#part-7--menu-scene">Part 7 — Menu scene</a> and <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Platformer%20Kit%20-%20Building%20the%20Sample.md#part-8--win-scene">Part 8 — Win scene</a>.</p>
+<h3>8. Your Scene List</h3>
+<p><strong>File → Build Profiles → Open Scene List</strong>: remove the kit's sample scenes, and add yours in order: menu, level 1, (later levels), win. <strong>Next Level</strong> loads whichever scene comes next.</p>
+<h3>First Playable checks</h3>
+<ul>
+<li>A build runs outside Unity, starting at your menu.</li>
+<li>Your character moves and jumps with the feel in your table.</li>
+<li>Level 1 can be played from start to goal; reaching the goal shows Level Complete.</li>
+<li>Losing all health costs a life and returns you to the checkpoint; losing all lives shows Game Over, and Try Again works.</li>
+<li>Your main collectible counts on the HUD.</li>
+<li>At least one enemy or hazard from your table is in.</li>
+<li>Nothing gets you permanently stuck.</li>
+</ul>
+<h2>Stage 2 — Alpha</h2>
+<p>The goal: every level and every feature exists and works. Art and balance can still be rough.</p>
+<h3>9. Your other levels</h3>
+<p>For each level in your table:</p>
+<ol>
+<li>Duplicate your level 1 scene, rename it, and clear out the level (keep Level Systems, the player and the camera).</li>
+<li>Build it around that level's idea. Bring back earlier ideas in new combinations; that's how levels get harder without new rules.</li>
+<li>Add it to the Scene List, before the win scene.</li>
+</ol>
+<h3>10. All your pieces, and custom scripts</h3>
+<p>Every collectible, hazard and enemy in your table is in at least one level, and each custom script is working (see below).</p>
+<h3>11. Every screen</h3>
+<p>Menu, pause, Level Complete, Game Over, win and credits all work. Add your own assets to the credits: create a text file like the kit's <code>Course Credits</code> in <code>_Game</code>, and add it to the <strong>UI Credits</strong> component in your menu.</p>
+<h3>Alpha checks</h3>
+<ul>
+<li>Every level in your table is in the build and can be played through.</li>
+<li>Every collectible, hazard and enemy in your table is in.</li>
+<li>Each custom script does its job, or is marked as cut with a reason.</li>
+<li>The game can be played from the menu, through every level, to the win screen, and back to the menu with lives and score reset.</li>
+<li>Every screen works: menu, pause, Level Complete, Game Over, win, credits.</li>
+<li>You have a written list of placeholders still to replace.</li>
+</ul>
+<h2>Stage 3 — Beta</h2>
+<p>The goal: it looks, sounds and feels finished. No new features.</p>
+<h3>12. Art</h3>
+<p>Replace placeholders with your art, or with art packs listed in your ten-pager. Make sprite variants of your prefabs rather than editing the kit's. Keep sizes consistent: the kit's tiles are 18 pixels, at 18 pixels per unit.</p>
+<h3>13. Sound and juice</h3>
+<p>As in Exercise 07: create <strong>Sound Effect</strong> assets and play them from events: the player's <strong>On Jump</strong> and <strong>On Land</strong>, a collectible's <strong>On Collected</strong>, an enemy's stomp, Health's <strong>On Damaged</strong>. Add music with a <strong>Music Player</strong>. Add screen shake or particles where a moment should feel big.</p>
+<h3>14. Balance</h3>
+<p>Playtest with someone who hasn't played it (Exercise 10). Watch where they die and where they get bored. Change one number at a time: gap widths, enemy speed, checkpoint spacing, lives.</p>
+<h3>Beta checks</h3>
+<ul>
+<li>Final art and sound are in; any placeholder left is on purpose.</li>
+<li>Every collectible, jump, stomp, hit and death has a sound.</li>
+<li>Your three changes from the playtest are made.</li>
+<li>The credits list every asset you didn't make, with its license.</li>
+<li>Volume settings and Quit work.</li>
+</ul>
+<h2>Custom scripts</h2>
+<p>Custom scripts agreed at your pitch go in <code>Assets/_Game/Scripts</code>. Connect them to the kit through what it already announces, instead of changing kit scripts:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Custom scripts</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">To react to…</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Listen to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player being hurt or dying</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Health</strong> events: On Damaged, On Died</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A collectible being picked up</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Collectible</strong> → On Collected, or the variable it adds to (its Changed event)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A level ending</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The <code>LevelCompleted</code> event, with a <strong>Void Event Listener</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player jumping or landing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Platformer Controller 2D</strong> → On Jump, On Land</td>
+</tr>
+</tbody>
+</table>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Custom scripts (2)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">To make the kit do something…</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Call</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Damage or heal the player</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Health → TakeDamage</strong>, <strong>Heal</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Send the player back</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Respawner → Respawn</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Change a number</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>IntVariable → Add</strong>, <strong>SetValue</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Show a screen</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>UIScreen → Show</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Your instructor can help you plan a custom script; the <strong>Script Reference</strong> lists everything the kit's scripts can do.</p>

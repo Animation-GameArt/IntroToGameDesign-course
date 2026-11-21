@@ -75,8 +75,12 @@ It's built the way the exercises were: objects announce things, and other object
 
 ## Start your own game
 
+**[Platformer Kit — Build Your Game](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Platformer%20Kit%20-%20Build%20Your%20Game.md)** takes you from the decisions table on page 10 of your ten-pager to your finished game, step by step, with checks for First Playable, Alpha and Beta.
+
+The short version:
+
 1. In `Assets/_Game`, create a `Scenes` folder. Create a new 2D scene there for your first level.
-2. Drag in `Level Systems` and `Player` from the kit's `Sample/Prefabs`.
+2. Drag in variants of `Level Systems` and `Player` (see **Changing a prefab**, below).
 3. Add a Cinemachine camera that follows the player, with bounds, as in Exercise 04.
 4. Create a Tilemap for the ground, as in Exercise 04. Open **Window → 2D → Tile Palette** and choose `Platformer Palette` to paint with the kit's tiles.
 5. Place prefabs to build the level.
