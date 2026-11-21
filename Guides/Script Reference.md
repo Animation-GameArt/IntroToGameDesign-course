@@ -3,7 +3,7 @@ title: "Script Reference"
 course: GAME 1303
 type: guide
 status: draft
-course_version: 0.22.0
+course_version: 0.23.1
 unity: 6000.3.10f1
 tags:
   - game1303
@@ -13,7 +13,7 @@ tags:
 
 # Script Reference
 
-Every course script in the course project, as of version **0.22.0**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
+Every course script in the course project, as of version **0.23.1**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
 
 ## Finding the scripts
 
@@ -1506,7 +1506,9 @@ Needs a NavMesh Agent. **Patrol**: loops through **Patrol Points** at **Patrol S
 | Reapply Art Import Settings | **Collin Game → Art** menu | Gives the course's art packs their pixel-art settings again |
 | Build Platformer Sample | **Collin Game → Kit Samples** menu | Builds the Platformer Kit's sample game: data, prefabs, tiles, two levels, menu and win scenes, and the Scene List. Replaces the kit's `Sample` folder |
 | Use Course Panel Settings in Open Scenes | **Collin Game → UI** menu | Sets `CoursePanelSettings` on every UI Document in the open scenes |
-| Repair Course Panel Settings | **Collin Game → UI** menu | Creates `CoursePanelSettings` if it's missing, and puts back its settings |
+| Use Course Panel Settings in All Scenes and Prefabs | **Collin Game → UI** menu | Does the same in every scene and prefab in the project, and saves them |
+| Repair Course Panel Settings | **Collin Game → UI** menu | Creates `CoursePanelSettings` if it's missing (or rebuilds it if it's broken), and puts back its settings |
+| Panel Settings check | Automatic, on Play and on build | A UI Document with no Panel Settings draws nothing. Any found in a scene being played or built gets `CoursePanelSettings` for that run, with a Console warning naming it |
 | Course Panel Settings for new UI Documents | Automatic | A new UI Document with no Panel Settings gets `CoursePanelSettings` |
 
 ---
