@@ -80,6 +80,8 @@ Select a chunk prefab to see a green line where it starts and a red line where i
 
 ## Start your own game
 
+**[Endless Runner Kit — Build Your Game](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Endless%20Runner%20Kit%20-%20Build%20Your%20Game.md)** takes you from the decisions table on page 10 of your ten-pager to your finished game, step by step, with checks for First Playable, Alpha and Beta. The steps below are the short version.
+
 1. Create a new 2D scene in `Assets/_Game/Scenes`.
 2. Drag in `Runner Systems` and `Runner` from the kit's `Sample/Prefabs`.
 3. Press **Play**: you have the sample's track.

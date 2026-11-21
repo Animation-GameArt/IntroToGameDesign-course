@@ -76,7 +76,7 @@ Every test, with each guide's checks in order, is in the **[Testing Checklist](h
 - [x] 3D scripts for the 3D kits: Player Controller 3D, Moving Platform 3D, Bounce Pad 3D, Spin 3D, Cursor Lock 3D (v0.22.0).
 - [x] 3D platformer kit and stealth kit: scripts and both guides each (v0.22.0). The stealth sample needs the AI Navigation package.
 - [x] Platformer Kit — Build Your Game: the student guide from ten-pager decisions to a finished game, with milestone checks (2026-11-21). Ten-Pager, Production Backlog, First Playable, Alpha and Beta point to it. Why, and the week-by-week flow: [Kits in the Student Project](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Planning/Kits%20in%20the%20Student%20Project.md).
-- [ ] Review the Platformer **Build Your Game** guide; then write one for each of the other fourteen kits, to the same pattern.
+- [x] **Build Your Game** guides for all fifteen kits (2026-11-21). They follow the reviewed Platformer pattern; each kit's guide links to its own from **Start your own game**.
 - [ ] Install the **AI Navigation** package (Package Manager → Unity Registry) and push the manifest, for the Stealth kit.
 - [ ] Match the Week 5–7 lecture pages to the real script names.
 - [ ] Move the instructor's tested exercise scenes to `Assets/_Course/Exercises/Solutions/` (once Marshall says they're final).

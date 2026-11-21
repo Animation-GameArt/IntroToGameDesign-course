@@ -76,6 +76,8 @@ The sample's numbers were checked with a quick simulation. Planting only mushroo
 
 ## Start your own game
 
+**[Farming Kit — Build Your Game](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Farming%20Kit%20-%20Build%20Your%20Game.md)** takes you from the decisions table on page 10 of your ten-pager to your finished game, step by step, with checks for First Playable, Alpha and Beta. The steps below are the short version.
+
 1. Decide your crops (three is plenty) and what makes your farm yours: where it is, what grows, what the goal is.
 2. Create an **Item** for each tool, each kind of seed and each crop to sell (**Create → Collin Game → Farming Kit → Item**), and a **Crop** for each crop (**Create → Collin Game → Farming Kit → Crop**). Seeds point at their Crop; the Crop points at the item it produces.
 3. Open `Farm_Game`, **File → Save As…** into `Assets/_Game/Scenes`, and:

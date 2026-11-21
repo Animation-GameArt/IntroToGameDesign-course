@@ -64,6 +64,8 @@ Tower defense is played with the **mouse** (or a touch screen): click a stone pa
 
 ## Start your own game
 
+**[Tower Defense Kit — Build Your Game](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Tower%20Defense%20Kit%20-%20Build%20Your%20Game.md)** takes you from the decisions table on page 10 of your ten-pager to your finished game, step by step, with checks for First Playable, Alpha and Beta. The steps below are the short version.
+
 1. Create a new 2D scene in `Assets/_Game/Scenes`, and set the Main Camera's **Size** so the whole map fits.
 2. Paint the ground and the road (a Tilemap works well).
 3. Add an empty `Path` with **Enemy Path 2D**, and an empty child for each corner of the road, in order. Put the first just off screen where enemies enter, and the last where they leave.

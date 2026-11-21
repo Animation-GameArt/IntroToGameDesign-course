@@ -73,6 +73,8 @@ The sample's numbers were checked with a quick simulation: building farms early 
 
 ## Start your own game
 
+**[Management Kit — Build Your Game](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Management%20Kit%20-%20Build%20Your%20Game.md)** takes you from the decisions table on page 10 of your ten-pager to your finished game, step by step, with checks for First Playable, Alpha and Beta. The steps below are the short version.
+
 1. Decide your resources (three or four is plenty). Create an **Int Variable** for each in `Assets/_Game/Data`, with a starting value.
 2. Write your rules on paper first: what happens every turn? Then create a **Turn Rule** for each (**Create → Collin Game → Management Kit → Turn Rule**).
 3. Create your **Buildings** and **Events** the same way.

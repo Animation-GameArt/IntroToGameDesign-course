@@ -1,0 +1,188 @@
+<p>This guide takes you from your ten-pager to your own finished arcade game, built with the Arcade Classic Kit. You've played the sample; now you build <strong>your</strong> game with the same parts, step by step. Every step uses a decision from your design, not a value from the sample.</p>
+<p>Each stage ends with checks for a milestone: <strong>First Playable</strong> (Week 10), <strong>Alpha</strong> (Week 12) and <strong>Beta</strong> (Week 14). Your milestone assignments use these checks.</p>
+<blockquote>
+<p><strong>Stuck on a step?</strong><br/>Each step names the part of <strong><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Arcade%20Classic%20Kit%20-%20Building%20the%20Sample.md">Arcade Classic Kit — Building the Sample</a></strong> that does the same thing with the sample's values. It's a worked example: read it to see how, then do it with your own decisions.</p>
+</blockquote>
+<h2>Before you start</h2>
+<ul>
+<li>The kit is installed, and you've played the sample from its menu to the end.</li>
+<li>You've opened <code>Arcade_Breakout</code> and clicked through its Hierarchy.</li>
+<li>Your decisions table (below) is filled in on page 10 of your ten-pager.</li>
+</ul>
+<h2>Your decisions</h2>
+<p>Fill this in on page 10 of your ten-pager. Every step below uses it. An empty row is a decision you haven't made yet: make it before you build that part.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Your decisions</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Decision</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Your answer</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The sample's answer, for comparison</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Closest classic:</strong> Breakout, Pong or Asteroids, and your twist</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">All three, plain</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>The player's piece:</strong> paddle or ship, and its feel</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Paddle Speed <code>14</code>, following the mouse; a ship that turns, thrusts and drifts</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>What's in play:</strong> ball, bricks, asteroids, and how they behave</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Ball starts at speed <code>7</code> and speeds up each hit; bricks take 1 or 3 hits; asteroids split twice</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Lives and losing:</strong> how many, and what costs one</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">3 lives; a missed ball or a crash</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Score:</strong> what earns points, and best score</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Bricks and asteroids by size; best score saved</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Getting harder:</strong> how play speeds up or fills up</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Ball speeds up; asteroids are faster when smaller</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Goal:</strong> clear the screen, reach a score, or survive</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Clear all bricks or asteroids; first to 5 in Pong</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Theme and look:</strong> colors, art, mood</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Kenney's Puzzle Pack 2 and Space Shooter Remastered</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Custom scripts:</strong> anything agreed at your pitch that the kit doesn't do</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">None</td>
+</tr>
+</tbody>
+</table>
+<p>Keep it small. One screen, one twist on a classic, and a few rounds that get harder is a complete arcade game in eight weeks. The twist is your design.</p>
+<h2>Stage 1 — First Playable</h2>
+<p>The goal: your one screen, played from the menu to winning or losing.</p>
+<h3>1. Set up your folders</h3>
+<p>In <code>Assets/_Game</code>, create <code>Scenes</code>, <code>Prefabs</code>, <code>Data</code> and <code>Art</code> (if they don't exist yet). Everything you make goes in <code>_Game</code>. Never edit anything in <code>_Course</code>: an update to the course project would undo it.</p>
+<h3>2. Your data</h3>
+<p>The sample's <code>ArcadeScore</code>, <code>Lives</code>, best-score variables and events work as they are. For your own best score, create an Int Variable in <code>_Game/Data</code> and set it on the <strong>High Score</strong> component.</p>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Arcade%20Classic%20Kit%20-%20Building%20the%20Sample.md#part-1--data">Part 1 — Data</a>.</p>
+<h3>3. Your Arcade Systems</h3>
+<p>Make a <strong>Prefab Variant</strong> of <code>Arcade Systems</code> in <code>_Game/Prefabs</code>. If you made your own variables, swap them into its binders and conditions.</p>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Arcade%20Classic%20Kit%20-%20Building%20the%20Sample.md#part-2--arcade-systems">Part 2 — Arcade Systems</a>.</p>
+<h3>4. Your screen</h3>
+<ol>
+<li>Open the sample scene closest to your classic (<code>Arcade_Breakout</code>, <code>Arcade_Pong</code> or <code>Arcade_Asteroids</code>), and <strong>File → Save As…</strong> into <code>_Game/Scenes</code> with your game's name.</li>
+<li>Replace <code>Arcade Systems</code> with your variant.</li>
+<li>Make <strong>Prefab Variants</strong> of the pieces you change (paddle, ball, bricks, ship, asteroids) and set them from your table.</li>
+<li>Add your twist. If it needs something none of the kit's scripts do, it's a custom script.</li>
+</ol>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Arcade%20Classic%20Kit%20-%20Building%20the%20Sample.md#part-3--breakout-arcade_breakout">Part 3 — Breakout (<code>Arcade_Breakout</code>)</a>. Pong and Asteroids are in the parts after it.</p>
+<h3>5. Your menu and Scene List</h3>
+<ol>
+<li>Copy the kit's <code>Arcade_Menu</code> into <code>_Game/Scenes</code>, and make its button load your game. Change the title.</li>
+<li><strong>File → Build Profiles → Open Scene List</strong>: your menu first, then your game.</li>
+</ol>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Arcade%20Classic%20Kit%20-%20Building%20the%20Sample.md#part-6--menu">Part 6 — Menu</a>.</p>
+<h3>First Playable checks</h3>
+<ul>
+<li>A build runs outside Unity, starting at your menu (see <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Making%20Builds.md">Making Builds</a>).</li>
+<li>Your player piece moves with the feel in your table.</li>
+<li>You can lose a life, lose the game, and clear the screen (or reach your goal).</li>
+<li>The score counts, and the best score is kept.</li>
+<li>Your twist is in, even if rough.</li>
+<li>Nothing gets you permanently stuck.</li>
+</ul>
+<h2>Stage 2 — Alpha</h2>
+<p>The goal: every round and every feature exists and works. Art and balance can still be rough.</p>
+<h3>Getting harder</h3>
+<p>Make the game ramp up as your table says: faster balls, tougher bricks, more asteroids, or new rounds. A second layout can be a second scene, loaded after the first is cleared.</p>
+<h3>All your pieces, and custom scripts</h3>
+<p>Every piece and your twist work together, from the first serve to game over.</p>
+<h3>Every screen</h3>
+<p>Menu, pause, game over and win and credits all work. Add your own assets to the credits: create a text file like the course's <code>Course Credits</code> in <code>_Game</code>, and add it to the <strong>UI Credits</strong> component in your menu.</p>
+<h3>Alpha checks</h3>
+<ul>
+<li>The game ramps up the way your table says.</li>
+<li>Every piece in your table is in, and your twist works.</li>
+<li>The game can be played from the menu to game over or the win, and again.</li>
+<li>Each custom script does its job, or is marked as cut with a reason.</li>
+<li>Every screen works: menu, pause, game over and win, credits.</li>
+<li>You have a written list of placeholders still to replace.</li>
+</ul>
+<h2>Stage 3 — Beta</h2>
+<p>The goal: it looks, sounds and feels finished. No new features.</p>
+<h3>Art</h3>
+<p>Arcade games live on clarity: the player's piece, the ball or bullets, and dangers should each be a different, bright color on a dark background.</p>
+<h3>Sound and juice</h3>
+<p>As in Exercise 07: create <strong>Sound Effect</strong> assets and play them from events. Good places: every bounce, a brick or asteroid breaking, losing a life, and the serve. Arcade games feel empty without them. Add music with a <strong>Music Player</strong>. Add screen shake or particles where a moment should feel big.</p>
+<h3>Balance</h3>
+<p>Playtest with someone who hasn't played it (Exercise 10). Watch how long a game lasts. Under a minute is too hard; over ten without danger is too easy. Adjust speed-up, lives and counts. Change one number at a time, and write down what you changed.</p>
+<h3>Beta checks</h3>
+<ul>
+<li>Final art and sound are in; any placeholder left is on purpose.</li>
+<li>Every bounce, break, shot and lost life has a sound.</li>
+<li>A game lasts as long as your table intends.</li>
+<li>Your three changes from the playtest are made.</li>
+<li>The credits list every asset you didn't make, with its license.</li>
+<li>Volume settings and Quit work.</li>
+</ul>
+<h2>Custom scripts</h2>
+<p>Custom scripts agreed at your pitch go in <code>Assets/_Game/Scripts</code>. Connect them to the kit through what it already announces, instead of changing kit scripts:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Custom scripts</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">To react to…</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Listen to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A life lost</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The <code>Lives</code> variable (its Changed event)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The screen cleared</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The <code>LevelCleared</code> event</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Game over</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The <code>GameOver</code> event</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A brick or asteroid destroyed</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Brick 2D</strong> → On Broken, or Health → On Died</td>
+</tr>
+</tbody>
+</table>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Custom scripts (2)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">To make the kit do something…</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Call</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Serve the ball</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Ball 2D → Serve</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Add points</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>IntVariable → Add</strong> on the score</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Show a screen</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>UIScreen → Show</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Your instructor can help you plan a custom script; the <strong><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Script%20Reference.md">Script Reference</a></strong> lists everything the kit's scripts can do.</p>

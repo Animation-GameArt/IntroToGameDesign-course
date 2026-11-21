@@ -69,6 +69,8 @@ You have 40 health, 3 energy a turn, and heal 10 after each battle. The numbers 
 
 ## Start your own game
 
+**[Card Game Kit — Build Your Game](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Card%20Game%20Kit%20-%20Build%20Your%20Game.md)** takes you from the decisions table on page 10 of your ten-pager to your finished game, step by step, with checks for First Playable, Alpha and Beta. The steps below are the short version.
+
 1. Design five cards on paper first, and play a few turns with paper cards against a made-up enemy. Then add more.
 2. Create your **Cards** (**Create → Collin Game → Card Game Kit → Card**) and **Enemies** (**Create → Collin Game → Card Game Kit → Enemy**).
 3. Open `Cards_Game`, **File → Save As…** into `Assets/_Game/Scenes`, and on the **Card Battle**: your cards in **Deck** (twice for two copies), your enemies in **Enemies**, and the player's **Max Health**, **Energy Per Turn** and **Hand Size**.

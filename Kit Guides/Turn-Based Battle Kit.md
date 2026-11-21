@@ -65,6 +65,8 @@ Choose actions with the mouse, or with the arrow keys and **Enter**, or with a g
 
 ## Start your own game
 
+**[Turn-Based Battle Kit — Build Your Game](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Turn-Based%20Battle%20Kit%20-%20Build%20Your%20Game.md)** takes you from the decisions table on page 10 of your ten-pager to your finished game, step by step, with checks for First Playable, Alpha and Beta. The steps below are the short version.
+
 1. Create a new 2D scene in `Assets/_Game/Scenes`.
 2. Drag in `Battle Systems` and two fighters from the kit's `Sample/Prefabs`: one `Hero` and one `Slime`.
 3. On `Battle Systems` → `Turn Manager`, add both to **Turn Order**.

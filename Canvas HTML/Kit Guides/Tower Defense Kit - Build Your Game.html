@@ -1,0 +1,183 @@
+<p>This guide takes you from your ten-pager to your own finished tower defense game, built with the Tower Defense Kit. You've played the sample; now you build <strong>your</strong> game with the same parts, step by step. Every step uses a decision from your design, not a value from the sample.</p>
+<p>Each stage ends with checks for a milestone: <strong>First Playable</strong> (Week 10), <strong>Alpha</strong> (Week 12) and <strong>Beta</strong> (Week 14). Your milestone assignments use these checks.</p>
+<blockquote>
+<p><strong>Stuck on a step?</strong><br/>Each step names the part of <strong><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Tower%20Defense%20Kit%20-%20Building%20the%20Sample.md">Tower Defense Kit — Building the Sample</a></strong> that does the same thing with the sample's values. It's a worked example: read it to see how, then do it with your own decisions.</p>
+</blockquote>
+<h2>Before you start</h2>
+<ul>
+<li>The kit is installed, and you've played the sample from its menu to the end.</li>
+<li>You've opened <code>TD_Map</code> and clicked through its Hierarchy.</li>
+<li>Your decisions table (below) is filled in on page 10 of your ten-pager.</li>
+</ul>
+<h2>Your decisions</h2>
+<p>Fill this in on page 10 of your ten-pager. Every step below uses it. An empty row is a decision you haven't made yet: make it before you build that part.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Your decisions</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Decision</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Your answer</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The sample's answer, for comparison</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>The map:</strong> the path enemies take, and where towers can go</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">One road with five bends; 8 build spots</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Towers:</strong> each one's job, cost, range, damage, rate, and upgrade</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Archer (fast, cheap), Cannon (splash), Frost (slows); one upgrade each</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Enemies:</strong> each one's speed, health, reward and lives taken</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Scout (fast), Soldier, Brute (tough), Swarmling (swarms)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Waves:</strong> what comes in each, and the bonus</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">10 waves, growing to mixed groups</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Money and lives:</strong> what the player starts with</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">$120, 20 lives</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Goal:</strong> how the game ends</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Survive all 10 waves</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Theme and look:</strong> setting, art, colors</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Kenney's Tower Defense (top-down)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Custom scripts:</strong> anything agreed at your pitch that the kit doesn't do</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">None</td>
+</tr>
+</tbody>
+</table>
+<p>Keep it small. One map, three towers with one upgrade each, four enemy types and ten waves is a complete tower defense game in eight weeks. Balancing takes the longest.</p>
+<h2>Stage 1 — First Playable</h2>
+<p>The goal: your map with one tower and one enemy type, three waves, from the menu to winning or losing.</p>
+<h3>1. Set up your folders</h3>
+<p>In <code>Assets/_Game</code>, create <code>Scenes</code>, <code>Prefabs</code>, <code>Data</code> and <code>Art</code> (if they don't exist yet). Everything you make goes in <code>_Game</code>. Never edit anything in <code>_Course</code>: an update to the course project would undo it.</p>
+<h3>2. Your data</h3>
+<p>The sample's <code>Money</code>, <code>Lives</code>, <code>Wave</code> and events work as they are.</p>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Tower%20Defense%20Kit%20-%20Building%20the%20Sample.md#part-1--data">Part 1 — Data</a>.</p>
+<h3>3. Your first tower and enemy</h3>
+<ol>
+<li>Duplicate the sample's <code>Archer</code> <strong>Tower</strong> asset (<strong>Ctrl+D</strong>), move the copy to <code>_Game/Data</code>, and set it from your table. Make a <strong>Prefab Variant</strong> of its tower prefab for the look.</li>
+<li>Make a variant of the closest enemy (<code>Scout</code>, <code>Soldier</code>, <code>Brute</code>, <code>Swarmling</code>): <strong>Speed</strong>, <strong>Reward</strong>, <strong>Lives Taken</strong>, Health <strong>Max Health</strong>.</li>
+</ol>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Tower%20Defense%20Kit%20-%20Building%20the%20Sample.md#part-2--projectiles-and-towers">Part 2 — Projectiles and towers</a> and <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Tower%20Defense%20Kit%20-%20Building%20the%20Sample.md#part-3--enemies">Part 3 — Enemies</a>.</p>
+<h3>4. Your map</h3>
+<ol>
+<li>In <code>_Game/Scenes</code>, create a 2D scene; set the camera's <strong>Size</strong> so the whole map fits.</li>
+<li>Paint the ground and your road on Tilemaps.</li>
+<li>Add a <code>Path</code> with <strong>Enemy Path 2D</strong>, with a child at each bend, starting and ending off screen.</li>
+<li>Drag in a variant of <code>TD Systems</code>. Set the <strong>Tower Wave Spawner</strong>'s <strong>Path</strong>, <strong>Starting Money</strong>, <strong>Starting Lives</strong>, and your first three waves. On the <strong>UI Build Menu</strong>, set <strong>Towers</strong> to yours.</li>
+<li>Place <code>Build Spot</code>s beside the road, on the insides of bends.</li>
+</ol>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Tower%20Defense%20Kit%20-%20Building%20the%20Sample.md#part-4--td-systems">Part 4 — TD Systems</a> and <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Tower%20Defense%20Kit%20-%20Building%20the%20Sample.md#part-5--the-map-td_map">Part 5 — The map (<code>TD_Map</code>)</a>.</p>
+<h3>5. Your menu and Scene List</h3>
+<p>Copy the kit's <code>TD_Menu</code> into <code>_Game/Scenes</code>, make Play load your map, and change the title. In the Scene List: menu, then your map.</p>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Tower%20Defense%20Kit%20-%20Building%20the%20Sample.md#part-6--menu">Part 6 — Menu</a>.</p>
+<h3>First Playable checks</h3>
+<ul>
+<li>A build runs outside Unity, starting at your menu (see <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Making%20Builds.md">Making Builds</a>).</li>
+<li>Enemies follow your path; leaking ones cost lives.</li>
+<li>Your first tower can be built, upgraded and sold, and kills enemies for money.</li>
+<li>Three waves can be started, cleared and won; 0 lives shows the lost screen.</li>
+<li>Nothing gets you permanently stuck.</li>
+</ul>
+<h2>Stage 2 — Alpha</h2>
+<p>The goal: every wave and every feature exists and works. Art and balance can still be rough.</p>
+<h3>All your towers and enemies</h3>
+<p>Add every tower (with its upgrade) and every enemy in your table. Each tower needs a job no other tower does better.</p>
+<h3>All your waves</h3>
+<p>Fill in every wave. Introduce each enemy alone first, then mix them. Give the last wave a real test of everything.</p>
+<h3>Every screen</h3>
+<p>Menu, pause, won and lost and credits all work. Add your own assets to the credits: create a text file like the course's <code>Course Credits</code> in <code>_Game</code>, and add it to the <strong>UI Credits</strong> component in your menu.</p>
+<h3>Alpha checks</h3>
+<ul>
+<li>Every tower, upgrade and enemy in your table is in.</li>
+<li>Every wave is in, and the game can be won.</li>
+<li>Each tower gets built in a normal game; if one never does, its job is fixed or it's cut.</li>
+<li>Each custom script does its job, or is marked as cut with a reason.</li>
+<li>Every screen works: menu, pause, won and lost, credits.</li>
+<li>You have a written list of placeholders still to replace.</li>
+</ul>
+<h2>Stage 3 — Beta</h2>
+<p>The goal: it looks, sounds and feels finished. No new features.</p>
+<h3>Art</h3>
+<p>Replace placeholders with your art. Each tower must be recognisable at a glance, and so must each enemy, even when small and in a crowd.</p>
+<h3>Sound and juice</h3>
+<p>As in Exercise 07: create <strong>Sound Effect</strong> assets and play them from events. Good places: each <strong>Tower 2D</strong>'s <strong>On Shoot</strong>, enemies' Health <strong>On Died</strong>, a <strong>Path Enemy 2D</strong>'s <strong>On Reached End</strong> (a lost life), and the wave spawner's <strong>On Wave Started</strong> and <strong>On Wave Cleared</strong>. Add music with a <strong>Music Player</strong>. Add screen shake or particles where a moment should feel big.</p>
+<h3>Balance</h3>
+<p>Playtest with someone who hasn't played it (Exercise 10). Watch where enemies leak and how much money is left over. Work out each tower's damage per second (Damage × Shots Per Second) and compare it with each wave. Adjust one number at a time. Change one number at a time, and write down what you changed.</p>
+<h3>Beta checks</h3>
+<ul>
+<li>Final art and sound are in; any placeholder left is on purpose.</li>
+<li>Shots, kills, lost lives and wave starts each have a sound.</li>
+<li>A first-time player can win, with some losses.</li>
+<li>Your three changes from the playtest are made.</li>
+<li>The credits list every asset you didn't make, with its license.</li>
+<li>Volume settings and Quit work.</li>
+</ul>
+<h2>Custom scripts</h2>
+<p>Custom scripts agreed at your pitch go in <code>Assets/_Game/Scripts</code>. Connect them to the kit through what it already announces, instead of changing kit scripts:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Custom scripts</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">To react to…</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Listen to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A wave starting or cleared</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Tower Wave Spawner</strong> → On Wave Started, On Wave Cleared</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Winning</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Tower Wave Spawner</strong> → On Won, or the won event</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">An enemy leaking</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Path Enemy 2D</strong> → On Reached End</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A tower firing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Tower 2D</strong> → On Shoot</td>
+</tr>
+</tbody>
+</table>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Custom scripts (2)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">To make the kit do something…</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Call</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Start the next wave</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Tower Wave Spawner → StartNextWave</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Slow an enemy</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Path Enemy 2D → Slow</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Give money</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>IntVariable → Add</strong> on <code>Money</code></td>
+</tr>
+</tbody>
+</table>
+<p>Your instructor can help you plan a custom script; the <strong><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Script%20Reference.md">Script Reference</a></strong> lists everything the kit's scripts can do.</p>

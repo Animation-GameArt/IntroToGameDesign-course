@@ -1,0 +1,192 @@
+<p>This guide takes you from your ten-pager to your own finished 3D platformer, built with the 3D Platformer Kit. You've played the sample; now you build <strong>your</strong> game with the same parts, step by step. Every step uses a decision from your design, not a value from the sample.</p>
+<p>Each stage ends with checks for a milestone: <strong>First Playable</strong> (Week 10), <strong>Alpha</strong> (Week 12) and <strong>Beta</strong> (Week 14). Your milestone assignments use these checks.</p>
+<blockquote>
+<p><strong>Stuck on a step?</strong><br/>Each step names the part of <strong><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/3D%20Platformer%20Kit%20-%20Building%20the%20Sample.md">3D Platformer Kit — Building the Sample</a></strong> that does the same thing with the sample's values. It's a worked example: read it to see how, then do it with your own decisions.</p>
+</blockquote>
+<h2>Before you start</h2>
+<ul>
+<li>The kit is installed, and you've played the sample from its menu to the end.</li>
+<li>You've opened <code>Islands_Level</code> and clicked through its Hierarchy.</li>
+<li>Your decisions table (below) is filled in on page 10 of your ten-pager.</li>
+</ul>
+<h2>Your decisions</h2>
+<p>Fill this in on page 10 of your ten-pager. Every step below uses it. An empty row is a decision you haven't made yet: make it before you build that part.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Your decisions</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Decision</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Your answer</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The sample's answer, for comparison</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>The character:</strong> who, and the art (a capsule is fine until Beta)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A capsule with a nose</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Movement feel:</strong> speed, jump height, double jump, floaty or snappy</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Walk <code>6</code>, sprint <code>9</code>, Jump Height <code>2.2</code>, no double jump</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Camera:</strong> orbiting, or fixed behind</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Orbiting, Radius <code>7</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Areas:</strong> how many, and the one idea each teaches</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">3: stepping stones; moving and crumbling platforms; a tower with enemies</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Collectibles:</strong> what, how many, and what they're for</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">20 coins, for score</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Enemies and hazards:</strong> which, and where they first appear</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Patrolling enemies to stomp; falling</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Health:</strong> hearts, and what a fall does</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">3 hearts; falling returns you to the last checkpoint</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Goal:</strong> how the level ends</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Reach the flag at the top</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Custom scripts:</strong> anything agreed at your pitch that the kit doesn't do</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">None</td>
+</tr>
+</tbody>
+</table>
+<p>Keep it small. One level with three areas and twenty collectibles is a complete 3D platformer in eight weeks. 3D levels take longer to build and test than 2D ones.</p>
+<h2>Stage 1 — First Playable</h2>
+<p>The goal: your character and camera, and your first area, from the menu to the goal or falling, in grey boxes.</p>
+<h3>1. Set up your folders</h3>
+<p>In <code>Assets/_Game</code>, create <code>Scenes</code>, <code>Prefabs</code>, <code>Data</code> and <code>Art</code> (if they don't exist yet). Everything you make goes in <code>_Game</code>. Never edit anything in <code>_Course</code>: an update to the course project would undo it.</p>
+<h3>2. Your data and materials</h3>
+<p>Create <code>Coins</code> and <code>PlayerHealth</code> Int Variables and a <code>LevelWon</code> Void Event Channel in <code>_Game/Data</code>, and a few plain materials to tell surfaces apart.</p>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/3D%20Platformer%20Kit%20-%20Building%20the%20Sample.md#part-1--data-and-materials">Part 1 — Data and materials</a>.</p>
+<h3>3. Your scene, player and camera</h3>
+<ol>
+<li>Create a 3D scene in <code>_Game/Scenes</code>; set the camera's <strong>Renderer</strong> to <strong>Universal Renderer</strong>.</li>
+<li>Build your player (or copy the sample's): <strong>Player Controller 3D</strong> with the feel from your table, <strong>Health</strong>, <strong>Respawner</strong>, and <strong>Blob Shadow 3D</strong>.</li>
+<li>Add the orbit camera, and <strong>Cursor Lock 3D</strong>.</li>
+<li>Walk and jump on a big flat floor until the movement feels like your table.</li>
+</ol>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/3D%20Platformer%20Kit%20-%20Building%20the%20Sample.md#part-3--the-player">Part 3 — The player</a> and <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/3D%20Platformer%20Kit%20-%20Building%20the%20Sample.md#part-4--the-orbit-camera">Part 4 — The orbit camera</a>.</p>
+<h3>4. Your first area</h3>
+<ol>
+<li>Block out your first area with Cubes. Measure gaps: about 4 units across walking, 6 sprinting, 2 units up.</li>
+<li>Add a Checkpoint at its start, coins along the route, and a Kill Zone below everything.</li>
+<li>Add your goal (a Trigger Zone raising <code>LevelWon</code>) at the end, for now.</li>
+</ol>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/3D%20Platformer%20Kit%20-%20Building%20the%20Sample.md#part-5--prefabs">Part 5 — Prefabs</a> and <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/3D%20Platformer%20Kit%20-%20Building%20the%20Sample.md#part-6--the-level">Part 6 — The level</a>.</p>
+<h3>5. Systems, menu and Scene List</h3>
+<p>Copy the sample's <code>Islands Systems</code> (HUD, pause, win screen) into your scene with your variables, and copy <code>Islands_Menu</code> into <code>_Game/Scenes</code> with Play loading your level. In the Scene List: menu, then your level.</p>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/3D%20Platformer%20Kit%20-%20Building%20the%20Sample.md#part-7--islands-systems">Part 7 — Islands Systems</a> and <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/3D%20Platformer%20Kit%20-%20Building%20the%20Sample.md#part-8--menu">Part 8 — Menu</a>.</p>
+<h3>First Playable checks</h3>
+<ul>
+<li>A build runs outside Unity, starting at your menu (see <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Making%20Builds.md">Making Builds</a>).</li>
+<li>Your character moves relative to the camera, with the feel in your table; the camera orbits with the mouse and right stick.</li>
+<li>Your first area can be crossed; falling returns you to the checkpoint.</li>
+<li>Coins count on the HUD; the goal shows the win screen with the pointer back.</li>
+<li>Nothing gets you permanently stuck.</li>
+</ul>
+<h2>Stage 2 — Alpha</h2>
+<p>The goal: every area and every feature exists and works. Art and balance can still be rough.</p>
+<h3>Your other areas</h3>
+<p>Block out each area in your table around its idea: moving and crumbling platforms, bounce pads, enemies. Put a Checkpoint at the start of each, and a landmark players can see from far away.</p>
+<h3>All your pieces</h3>
+<p>Every collectible, enemy and platform in your table is in, and all collectibles can be reached.</p>
+<h3>Every screen</h3>
+<p>Menu, pause, the win screen and credits all work. Add your own assets to the credits: create a text file like the course's <code>Course Credits</code> in <code>_Game</code>, and add it to the <strong>UI Credits</strong> component in your menu.</p>
+<h3>Alpha checks</h3>
+<ul>
+<li>Every area in your table is in, and the level can be finished.</li>
+<li>Every collectible can be reached, and every enemy and platform type is in.</li>
+<li>The camera never leaves the player hidden for long (add a Cinemachine Deoccluder if it does).</li>
+<li>Each custom script does its job, or is marked as cut with a reason.</li>
+<li>Every screen works: menu, pause, the win screen, credits.</li>
+<li>You have a written list of placeholders still to replace.</li>
+</ul>
+<h2>Stage 3 — Beta</h2>
+<p>The goal: it looks, sounds and feels finished. No new features.</p>
+<h3>Art</h3>
+<p>Replace grey boxes with your art, or a 3D art pack from your ten-pager. Keep the player's path readable: walkable surfaces one color family, hazards another.</p>
+<h3>Sound and juice</h3>
+<p>As in Exercise 07: create <strong>Sound Effect</strong> assets and play them from events. Good places: Player Controller 3D's <strong>On Jump</strong> and <strong>On Landed</strong>, coins' <strong>On Collected</strong>, <strong>Bounce Pad 3D</strong>'s <strong>On Bounce</strong>, Patrol Enemy 3D's <strong>On Stomped</strong>, and Health's <strong>On Damaged</strong>. Add music with a <strong>Music Player</strong>. Add screen shake or particles where a moment should feel big.</p>
+<h3>Balance</h3>
+<p>Playtest with someone who hasn't played it (Exercise 10). Watch where they fall and where the camera gets in the way. Adjust gaps, checkpoint spacing and the camera's distance. Change one number at a time, and write down what you changed.</p>
+<h3>Beta checks</h3>
+<ul>
+<li>Final art and sound are in; any placeholder left is on purpose.</li>
+<li>Jumping, landing, coins, stomps and hits each have a sound.</li>
+<li>A playtester finished the level without help.</li>
+<li>Your three changes from the playtest are made.</li>
+<li>The credits list every asset you didn't make, with its license.</li>
+<li>Volume settings and Quit work.</li>
+</ul>
+<h2>Custom scripts</h2>
+<p>Custom scripts agreed at your pitch go in <code>Assets/_Game/Scripts</code>. Connect them to the kit through what it already announces, instead of changing kit scripts:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Custom scripts</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">To react to…</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Listen to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Jumping or landing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Player Controller 3D</strong> → On Jump, On Landed</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A stomp</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Patrol Enemy 3D</strong> → On Stomped</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A platform crumbling</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Crumbling Platform 3D</strong> → On Crumble</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Being hurt</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Health</strong> → On Damaged</td>
+</tr>
+</tbody>
+</table>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Custom scripts (2)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">To make the kit do something…</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Call</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Launch the player</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Player Controller 3D → Bounce</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Start a platform</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Moving Platform 3D → StartMoving</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Show the pointer</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Cursor Lock 3D → Unlock</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Send the player back</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Respawner → Respawn</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Your instructor can help you plan a custom script; the <strong><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Script%20Reference.md">Script Reference</a></strong> lists everything the kit's scripts can do.</p>

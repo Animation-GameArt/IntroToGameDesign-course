@@ -1,0 +1,187 @@
+<p>This guide takes you from your ten-pager to your own finished top-down shooter, built with the Top-Down Shooter Kit. You've played the sample; now you build <strong>your</strong> game with the same parts, step by step. Every step uses a decision from your design, not a value from the sample.</p>
+<p>Each stage ends with checks for a milestone: <strong>First Playable</strong> (Week 10), <strong>Alpha</strong> (Week 12) and <strong>Beta</strong> (Week 14). Your milestone assignments use these checks.</p>
+<blockquote>
+<p><strong>Stuck on a step?</strong><br/>Each step names the part of <strong><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Top-Down%20Shooter%20Kit%20-%20Building%20the%20Sample.md">Top-Down Shooter Kit — Building the Sample</a></strong> that does the same thing with the sample's values. It's a worked example: read it to see how, then do it with your own decisions.</p>
+</blockquote>
+<h2>Before you start</h2>
+<ul>
+<li>The kit is installed, and you've played the sample from its menu to the end.</li>
+<li>You've opened <code>Shooter_Arena</code> and clicked through its Hierarchy.</li>
+<li>Your decisions table (below) is filled in on page 10 of your ten-pager.</li>
+</ul>
+<h2>Your decisions</h2>
+<p>Fill this in on page 10 of your ten-pager. Every step below uses it. An empty row is a decision you haven't made yet: make it before you build that part.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Your decisions</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Decision</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Your answer</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The sample's answer, for comparison</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Arena or scrolling:</strong> one arena with waves, or a level that scrolls</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Both: a 4-wave arena, and a scrolling level with a boss</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>The player:</strong> ship or character, speed, health</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A ship, Max Speed <code>6</code>, 5 health</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Weapons:</strong> each one's fire rate, bullets per shot, spread, damage</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Blaster; Spread Shot and Rapid Fire as 10-second power-ups</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Enemies:</strong> each one's movement, health, points, and whether it shoots</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Drone (chases), Gunship (circles and shoots), Weaver (weaves down), Boss</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Waves or layout:</strong> what comes when</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Waves of 6 drones, then drones and gunships, then the boss</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Pickups and drops:</strong> what enemies leave behind</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Weapon power-ups and hearts, sometimes</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Goal:</strong> how the game ends</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Clear the last wave, or defeat the boss</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Theme and look:</strong> setting, art, colors</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Space, Kenney's Pixel Shmup</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Custom scripts:</strong> anything agreed at your pitch that the kit doesn't do</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">None</td>
+</tr>
+</tbody>
+</table>
+<p>Keep it small. One arena with five or six waves, or one scrolling level with a boss, is a complete shooter in eight weeks.</p>
+<h2>Stage 1 — First Playable</h2>
+<p>The goal: your player shooting your first enemies, in one arena or the first part of a level, from the menu to winning or dying.</p>
+<h3>1. Set up your folders</h3>
+<p>In <code>Assets/_Game</code>, create <code>Scenes</code>, <code>Prefabs</code>, <code>Data</code> and <code>Art</code> (if they don't exist yet). Everything you make goes in <code>_Game</code>. Never edit anything in <code>_Course</code>: an update to the course project would undo it.</p>
+<h3>2. Your data and weapons</h3>
+<p>The sample's <code>Score</code>, <code>PlayerHealth</code>, <code>WeaponName</code> and events work as they are. Create your <strong>Weapon</strong> assets in <code>_Game/Data</code> (<strong>Create → Collin Game → Top-Down Shooter Kit → Weapon</strong>), or duplicate the sample's (<strong>Ctrl+D</strong>) and change the copies: <strong>Shots Per Second</strong>, <strong>Projectiles Per Shot</strong>, <strong>Spread Angle</strong>, <strong>Damage</strong>.</p>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Top-Down%20Shooter%20Kit%20-%20Building%20the%20Sample.md#part-1--data">Part 1 — Data</a> and <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Top-Down%20Shooter%20Kit%20-%20Building%20the%20Sample.md#part-2--projectiles-and-weapons">Part 2 — Projectiles and weapons</a>.</p>
+<h3>3. Your player</h3>
+<p>Make a <strong>Prefab Variant</strong> of <code>Player Ship</code> in <code>_Game/Prefabs</code>. Set its speed, <strong>Max Health</strong>, and its Weapon Shooter 2D's <strong>Weapon</strong> from your table. Change the sprite when your art is ready.</p>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Top-Down%20Shooter%20Kit%20-%20Building%20the%20Sample.md#part-3--the-player">Part 3 — The player</a>.</p>
+<h3>4. Your first enemies</h3>
+<p>For each enemy in your table, make a variant of the closest kit enemy (<code>Drone</code>, <code>Gunship</code>, <code>Weaver</code> or <code>Boss</code>). Set its <strong>Enemy Mover 2D</strong> pattern and speed, its Health, the points its <strong>On Died</strong> adds, and its weapon if it shoots. Start with one or two kinds.</p>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Top-Down%20Shooter%20Kit%20-%20Building%20the%20Sample.md#part-4--enemies">Part 4 — Enemies</a>.</p>
+<h3>5. Your first arena or level</h3>
+<p><strong>An arena:</strong> in <code>_Game/Scenes</code>, create a 2D scene. Drag in a variant of <code>Arena Systems</code> and your player. Set the camera's <strong>Size</strong>, add walls, move the spawn points to just outside the walls, and set your first two waves on <strong>Wave Spawner 2D</strong>.</p>
+<p><strong>A scrolling level:</strong> open <code>Shooter_Scrolling</code>, <strong>File → Save As…</strong> into <code>_Game/Scenes</code>, replace the player and enemies with yours, and place enemies along the first stretch.</p>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Top-Down%20Shooter%20Kit%20-%20Building%20the%20Sample.md#part-6--arena-systems">Part 6 — Arena Systems</a> and <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Top-Down%20Shooter%20Kit%20-%20Building%20the%20Sample.md#part-7--the-arena-shooter_arena">Part 7 — The arena (<code>Shooter_Arena</code>)</a>.</p>
+<h3>6. Your menu, win scene and Scene List</h3>
+<p>Copy the kit's <code>Shooter_Menu</code> and <code>Shooter_Win</code> into <code>_Game/Scenes</code>, point their Scene Changers at your scenes, and change the title. In the Scene List: menu, your game, win.</p>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Top-Down%20Shooter%20Kit%20-%20Building%20the%20Sample.md#part-9--menu-and-win-scenes">Part 9 — Menu and win scenes</a>.</p>
+<h3>First Playable checks</h3>
+<ul>
+<li>A build runs outside Unity, starting at your menu (see <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Making%20Builds.md">Making Builds</a>).</li>
+<li>Your player moves, aims and fires your first weapon, with mouse and with a gamepad.</li>
+<li>At least one enemy type from your table attacks and can be destroyed for points.</li>
+<li>Dying shows Game Over; clearing the first waves (or reaching the end) shows the win screen.</li>
+<li>Nothing gets you permanently stuck.</li>
+</ul>
+<h2>Stage 2 — Alpha</h2>
+<p>The goal: every wave and every feature exists and works. Art and balance can still be rough.</p>
+<h3>All your waves or your whole level</h3>
+<p>Fill in every wave on <strong>Wave Spawner 2D</strong>, or place enemies along the whole scrolling level, ending with your boss. Each wave or stretch should add something: a new enemy, more at once, a new direction.</p>
+<h3>All your weapons, enemies and pickups</h3>
+<p>Every weapon, enemy and drop in your table is in. Weapons the player picks up are <strong>Power-Up</strong> prefabs with your Weapon and a <strong>Duration</strong>; enemies leave them with <strong>Drop On Death 2D</strong>.</p>
+<h3>Every screen</h3>
+<p>Menu, pause, Game Over and win and credits all work. Add your own assets to the credits: create a text file like the course's <code>Course Credits</code> in <code>_Game</code>, and add it to the <strong>UI Credits</strong> component in your menu.</p>
+<h3>Alpha checks</h3>
+<ul>
+<li>Every wave or stretch in your table is in, and the game can be finished.</li>
+<li>Every weapon, enemy and pickup in your table is in.</li>
+<li>The HUD shows score, health, wave and weapon.</li>
+<li>Each custom script does its job, or is marked as cut with a reason.</li>
+<li>Every screen works: menu, pause, Game Over and win, credits.</li>
+<li>You have a written list of placeholders still to replace.</li>
+</ul>
+<h2>Stage 3 — Beta</h2>
+<p>The goal: it looks, sounds and feels finished. No new features.</p>
+<h3>Art</h3>
+<p>Replace placeholders with your art. In a shooter, bullets must be impossible to miss: the player's and the enemies' bullets should be different, bright colors that stand out from the background.</p>
+<h3>Sound and juice</h3>
+<p>As in Exercise 07: create <strong>Sound Effect</strong> assets and play them from events. Good places: each <strong>Weapon Shooter 2D</strong>'s <strong>On Shoot</strong>, enemies' Health <strong>On Died</strong>, the player's <strong>On Damaged</strong>, power-ups' <strong>On Collected</strong>, and each wave's <strong>On Wave Started</strong>. Add music with a <strong>Music Player</strong>. Add screen shake or particles where a moment should feel big.</p>
+<h3>Balance</h3>
+<p>Playtest with someone who hasn't played it (Exercise 10). Watch where they die and how long each wave takes. Adjust enemy counts and health, fire rates and damage, and how often drops appear. Change one number at a time, and write down what you changed.</p>
+<h3>Beta checks</h3>
+<ul>
+<li>Final art and sound are in; any placeholder left is on purpose.</li>
+<li>Shooting, hits, explosions and pickups each have a sound.</li>
+<li>Bullets are easy to see against every background.</li>
+<li>Your three changes from the playtest are made.</li>
+<li>The credits list every asset you didn't make, with its license.</li>
+<li>Volume settings and Quit work.</li>
+</ul>
+<h2>Custom scripts</h2>
+<p>Custom scripts agreed at your pitch go in <code>Assets/_Game/Scripts</code>. Connect them to the kit through what it already announces, instead of changing kit scripts:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Custom scripts</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">To react to…</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Listen to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A wave starting, or all waves cleared</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Wave Spawner 2D</strong> → On Wave Started, On Cleared</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">An enemy destroyed</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Its <strong>Health</strong> → On Died</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player firing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Weapon Shooter 2D</strong> → On Shoot</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The scrolling camera reaching the end</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Scroll Camera 2D</strong> → On Reached End</td>
+</tr>
+</tbody>
+</table>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Custom scripts (2)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">To make the kit do something…</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Call</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Give the player a weapon</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Weapon Shooter 2D → SetWeapon</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Start the waves</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Wave Spawner 2D → Begin</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Stop or restart scrolling</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Scroll Camera 2D → PauseScrolling</strong>, <strong>ResumeScrolling</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Add points</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>IntVariable → Add</strong> on <code>Score</code></td>
+</tr>
+</tbody>
+</table>
+<p>Your instructor can help you plan a custom script; the <strong><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Script%20Reference.md">Script Reference</a></strong> lists everything the kit's scripts can do.</p>

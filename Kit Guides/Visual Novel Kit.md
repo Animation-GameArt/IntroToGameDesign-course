@@ -111,6 +111,8 @@ The sample's art is a placeholder: the portraits are tiny pixel characters and t
 
 ## Start your own game
 
+**[Visual Novel Kit — Build Your Game](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Visual%20Novel%20Kit%20-%20Build%20Your%20Game.md)** takes you from the decisions table on page 10 of your ten-pager to your finished game, step by step, with checks for First Playable, Alpha and Beta. The steps below are the short version.
+
 1. Plan your story on paper first: the scenes, the choices, and where they lead. Keep it small: three scenes and two or three endings is plenty for eight weeks.
 2. In `Assets/_Game/Story`, create a Yarn script (**Create → Yarn Spinner → Yarn Script**) and a Yarn Project (**Create → Yarn Spinner → Yarn Project**). A Yarn Project includes every Yarn script in its folder and the folders inside it.
 3. Create a **Character** for each character (**Create → Collin Game → Visual Novel Kit → Character**), with their name exactly as you write it in the script.

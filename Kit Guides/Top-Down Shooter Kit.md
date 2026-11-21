@@ -76,6 +76,8 @@ If your pitch needs something in the right-hand column, it has to be one of your
 
 ## Start your own game
 
+**[Top-Down Shooter Kit — Build Your Game](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Top-Down%20Shooter%20Kit%20-%20Build%20Your%20Game.md)** takes you from the decisions table on page 10 of your ten-pager to your finished game, step by step, with checks for First Playable, Alpha and Beta. The steps below are the short version.
+
 **An arena shooter:**
 1. Create a new 2D scene in `Assets/_Game/Scenes`.
 2. Drag in `Arena Systems` and `Player Ship` from the kit's `Sample/Prefabs`.

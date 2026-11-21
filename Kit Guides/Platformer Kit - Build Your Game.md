@@ -124,7 +124,7 @@ Anything in your table that none of these can do is a custom script: see **Custo
 
 ### First Playable checks
 
-- [ ] A build runs outside Unity, starting at your menu.
+- [ ] A build runs outside Unity, starting at your menu (see [Making Builds](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Making%20Builds.md)).
 - [ ] Your character moves and jumps with the feel in your table.
 - [ ] Level 1 can be played from start to goal; reaching the goal shows Level Complete.
 - [ ] Losing all health costs a life and returns you to the checkpoint; losing all lives shows Game Over, and Try Again works.

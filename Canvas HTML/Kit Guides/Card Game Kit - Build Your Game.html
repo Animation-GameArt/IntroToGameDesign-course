@@ -1,0 +1,175 @@
+<p>This guide takes you from your ten-pager to your own finished card battle game, built with the Card Game Kit. You've played the sample; now you build <strong>your</strong> game with the same parts, step by step. Every step uses a decision from your design, not a value from the sample.</p>
+<p>Each stage ends with checks for a milestone: <strong>First Playable</strong> (Week 10), <strong>Alpha</strong> (Week 12) and <strong>Beta</strong> (Week 14). Your milestone assignments use these checks.</p>
+<blockquote>
+<p><strong>Stuck on a step?</strong><br/>Each step names the part of <strong><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Card%20Game%20Kit%20-%20Building%20the%20Sample.md">Card Game Kit — Building the Sample</a></strong> that does the same thing with the sample's values. It's a worked example: read it to see how, then do it with your own decisions.</p>
+</blockquote>
+<h2>Before you start</h2>
+<ul>
+<li>The kit is installed, and you've played the sample from its menu to the end.</li>
+<li>You've opened <code>Cards_Game</code> and clicked through its Hierarchy.</li>
+<li>Your decisions table (below) is filled in on page 10 of your ten-pager.</li>
+</ul>
+<h2>Your decisions</h2>
+<p>Fill this in on page 10 of your ten-pager. Every step below uses it. An empty row is a decision you haven't made yet: make it before you build that part.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Your decisions</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Decision</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Your answer</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The sample's answer, for comparison</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Cards:</strong> each one's name, cost and effects, and copies in the deck</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">15 playing cards: spades attack, diamonds block, hearts heal, clubs draw</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>The player:</strong> health, energy per turn, hand size</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">40 health, 3 energy, 5 cards</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Enemies:</strong> each one's health and moves, in order</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Slime (28), Knight (42), Demon (62)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Battles:</strong> how many, and healing between</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">3; heal 10 between</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Card look:</strong> your own pictures, or the blank card with names</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Kenney's playing cards</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Goal:</strong> how the run ends</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Beat all three</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Custom scripts:</strong> anything agreed at your pitch that the kit doesn't do</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">None</td>
+</tr>
+</tbody>
+</table>
+<p>Keep it small. Twelve to fifteen cards, one fixed deck and three enemies is a complete card game in eight weeks. Play it with paper cards first.</p>
+<h2>Stage 1 — First Playable</h2>
+<p>The goal: a battle against your first enemy with your first cards, from the menu to winning or losing.</p>
+<h3>1. Set up your folders</h3>
+<p>In <code>Assets/_Game</code>, create <code>Scenes</code>, <code>Prefabs</code>, <code>Data</code> and <code>Art</code> (if they don't exist yet). Everything you make goes in <code>_Game</code>. Never edit anything in <code>_Course</code>: an update to the course project would undo it.</p>
+<h3>2. Your data</h3>
+<p>Create a <code>PlayerHealth</code> Int Variable and win and lose Void Event Channels in <code>_Game/Data</code>.</p>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Card%20Game%20Kit%20-%20Building%20the%20Sample.md#part-1--data">Part 1 — Data</a>.</p>
+<h3>3. Your first cards</h3>
+<p>Create five cards from your table (<strong>Create → Collin Game → Card Game Kit → Card</strong>): <strong>Cost</strong> and <strong>Effects</strong>. Leave <strong>Face</strong> empty for now: the blank card with the name is quickest while you design.</p>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Card%20Game%20Kit%20-%20Building%20the%20Sample.md#part-2--cards">Part 2 — Cards</a>.</p>
+<h3>4. Your first enemy</h3>
+<p>Create one <strong>Enemy</strong> (<strong>Create → Collin Game → Card Game Kit → Enemy</strong>): health, a portrait, and its <strong>Moves</strong> in order.</p>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Card%20Game%20Kit%20-%20Building%20the%20Sample.md#part-3--enemies">Part 3 — Enemies</a>.</p>
+<h3>5. Your battle scene</h3>
+<ol>
+<li>Open <code>Cards_Game</code>, <strong>File → Save As…</strong> into <code>_Game/Scenes</code>.</li>
+<li>On <strong>Card Battle</strong>: your cards in <strong>Deck</strong> (twice for two copies), your enemy, the player's health, energy and hand size, your win and lose events.</li>
+<li>Play several battles. Can you always win? Can you always lose by playing badly?</li>
+</ol>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Card%20Game%20Kit%20-%20Building%20the%20Sample.md#part-4--card-systems">Part 4 — Card Systems</a> and <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Card%20Game%20Kit%20-%20Building%20the%20Sample.md#part-5--scenes">Part 5 — Scenes</a>.</p>
+<h3>6. Your menu and Scene List</h3>
+<p>Copy <code>Cards_Menu</code> into <code>_Game/Scenes</code>, make Play load your game, and change the title. In the Scene List: menu, then your game.</p>
+<h3>First Playable checks</h3>
+<ul>
+<li>A build runs outside Unity, starting at your menu (see <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Making%20Builds.md">Making Builds</a>).</li>
+<li>Your cards can be played; energy, block and damage work as your table says.</li>
+<li>Your first enemy shows its next move and makes it.</li>
+<li>The battle can be won and lost, and both screens appear.</li>
+<li>Nothing gets you permanently stuck.</li>
+</ul>
+<h2>Stage 2 — Alpha</h2>
+<p>The goal: every card and enemy and every feature exists and works. Art and balance can still be rough.</p>
+<h3>All your cards and enemies</h3>
+<p>Add every card and enemy in your table. Each enemy should need a different plan: block big hits, race a healer, outlast a swarm of small hits.</p>
+<h3>Your numbers</h3>
+<p>Play a run choosing carefully, and one choosing at random. The careful run should usually win; the random one usually lose.</p>
+<h3>Every screen</h3>
+<p>Menu, pause, won and lost and credits all work. Add your own assets to the credits: create a text file like the course's <code>Course Credits</code> in <code>_Game</code>, and add it to the <strong>UI Credits</strong> component in your menu.</p>
+<h3>Alpha checks</h3>
+<ul>
+<li>Every card and enemy in your table is in, and the run can be won.</li>
+<li>Every card gets played in a normal run; any that doesn't is changed or cut.</li>
+<li>Careful play usually wins; random play usually loses.</li>
+<li>Each custom script does its job, or is marked as cut with a reason.</li>
+<li>Every screen works: menu, pause, won and lost, credits.</li>
+<li>You have a written list of placeholders still to replace.</li>
+</ul>
+<h2>Stage 3 — Beta</h2>
+<p>The goal: it looks, sounds and feels finished. No new features.</p>
+<h3>Art</h3>
+<p>Replace placeholders with your card art (each card's <strong>Face</strong>) and enemy portraits. Cards must be readable at the size they're drawn in the hand.</p>
+<h3>Sound and juice</h3>
+<p>As in Exercise 07: create <strong>Sound Effect</strong> assets and play them from events. Good places: the Card Battle's <strong>On Card Played</strong>, <strong>On Enemy Hit</strong>, <strong>On Player Hit</strong>, <strong>On Block</strong> and <strong>On Enemy Defeated</strong>. Add music with a <strong>Music Player</strong>. Add screen shake or particles where a moment should feel big.</p>
+<h3>Balance</h3>
+<p>Playtest with someone who hasn't played it (Exercise 10). Watch which cards they always play first and which they never play. Cost is your main lever. Adjust one card at a time. Change one number at a time, and write down what you changed.</p>
+<h3>Beta checks</h3>
+<ul>
+<li>Final art and sound are in; any placeholder left is on purpose.</li>
+<li>Playing, hitting, blocking and defeating each have a sound.</li>
+<li>Every card has its final art.</li>
+<li>Your three changes from the playtest are made.</li>
+<li>The credits list every asset you didn't make, with its license.</li>
+<li>Volume settings and Quit work.</li>
+</ul>
+<h2>Custom scripts</h2>
+<p>Custom scripts agreed at your pitch go in <code>Assets/_Game/Scripts</code>. Connect them to the kit through what it already announces, instead of changing kit scripts:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Custom scripts</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">To react to…</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Listen to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A card being played</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Card Battle</strong> → On Card Played</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Hits and blocks</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Card Battle</strong> → On Enemy Hit, On Player Hit, On Block</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">An enemy defeated</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Card Battle</strong> → On Enemy Defeated</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Anything on screen changing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Card Battle</strong>'s Changed event (from a script)</td>
+</tr>
+</tbody>
+</table>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Custom scripts (2)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">To make the kit do something…</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Call</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Play a card</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Card Battle → PlayCard</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">End the turn</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Card Battle → EndTurn</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Show a screen</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>UIScreen → Show</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Your instructor can help you plan a custom script; the <strong><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Script%20Reference.md">Script Reference</a></strong> lists everything the kit's scripts can do.</p>

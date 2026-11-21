@@ -70,6 +70,8 @@ If your one rule is in the right-hand column, it's your agreed custom script.
 
 ## Start your own game
 
+**[Grid Puzzle Kit — Build Your Game](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Grid%20Puzzle%20Kit%20-%20Build%20Your%20Game.md)** takes you from the decisions table on page 10 of your ten-pager to your finished game, step by step, with checks for First Playable, Alpha and Beta. The steps below are the short version.
+
 1. **Make a Level List:** in `Assets/_Game`, **Create → Collin Game → Grid Puzzle Kit → Level List**. Give it a Save Name.
 2. **Make your first level:** open `Puzzle_01`, **File → Save As…** `Assets/_Game/Scenes/Level_01`.
 3. On `Puzzle Systems` → `Board`, set **Level List** to your list.

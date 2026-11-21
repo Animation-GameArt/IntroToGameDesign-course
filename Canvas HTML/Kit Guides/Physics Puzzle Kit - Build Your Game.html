@@ -1,0 +1,198 @@
+<p>This guide takes you from your ten-pager to your own finished physics puzzle game, built with the Physics Puzzle Kit. You've played the sample; now you build <strong>your</strong> game with the same parts, step by step. Every step uses a decision from your design, not a value from the sample.</p>
+<p>Each stage ends with checks for a milestone: <strong>First Playable</strong> (Week 10), <strong>Alpha</strong> (Week 12) and <strong>Beta</strong> (Week 14). Your milestone assignments use these checks.</p>
+<blockquote>
+<p><strong>Stuck on a step?</strong><br/>Each step names the part of <strong><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Physics%20Puzzle%20Kit%20-%20Building%20the%20Sample.md">Physics Puzzle Kit — Building the Sample</a></strong> that does the same thing with the sample's values. It's a worked example: read it to see how, then do it with your own decisions.</p>
+</blockquote>
+<h2>Before you start</h2>
+<ul>
+<li>The kit is installed, and you've played the sample from its menu to the end.</li>
+<li>You've opened <code>Puzzle_Level1</code> and clicked through its Hierarchy.</li>
+<li>Your decisions table (below) is filled in on page 10 of your ten-pager.</li>
+</ul>
+<h2>Your decisions</h2>
+<p>Fill this in on page 10 of your ten-pager. Every step below uses it. An empty row is a decision you haven't made yet: make it before you build that part.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Your decisions</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Decision</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Your answer</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The sample's answer, for comparison</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>What you throw or drop:</strong> the projectile, and its weight</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A ball, Mass <code>1</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>What you destroy or reach:</strong> the targets, and why they matter</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Green targets inside towers</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Materials:</strong> which blocks, and how strong each is</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Glass (weak), wood, stone (strong)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Puzzle type:</strong> launching, cutting ropes, or both</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Launching in levels 1–2, ropes in level 3</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Levels:</strong> how many, and the one idea each teaches</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">3: launching; materials; ropes and joints</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Shots per level, and scoring:</strong> what earns points</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">3 shots; points for breaking blocks and for unused shots</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Win and lose:</strong> how a level ends</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Win when every target is gone; lose when shots run out first</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Theme and look:</strong> setting, art, colors</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Kenney's Physics Assets</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Custom scripts:</strong> anything agreed at your pitch that the kit doesn't do</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">None</td>
+</tr>
+</tbody>
+</table>
+<p>Keep it small. Three to five levels, each built around one idea, is a complete physics puzzle game in eight weeks. Physics levels take many test runs to tune.</p>
+<h2>Stage 1 — First Playable</h2>
+<p>The goal: one level, played from the menu to winning or losing, with grey boxes or the kit's art.</p>
+<h3>1. Set up your folders</h3>
+<p>In <code>Assets/_Game</code>, create <code>Scenes</code>, <code>Prefabs</code>, <code>Data</code> and <code>Art</code> (if they don't exist yet). Everything you make goes in <code>_Game</code>. Never edit anything in <code>_Course</code>: an update to the course project would undo it.</p>
+<h3>2. Your data</h3>
+<p>The sample's <code>ShotsLeft</code>, <code>TargetsLeft</code>, <code>PuzzleScore</code> and events (in the kit's <code>Sample/Data</code>) work as they are. Make your own only if your game counts something else, such as <code>Stars</code>. For new materials, create <strong>Physics Material 2D</strong> assets in <code>_Game/Data</code> (friction and bounciness).</p>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Physics%20Puzzle%20Kit%20-%20Building%20the%20Sample.md#part-1--data">Part 1 — Data</a>.</p>
+<h3>3. Your projectile and blocks</h3>
+<ol>
+<li>Make a <strong>Prefab Variant</strong> of <code>Ball</code> (right-click → <strong>Create → Prefab Variant</strong>) in <code>_Game/Prefabs</code> for your projectile. Set its Rigidbody 2D <strong>Mass</strong> and sprite.</li>
+<li>For each material in your table, make a variant of the closest block (<code>Glass Block</code>, <code>Wood Block</code> or <code>Stone Block</code>) and set its <strong>Break Speed</strong> (lower breaks more easily), Mass, Physics Material and <strong>Amount</strong> (points).</li>
+<li>Make a variant of <code>Target</code> for your target.</li>
+</ol>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Physics%20Puzzle%20Kit%20-%20Building%20the%20Sample.md#ball">Ball</a> and <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Physics%20Puzzle%20Kit%20-%20Building%20the%20Sample.md#blocks">Blocks</a>.</p>
+<h3>4. Your launcher and Level Systems</h3>
+<ol>
+<li>Make variants of <code>Launcher</code> and <code>Level Systems</code>. On your launcher, set <strong>Projectile Prefab</strong> to your projectile; tune <strong>Max Pull</strong> and <strong>Power</strong> later.</li>
+<li>On your Level Systems variant → <code>Rules</code>, set <strong>Starting Shots</strong> from your table. If you made your own variables, swap them into the HUD's <strong>UI Variable Binder</strong> and the rules.</li>
+</ol>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Physics%20Puzzle%20Kit%20-%20Building%20the%20Sample.md#launcher">Launcher</a> and <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Physics%20Puzzle%20Kit%20-%20Building%20the%20Sample.md#level-systems">Level Systems</a>.</p>
+<h3>5. Your first level</h3>
+<ol>
+<li>In <code>_Game/Scenes</code>, create a new 2D scene for level 1. Drag in your Level Systems and launcher (or a <code>Rope Anchor</code>, for a rope level).</li>
+<li>Add ground: a Tilemap with a solid collider, or a long sprite with a Box Collider 2D.</li>
+<li>Build the structure your table's first idea needs, with at least one target. Leave tiny gaps between stacked blocks.</li>
+<li>Press <strong>Play</strong> many times. If the level can be won with the first shot every time, it's too easy; if you can't win it, it's too hard.</li>
+</ol>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Physics%20Puzzle%20Kit%20-%20Building%20the%20Sample.md#part-3--levels">Part 3 — Levels</a>.</p>
+<h3>6. Your menu, win scene and Scene List</h3>
+<ol>
+<li>Copy the kit's <code>Puzzle_Menu</code> and <code>Puzzle_Win</code> into <code>_Game/Scenes</code> (select, <strong>Ctrl+D</strong>, move and rename).</li>
+<li>Point their Scene Changers at your first level and your menu. Change the title to your game's name.</li>
+<li><strong>File → Build Profiles → Open Scene List</strong>: remove the sample scenes; add yours in order: menu, levels, win.</li>
+</ol>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Physics%20Puzzle%20Kit%20-%20Building%20the%20Sample.md#part-4--menu-and-win-scenes">Part 4 — Menu and win scenes</a>.</p>
+<h3>First Playable checks</h3>
+<ul>
+<li>A build runs outside Unity, starting at your menu (see <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Making%20Builds.md">Making Builds</a>).</li>
+<li>Level 1 can be won by destroying every target, and lost by running out of shots; both screens appear.</li>
+<li>Your projectile and at least two of your materials are in, and break as you intend.</li>
+<li>The score counts on the HUD, and Retry works.</li>
+<li>Nothing gets you permanently stuck.</li>
+</ul>
+<h2>Stage 2 — Alpha</h2>
+<p>The goal: every level and every feature exists and works. Art and balance can still be rough.</p>
+<h3>Your other levels</h3>
+<p>For each level in your table: duplicate your level 1 scene, rebuild the structure around that level's idea, and add it to the Scene List before the win scene. Bring earlier ideas back in new combinations.</p>
+<h3>All your pieces, and custom scripts</h3>
+<p>Every material, target and projectile in your table is in at least one level. For ropes, add <code>Rope Anchor</code>s and set their <strong>Hanging Body</strong>. For seesaws, wind or bounce, use Unity's joints, effectors and Physics Materials (see the recipes in <strong>Physics Puzzle Kit</strong>).</p>
+<h3>Every screen</h3>
+<p>Menu, pause, win and lose and credits all work. Add your own assets to the credits: create a text file like the course's <code>Course Credits</code> in <code>_Game</code>, and add it to the <strong>UI Credits</strong> component in your menu.</p>
+<h3>Alpha checks</h3>
+<ul>
+<li>Every level in your table is in the build, and each can be won.</li>
+<li>Every material, projectile and puzzle type in your table is in.</li>
+<li>The game can be played from the menu, through every level, to the win screen, and back to the menu.</li>
+<li>Each custom script does its job, or is marked as cut with a reason.</li>
+<li>Every screen works: menu, pause, win and lose, credits.</li>
+<li>You have a written list of placeholders still to replace.</li>
+</ul>
+<h2>Stage 3 — Beta</h2>
+<p>The goal: it looks, sounds and feels finished. No new features.</p>
+<h3>Art</h3>
+<p>Replace placeholders with your art, or with art packs listed in your ten-pager. Make the materials easy to tell apart at a glance: the player should know glass from stone before they shoot. Keep the sprites' sizes matched to their colliders.</p>
+<h3>Sound and juice</h3>
+<p>As in Exercise 07: create <strong>Sound Effect</strong> assets and play them from events. Good places: a Breakable's <strong>On Broken</strong>, the launcher's launch, a target breaking, and the win and lose screens. Add music with a <strong>Music Player</strong>. Add screen shake or particles where a moment should feel big.</p>
+<h3>Balance</h3>
+<p>Playtest with someone who hasn't played it (Exercise 10). Watch which levels they win on the first shot, and which they give up on. Adjust <strong>Break Speed</strong>, <strong>Starting Shots</strong>, the launcher's <strong>Power</strong>, and the structures. Change one number at a time, and write down what you changed.</p>
+<h3>Beta checks</h3>
+<ul>
+<li>Final art and sound are in; any placeholder left is on purpose.</li>
+<li>Breaking, launching and winning each have a sound.</li>
+<li>Every level has been won by a playtester.</li>
+<li>Your three changes from the playtest are made.</li>
+<li>The credits list every asset you didn't make, with its license.</li>
+<li>Volume settings and Quit work.</li>
+</ul>
+<h2>Custom scripts</h2>
+<p>Custom scripts agreed at your pitch go in <code>Assets/_Game/Scripts</code>. Connect them to the kit through what it already announces, instead of changing kit scripts:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Custom scripts</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">To react to…</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Listen to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A block or target breaking</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Breakable 2D</strong> → On Broken</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A shot finishing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The <code>ShotFinished</code> event, with a <strong>Void Event Listener</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Winning or losing a level</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The <code>PuzzleWon</code> and <code>PuzzleLost</code> events</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The score changing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The score variable (its Changed event)</td>
+</tr>
+</tbody>
+</table>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Custom scripts (2)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">To make the kit do something…</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Call</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Add or take shots</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>IntVariable → Add</strong> on <code>ShotsLeft</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Break something on purpose</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Breakable 2D → Break</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Show a screen</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>UIScreen → Show</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Your instructor can help you plan a custom script; the <strong><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Script%20Reference.md">Script Reference</a></strong> lists everything the kit's scripts can do.</p>

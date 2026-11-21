@@ -1,0 +1,193 @@
+<p>This guide takes you from your ten-pager to your own finished stealth or horror game, built with the Stealth Kit. You've played the sample; now you build <strong>your</strong> game with the same parts, step by step. Every step uses a decision from your design, not a value from the sample.</p>
+<p>Each stage ends with checks for a milestone: <strong>First Playable</strong> (Week 10), <strong>Alpha</strong> (Week 12) and <strong>Beta</strong> (Week 14). Your milestone assignments use these checks.</p>
+<blockquote>
+<p><strong>Stuck on a step?</strong><br/>Each step names the part of <strong><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Stealth%20Kit%20-%20Building%20the%20Sample.md">Stealth Kit — Building the Sample</a></strong> that does the same thing with the sample's values. It's a worked example: read it to see how, then do it with your own decisions.</p>
+</blockquote>
+<h2>Before you start</h2>
+<ul>
+<li>The kit is installed, with the <strong>AI Navigation</strong> package, and you've played the sample from its menu to the end.</li>
+<li>You've opened <code>NightShift_Level</code> and clicked through its Hierarchy.</li>
+<li>Your decisions table (below) is filled in on page 10 of your ten-pager.</li>
+</ul>
+<h2>Your decisions</h2>
+<p>Fill this in on page 10 of your ten-pager. Every step below uses it. An empty row is a decision you haven't made yet: make it before you build that part.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Your decisions</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Decision</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Your answer</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The sample's answer, for comparison</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Stealth or horror:</strong> third person with view cones, or first person in the dark</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Third person, view cones shown</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>The place:</strong> rooms, and how they connect</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">An office building: lobby, office, storage, break room, security</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Guards or monster:</strong> how many, their routes, sight and hearing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Two guards: View Distance <code>11</code>, View Angle <code>90</code>, Hearing Range <code>10</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Hiding:</strong> where, and whether it needs crouching</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Lockers; under desks (crouching)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Flashlight:</strong> battery length, and pickups</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">120 seconds; one battery pickup</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Objectives:</strong> what the player collects or does</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Three keys</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Goal and losing:</strong> how it ends</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Reach the exit; caught once and it's over</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Mood:</strong> lighting and sound</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Dim blue light, a heartbeat that rises with alert</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Custom scripts:</strong> anything agreed at your pitch that the kit doesn't do</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">None</td>
+</tr>
+</tbody>
+</table>
+<p>Keep it small. One building, one or two enemies, three objectives and an exit is a complete stealth or horror game in eight weeks. Light and sound make the mood: leave time for both.</p>
+<h2>Stage 1 — First Playable</h2>
+<p>The goal: one guard on its route, a room or two, one objective and the exit, from the menu to escaping or being caught, in grey boxes.</p>
+<h3>1. Set up your folders</h3>
+<p>In <code>Assets/_Game</code>, create <code>Scenes</code>, <code>Prefabs</code>, <code>Data</code> and <code>Art</code> (if they don't exist yet). Everything you make goes in <code>_Game</code>. Never edit anything in <code>_Course</code>: an update to the course project would undo it.</p>
+<h3>2. Your data and materials</h3>
+<p>Create your objective counter (such as <code>Keys</code>), <code>Battery</code> (Float Variable, <code>100</code>), <code>Message</code> (String Variable), and Escaped, Caught and exit-opened Void Event Channels in <code>_Game/Data</code>.</p>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Stealth%20Kit%20-%20Building%20the%20Sample.md#part-1--data-and-materials">Part 1 — Data and materials</a>.</p>
+<h3>3. Your building, blocked in</h3>
+<ol>
+<li>Create a 3D scene in <code>_Game/Scenes</code>; set the camera's <strong>Renderer</strong> to <strong>Universal Renderer</strong>. Make it dark.</li>
+<li>Block out your first rooms with Cubes: floor, walls with door gaps, furniture that blocks sight.</li>
+<li>Add a <strong>NavMesh Surface</strong> to the parent of the level and click <strong>Bake</strong>.</li>
+</ol>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Stealth%20Kit%20-%20Building%20the%20Sample.md#part-2--the-building">Part 2 — The building</a>.</p>
+<h3>4. Your player</h3>
+<p>Build your player (or copy the sample's): <strong>Player Controller 3D</strong> (crouch on, jump off), <strong>Stealth Target 3D</strong>, a Spot Light with <strong>Flashlight 3D</strong>, the camera and <strong>Cursor Lock 3D</strong>. For first person, see the recipe in <strong>Stealth Kit</strong>.</p>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Stealth%20Kit%20-%20Building%20the%20Sample.md#part-3--the-player">Part 3 — The player</a>.</p>
+<h3>5. Your first guard</h3>
+<p>Make a <strong>Prefab Variant</strong> of the sample's <code>Guard</code>, set its sight, hearing and speeds from your table, and give it a route of patrol points. Watch it walk the route before adding anything else.</p>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Stealth%20Kit%20-%20Building%20the%20Sample.md#part-4--guards">Part 4 — Guards</a>.</p>
+<h3>6. Hiding, an objective and the exit</h3>
+<p>Add a hiding spot, your first objective (a Collectible), the exit door that opens when objectives are done, and the escape trigger.</p>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Stealth%20Kit%20-%20Building%20the%20Sample.md#part-5--hiding-keys-and-the-exit">Part 5 — Hiding, keys and the exit</a>.</p>
+<h3>7. Systems, menu and Scene List</h3>
+<p>Copy the sample's <code>Stealth Systems</code> with your variables, and <code>NightShift_Menu</code> into <code>_Game/Scenes</code> with Play loading your level. In the Scene List: menu, then your level.</p>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Stealth%20Kit%20-%20Building%20the%20Sample.md#part-6--stealth-systems">Part 6 — Stealth Systems</a> and <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Stealth%20Kit%20-%20Building%20the%20Sample.md#part-7--menu">Part 7 — Menu</a>.</p>
+<h3>First Playable checks</h3>
+<ul>
+<li>A build runs outside Unity, starting at your menu (see <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Making%20Builds.md">Making Builds</a>).</li>
+<li>Your guard walks its route, sees you in its view, hears you sprint, searches, chases and catches you.</li>
+<li>Hiding works, and crouching is quiet.</li>
+<li>Your first objective opens the exit; reaching it shows the escaped screen, and being caught shows the caught screen.</li>
+<li>Nothing gets you permanently stuck.</li>
+</ul>
+<h2>Stage 2 — Alpha</h2>
+<p>The goal: every room and guard and every feature exists and works. Art and balance can still be rough.</p>
+<h3>Your whole building</h3>
+<p>Block out every room. Give each guard a route that crosses the player's path at moments the player can learn and wait for. Put a hiding place before each tricky stretch.</p>
+<h3>All your objectives, and the flashlight</h3>
+<p>Every objective and battery is placed. Bake the NavMesh again after changing walls.</p>
+<h3>Every screen</h3>
+<p>Menu, pause, escaped and caught and credits all work. Add your own assets to the credits: create a text file like the course's <code>Course Credits</code> in <code>_Game</code>, and add it to the <strong>UI Credits</strong> component in your menu.</p>
+<h3>Alpha checks</h3>
+<ul>
+<li>Every room, guard, hiding spot and objective in your table is in.</li>
+<li>Every objective can be reached by waiting for the right moment, not only by luck.</li>
+<li>Every guard state can be seen in play: patrol, investigate, chase, give up.</li>
+<li>Each custom script does its job, or is marked as cut with a reason.</li>
+<li>Every screen works: menu, pause, escaped and caught, credits.</li>
+<li>You have a written list of placeholders still to replace.</li>
+</ul>
+<h2>Stage 3 — Beta</h2>
+<p>The goal: it looks, sounds and feels finished. No new features.</p>
+<h3>Art</h3>
+<p>Replace grey boxes with your art. Keep guards readable in the dark: a light, a visor, a sound. For horror, hide the view cones and the alert meter.</p>
+<h3>Sound and juice</h3>
+<p>As in Exercise 07: create <strong>Sound Effect</strong> assets and play them from events. Sound carries this genre. Good places: Guard 3D's <strong>On Suspicious</strong>, <strong>On Chase</strong>, <strong>On Gave Up</strong> and <strong>On Caught</strong>; the flashlight's <strong>On Switched On</strong>; a hiding spot's <strong>On Enter</strong>; and <strong>Alert Audio</strong> for the heartbeat. Add music with a <strong>Music Player</strong>. Add screen shake or particles where a moment should feel big.</p>
+<h3>Balance</h3>
+<p>Playtest with someone who hasn't played it (Exercise 10). Watch where they get caught and where they're bored. Adjust Time To Spot, View Distance, Hearing Range and guard routes one at a time. Change one number at a time, and write down what you changed.</p>
+<h3>Beta checks</h3>
+<ul>
+<li>Final art and sound are in; any placeholder left is on purpose.</li>
+<li>Every guard reaction has a sound, and the mood holds from start to finish.</li>
+<li>A careful playtester usually escapes; a careless one is usually caught.</li>
+<li>Your three changes from the playtest are made.</li>
+<li>The credits list every asset you didn't make, with its license.</li>
+<li>Volume settings and Quit work.</li>
+</ul>
+<h2>Custom scripts</h2>
+<p>Custom scripts agreed at your pitch go in <code>Assets/_Game/Scripts</code>. Connect them to the kit through what it already announces, instead of changing kit scripts:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Custom scripts</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">To react to…</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Listen to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A guard noticing, chasing or giving up</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Guard 3D</strong> → On Suspicious, On Chase, On Gave Up</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Being caught</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Guard 3D</strong> → On Caught, or the Caught event</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Hiding</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Hiding Spot 3D</strong> → On Enter, On Exit</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The flashlight</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Flashlight 3D</strong> → On Switched On, On Switched Off, On Empty</td>
+</tr>
+</tbody>
+</table>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Custom scripts (2)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">To make the kit do something…</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Call</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Refill the battery</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Flashlight 3D → AddBattery</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Show a message</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>StringVariable → SetValue</strong> on <code>Message</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Show the pointer</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Cursor Lock 3D → Unlock</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Read how alert the guards are</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Guard3D.HighestAlert</strong>, <strong>AnyChasing</strong> (from a script)</td>
+</tr>
+</tbody>
+</table>
+<p>Your instructor can help you plan a custom script; the <strong><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Script%20Reference.md">Script Reference</a></strong> lists everything the kit's scripts can do.</p>

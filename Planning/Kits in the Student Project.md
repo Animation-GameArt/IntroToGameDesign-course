@@ -67,5 +67,4 @@ The Build Your Game guide ends each stage with checks: First Playable, Alpha and
 
 | Kit | Build Your Game guide |
 |---|---|
-| Platformer | Written (2026-11-21); the pattern for the others |
-| The other fourteen | To write once the Platformer one is reviewed |
+| All fifteen kits | Written (2026-11-21). The Platformer guide was reviewed first, and the other fourteen follow its pattern |

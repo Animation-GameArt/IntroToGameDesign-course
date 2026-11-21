@@ -71,6 +71,8 @@ Select a paddle in the Scene view to see the line it can move along.
 
 ## Start your own game
 
+**[Arcade Classic Kit — Build Your Game](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Arcade%20Classic%20Kit%20-%20Build%20Your%20Game.md)** takes you from the decisions table on page 10 of your ten-pager to your finished game, step by step, with checks for First Playable, Alpha and Beta. The steps below are the short version.
+
 1. Create a new 2D scene in `Assets/_Game/Scenes`.
 2. Set the Main Camera's **Size** to `5` and leave it still: arcade games fit on one screen.
 3. Drag in `Arcade Systems` and the prefabs for the game you're closest to.

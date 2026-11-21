@@ -73,6 +73,8 @@ The kit's guards walk on a **NavMesh**, which needs Unity's **AI Navigation** pa
 
 ## Start your own game
 
+**[Stealth Kit — Build Your Game](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Stealth%20Kit%20-%20Build%20Your%20Game.md)** takes you from the decisions table on page 10 of your ten-pager to your finished game, step by step, with checks for First Playable, Alpha and Beta. The steps below are the short version.
+
 1. Draw your building from above on paper: rooms, doors, each guard's route, where the keys are, and where to hide. Make sure every key can be reached by waiting for the right moment, not only by luck.
 2. Open `NightShift_Level`, **File → Save As…** into `Assets/_Game/Scenes`, and rebuild the rooms with Cubes.
 3. After changing walls or floors, select `Level` and click **Bake** on its **NavMesh Surface**. Guards can only walk where the NavMesh (the blue overlay) is.

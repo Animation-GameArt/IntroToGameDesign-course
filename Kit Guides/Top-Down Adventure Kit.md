@@ -77,6 +77,8 @@ Select the `Player` in the Scene view to see the circle the sword reaches. Selec
 
 ## Start your own game
 
+**[Top-Down Adventure Kit — Build Your Game](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Top-Down%20Adventure%20Kit%20-%20Build%20Your%20Game.md)** takes you from the decisions table on page 10 of your ten-pager to your finished game, step by step, with checks for First Playable, Alpha and Beta. The steps below are the short version.
+
 1. Create a new 2D scene in `Assets/_Game/Scenes`.
 2. Drag in `Level Systems` and `Player` from the kit's `Sample/Prefabs`.
 3. Paint the floor and walls with a Tilemap, as in Exercise 04: walls on their own Tilemap with a **Tilemap Collider 2D** and **Composite Collider 2D**.

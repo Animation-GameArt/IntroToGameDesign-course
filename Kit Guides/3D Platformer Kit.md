@@ -69,6 +69,8 @@ The 3D scripts it builds on (Player Controller 3D and friends) are already in th
 
 ## Start your own game
 
+**[3D Platformer Kit — Build Your Game](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/3D%20Platformer%20Kit%20-%20Build%20Your%20Game.md)** takes you from the decisions table on page 10 of your ten-pager to your finished game, step by step, with checks for First Playable, Alpha and Beta. The steps below are the short version.
+
 1. Sketch your level from above on paper: where the player starts, the three areas, where the coins are, and the goal. Each area should teach one idea, then test it.
 2. Open `Islands_Level`, **File → Save As…** into `Assets/_Game/Scenes`, and delete the three areas.
 3. Block out your level with Unity's basic shapes (**GameObject → 3D Object → Cube**). Play it often while it's grey; add art only once it's fun.

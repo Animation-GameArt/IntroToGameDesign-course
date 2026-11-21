@@ -1,0 +1,191 @@
+<p>This guide takes you from your ten-pager to your own finished farming game, built with the Farming Kit. You've played the sample; now you build <strong>your</strong> game with the same parts, step by step. Every step uses a decision from your design, not a value from the sample.</p>
+<p>Each stage ends with checks for a milestone: <strong>First Playable</strong> (Week 10), <strong>Alpha</strong> (Week 12) and <strong>Beta</strong> (Week 14). Your milestone assignments use these checks.</p>
+<blockquote>
+<p><strong>Stuck on a step?</strong><br/>Each step names the part of <strong><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Farming%20Kit%20-%20Building%20the%20Sample.md">Farming Kit — Building the Sample</a></strong> that does the same thing with the sample's values. It's a worked example: read it to see how, then do it with your own decisions.</p>
+</blockquote>
+<h2>Before you start</h2>
+<ul>
+<li>The kit is installed, and you've played the sample from its menu to the end.</li>
+<li>You've opened <code>Farm_Game</code> and clicked through its Hierarchy.</li>
+<li>Your decisions table (below) is filled in on page 10 of your ten-pager.</li>
+</ul>
+<h2>Your decisions</h2>
+<p>Fill this in on page 10 of your ten-pager. Every step below uses it. An empty row is a decision you haven't made yet: make it before you build that part.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Your decisions</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Decision</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Your answer</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">The sample's answer, for comparison</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>The farmer and the place:</strong> who, where, and the art</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A farmer from Tiny Dungeon on a Tiny Town farm</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Crops:</strong> each one's seed price, days to grow, sell price, regrowing, and dying when dry</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Mushrooms (quick, cheap), Berry Bush (regrows), Goldleaf (slow, valuable, dies dry)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Tools:</strong> which, and what each does</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Hoe, watering can, shovel</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Field:</strong> size, and anything else to farm</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">One 4 × 4 field</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Days:</strong> seconds per day, and the last day</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">240 seconds; 14 days</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Energy:</strong> how much, and what costs it</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">30 a day; 1 per tool use</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Shop:</strong> what it sells and buys</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Seeds; buys every crop</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Goal:</strong> how the game ends</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Earn $800 by day 14</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Custom scripts:</strong> anything agreed at your pitch that the kit doesn't do</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">None</td>
+</tr>
+</tbody>
+</table>
+<p>Keep it small. One field, three crops, one shop and a goal is a complete farming game in eight weeks. Villagers, animals and seasons are custom scripts, and big ones.</p>
+<h2>Stage 1 — First Playable</h2>
+<p>The goal: one crop growing from seed to sale, over several days, from the menu to winning or running out of time.</p>
+<h3>1. Set up your folders</h3>
+<p>In <code>Assets/_Game</code>, create <code>Scenes</code>, <code>Prefabs</code>, <code>Data</code> and <code>Art</code> (if they don't exist yet). Everything you make goes in <code>_Game</code>. Never edit anything in <code>_Course</code>: an update to the course project would undo it.</p>
+<h3>2. Your data and soil</h3>
+<p>Create Int Variables for <code>Money</code>, <code>Day</code> and <code>Energy</code>, a String Variable <code>Clock</code>, and win and lose Void Event Channels in <code>_Game/Data</code>, with starting values from your table. Create two <strong>Tile</strong> assets for tilled and watered soil.</p>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Farming%20Kit%20-%20Building%20the%20Sample.md#part-1--data">Part 1 — Data</a> and <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Farming%20Kit%20-%20Building%20the%20Sample.md#part-2--soil-tiles">Part 2 — Soil tiles</a>.</p>
+<h3>3. Your items and first crop</h3>
+<p>Create your tools and one crop's seed and produce as <strong>Items</strong> (<strong>Create → Collin Game → Farming Kit → Item</strong>), and its <strong>Crop</strong> (<strong>Create → Collin Game → Farming Kit → Crop</strong>): stage sprites, <strong>Days Per Stage</strong>, produce, regrowing. Point the seeds at the crop, and the crop at its produce.</p>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Farming%20Kit%20-%20Building%20the%20Sample.md#part-3--items-and-crops">Part 3 — Items and crops</a>.</p>
+<h3>4. Your farmer</h3>
+<p>Make a <strong>Prefab Variant</strong> of the sample's <code>Player</code> (or build one the same way): <strong>Inventory</strong> with your tools and some seeds in <strong>Starting Items</strong>, <strong>Farmer Tools 2D</strong> with your Energy and <strong>Energy Per Use</strong>.</p>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Farming%20Kit%20-%20Building%20the%20Sample.md#part-4--the-player">Part 4 — The player</a>.</p>
+<h3>5. Your farm</h3>
+<ol>
+<li>Open <code>Farm_Game</code>, <strong>File → Save As…</strong> into <code>_Game/Scenes</code>.</li>
+<li>Repaint the field on the <code>Farmland</code> tilemap, and the world around it. Set the <strong>Farm Field</strong>'s soil tiles to yours.</li>
+<li>Swap your data into <code>Farm Systems</code>: the <strong>Day Cycle</strong> (day, clock, last day, Reset Each Morning), the win condition, <strong>UI Shop</strong> (For Sale, Money) and the <strong>UI Variable Binder</strong>.</li>
+</ol>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Farming%20Kit%20-%20Building%20the%20Sample.md#part-5--farm-systems">Part 5 — Farm Systems</a> and <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Farming%20Kit%20-%20Building%20the%20Sample.md#part-6--the-farm-farm_game">Part 6 — The farm (<code>Farm_Game</code>)</a>.</p>
+<h3>6. Your menu and Scene List</h3>
+<p>Copy <code>Farm_Menu</code> into <code>_Game/Scenes</code>, make Play load your farm, and change the title. In the Scene List: menu, then your farm.</p>
+<p><em>Worked example:</em> <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Farming%20Kit%20-%20Building%20the%20Sample.md#part-7--menu">Part 7 — Menu</a>.</p>
+<h3>First Playable checks</h3>
+<ul>
+<li>A build runs outside Unity, starting at your menu (see <a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Making%20Builds.md">Making Builds</a>).</li>
+<li>Tilling, planting and watering work on your field, and use energy.</li>
+<li>Sleeping ends the day; watered crops grow; the morning report shows.</li>
+<li>A crop can be harvested and sold in the shop, and seeds bought.</li>
+<li>Reaching your goal wins; the last day ending without it loses.</li>
+<li>Nothing gets you permanently stuck.</li>
+</ul>
+<h2>Stage 2 — Alpha</h2>
+<p>The goal: every crop and every feature exists and works. Art and balance can still be rough.</p>
+<h3>All your crops and tools</h3>
+<p>Add every crop, seed and tool in your table. Each crop should be best at something: quick, regrowing, or valuable.</p>
+<h3>Your days and numbers</h3>
+<p>Play a whole game. Write down money at the end of each day. A good plan should reach the goal with a few days to spare; planting only the cheapest crop shouldn't.</p>
+<h3>Every screen</h3>
+<p>Menu, pause, the shop, the morning report, won and lost and credits all work. Add your own assets to the credits: create a text file like the course's <code>Course Credits</code> in <code>_Game</code>, and add it to the <strong>UI Credits</strong> component in your menu.</p>
+<h3>Alpha checks</h3>
+<ul>
+<li>Every crop, tool and shop item in your table is in.</li>
+<li>A good plan reaches the goal; doing nothing doesn't.</li>
+<li>The clock, sleep, energy and the morning report all work over a whole game.</li>
+<li>Each custom script does its job, or is marked as cut with a reason.</li>
+<li>Every screen works: menu, pause, the shop, the morning report, won and lost, credits.</li>
+<li>You have a written list of placeholders still to replace.</li>
+</ul>
+<h2>Stage 3 — Beta</h2>
+<p>The goal: it looks, sounds and feels finished. No new features.</p>
+<h3>Art</h3>
+<p>Replace placeholders with your art. Each crop's stages and each seed should be easy to tell apart in the hotbar and on the field.</p>
+<h3>Sound and juice</h3>
+<p>As in Exercise 07: create <strong>Sound Effect</strong> assets and play them from events. Good places: each Farmer Tools 2D event (<strong>On Till</strong>, <strong>On Water</strong>, <strong>On Plant</strong>, <strong>On Harvest</strong>, <strong>On Nothing</strong>), the Day Cycle's <strong>On Day Ended</strong>, and buying and selling. Add music with a <strong>Music Player</strong>. Add screen shake or particles where a moment should feel big.</p>
+<h3>Balance</h3>
+<p>Playtest with someone who hasn't played it (Exercise 10). Watch which crops they never plant, and how much money they end with. Adjust prices, growing days and energy, one at a time. Change one number at a time, and write down what you changed.</p>
+<h3>Beta checks</h3>
+<ul>
+<li>Final art and sound are in; any placeholder left is on purpose.</li>
+<li>Every tool use, harvest and sale has a sound.</li>
+<li>Every crop gets planted by playtesters; any that doesn't is changed or cut.</li>
+<li>Your three changes from the playtest are made.</li>
+<li>The credits list every asset you didn't make, with its license.</li>
+<li>Volume settings and Quit work.</li>
+</ul>
+<h2>Custom scripts</h2>
+<p>Custom scripts agreed at your pitch go in <code>Assets/_Game/Scripts</code>. Connect them to the kit through what it already announces, instead of changing kit scripts:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Custom scripts</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">To react to…</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Listen to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Using a tool</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Farmer Tools 2D</strong> → On Till, On Water, On Plant, On Harvest, On Clear</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A day ending</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Day Cycle</strong> → On Day Ended</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Time running out</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Day Cycle</strong> → On Time Up</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Money changing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The money variable (its Changed event)</td>
+</tr>
+</tbody>
+</table>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">Custom scripts (2)</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">To make the kit do something…</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Call</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">End the day</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Day Cycle → Sleep</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Give items</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Inventory → Add</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Show a message</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>FarmMessage.Say</strong> (from a script)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Open the shop</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>UI Shop → Open</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Your instructor can help you plan a custom script; the <strong><a href="https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Guides/Script%20Reference.md">Script Reference</a></strong> lists everything the kit's scripts can do.</p>

@@ -69,6 +69,8 @@ Select the `Launcher` in the Scene view to see the circle where a press starts a
 
 ## Start your own game
 
+**[Physics Puzzle Kit — Build Your Game](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Physics%20Puzzle%20Kit%20-%20Build%20Your%20Game.md)** takes you from the decisions table on page 10 of your ten-pager to your finished game, step by step, with checks for First Playable, Alpha and Beta. The steps below are the short version.
+
 1. Create a new 2D scene in `Assets/_Game/Scenes` for your first level.
 2. Drag in `Level Systems` and `Launcher` from the kit's `Sample/Prefabs`.
 3. Add ground: a Tilemap with a solid collider, or a long sprite with a Box Collider 2D.
