@@ -18,7 +18,7 @@
 </ol>
 <h2>Part 3 — The player</h2>
 <ol>
-<li>An empty <code>Player</code> at <code>0, 1, 0</code>, tagged <strong>Player</strong>. Children: a Capsule <code>Body</code> at <code>0, 1, 0</code> (remove its collider, material <code>Stone</code>), and a small Cube <code>Nose</code> at <code>0, 1.5, 0.45</code>, Scale <code>0.3, 0.2, 0.4</code> (remove its collider), so you can see which way it faces.</li>
+<li>An empty <code>Player</code> at <code>0, 1, 0</code>, tagged <strong>Player</strong>. Children: a Capsule <code>Body</code> at <code>0, 1, 0</code> (remove its collider, material <code>Stone</code>), and a small Cube <code>Nose</code> at <code>0, 1.5, 0.45</code>, Scale <code>0.3, 0.2, 0.4</code> (remove its collider), so you can see which way it faces; and an empty <code>Camera Target</code> at <code>0, 1.4, 0</code>, at head height, for the camera to follow.</li>
 <li>On <code>Player</code>: <strong>Player Controller 3D</strong> (it adds a Character Controller: Height <code>2</code>, Radius <code>0.4</code>, Center <code>0, 1, 0</code>). Facing <strong>Face Movement</strong>; Walk Speed <code>6</code>, Sprint Speed <code>9</code>; Jump Height <code>2.2</code>, Extra Air Jumps <code>0</code>; Can Crouch unticked.</li>
 <li><strong>Health</strong>: Max Health <code>3</code>, Invulnerable Time <code>1</code>, Health Variable <code>PlayerHealth</code>. <strong>Respawner</strong>: Respawn When Health Runs Out ticked.</li>
 <li>A Quad <code>Player Shadow</code>, <strong>not</strong> a child of the player, material <code>Shadow</code>, no collider. On <code>Player</code>, <strong>Blob Shadow 3D</strong>: Shadow <code>Player Shadow</code>, Size <code>0.9</code>.</li>
@@ -26,11 +26,11 @@
 </ol>
 <h2>Part 4 — The orbit camera</h2>
 <ol>
-<li><strong>GameObject → Cinemachine → Cinemachine Camera</strong>. Name it <code>Orbit Camera</code>. Tracking Target <code>Player</code>.</li>
-<li><strong>Position Control: Orbital Follow</strong>. Orbit Style <strong>Sphere</strong>, Radius <code>7</code>, Target Offset <code>0, 1.2, 0</code>. Under <strong>Vertical Axis</strong>, Range <code>-10</code> to <code>60</code>, Value <code>20</code>.</li>
-<li><strong>Rotation Control: Rotation Composer</strong>, Target Offset <code>0, 1.2, 0</code>.</li>
+<li><strong>GameObject → Cinemachine → Cinemachine Camera</strong>. Name it <code>Orbit Camera</code>. Tracking Target: the Player's <code>Camera Target</code> (not the Player itself: the Player's position is at its feet, and the camera's obstacle checks would start inside the ground).</li>
+<li><strong>Position Control: Orbital Follow</strong>. Orbit Style <strong>Sphere</strong>, Radius <code>7</code>, Target Offset <code>0, 0, 0</code>, Position Damping <code>0.3</code> on all three. Under <strong>Vertical Axis</strong>, Range <code>-10</code> to <code>60</code>, Value <code>20</code>.</li>
+<li><strong>Rotation Control: Rotation Composer</strong>, Target Offset <code>0, 0, 0</code>, Damping <code>0.2, 0.2</code>.</li>
 <li>Click <strong>Add Input Controller</strong> (or <strong>Add Component → Cinemachine Input Axis Controller</strong>). For <strong>Look Orbit X</strong> and <strong>Look Orbit Y</strong>, set the <strong>Input Action</strong> to <code>Player/Look</code> from <code>Assets/_Course/Core/Input/InputSystem_Actions</code> if it's empty. If moving the mouse up turns the camera the wrong way, change the sign of Look Orbit Y's <strong>Gain</strong>.</li>
-<li><strong>Add Extension → Cinemachine Deoccluder</strong>, so islands between the camera and the player don't hide them.</li>
+<li><strong>Add Extension → Cinemachine Deoccluder</strong>, so islands between the camera and the player don't hide them: Ignore Tag <code>Player</code>, Minimum Distance From Target <code>1</code>; under Avoid Obstacles, Camera Radius <code>0.2</code>, Minimum Occlusion Time <code>0.2</code>, Damping <code>0.6</code>.</li>
 <li>On any object, add <strong>Cursor Lock 3D</strong>.</li>
 <li>Press <strong>Play</strong> on a big flat Cube floor: the player walks relative to the camera, and the mouse orbits.</li>
 </ol>

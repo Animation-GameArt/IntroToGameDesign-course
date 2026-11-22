@@ -39,7 +39,7 @@ In `Sample/Materials`, four materials (**Create → Material**, shader **Univers
 
 ## Part 3 — The player
 
-1. An empty `Player` at `0, 1, 0`, tagged **Player**. Children: a Capsule `Body` at `0, 1, 0` (remove its collider, material `Stone`), and a small Cube `Nose` at `0, 1.5, 0.45`, Scale `0.3, 0.2, 0.4` (remove its collider), so you can see which way it faces.
+1. An empty `Player` at `0, 1, 0`, tagged **Player**. Children: a Capsule `Body` at `0, 1, 0` (remove its collider, material `Stone`), and a small Cube `Nose` at `0, 1.5, 0.45`, Scale `0.3, 0.2, 0.4` (remove its collider), so you can see which way it faces; and an empty `Camera Target` at `0, 1.4, 0`, at head height, for the camera to follow.
 2. On `Player`: **Player Controller 3D** (it adds a Character Controller: Height `2`, Radius `0.4`, Center `0, 1, 0`). Facing **Face Movement**; Walk Speed `6`, Sprint Speed `9`; Jump Height `2.2`, Extra Air Jumps `0`; Can Crouch unticked.
 3. **Health**: Max Health `3`, Invulnerable Time `1`, Health Variable `PlayerHealth`. **Respawner**: Respawn When Health Runs Out ticked.
 4. A Quad `Player Shadow`, **not** a child of the player, material `Shadow`, no collider. On `Player`, **Blob Shadow 3D**: Shadow `Player Shadow`, Size `0.9`.
@@ -47,11 +47,11 @@ In `Sample/Materials`, four materials (**Create → Material**, shader **Univers
 
 ## Part 4 — The orbit camera
 
-1. **GameObject → Cinemachine → Cinemachine Camera**. Name it `Orbit Camera`. Tracking Target `Player`.
-2. **Position Control: Orbital Follow**. Orbit Style **Sphere**, Radius `7`, Target Offset `0, 1.2, 0`. Under **Vertical Axis**, Range `-10` to `60`, Value `20`.
-3. **Rotation Control: Rotation Composer**, Target Offset `0, 1.2, 0`.
+1. **GameObject → Cinemachine → Cinemachine Camera**. Name it `Orbit Camera`. Tracking Target: the Player's `Camera Target` (not the Player itself: the Player's position is at its feet, and the camera's obstacle checks would start inside the ground).
+2. **Position Control: Orbital Follow**. Orbit Style **Sphere**, Radius `7`, Target Offset `0, 0, 0`, Position Damping `0.3` on all three. Under **Vertical Axis**, Range `-10` to `60`, Value `20`.
+3. **Rotation Control: Rotation Composer**, Target Offset `0, 0, 0`, Damping `0.2, 0.2`.
 4. Click **Add Input Controller** (or **Add Component → Cinemachine Input Axis Controller**). For **Look Orbit X** and **Look Orbit Y**, set the **Input Action** to `Player/Look` from `Assets/_Course/Core/Input/InputSystem_Actions` if it's empty. If moving the mouse up turns the camera the wrong way, change the sign of Look Orbit Y's **Gain**.
-5. **Add Extension → Cinemachine Deoccluder**, so islands between the camera and the player don't hide them.
+5. **Add Extension → Cinemachine Deoccluder**, so islands between the camera and the player don't hide them: Ignore Tag `Player`, Minimum Distance From Target `1`; under Avoid Obstacles, Camera Radius `0.2`, Minimum Occlusion Time `0.2`, Damping `0.6`.
 6. On any object, add **Cursor Lock 3D**.
 7. Press **Play** on a big flat Cube floor: the player walks relative to the camera, and the mouse orbits.
 
