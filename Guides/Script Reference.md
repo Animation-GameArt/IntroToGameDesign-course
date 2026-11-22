@@ -425,6 +425,14 @@ Read by other scripts: **IsGrounded**, **IsCrouching**, **IsSprinting**, **Veloc
 
 ---
 
+### Minimap 3D, Minimap Marker 3D (add-on)
+
+**Minimap 3D**: a top-down map for any 3D game. A second camera looks straight down on the **Target** (the Player, if empty) and draws into a picture shown by a UI Document using `ThreeD/Minimap/Minimap.uxml`. **M** shows or hides it; holding **Tab** shows a big map. Settings: **View Size** and **Big View Size** (how much of the level shows), **Height**, **Turn With Target** (map turns with the player, or north stays up), **Show Layers**, **Renderer Index** (`1`, the Universal Renderer). Methods: **Show**, **Hide**, **Toggle**, **ShowBigMap**.
+
+**Minimap Marker 3D**: shows an object on the map as a **Dot**, **Square** or **Arrow** (turns with the object), in a **Color** and **Size**. Markers go on a layer called `Minimap`, which the map draws and the game view hides; add the layer in **Project Settings → Tags and Layers**. **SetColor** changes the color while playing.
+
+See the **Minimap Add-On** guide.
+
 ## 2D enemies and visuals
 
 ### Patrol Enemy 2D

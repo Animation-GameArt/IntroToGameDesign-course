@@ -1,0 +1,196 @@
+<p>A top-down map in the corner of the screen, for any 3D game where the player finds their way around: a stealth game, an adventure, a maze, a racing track. Seeing the level from above helps players plan. In a stealth game they can see where the guards are, which way they face, and which way their vision cones point.</p>
+<ul>
+<li><strong>M</strong> shows or hides the map.</li>
+<li>Holding <strong>Tab</strong> shows a big map in the middle of the screen, showing more of the level.</li>
+<li>Colored <strong>markers</strong> show what matters: the player as an arrow, enemies, keys, the exit.</li>
+</ul>
+<p>It's an add-on: no kit needs it, and you can add it to a finished game in about ten minutes. This page adds it to the Stealth Kit's sample, <strong>Night Shift</strong>, as the example.</p>
+<h2>What's in it</h2>
+<p>In <code>Assets/_Course/ThreeD/Minimap</code>:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">What's in it</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">File</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Minimap3D</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Makes a second camera that looks straight down on the player and draws into a picture; shows the picture in the corner; M and Tab</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>MinimapMarker3D</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Shows an object on the map as a colored dot, square or arrow</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Minimap.uxml</code>, <code>Minimap.uss</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The map's frame on screen: its size, place and border</td>
+</tr>
+</tbody>
+</table>
+<h2>How it works</h2>
+<p>The map is a second camera, made by Minimap 3D when the scene starts. It's high above the player, looking straight down, <strong>orthographic</strong> (no perspective, so the map is to scale), and it draws into a picture instead of onto the screen. A UI Document shows the picture.</p>
+<p>The markers float a few units above their objects, on a layer called <strong>Minimap</strong>. The map camera draws that layer; the game's main camera is set not to, so the markers only appear on the map.</p>
+<h2>Setting it up</h2>
+<h3>1. The Minimap layer</h3>
+<p><strong>Edit → Project Settings → Tags and Layers</strong>. Under <strong>Layers</strong>, type <code>Minimap</code> in the first empty User Layer.</p>
+<p>Without it, the map still works, but the markers also float over the objects in the game view, and the Console says so.</p>
+<h3>2. The map</h3>
+<ol>
+<li>On the scene's systems object (in Night Shift, <code>Stealth Systems</code>), add a child: <strong>Create Empty</strong>, named <code>Minimap</code>.</li>
+<li>Add a <strong>UI Document</strong>: Panel Settings <code>CoursePanelSettings</code>, Source Asset <code>Minimap</code> (from <code>ThreeD/Minimap</code>), <strong>Sort Order</strong> <code>1</code>. That's above the HUD (<code>0</code>) and below the pause menu (<code>10</code>), so the pause menu covers the map.</li>
+<li>Add <strong>Minimap 3D</strong> (<strong>Add Component → Collin Game → 3D → Minimap 3D</strong>):</li>
+</ol>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">2. The map</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Setting</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Night Shift</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Target</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">(empty)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">What the map centres on. Empty: the object tagged Player</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">View Size</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>12</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">How much the small map shows: units from its centre to its top edge</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Big View Size</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>16</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">How much the big map shows. Night Shift is 30 × 20, so <code>16</code> shows nearly all of it</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Height</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>40</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">How high the map camera is. Above the tallest wall or tree</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Turn With Target</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">unticked</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Unticked: north is always up. Ticked: the map turns so up is the way the player faces</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Show Layers</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Everything</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">What the map draws (markers are always drawn)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Renderer Index</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Universal (3D) Renderer, as the main camera uses</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Toggle Key, Big Map Key</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>M</code>, <code>Tab</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"></td>
+</tr>
+</tbody>
+</table>
+<p>If the systems object is a prefab, apply the changes to the prefab (<strong>Overrides → Apply All</strong>), or make the change in the prefab itself.</p>
+<h3>3. Markers</h3>
+<p>Add <strong>Minimap Marker 3D</strong> (<strong>Add Component → Collin Game → 3D → Minimap Marker 3D</strong>) to each thing worth seeing on the map. Edit the prefabs, so every copy gets one.</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">3. Markers</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Object</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Shape</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Color</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Size</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Order</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Player</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Arrow</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>4FC3F7</code> (light blue)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1.8</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>10</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Guard</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Arrow</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>E05050</code> (red)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1.8</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>5</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Key</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Dot</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>FFD23F</code> (gold)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1.2</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>1</code></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Exit Zone</code> (in the scene)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Square</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>6BD66B</code> (green)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>2</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>0</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Height Above</strong> (default <code>4</code>) is how far above the object its marker floats. Keep it above the object's top, and above walls the object stands beside, or they hide it on the map. Night Shift's walls are 3 high, so the default works.</p>
+<p>An <strong>Arrow</strong> turns with its object, so the map shows which way the player and guards face. A key's marker goes when the key is picked up, because the key is destroyed.</p>
+<h2>Test</h2>
+<ul>
+<li>The map shows in the top-right corner, with the player's arrow in the middle, pointing the way they face.</li>
+<li>The map moves with the player; north stays up (with Turn With Target unticked).</li>
+<li>Walls, furniture, guards and their vision cones show from above. The cones turn orange and red on the map too.</li>
+<li>Guards' red arrows, the gold keys and the green exit show; a key's dot goes when it's picked up.</li>
+<li>The markers don't show in the game view.</li>
+<li><strong>M</strong> hides and shows the map.</li>
+<li>Holding <strong>Tab</strong> shows the big map, showing nearly the whole building; letting go puts it back in the corner.</li>
+<li>Esc pauses: the pause menu covers the map, and M and Tab do nothing while paused.</li>
+<li>No warnings in the Console.</li>
+</ul>
+<h2>Making it your own</h2>
+<p><strong>Where it is, and its size.</strong> Change <code>.minimap-frame</code> in <code>Minimap.uss</code>: <code>top</code> and <code>right</code> (or <code>bottom</code> and <code>left</code>) for its place, <code>width</code> and <code>height</code> for its size. <code>.minimap-frame--big</code> is the big map. For a round map, set <code>border-radius</code> to half the width.</p>
+<p><strong>Turning with the player.</strong> Tick <strong>Turn With Target</strong> for a map where up is always the way the player faces, as in many racing and open-world games. Untick it (north up) for planning, as in stealth and strategy.</p>
+<p><strong>Indoors, with ceilings.</strong> The map camera sees roofs and ceilings first. Put them on their own layer (add one called <code>Ceiling</code>), and untick that layer in <strong>Show Layers</strong>: the map then shows into the rooms. (The Scene view's see-through walls, in <strong>See-Through Walls in the Scene View</strong>, help when you're placing things.)</p>
+<p><strong>A map you have to find.</strong> Untick <strong>Visible At Start</strong>, and call <strong>Minimap3D → Show</strong> from a pickup's <strong>On Collected</strong>: the map works once the player finds it.</p>
+<p><strong>Markers that change.</strong> <strong>Minimap Marker 3D → SetColor</strong> changes a marker's color while playing. For example, a door's square could go from red to green when it unlocks.</p>
+<p><strong>Hiding things from the map.</strong> The map draws every layer in Show Layers. Put things you don't want on it (a secret room, say) on their own layer and untick it.</p>
+<p><strong>A different renderer.</strong> In a project whose URP asset lists the renderers in a different order, set <strong>Renderer Index</strong> to the Universal Renderer's number in the asset's <strong>Renderer List</strong>. Night Shift's Main Camera uses the same one.</p>
+<h2>If something goes wrong</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something goes wrong</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What you see</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">No map at all</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The UI Document's Source Asset is <code>Minimap</code>, its Panel Settings are set, and Minimap 3D is on the same object (or its <strong>Document</strong> field is set). Check the Console</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The map is black, or shows only the background color</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><strong>Height</strong> is above everything; <strong>Renderer Index</strong> is the Universal Renderer; <strong>Show Layers</strong> isn't Nothing</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The map doesn't follow the player</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The player is tagged <strong>Player</strong>, or drag it into <strong>Target</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Markers float over things in the game view</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Add the <code>Minimap</code> layer (step 1)</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">A marker is hidden on the map</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Raise its <strong>Height Above</strong> over the walls around it</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The map covers the HUD</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Move it in <code>Minimap.uss</code>, or move the HUD element</td>
+</tr>
+</tbody>
+</table>

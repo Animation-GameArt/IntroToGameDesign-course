@@ -1005,6 +1005,10 @@
 <p><strong>Spin 3D</strong>: spins an object (<strong>Spin</strong>, degrees per second per axis) and bobs it (<strong>Bob Height</strong>, <strong>Bob Speed</strong>). For pickups.</p>
 <p><strong>Cursor Lock 3D</strong>: hides and locks the mouse pointer while playing; shows it while paused, while the player's controls are off, and after <strong>Unlock</strong> (call it from a win or game over event). <strong>Lock</strong> undoes Unlock.</p>
 <hr/>
+<h3>Minimap 3D, Minimap Marker 3D (add-on)</h3>
+<p><strong>Minimap 3D</strong>: a top-down map for any 3D game. A second camera looks straight down on the <strong>Target</strong> (the Player, if empty) and draws into a picture shown by a UI Document using <code>ThreeD/Minimap/Minimap.uxml</code>. <strong>M</strong> shows or hides it; holding <strong>Tab</strong> shows a big map. Settings: <strong>View Size</strong> and <strong>Big View Size</strong> (how much of the level shows), <strong>Height</strong>, <strong>Turn With Target</strong> (map turns with the player, or north stays up), <strong>Show Layers</strong>, <strong>Renderer Index</strong> (<code>1</code>, the Universal Renderer). Methods: <strong>Show</strong>, <strong>Hide</strong>, <strong>Toggle</strong>, <strong>ShowBigMap</strong>.</p>
+<p><strong>Minimap Marker 3D</strong>: shows an object on the map as a <strong>Dot</strong>, <strong>Square</strong> or <strong>Arrow</strong> (turns with the object), in a <strong>Color</strong> and <strong>Size</strong>. Markers go on a layer called <code>Minimap</code>, which the map draws and the game view hides; add the layer in <strong>Project Settings → Tags and Layers</strong>. <strong>SetColor</strong> changes the color while playing.</p>
+<p>See the <strong>Minimap Add-On</strong> guide.</p>
 <h2>2D enemies and visuals</h2>
 <h3>Patrol Enemy 2D</h3>
 <p><code>TwoD/AI/PatrolEnemy2D.cs</code> · <strong>Add Component → Collin Game → 2D → Patrol Enemy 2D</strong></p>
