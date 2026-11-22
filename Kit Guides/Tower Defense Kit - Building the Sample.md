@@ -85,7 +85,7 @@ An empty `TD Systems`, made into a prefab, with these children:
 
 **`HUD`** — UI Document `TowerHUD` (from `Kits/TowerDefense/UI`), with **UI Build Menu** (Towers: `Archer`, `Cannon`, `Frost`; Money `Money`; Spawner `Waves`), and a **UI Variable Binder**: `money-label` → `Money` → `${0}`; `lives-label` → `Lives` → `Lives: {0}`; `wave-label` → `Wave` → `Wave {0} / 10`.
 
-**`Pause Menu`**, **`Scene Changer`**, **`To Menu`** — as in the Platformer Kit sample.
+**`Pause Menu`**, **`Settings`**, **`Scene Changer`**, **`To Menu`** — as in the Platformer Kit sample.
 
 **`Won`** — UI Document `EndScreen`, hidden, shown by a **Void Event Listener** on `MapWon`; `score-label` → `Lives` → `Lives left: {0}`.
 

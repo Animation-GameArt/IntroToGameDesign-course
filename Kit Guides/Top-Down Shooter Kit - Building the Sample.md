@@ -93,7 +93,7 @@ An empty `Arena Systems` at `0, 0, 0`, made into a prefab, with these children:
 
 **`HUD`** — UI Document `ShooterHUD` (from `Kits/TopDownShooter/UI`), with a **UI Variable Binder**: `health-label` → `PlayerHealth` → `Health: {0}`; `score-label` → `Score` → `Score: {0}`; `wave-label` → `Wave` → `Wave {0}`; `weapon-label` → `WeaponName` → `{0}`.
 
-**`Pause Menu`**, **`Scene Changer`**, **`To Menu`** — as in the Platformer Kit sample.
+**`Pause Menu`**, **`Settings`**, **`Scene Changer`**, **`To Menu`** — as in the Platformer Kit sample.
 
 **`Game Over`** — UI Document `GameOver`, hidden, shown by a **Void Event Listener** on `PlayerDied`; `score-label` bound to `Score`; Try Again → **ReloadScene**.
 

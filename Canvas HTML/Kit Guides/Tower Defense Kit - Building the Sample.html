@@ -230,7 +230,7 @@
 </table>
 <p><strong><code>Lose</code></strong> — <strong>Int Variable Condition</strong>: Variable <code>Lives</code>, At Most <code>0</code>, Raise Event <code>MapLost</code>.</p>
 <p><strong><code>HUD</code></strong> — UI Document <code>TowerHUD</code> (from <code>Kits/TowerDefense/UI</code>), with <strong>UI Build Menu</strong> (Towers: <code>Archer</code>, <code>Cannon</code>, <code>Frost</code>; Money <code>Money</code>; Spawner <code>Waves</code>), and a <strong>UI Variable Binder</strong>: <code>money-label</code> → <code>Money</code> → <code>${0}</code>; <code>lives-label</code> → <code>Lives</code> → <code>Lives: {0}</code>; <code>wave-label</code> → <code>Wave</code> → <code>Wave {0} / 10</code>.</p>
-<p><strong><code>Pause Menu</code></strong>, <strong><code>Scene Changer</code></strong>, <strong><code>To Menu</code></strong> — as in the Platformer Kit sample.</p>
+<p><strong><code>Pause Menu</code></strong>, <strong><code>Settings</code></strong>, <strong><code>Scene Changer</code></strong>, <strong><code>To Menu</code></strong> — as in the Platformer Kit sample.</p>
 <p><strong><code>Won</code></strong> — UI Document <code>EndScreen</code>, hidden, shown by a <strong>Void Event Listener</strong> on <code>MapWon</code>; <code>score-label</code> → <code>Lives</code> → <code>Lives left: {0}</code>.</p>
 <p><strong><code>Lost</code></strong> — UI Document <code>GameOver</code>, hidden, shown on <code>MapLost</code>; Try Again → <strong>ReloadScene</strong>.</p>
 <h2>Part 5 — The map (<code>TD_Map</code>)</h2>

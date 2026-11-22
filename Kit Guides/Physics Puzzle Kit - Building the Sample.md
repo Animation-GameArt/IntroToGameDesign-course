@@ -97,7 +97,10 @@ An empty GameObject at `0, 0, 0` with these children:
 
 **`HUD`** — UI Document, Source Asset `PuzzleHUD` (from `Kits/PhysicsPuzzle/UI`), with a **UI Variable Binder**: `shots-label` → `ShotsLeft` → `Shots: {0}`; `targets-label` → `TargetsLeft` → `Targets: {0}`; `score-label` → `PuzzleScore` → `Score: {0}`.
 
-**`Pause Menu`** — as in the Platformer Kit sample (`PauseMenu`, UI Screen hidden, Pause Controller, UI Button Events for resume, restart and menu).
+**`Pause Menu`** — as in the Platformer Kit sample (`PauseMenu`, UI Screen hidden, Pause Controller, UI Button Events for resume, settings, restart and menu).
+
+**`Settings`** — as in the Platformer Kit sample (`Settings`, Sort Order `4`, UI Screen hidden, UI Settings, `back-button` hides it), with the Pause Menu's `settings-button` showing it.
+
 
 **`Level Complete`** — UI Document `LevelComplete` (from `Kits/Platformer/UI`, or a copy), Sort Order `2`, UI Screen hidden, a **UI Variable Binder** (`coins-label` → `PuzzleScore` → `Score: {0}`), a **Void Event Listener** on `PuzzleWon` → **UIScreen → Show**, and buttons `next-button` → **SceneChanger → LoadNextScene**, `menu-button` → To Menu **Load**.
 

@@ -86,6 +86,9 @@ An empty GameObject at `0, 0, 0` with these children:
 
 **`Pause Menu`** — as in the Platformer Kit sample.
 
+**`Settings`** — as in the Platformer Kit sample (`Settings`, Sort Order `4`, UI Screen hidden, UI Settings, `back-button` hides it), with the Pause Menu's `settings-button` showing it.
+
+
 **`Scene Changer`** — Scene Changer, Scene Name empty. **`To Menu`** — Scene Changer, Scene Name `Battle_Menu`.
 
 **`Victory`** — UI Document `LevelComplete` (from `Kits/Platformer/UI`), Sort Order `2`, UI Screen hidden, a **Void Event Listener** on `BattleWon` → **UIScreen → Show**, buttons `next-button` → **SceneChanger → LoadNextScene**, `menu-button` → To Menu **Load**. Hide its coins label, or bind it to `BattleRound` with `Rounds: {0}`.

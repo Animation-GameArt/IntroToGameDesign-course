@@ -140,7 +140,15 @@ This prefab holds everything a level needs besides the level itself: the HUD, th
 |---|---|
 | UI Screen | Hidden At Start ticked, Select When Shown `resume-button` |
 | Pause Controller | fills itself in |
-| UI Button Events | `resume-button` → `Pause Menu`, **PauseController → Resume**. `restart-button` → `Scene Changer`, **SceneChanger → ReloadScene**. `menu-button` → `To Menu`, **SceneChanger → Load** |
+| UI Button Events | `resume-button` → `Pause Menu`, **PauseController → Resume**. `settings-button` → `Settings`, **UIScreen → Show**. `restart-button` → `Scene Changer`, **SceneChanger → ReloadScene**. `menu-button` → `To Menu`, **SceneChanger → Load** |
+
+**`Settings`** — a UI Document with Source Asset `Settings` (from `Core/UI`) and Sort Order `4`, so it shows above the pause menu.
+
+| Component | Settings |
+|---|---|
+| UI Screen | Hidden At Start ticked, Select When Shown `music-slider` |
+| UI Settings | nothing to set (optional: a Sound Effect in **Preview Sound**) |
+| UI Button Events | `back-button` → `Settings`, **UIScreen → Hide** |
 
 **`Level Complete`** — a UI Document with Source Asset `LevelComplete` (from `Kits/Platformer/UI`) and Sort Order `2`.
 
@@ -220,7 +228,7 @@ The pack also has sand (`tile_0040`–`tile_0063`) and snow (`tile_0080`–`tile
 |---|---|
 | UI Screen | Select When Shown `play-button` |
 | Scene Changer | Scene Name `Platformer_Level1` |
-| UI Button Events | `play-button` → `Main Menu`, **SceneChanger → Load**. `credits-button` → `Credits`, **UIScreen → Show**. `quit-button` → `Main Menu`, **SceneChanger → QuitGame** |
+| UI Button Events | `play-button` → `Main Menu`, **SceneChanger → Load**. `settings-button` → `Settings`, **UIScreen → Show**. `credits-button` → `Credits`, **UIScreen → Show**. `quit-button` → `Main Menu`, **SceneChanger → QuitGame** |
 
 **`Credits`** — a UI Document with Source Asset `Credits` (from `Core/UI`) and Sort Order `1`.
 
@@ -229,6 +237,8 @@ The pack also has sand (`tile_0040`–`tile_0063`) and snow (`tile_0080`–`tile
 | UI Screen | Hidden At Start ticked, Select When Shown `back-button` |
 | UI Credits | Credit Files: `Course Credits` (from `Assets/_Course/Credits`) |
 | UI Button Events | `back-button` → `Credits`, **UIScreen → Hide** |
+
+**`Settings`** — a UI Document with Source Asset `Settings` (from `Core/UI`) and Sort Order `2`, set up like the one in Level Systems: UI Screen (Hidden At Start, Select When Shown `music-slider`), **UI Settings**, and UI Button Events `back-button` → `Settings`, **UIScreen → Hide**.
 
 **`Game Rules`** — a **Variable Resetter** with Variables `Lives` and `Coins`, and Reset When Scene Starts **ticked**. Every visit to the menu starts a new game.
 
@@ -267,6 +277,7 @@ The Level Complete screen's **Next Level** button loads whichever scene comes ne
 Start from `Platformer_Menu` and check each line.
 
 - [ ] Play, Credits and Back work on the menu.
+- [ ] Settings opens from the menu and from the pause menu; the volume sliders change the music and sounds at once, Full Screen works in a build, and the settings are remembered after quitting.
 - [ ] The character walks, jumps and changes sprite when walking and in the air.
 - [ ] Coins spin, are collected, and the HUD counts them.
 - [ ] Landing on a Walker removes it and bounces the player. Touching its side costs health.

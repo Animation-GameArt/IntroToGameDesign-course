@@ -64,6 +64,9 @@ An empty `Puzzle Systems`, made into a prefab, with these children:
 
 **`Pause Menu`** — as in the Platformer Kit sample, with its menu button loading `Puzzle_Select`.
 
+**`Settings`** — as in the Platformer Kit sample (`Settings`, Sort Order `4`, UI Screen hidden, UI Settings, `back-button` hides it), with the Pause Menu's `settings-button` showing it.
+
+
 **`Loader`** — **Puzzle Level Loader**: Level List `Puzzle Levels`, After Last Level `Puzzle_Select`. And a **Scene Changer** with Scene Name `Puzzle_Select`.
 
 **`Solved`** — UI Document `PuzzleSolved`, Sort Order `2`, **UI Screen** (Hidden At Start, Select When Shown `next-button`), a **Void Event Listener** on `LevelSolved` → **UIScreen → Show**, a **UI Variable Binder** (`moves-label` → `Moves` → `Solved in {0} moves`), and **UI Button Events**: `next-button` → `Loader`, **PuzzleLevelLoader → LoadNextLevel**; `select-button` → `Loader`, **SceneChanger → Load**.

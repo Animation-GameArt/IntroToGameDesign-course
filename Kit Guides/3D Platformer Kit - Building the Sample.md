@@ -91,7 +91,7 @@ An empty `Islands Systems`, made into a prefab, with:
 
 **`Reset`** — a **Variable Resetter** with `Coins` and `PlayerHealth`.
 
-**`Pause Menu`**, **`Scene Changer`**, **`To Menu`** — as in the Platformer Kit sample.
+**`Pause Menu`**, **`Settings`**, **`Scene Changer`**, **`To Menu`** — as in the Platformer Kit sample.
 
 **`Won`** — UI Document `EndScreen`, hidden, shown on `LevelWon`; `score-label` → `Coins` → `Coins: {0} / 20`. Its Void Event Listener also calls **CursorLock3D → Unlock**.
 

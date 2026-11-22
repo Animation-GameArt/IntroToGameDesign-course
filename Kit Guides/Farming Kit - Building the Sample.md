@@ -114,7 +114,7 @@ An empty `Farm Systems`, made into a prefab, with these children:
 
 **`Reset`** — a **Variable Resetter** with `Money`, `Day`, `Energy` and `Clock`.
 
-**`Pause Menu`**, **`Scene Changer`**, **`To Menu`** — as in the Platformer Kit sample.
+**`Pause Menu`**, **`Settings`**, **`Scene Changer`**, **`To Menu`** — as in the Platformer Kit sample.
 
 **`Won`** — UI Document `EndScreen`, hidden, shown on `FarmWon`; `score-label` → `Day` → `You made it on day {0}!`.
 

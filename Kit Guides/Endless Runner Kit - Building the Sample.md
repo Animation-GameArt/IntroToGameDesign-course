@@ -84,7 +84,7 @@ An empty `Runner Systems` at `0, 0, 0`, made into a prefab, with these children:
 
 **`Reset`** — a **Variable Resetter** with `Distance` and `Coins`.
 
-**`Pause Menu`**, **`Scene Changer`**, **`To Menu`** — as in the Platformer Kit sample.
+**`Pause Menu`**, **`Settings`**, **`Scene Changer`**, **`To Menu`** — as in the Platformer Kit sample.
 
 **`Game Over`** — UI Document `GameOver`, hidden, shown by a **Void Event Listener** on `PlayerDied`; `score-label` → `Distance` → `{0} m`; Try Again → **ReloadScene**; Menu → To Menu **Load**.
 

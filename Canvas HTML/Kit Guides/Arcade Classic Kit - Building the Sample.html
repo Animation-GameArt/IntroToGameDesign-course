@@ -50,6 +50,7 @@
 <p>An empty GameObject at <code>0, 0, 0</code>, made into a prefab, with these children:</p>
 <p><strong><code>HUD</code></strong> — UI Document, Source Asset <code>ArcadeHUD</code> (from <code>Kits/ArcadeClassic/UI</code>), with a <strong>UI Variable Binder</strong>: <code>score-label</code> → <code>ArcadeScore</code> → <code>Score: {0}</code>; <code>lives-label</code> → <code>Lives</code> → <code>Lives: {0}</code>; <code>best-label</code> set per scene.</p>
 <p><strong><code>Pause Menu</code></strong> — as in the Platformer Kit sample.</p>
+<p><strong><code>Settings</code></strong> — as in the Platformer Kit sample (<code>Settings</code>, Sort Order <code>4</code>, UI Screen hidden, UI Settings, <code>back-button</code> hides it), with the Pause Menu's <code>settings-button</code> showing it.</p>
 <p><strong><code>Reset</code></strong> — a <strong>Variable Resetter</strong> with <code>ArcadeScore</code>, <code>Lives</code>, <code>LeftScore</code> and <code>RightScore</code>. Not <code>BricksLeft</code> or <code>AsteroidsLeft</code>: Counted Object sets those.</p>
 <p><strong><code>Lose</code></strong> — an <strong>Int Variable Condition</strong>: Variable <code>Lives</code>, At Most <code>0</code>, Raise Event <code>GameOver</code>.</p>
 <p><strong><code>Scene Changer</code></strong> — Scene Changer, Scene Name empty. <strong><code>To Menu</code></strong> — Scene Changer, Scene Name <code>Arcade_Menu</code>.</p>

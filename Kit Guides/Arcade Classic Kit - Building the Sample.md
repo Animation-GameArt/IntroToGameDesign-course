@@ -45,6 +45,9 @@ An empty GameObject at `0, 0, 0`, made into a prefab, with these children:
 
 **`Pause Menu`** — as in the Platformer Kit sample.
 
+**`Settings`** — as in the Platformer Kit sample (`Settings`, Sort Order `4`, UI Screen hidden, UI Settings, `back-button` hides it), with the Pause Menu's `settings-button` showing it.
+
+
 **`Reset`** — a **Variable Resetter** with `ArcadeScore`, `Lives`, `LeftScore` and `RightScore`. Not `BricksLeft` or `AsteroidsLeft`: Counted Object sets those.
 
 **`Lose`** — an **Int Variable Condition**: Variable `Lives`, At Most `0`, Raise Event `GameOver`.

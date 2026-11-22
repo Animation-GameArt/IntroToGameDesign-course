@@ -94,7 +94,10 @@ Keep the cameras out of the prefab, in the level scene: the Main Camera with a *
 - **UI Variable Binder**: `keys-label` → `Keys` → `Keys: {0}`; `coins-label` → `Coins` → `Coins: {0}`.
 - **UI Message Box**: Message `Message`, Clear After `4`.
 
-**`Pause Menu`** — as in the Platformer Kit sample (`PauseMenu`, UI Screen hidden, Pause Controller, UI Button Events for resume, restart and menu).
+**`Pause Menu`** — as in the Platformer Kit sample (`PauseMenu`, UI Screen hidden, Pause Controller, UI Button Events for resume, settings, restart and menu).
+
+**`Settings`** — as in the Platformer Kit sample (`Settings`, Sort Order `4`, UI Screen hidden, UI Settings, `back-button` hides it), with the Pause Menu's `settings-button` showing it.
+
 
 **`Win`** — a **Void Event Listener** on `DungeonCleared` → a **Scene Changer** with Scene Name `Adventure_Win` → **Load**.
 

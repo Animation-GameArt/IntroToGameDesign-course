@@ -83,7 +83,7 @@ An empty `Stealth Systems`, made into a prefab:
 
 **`Reset`** — a **Variable Resetter** with `Keys`, `Battery` and `Message`.
 
-**`Pause Menu`**, **`Scene Changer`**, **`To Menu`** — as in the Platformer Kit sample.
+**`Pause Menu`**, **`Settings`**, **`Scene Changer`**, **`To Menu`** — as in the Platformer Kit sample.
 
 **`Escaped`** — UI Document `EndScreen`, hidden, shown on `Escaped`; title *You Escaped*; also calls **CursorLock3D → Unlock**.
 

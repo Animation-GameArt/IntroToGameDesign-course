@@ -71,7 +71,7 @@ An empty `Story Systems`, made into a prefab, with these children:
 
 **`Reset`** — a **Variable Resetter** with `RenAffection` and `MikaAffection`.
 
-**`Pause Menu`**, **`Scene Changer`**, **`To Menu`** — as in the Platformer Kit sample.
+**`Pause Menu`**, **`Settings`**, **`Scene Changer`**, **`To Menu`** — as in the Platformer Kit sample.
 
 **`Endings`** — first, duplicate `Core/UI/EndScreen.uxml` three times into `Sample/UI`, and in each copy change the text of `title-label` and `score-label` (in the UI Builder, or in a text editor):
 
