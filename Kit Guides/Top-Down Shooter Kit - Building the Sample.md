@@ -17,6 +17,9 @@ tags:
 
 Everything goes in `Assets/_Course/Kits/TopDownShooter/Sample/`, with folders `Data`, `Prefabs`, `Scenes` and `Weapons`.
 
+> [!tip] The quick way
+> **Collin Game → Kit Samples → Build Top-Down Shooter Sample** builds everything on this page in a few seconds and opens the menu scene; press **Play**. It replaces the kit's `Sample` folder. The arena's spawn points are just inside its walls, so enemies don't spawn behind them. Then work through **Test** to check it. Building by hand, step by step, is still the way to learn the kit, and checks this guide.
+
 ## Before you start
 
 1. Pull the template project. It should be version 0.14.0 or later, with no red errors in the Console.

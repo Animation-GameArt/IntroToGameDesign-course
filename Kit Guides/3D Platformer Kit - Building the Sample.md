@@ -18,6 +18,9 @@ tags:
 
 Everything goes in `Assets/_Course/Kits/Platformer3D/Sample/`, with folders `Data`, `Materials`, `Prefabs` and `Scenes`. The level is built from Unity's basic shapes; no art pack is needed.
 
+> [!tip] The quick way
+> **Collin Game → Kit Samples → Build 3D Platformer Sample** builds everything on this page in a few seconds and opens the menu scene; press **Play**. It replaces the kit's `Sample` folder. The bounce pad's Height is `8.5`, so it clears the tower's second level. If the mouse doesn't turn the camera, check Part 4, step 4. Then work through **Test** to check it. Building by hand, step by step, is still the way to learn the kit, and checks this guide.
+
 ## Before you start
 
 1. Pull the template project. It should be version 0.22.0 or later, with no red errors in the Console.

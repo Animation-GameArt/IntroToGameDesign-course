@@ -17,6 +17,9 @@ tags:
 
 Everything goes in `Assets/_Course/Kits/EndlessRunner/Sample/`, with folders `Data`, `Prefabs`, `Chunks` and `Scenes`. The art is Kenney's Pixel Platformer, already in the project at `Assets/_Course/Art/Kenney/kenney_pixel-platformer` (one tile is one unit). Tile names below match the Platformer Kit's guide.
 
+> [!tip] The quick way
+> **Collin Game → Kit Samples → Build Endless Runner Sample** builds everything on this page in a few seconds and opens the menu scene; press **Play**. It replaces the kit's `Sample` folder. It makes its own Spikes and One-Way Platform, so it doesn't need the Platformer sample. Steps have a thin trigger on their front that ends the run, like a crate. It sets the tiled sprites' images to Mesh Type Full Rect. Then work through **Test** to check it. Building by hand, step by step, is still the way to learn the kit, and checks this guide.
+
 ## Before you start
 
 1. Pull the template project. It should be version 0.15.0 or later, with no red errors in the Console.

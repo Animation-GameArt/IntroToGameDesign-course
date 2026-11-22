@@ -17,6 +17,9 @@ tags:
 
 Everything goes in `Assets/_Course/Kits/TopDownAdventure/Sample/`, with folders `Data`, `Prefabs`, `Scenes` and `Tiles`.
 
+> [!tip] The quick way
+> **Collin Game → Kit Samples → Build Top-Down Adventure Sample** builds everything on this page in a few seconds and opens the menu scene; press **Play**. It replaces the kit's `Sample` folder. The key and the sign come from Tiny Town; the potion is the Heart. Then work through **Test** to check it. Building by hand, step by step, is still the way to learn the kit, and checks this guide.
+
 ## Before you start
 
 1. Pull the template project. It should be version 0.12.0 or later, with no red errors in the Console.

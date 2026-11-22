@@ -18,6 +18,9 @@ tags:
 
 Everything goes in `Assets/_Course/Kits/Stealth/Sample/`, with folders `Data`, `Materials`, `Prefabs` and `Scenes`. The level is built from Unity's basic shapes.
 
+> [!tip] The quick way
+> **Collin Game → Kit Samples → Build Stealth Sample** builds everything on this page in a few seconds and opens the menu scene; press **Play**. It replaces the kit's `Sample` folder. It builds its own player, bakes the NavMesh into `Sample/Scenes`, and uses the kit's `Audio/Heartbeat.wav` for Alert Audio. Then work through **Test** to check it. Building by hand, step by step, is still the way to learn the kit, and checks this guide.
+
 ## Before you start
 
 1. Pull the template project. It should be version 0.22.0 or later, with no red errors in the Console.

@@ -17,6 +17,9 @@ tags:
 
 Everything goes in `Assets/_Course/Kits/PhysicsPuzzle/Sample/`, with folders `Data`, `Prefabs`, `Scenes` and `Materials`.
 
+> [!tip] The quick way
+> **Collin Game → Kit Samples → Build Physics Puzzle Sample** builds everything on this page in a few seconds and opens the menu scene; press **Play**. It replaces the kit's `Sample` folder. Level 3's seesaw is a plank on a Hinge Joint 2D, resting tipped toward a target on its low end, with a roped ball over its high end. Then work through **Test** to check it. Building by hand, step by step, is still the way to learn the kit, and checks this guide.
+
 ## Before you start
 
 1. Pull the template project. It should be version 0.11.0 or later, with no red errors in the Console.
