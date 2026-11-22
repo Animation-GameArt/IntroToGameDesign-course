@@ -195,7 +195,7 @@ The Platformer sample has a menu command (**Collin Game → Kit Samples → Buil
 
 Guide: [Platformer Kit - Building the Sample](https://github.com/Animation-GameArt/IntroToGameDesign-course/blob/main/Kit%20Guides/Platformer%20Kit%20-%20Building%20the%20Sample.md) — section *Part 10 — Test*
 
-- [ ] Play, Credits and Back work on the menu.
+- [ ] Play, How to Play, Credits and Back work on the menu, and the line under the title says what the game is.
 - [ ] Settings opens from the menu and from the pause menu; the volume sliders change the music and sounds at once, Full Screen works in a build, and the settings are remembered after quitting.
 - [ ] The character walks, jumps and changes sprite when walking and in the air.
 - [ ] Coins spin, are collected, and the HUD counts them.

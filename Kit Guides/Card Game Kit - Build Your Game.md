@@ -100,6 +100,8 @@ Play a run choosing carefully, and one choosing at random. The careful run shoul
 
 ### Every screen
 
+**How to Play.** Under your title on the menu, write one line saying what the game is, such as *Play cards to deal damage, block and heal against ever stronger enemies.* Then add a How to Play screen: copy Core's `HowToPlay` UXML into `_Game`, write your goal, controls and rules in a few short lines, and show it from a **How to Play** button on the menu. Players shouldn't have to work out the rules by trial and error.
+
 Menu, pause, won and lost and credits all work. Add your own assets to the credits: create a text file like the course's `Course Credits` in `_Game`, and add it to the **UI Credits** component in your menu.
 
 ### Alpha checks
@@ -108,6 +110,7 @@ Menu, pause, won and lost and credits all work. Add your own assets to the credi
 - [ ] Every card gets played in a normal run; any that doesn't is changed or cut.
 - [ ] Careful play usually wins; random play usually loses.
 - [ ] Each custom script does its job, or is marked as cut with a reason.
+- [ ] The menu says what the game is, and How to Play explains the goal, controls and rules.
 - [ ] Every screen works: menu, pause, won and lost, credits.
 - [ ] You have a written list of placeholders still to replace.
 

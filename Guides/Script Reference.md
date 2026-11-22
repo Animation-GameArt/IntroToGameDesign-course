@@ -631,7 +631,8 @@ UXML files in `Core/UI`, styled by `CourseTheme.uss`. Put one in a scene with **
 | Screen | Element names |
 |---|---|
 | `HUD` | `health-label`, `score-label` |
-| `MainMenu` | `title-label`, `subtitle-label`, `play-button`, `settings-button`, `credits-button`, `quit-button` |
+| `MainMenu` | `title-label`, `subtitle-label`, `play-button`, `settings-button`, `credits-button`, `quit-button` (add a `how-to-play-button` in your copy if you have a How to Play screen) |
+| `HowToPlay` | `title-label`, `how-to-play-label` (in a scroll view), `back-button`. Copy it into `_Game` and write your goal, controls and rules in the label |
 | `PauseMenu` | `resume-button`, `settings-button`, `restart-button`, `menu-button` |
 | `EndScreen` | `score-label`, `play-again-button`, `menu-button` |
 | `GameOver` | `score-label`, `try-again-button`, `menu-button` |

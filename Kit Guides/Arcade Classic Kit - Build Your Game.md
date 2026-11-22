@@ -101,6 +101,8 @@ Every piece and your twist work together, from the first serve to game over.
 
 ### Every screen
 
+**How to Play.** Under your title on the menu, write one line saying what the game is, such as *Play cards to deal damage, block and heal against ever stronger enemies.* Then add a How to Play screen: copy Core's `HowToPlay` UXML into `_Game`, write your goal, controls and rules in a few short lines, and show it from a **How to Play** button on the menu. Players shouldn't have to work out the rules by trial and error.
+
 Menu, pause, game over and win and credits all work. Add your own assets to the credits: create a text file like the course's `Course Credits` in `_Game`, and add it to the **UI Credits** component in your menu.
 
 ### Alpha checks
@@ -109,6 +111,7 @@ Menu, pause, game over and win and credits all work. Add your own assets to the 
 - [ ] Every piece in your table is in, and your twist works.
 - [ ] The game can be played from the menu to game over or the win, and again.
 - [ ] Each custom script does its job, or is marked as cut with a reason.
+- [ ] The menu says what the game is, and How to Play explains the goal, controls and rules.
 - [ ] Every screen works: menu, pause, game over and win, credits.
 - [ ] You have a written list of placeholders still to replace.
 

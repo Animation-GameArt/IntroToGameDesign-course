@@ -228,7 +228,7 @@ The pack also has sand (`tile_0040`–`tile_0063`) and snow (`tile_0080`–`tile
 |---|---|
 | UI Screen | Select When Shown `play-button` |
 | Scene Changer | Scene Name `Platformer_Level1` |
-| UI Button Events | `play-button` → `Main Menu`, **SceneChanger → Load**. `settings-button` → `Settings`, **UIScreen → Show**. `credits-button` → `Credits`, **UIScreen → Show**. `quit-button` → `Main Menu`, **SceneChanger → QuitGame** |
+| UI Button Events | `play-button` → `Main Menu`, **SceneChanger → Load**. `how-to-play-button` → `How to Play`, **UIScreen → Show**. `settings-button` → `Settings`, **UIScreen → Show**. `credits-button` → `Credits`, **UIScreen → Show**. `quit-button` → `Main Menu`, **SceneChanger → QuitGame** |
 
 **`Credits`** — a UI Document with Source Asset `Credits` (from `Core/UI`) and Sort Order `1`.
 
@@ -239,6 +239,8 @@ The pack also has sand (`tile_0040`–`tile_0063`) and snow (`tile_0080`–`tile
 | UI Button Events | `back-button` → `Credits`, **UIScreen → Hide** |
 
 **`Settings`** — a UI Document with Source Asset `Settings` (from `Core/UI`) and Sort Order `2`, set up like the one in Level Systems: UI Screen (Hidden At Start, Select When Shown `music-slider`), **UI Settings**, and UI Button Events `back-button` → `Settings`, **UIScreen → Hide**.
+
+**`How to Play`** — a UI Document with Source Asset `PlatformerHowToPlay` (from `Kits/Platformer/UI`) and Sort Order `3`: UI Screen (Hidden At Start, Select When Shown `back-button`), and UI Button Events `back-button` → `How to Play`, **UIScreen → Hide**. The menu's line under the title says what the game is; How to Play says how to play it.
 
 **`Game Rules`** — a **Variable Resetter** with Variables `Lives` and `Coins`, and Reset When Scene Starts **ticked**. Every visit to the menu starts a new game.
 
@@ -276,7 +278,7 @@ The Level Complete screen's **Next Level** button loads whichever scene comes ne
 
 Start from `Platformer_Menu` and check each line.
 
-- [ ] Play, Credits and Back work on the menu.
+- [ ] Play, How to Play, Credits and Back work on the menu, and the line under the title says what the game is.
 - [ ] Settings opens from the menu and from the pause menu; the volume sliders change the music and sounds at once, Full Screen works in a build, and the settings are remembered after quitting.
 - [ ] The character walks, jumps and changes sprite when walking and in the air.
 - [ ] Coins spin, are collected, and the HUD counts them.

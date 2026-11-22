@@ -514,7 +514,7 @@
 </tr>
 <tr>
 <td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">UI Button Events</td>
-<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>play-button</code> → <code>Main Menu</code>, <strong>SceneChanger → Load</strong>. <code>settings-button</code> → <code>Settings</code>, <strong>UIScreen → Show</strong>. <code>credits-button</code> → <code>Credits</code>, <strong>UIScreen → Show</strong>. <code>quit-button</code> → <code>Main Menu</code>, <strong>SceneChanger → QuitGame</strong></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>play-button</code> → <code>Main Menu</code>, <strong>SceneChanger → Load</strong>. <code>how-to-play-button</code> → <code>How to Play</code>, <strong>UIScreen → Show</strong>. <code>settings-button</code> → <code>Settings</code>, <strong>UIScreen → Show</strong>. <code>credits-button</code> → <code>Credits</code>, <strong>UIScreen → Show</strong>. <code>quit-button</code> → <code>Main Menu</code>, <strong>SceneChanger → QuitGame</strong></td>
 </tr>
 </tbody>
 </table>
@@ -542,6 +542,7 @@
 </tbody>
 </table>
 <p><strong><code>Settings</code></strong> — a UI Document with Source Asset <code>Settings</code> (from <code>Core/UI</code>) and Sort Order <code>2</code>, set up like the one in Level Systems: UI Screen (Hidden At Start, Select When Shown <code>music-slider</code>), <strong>UI Settings</strong>, and UI Button Events <code>back-button</code> → <code>Settings</code>, <strong>UIScreen → Hide</strong>.</p>
+<p><strong><code>How to Play</code></strong> — a UI Document with Source Asset <code>PlatformerHowToPlay</code> (from <code>Kits/Platformer/UI</code>) and Sort Order <code>3</code>: UI Screen (Hidden At Start, Select When Shown <code>back-button</code>), and UI Button Events <code>back-button</code> → <code>How to Play</code>, <strong>UIScreen → Hide</strong>. The menu's line under the title says what the game is; How to Play says how to play it.</p>
 <p><strong><code>Game Rules</code></strong> — a <strong>Variable Resetter</strong> with Variables <code>Lives</code> and <code>Coins</code>, and Reset When Scene Starts <strong>ticked</strong>. Every visit to the menu starts a new game.</p>
 <h2>Part 8 — Win scene</h2>
 <ol>
@@ -586,7 +587,7 @@
 <h2>Part 10 — Test</h2>
 <p>Start from <code>Platformer_Menu</code> and check each line.</p>
 <ul>
-<li>Play, Credits and Back work on the menu.</li>
+<li>Play, How to Play, Credits and Back work on the menu, and the line under the title says what the game is.</li>
 <li>Settings opens from the menu and from the pause menu; the volume sliders change the music and sounds at once, Full Screen works in a build, and the settings are remembered after quitting.</li>
 <li>The character walks, jumps and changes sprite when walking and in the air.</li>
 <li>Coins spin, are collected, and the HUD counts them.</li>
