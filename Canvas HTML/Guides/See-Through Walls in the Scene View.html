@@ -1,0 +1,73 @@
+<p>A trick for building 3D levels: the <strong>Scene view</strong> shows the inside of rooms through their walls, while the <strong>Game view</strong> and your builds draw the walls solid, as players see them. Seeing into every room at once makes it much easier to place furniture, keys and patrol points.</p>
+<p>The trick comes from the two renderers in the course's URP settings. The course project already has it set up; this page explains how it works, how to set it up in another project, and how to turn it off.</p>
+<h2>How it works</h2>
+<p>The course's URP asset, <code>Assets/Settings/UniversalRP</code>, has two renderers in its <strong>Renderer List</strong>:</p>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">How it works</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">#</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Renderer</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Draws</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">0</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Renderer2D</code> (the <strong>default</strong>)</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Sprites, tilemaps and 2D lights</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">1</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;"><code>Universal Renderer</code></td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">3D: meshes, depth, shadows and 3D lights</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Every camera</strong> chooses one of these in its <strong>Rendering → Renderer</strong> setting. A 3D scene's Main Camera uses the <strong>Universal Renderer</strong>, so the Game view and builds draw the level properly.</li>
+<li><strong>The Scene view</strong> has no Renderer setting. It always uses the <strong>default</strong> renderer, the 2D one, which doesn't sort 3D objects by depth the way the 3D renderer does. Walls further back can draw over nearer ones, and you see through them.</li>
+</ul>
+<p>So the see-through Scene view is a side effect of the 2D Renderer being the default. It's handy, but Unity doesn't promise it: what shows through can change as you orbit the Scene view, and lighting there looks different from the Game view. Judge how the level really looks in the <strong>Game view</strong>.</p>
+<h2>Setting it up</h2>
+<p>In the course project, this is already done. In another project:</p>
+<ol>
+<li><strong>Two renderers.</strong> Select your URP asset (in <code>Assets/Settings</code>, or the one in <strong>Project Settings → Graphics</strong>). Under <strong>Rendering → Renderer List</strong>, make sure there's a <strong>2D Renderer</strong> and a <strong>Universal Renderer</strong>. To add one, click <strong>+</strong> and pick the renderer asset (create one with <strong>Assets → Create → Rendering → URP Universal Renderer</strong> or <strong>URP 2D Renderer</strong>).</li>
+<li><strong>2D as the default.</strong> In the Renderer List, the default has <strong>Default</strong> after its name. If the Universal Renderer is the default, click the 2D Renderer and choose <strong>Set Default</strong>.</li>
+<li><strong>3D cameras use the Universal Renderer.</strong> In every 3D scene, select the Main Camera and set <strong>Rendering → Renderer</strong> to the <strong>Universal Renderer</strong>. A new camera starts on the default (2D), so do this for every new 3D scene. The course's 3D sample builders do it for you.</li>
+</ol>
+<p>Check the result: the Game view shows solid, lit walls; the Scene view shows into the rooms.</p>
+<h2>Turning it off</h2>
+<p>To see the level in the Scene view as the Game view shows it (to check lighting, say), make the <strong>Universal Renderer</strong> the default: select the URP asset, click the Universal Renderer in the Renderer List and choose <strong>Set Default</strong>.</p>
+<p><strong>Set the 2D Renderer back to the default when you're done.</strong> 2D scenes' cameras use the default renderer, so while the Universal Renderer is the default, 2D lights and other 2D effects stop working in them.</p>
+<h2>If something looks wrong</h2>
+<table style="border-collapse: collapse; width: 100%;"><caption style="text-align: left; font-weight: bold; padding: 4px 0;">If something looks wrong</caption>
+<thead>
+<tr>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">What you see</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Why</th>
+<th scope="col" style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top; background-color: #f0f0f0;">Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The <strong>Game view</strong> shows see-through walls, or 3D lights do nothing</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Main Camera is on the 2D Renderer</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Main Camera → Rendering → Renderer → <strong>Universal Renderer</strong></td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Scene view shows solid walls</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Universal Renderer is the default</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Set the 2D Renderer as the default again</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">2D lights stopped working in 2D scenes</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">The Universal Renderer is the default</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Set the 2D Renderer as the default again</td>
+</tr>
+<tr>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Everything in a 3D scene is pink</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Its materials aren't URP materials</td>
+<td style="border: 1px solid #6b6b6b; padding: 6px 8px; text-align: left; vertical-align: top;">Use <strong>Universal Render Pipeline/Lit</strong> materials</td>
+</tr>
+</tbody>
+</table>
