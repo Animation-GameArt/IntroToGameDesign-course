@@ -19,7 +19,7 @@
 <h2>Part 3 — The player</h2>
 <ol>
 <li>An empty <code>Player</code> at <code>0, 1, 0</code>, tagged <strong>Player</strong>. Children: a Capsule <code>Body</code> at <code>0, 1, 0</code> (remove its collider, material <code>Stone</code>), and a small Cube <code>Nose</code> at <code>0, 1.5, 0.45</code>, Scale <code>0.3, 0.2, 0.4</code> (remove its collider), so you can see which way it faces; and an empty <code>Camera Target</code> at <code>0, 1.4, 0</code>, at head height, for the camera to follow.</li>
-<li>On <code>Player</code>: <strong>Player Controller 3D</strong> (it adds a Character Controller: Height <code>2</code>, Radius <code>0.4</code>, Center <code>0, 1, 0</code>). Facing <strong>Face Movement</strong>; Walk Speed <code>6</code>, Sprint Speed <code>9</code>; Jump Height <code>2.2</code>, Extra Air Jumps <code>0</code>; Can Crouch unticked.</li>
+<li>On <code>Player</code>: <strong>Player Controller 3D</strong> (it adds a Character Controller: Height <code>2</code>, Radius <code>0.4</code>, Center <code>0, 1, 0</code>). Facing <strong>Face Movement</strong>; Walk Speed <code>6</code>, Sprint Speed <code>9</code>; Jump Height <code>2.2</code>, Extra Air Jumps <code>1</code> (a double jump); Can Crouch unticked.</li>
 <li><strong>Health</strong>: Max Health <code>3</code>, Invulnerable Time <code>1</code>, Health Variable <code>PlayerHealth</code>. <strong>Respawner</strong>: Respawn When Health Runs Out ticked.</li>
 <li>A Quad <code>Player Shadow</code>, <strong>not</strong> a child of the player, material <code>Shadow</code>, no collider. On <code>Player</code>, <strong>Blob Shadow 3D</strong>: Shadow <code>Player Shadow</code>, Size <code>0.9</code>.</li>
 <li>Make <code>Player</code> a prefab in <code>Sample/Prefabs</code>.</li>
@@ -92,6 +92,7 @@
 <li>The pointer is hidden while playing, and back while paused and on the win screen.</li>
 <li>The mouse and right stick orbit the camera; up on the stick always moves away from the camera; the player turns to face where they walk.</li>
 <li>Holding Space jumps higher than tapping it; jumping just after walking off a ledge still works; Shift sprints.</li>
+<li>Pressing Space again in the air jumps once more (a double jump), and only once until the player lands.</li>
 <li>The blob shadow sits under the player on every surface, and shrinks the higher they are.</li>
 <li>Coins spin and bob, and count up on the HUD; all twenty can be reached.</li>
 <li>The player rides both moving platforms without sliding off.</li>

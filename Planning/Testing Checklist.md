@@ -472,6 +472,7 @@ Guide: [3D Platformer Kit - Building the Sample](https://github.com/Animation-Ga
 - [ ] The pointer is hidden while playing, and back while paused and on the win screen.
 - [ ] The mouse and right stick orbit the camera; up on the stick always moves away from the camera; the player turns to face where they walk.
 - [ ] Holding Space jumps higher than tapping it; jumping just after walking off a ledge still works; Shift sprints.
+- [ ] Pressing Space again in the air jumps once more (a double jump), and only once until the player lands.
 - [ ] The blob shadow sits under the player on every surface, and shrinks the higher they are.
 - [ ] Coins spin and bob, and count up on the HUD; all twenty can be reached.
 - [ ] The player rides both moving platforms without sliding off.

@@ -40,7 +40,7 @@ In `Sample/Materials`, four materials (**Create → Material**, shader **Univers
 ## Part 3 — The player
 
 1. An empty `Player` at `0, 1, 0`, tagged **Player**. Children: a Capsule `Body` at `0, 1, 0` (remove its collider, material `Stone`), and a small Cube `Nose` at `0, 1.5, 0.45`, Scale `0.3, 0.2, 0.4` (remove its collider), so you can see which way it faces; and an empty `Camera Target` at `0, 1.4, 0`, at head height, for the camera to follow.
-2. On `Player`: **Player Controller 3D** (it adds a Character Controller: Height `2`, Radius `0.4`, Center `0, 1, 0`). Facing **Face Movement**; Walk Speed `6`, Sprint Speed `9`; Jump Height `2.2`, Extra Air Jumps `0`; Can Crouch unticked.
+2. On `Player`: **Player Controller 3D** (it adds a Character Controller: Height `2`, Radius `0.4`, Center `0, 1, 0`). Facing **Face Movement**; Walk Speed `6`, Sprint Speed `9`; Jump Height `2.2`, Extra Air Jumps `1` (a double jump); Can Crouch unticked.
 3. **Health**: Max Health `3`, Invulnerable Time `1`, Health Variable `PlayerHealth`. **Respawner**: Respawn When Health Runs Out ticked.
 4. A Quad `Player Shadow`, **not** a child of the player, material `Shadow`, no collider. On `Player`, **Blob Shadow 3D**: Shadow `Player Shadow`, Size `0.9`.
 5. Make `Player` a prefab in `Sample/Prefabs`.
@@ -107,6 +107,7 @@ An empty `Islands Systems`, made into a prefab, with:
 - [ ] The pointer is hidden while playing, and back while paused and on the win screen.
 - [ ] The mouse and right stick orbit the camera; up on the stick always moves away from the camera; the player turns to face where they walk.
 - [ ] Holding Space jumps higher than tapping it; jumping just after walking off a ledge still works; Shift sprints.
+- [ ] Pressing Space again in the air jumps once more (a double jump), and only once until the player lands.
 - [ ] The blob shadow sits under the player on every surface, and shrinks the higher they are.
 - [ ] Coins spin and bob, and count up on the HUD; all twenty can be reached.
 - [ ] The player rides both moving platforms without sliding off.

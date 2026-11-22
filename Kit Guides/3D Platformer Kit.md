@@ -85,7 +85,7 @@ The 3D scripts it builds on (Player Controller 3D and friends) are already in th
 
 ## Recipes
 
-**A double jump.** Set **Extra Air Jumps** to `1`.
+**A double jump.** The sample has one: **Extra Air Jumps** `1`. Set it to `0` for none, or `2` for a triple jump.
 
 **Floaty or snappy jumps.** Lower **Fall Gravity Multiplier** for floaty, raise it for snappy.
 

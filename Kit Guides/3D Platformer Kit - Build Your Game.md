@@ -31,7 +31,7 @@ Fill this in on page 10 of your ten-pager. Every step below uses it. An empty ro
 | Decision | Your answer | The sample's answer, for comparison |
 |---|---|---|
 | **The character:** who, and the art (a capsule is fine until Beta) | | A capsule with a nose |
-| **Movement feel:** speed, jump height, double jump, floaty or snappy | | Walk `6`, sprint `9`, Jump Height `2.2`, no double jump |
+| **Movement feel:** speed, jump height, double jump, floaty or snappy | | Walk `6`, sprint `9`, Jump Height `2.2`, a double jump |
 | **Camera:** orbiting, or fixed behind | | Orbiting, Radius `7` |
 | **Areas:** how many, and the one idea each teaches | | 3: stepping stones; moving and crumbling platforms; a tower with enemies |
 | **Collectibles:** what, how many, and what they're for | | 20 coins, for score |
