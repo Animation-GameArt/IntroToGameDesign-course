@@ -18,6 +18,10 @@ tags:
 
 Everything goes in `Assets/_Course/Kits/VisualNovel/Sample/`. The story is already written: `Sample/Story/LanternFestival.yarn`. Add folders `Data`, `Characters`, `UI` and `Scenes`.
 
+
+> [!tip] The quick way
+> **Collin Game → Kit Samples → Build Visual Novel Sample** builds everything on this page in a few seconds and opens the menu scene; press **Play**. It replaces the kit's `Sample` folder. The story script, `Sample/Story/LanternFestival.yarn`, is kept. Then work through **Test** to check it. Building by hand, step by step, is still the way to learn the kit, and checks this guide.
+
 ## Before you start
 
 1. Pull the template project. It should be version 0.20.0 or later, with Yarn Spinner 3.3.2 in the Package Manager, and no red errors in the Console.

@@ -17,6 +17,10 @@ tags:
 
 Everything goes in `Assets/_Course/Kits/Management/Sample/`, with folders `Data`, `Rules`, `Buildings`, `Events` and `Scenes`. The art is Kenney's **Tiny Town**, already in the project (`kenney_tiny-town`); pick a tile for each building's icon.
 
+
+> [!tip] The quick way
+> **Collin Game → Kit Samples → Build Management Sample** builds everything on this page in a few seconds and opens the menu scene; press **Play**. It replaces the kit's `Sample` folder. Then work through **Test** to check it. Building by hand, step by step, is still the way to learn the kit, and checks this guide.
+
 ## Before you start
 
 1. Pull the template project. It should be version 0.18.0 or later, with no red errors in the Console.

@@ -3,7 +3,7 @@ title: "Script Reference"
 course: GAME 1303
 type: guide
 status: draft
-course_version: 0.23.1
+course_version: 0.24.0
 unity: 6000.3.10f1
 tags:
   - game1303
@@ -13,7 +13,7 @@ tags:
 
 # Script Reference
 
-Every course script in the course project, as of version **0.23.1**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
+Every course script in the course project, as of version **0.24.0**: where it lives, what it does, how to set it up, and which scripts it works with. Check your version in `Assets/_Course/VERSION.txt`.
 
 ## Finding the scripts
 
@@ -1505,6 +1505,7 @@ Needs a NavMesh Agent. **Patrol**: loops through **Patrol Points** at **Patrol S
 | Raise | Inspector of any Void Event Channel, during Play | Raises the event, for testing |
 | Reapply Art Import Settings | **Collin Game → Art** menu | Gives the course's art packs their pixel-art settings again |
 | Build Platformer Sample | **Collin Game → Kit Samples** menu | Builds the Platformer Kit's sample game: data, prefabs, tiles, two levels, menu and win scenes, and the Scene List. Replaces the kit's `Sample` folder |
+| Build Management, Card Game, Visual Novel and Turn-Based Battle Sample | **Collin Game → Kit Samples** menu | Build each kit's sample from its Building the Sample guide, and add its scenes to the Scene List. Each replaces the kit's `Sample` folder |
 | Use Course Panel Settings in Open Scenes | **Collin Game → UI** menu | Sets `CoursePanelSettings` on every UI Document in the open scenes |
 | Use Course Panel Settings in All Scenes and Prefabs | **Collin Game → UI** menu | Does the same in every scene and prefab in the project, and saves them |
 | Repair Course Panel Settings | **Collin Game → UI** menu | Creates `CoursePanelSettings` if it's missing (or rebuilds it if it's broken), and puts back its settings |
